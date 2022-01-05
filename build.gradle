@@ -32,8 +32,8 @@ subprojects {
     }
 }
 
-def getGeneratedDir(project) {
-    file("${project.buildDir}/generated-src")
+def static getGeneratedDir(project) {
+    project.convention.plugins.java.sourceSets.main.java.srcDirs.first()
 }
 
 configure([project(':fix-44-codecs'), project(':fix-50sp2-codecs')]) {
@@ -42,24 +42,10 @@ configure([project(':fix-44-codecs'), project(':fix-50sp2-codecs')]) {
         implementation "uk.co.real-logic:artio-codecs:${artioFixVersion}"
     }
 
-    def generatedDir = getGeneratedDir(project)
-
-    sourceSets {
-        generated.java.srcDir generatedDir
-    }
-
-    compileGeneratedJava {
+    compileJava {
         dependsOn 'generateCodecs'
-        classpath += sourceSets.main.runtimeClasspath
     }
 
-    jar {
-        from("$buildDir/classes/java/generated") {
-            include '**/*.class'
-        }
-    }
-
-    jar.dependsOn compileGeneratedJava
 }
 
 project(':fix-44-codecs') {
@@ -68,7 +54,7 @@ project(':fix-44-codecs') {
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix44"
         main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
-        classpath = sourceSets.main.runtimeClasspath
+        classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIX44.xml']
         inputs.dir 'src/main/resources'
         outputs.dir generatedDir
@@ -81,7 +67,7 @@ project(':fix-50sp2-codecs') {
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix50sp2"
         main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
-        classpath = sourceSets.main.runtimeClasspath
+        classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIXT11.xml;src/main/resources/FIX50SP2.xml']
         inputs.dir 'src/main/resources'
         outputs.dir generatedDir
