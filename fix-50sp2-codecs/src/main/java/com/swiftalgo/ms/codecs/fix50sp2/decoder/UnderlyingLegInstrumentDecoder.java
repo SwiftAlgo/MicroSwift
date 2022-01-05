@@ -1,0 +1,91 @@
+/* Generated Fix Gateway message codec */
+package com.swiftalgo.ms.codecs.fix50sp2.decoder;
+
+import org.agrona.AsciiNumberFormatException;
+import org.agrona.MutableDirectBuffer;
+import org.agrona.AsciiSequenceView;
+import static uk.co.real_logic.artio.dictionary.generation.CodecUtil.*;
+import static uk.co.real_logic.artio.dictionary.SessionConstants.*;
+import uk.co.real_logic.artio.builder.Decoder;
+import uk.co.real_logic.artio.fields.DecimalFloat;
+import uk.co.real_logic.artio.util.MutableAsciiBuffer;
+import uk.co.real_logic.artio.util.AsciiBuffer;
+import uk.co.real_logic.artio.fields.LocalMktDateEncoder;
+import uk.co.real_logic.artio.fields.UtcTimestampEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import uk.co.real_logic.artio.dictionary.CharArraySet;
+import org.agrona.collections.IntHashSet;
+import org.agrona.collections.IntHashSet.IntIterator;
+import uk.co.real_logic.artio.EncodingException;
+import uk.co.real_logic.artio.dictionary.CharArrayWrapper;
+import uk.co.real_logic.artio.builder.Encoder;
+import uk.co.real_logic.artio.builder.CommonDecoderImpl;
+import static java.nio.charset.StandardCharsets.US_ASCII;
+import static uk.co.real_logic.artio.builder.Validation.CODEC_VALIDATION_ENABLED;
+import static uk.co.real_logic.artio.builder.RejectUnknownField.CODEC_REJECT_UNKNOWN_FIELD_ENABLED;
+import static uk.co.real_logic.artio.builder.RejectUnknownEnumValue.CODEC_REJECT_UNKNOWN_ENUM_VALUE_ENABLED;
+import com.swiftalgo.ms.codecs.fix50sp2.*;
+import com.swiftalgo.ms.codecs.fix50sp2.builder.UnderlyingLegInstrumentEncoder;
+import com.swiftalgo.ms.codecs.fix50sp2.builder.UnderlyingLegSecurityAltIDGrpEncoder;
+import static com.swiftalgo.ms.codecs.fix50sp2.builder.UnderlyingLegSecurityAltIDGrpEncoder.UnderlyingLegSecurityAltIDGroupEncoder;
+
+public interface UnderlyingLegInstrumentDecoder  extends UnderlyingLegSecurityAltIDGrpDecoder
+{
+
+    public char[] underlyingLegSymbol();
+    public boolean hasUnderlyingLegSymbol();
+    public int underlyingLegSymbolLength();
+    public void underlyingLegSymbol(AsciiSequenceView view);
+    public char[] underlyingLegSymbolSfx();
+    public boolean hasUnderlyingLegSymbolSfx();
+    public int underlyingLegSymbolSfxLength();
+    public void underlyingLegSymbolSfx(AsciiSequenceView view);
+    public char[] underlyingLegSecurityID();
+    public boolean hasUnderlyingLegSecurityID();
+    public int underlyingLegSecurityIDLength();
+    public void underlyingLegSecurityID(AsciiSequenceView view);
+    public char[] underlyingLegSecurityIDSource();
+    public boolean hasUnderlyingLegSecurityIDSource();
+    public int underlyingLegSecurityIDSourceLength();
+    public void underlyingLegSecurityIDSource(AsciiSequenceView view);
+    public char[] underlyingLegCFICode();
+    public boolean hasUnderlyingLegCFICode();
+    public int underlyingLegCFICodeLength();
+    public void underlyingLegCFICode(AsciiSequenceView view);
+    public char[] underlyingLegSecurityType();
+    public boolean hasUnderlyingLegSecurityType();
+    public int underlyingLegSecurityTypeLength();
+    public void underlyingLegSecurityType(AsciiSequenceView view);
+    public char[] underlyingLegSecuritySubType();
+    public boolean hasUnderlyingLegSecuritySubType();
+    public int underlyingLegSecuritySubTypeLength();
+    public void underlyingLegSecuritySubType(AsciiSequenceView view);
+    public byte[] underlyingLegMaturityMonthYear();
+    public boolean hasUnderlyingLegMaturityMonthYear();
+    public int underlyingLegMaturityMonthYearLength();
+    public void underlyingLegMaturityMonthYear(AsciiSequenceView view);
+    public byte[] underlyingLegMaturityDate();
+    public boolean hasUnderlyingLegMaturityDate();
+    public int underlyingLegMaturityDateLength();
+    public void underlyingLegMaturityDate(AsciiSequenceView view);
+    public byte[] underlyingLegMaturityTime();
+    public boolean hasUnderlyingLegMaturityTime();
+    public int underlyingLegMaturityTimeLength();
+    public void underlyingLegMaturityTime(AsciiSequenceView view);
+    public DecimalFloat underlyingLegStrikePrice();
+    public boolean hasUnderlyingLegStrikePrice();
+    public char underlyingLegOptAttribute();
+    public boolean hasUnderlyingLegOptAttribute();
+    public int underlyingLegPutOrCall();
+    public boolean hasUnderlyingLegPutOrCall();
+    public char[] underlyingLegSecurityExchange();
+    public boolean hasUnderlyingLegSecurityExchange();
+    public int underlyingLegSecurityExchangeLength();
+    public void underlyingLegSecurityExchange(AsciiSequenceView view);
+    public char[] underlyingLegSecurityDesc();
+    public boolean hasUnderlyingLegSecurityDesc();
+    public int underlyingLegSecurityDescLength();
+    public void underlyingLegSecurityDesc(AsciiSequenceView view);
+
+}
