@@ -1,0 +1,95 @@
+def artioJavaVersion = '1.8'
+def artioFixVersion = '0.103'
+
+defaultTasks 'clean', 'build'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'idea'
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = artioJavaVersion
+        targetCompatibility = artioJavaVersion
+        options.encoding = 'UTF-8'
+        options.deprecation = true
+
+        test {
+            useJUnitPlatform()
+        }
+    }
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
+}
+
+def getGeneratedDir(project) {
+    file("${project.buildDir}/generated-src")
+}
+
+configure([project(':fix-44-codecs'), project(':fix-50sp2-codecs')]) {
+
+    dependencies {
+        implementation "uk.co.real-logic:artio-codecs:${artioFixVersion}"
+    }
+
+    def generatedDir = getGeneratedDir(project)
+
+    sourceSets {
+        generated.java.srcDir generatedDir
+    }
+
+    compileGeneratedJava {
+        dependsOn 'generateCodecs'
+        classpath += sourceSets.main.runtimeClasspath
+    }
+
+    jar {
+        from("$buildDir/classes/java/generated") {
+            include '**/*.class'
+        }
+    }
+
+    jar.dependsOn compileGeneratedJava
+}
+
+project(':fix-44-codecs') {
+    def generatedDir = getGeneratedDir(project)
+
+    task generateCodecs(type: JavaExec) {
+        systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix44"
+        main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        classpath = sourceSets.main.runtimeClasspath
+        args = [generatedDir, 'src/main/resources/FIX44.xml']
+        inputs.dir 'src/main/resources'
+        outputs.dir generatedDir
+    }
+}
+
+project(':fix-50sp2-codecs') {
+    def generatedDir = getGeneratedDir(project)
+
+    task generateCodecs(type: JavaExec) {
+        systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix50sp2"
+        main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        classpath = sourceSets.main.runtimeClasspath
+        args = [generatedDir, 'src/main/resources/FIXT11.xml;src/main/resources/FIX50SP2.xml']
+        inputs.dir 'src/main/resources'
+        outputs.dir generatedDir
+    }
+}
+
+wrapper {
+    gradleVersion = '6.8.3'
+    distributionType = 'ALL'
+}
+
