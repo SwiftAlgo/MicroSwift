@@ -206,7 +206,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
         messageFields.add(Constants.RESET_SEQ_NUM_FLAG);
         messageFields.add(Constants.NEXT_EXPECTED_MSG_SEQ_NUM);
         messageFields.add(Constants.MAX_MESSAGE_SIZE);
-        messageFields.add(Constants.NO_MSG_TYPES);
+        messageFields.add(Constants.NO_MSG_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.REF_MSG_TYPE);
         messageFields.add(Constants.MSG_DIRECTION);
         messageFields.add(Constants.REF_APPL_VER_ID);
@@ -485,6 +485,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper usernameWrapper = new CharArrayWrapper();
     private char[] password = new char[1];
 
     private boolean hasPassword;
@@ -535,6 +536,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper passwordWrapper = new CharArrayWrapper();
     private char[] newPassword = new char[1];
 
     private boolean hasNewPassword;
@@ -585,6 +587,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper newPasswordWrapper = new CharArrayWrapper();
     private int encryptedPasswordMethod = MISSING_INT;
 
     private boolean hasEncryptedPasswordMethod;
@@ -747,6 +750,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper defaultApplVerIDWrapper = new CharArrayWrapper();
     private int defaultApplExtID = MISSING_INT;
 
     private boolean hasDefaultApplExtID;
@@ -818,6 +822,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper defaultCstmApplVerIDWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -868,6 +873,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1038,7 +1044,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
                 maxMessageSize = getInt(buffer, valueOffset, endOfField, 383, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_MSG_TYPES:
+            case Constants.NO_MSG_TYPES_GROUP_COUNTER:
                 hasNoMsgTypesGroupCounter = true;
                 noMsgTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 384, CODEC_VALIDATION_ENABLED);
                 if (msgTypesGroup == null)
@@ -1437,23 +1443,24 @@ public class LogonDecoder extends CommonDecoderImpl implements MsgTypeGrpDecoder
             builder.append("\",\n");
         }
 
-    if (hasNoMsgTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MsgTypesGroup\": [\n");
-        MsgTypesGroupDecoder msgTypesGroup = this.msgTypesGroup;
-        for (int i = 0, size = this.noMsgTypesGroupCounter; i < size; i++)
+        if (hasNoMsgTypesGroupCounter)
         {
             indent(builder, level);
-            msgTypesGroup.appendTo(builder, level + 1);            if (msgTypesGroup.next() != null)
+            builder.append("\"MsgTypesGroup\": [\n");
+            MsgTypesGroupDecoder msgTypesGroup = this.msgTypesGroup;
+            for (int i = 0, size = this.noMsgTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            msgTypesGroup = msgTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                msgTypesGroup.appendTo(builder, level + 1);
+                if (msgTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                msgTypesGroup = msgTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTestMessageIndicator())
         {

@@ -179,6 +179,7 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
     }
 
 
+    private final CharArrayWrapper strikeRuleIDWrapper = new CharArrayWrapper();
     private DecimalFloat startStrikePxRange = DecimalFloat.newNaNValue();
 
     private boolean hasStartStrikePxRange;
@@ -383,7 +384,7 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
                 strikeExerciseStyle = getInt(buffer, valueOffset, endOfField, 1304, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_MATURITY_RULES:
+            case Constants.NO_MATURITY_RULES_GROUP_COUNTER:
                 hasNoMaturityRulesGroupCounter = true;
                 noMaturityRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1236, CODEC_VALIDATION_ENABLED);
                 if (maturityRulesGroup == null)
@@ -548,23 +549,24 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
             builder.append("\",\n");
         }
 
-    if (hasNoMaturityRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MaturityRulesGroup\": [\n");
-        MaturityRulesGroupDecoder maturityRulesGroup = this.maturityRulesGroup;
-        for (int i = 0, size = this.noMaturityRulesGroupCounter; i < size; i++)
+        if (hasNoMaturityRulesGroupCounter)
         {
             indent(builder, level);
-            maturityRulesGroup.appendTo(builder, level + 1);            if (maturityRulesGroup.next() != null)
+            builder.append("\"MaturityRulesGroup\": [\n");
+            MaturityRulesGroupDecoder maturityRulesGroup = this.maturityRulesGroup;
+            for (int i = 0, size = this.noMaturityRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            maturityRulesGroup = maturityRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                maturityRulesGroup.appendTo(builder, level + 1);
+                if (maturityRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                maturityRulesGroup = maturityRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -573,12 +575,12 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
     /**
      * {@inheritDoc}
      */
-    public StrikeRulesGroupEncoder toEncoder(final Encoder encoder)
+    public StrikeRulesEncoder.StrikeRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((StrikeRulesGroupEncoder)encoder);
+        return toEncoder((StrikeRulesEncoder.StrikeRulesGroupEncoder)encoder);
     }
 
-    public StrikeRulesGroupEncoder toEncoder(final StrikeRulesGroupEncoder encoder)
+    public StrikeRulesEncoder.StrikeRulesGroupEncoder toEncoder(final StrikeRulesEncoder.StrikeRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasStrikeRuleID())
@@ -642,6 +644,7 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
         {
             return remainder > 0 && current != null;
         }
+
         public StrikeRulesGroupDecoder next()
         {
             remainder--;
@@ -649,23 +652,27 @@ public class StrikeRulesGroupDecoder extends CommonDecoderImpl implements Maturi
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoStrikeRulesGroupCounter() ? parent.noStrikeRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.strikeRulesGroup();
         }
+
         public StrikeRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public StrikeRulesGroupIterator strikeRulesGroupIterator();
+    public StrikeRulesGroupIterator strikeRulesGroupIterator();
     public int noStrikeRulesGroupCounter();
     public boolean hasNoStrikeRulesGroupCounter();
     public StrikeRulesGroupDecoder strikeRulesGroup();

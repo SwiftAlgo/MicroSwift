@@ -139,6 +139,7 @@ public class UnderlyingSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityAltIDWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityAltIDSource = new char[1];
 
     private boolean hasUnderlyingSecurityAltIDSource;
@@ -189,6 +190,7 @@ public class UnderlyingSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UnderlyingSecurityAltIDGroup
@@ -339,12 +341,12 @@ public class UnderlyingSecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UnderlyingSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public UndSecAltIDGrpEncoder.UnderlyingSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UnderlyingSecurityAltIDGroupEncoder)encoder);
+        return toEncoder((UndSecAltIDGrpEncoder.UnderlyingSecurityAltIDGroupEncoder)encoder);
     }
 
-    public UnderlyingSecurityAltIDGroupEncoder toEncoder(final UnderlyingSecurityAltIDGroupEncoder encoder)
+    public UndSecAltIDGrpEncoder.UnderlyingSecurityAltIDGroupEncoder toEncoder(final UndSecAltIDGrpEncoder.UnderlyingSecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingSecurityAltID())
@@ -375,6 +377,7 @@ public class UnderlyingSecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UnderlyingSecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class UnderlyingSecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUnderlyingSecurityAltIDGroupCounter() ? parent.noUnderlyingSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.underlyingSecurityAltIDGroup();
         }
+
         public UnderlyingSecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UnderlyingSecurityAltIDGroupIterator underlyingSecurityAltIDGroupIterator();
+    public UnderlyingSecurityAltIDGroupIterator underlyingSecurityAltIDGroupIterator();
     public int noUnderlyingSecurityAltIDGroupCounter();
     public boolean hasNoUnderlyingSecurityAltIDGroupCounter();
     public UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup();

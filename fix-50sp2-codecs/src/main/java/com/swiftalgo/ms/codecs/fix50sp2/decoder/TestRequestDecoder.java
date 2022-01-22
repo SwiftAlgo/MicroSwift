@@ -172,6 +172,7 @@ public class TestRequestDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper testReqIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode TestRequest

@@ -181,6 +181,7 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
     }
 
 
+    private final CharArrayWrapper legAllocAccountWrapper = new CharArrayWrapper();
     private char[] legIndividualAllocID = new char[1];
 
     private boolean hasLegIndividualAllocID;
@@ -231,6 +232,7 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
     }
 
 
+    private final CharArrayWrapper legIndividualAllocIDWrapper = new CharArrayWrapper();
 
 
     private Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = null;
@@ -339,6 +341,7 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
     }
 
 
+    private final CharArrayWrapper legAllocAcctIDSourceWrapper = new CharArrayWrapper();
     private char[] legAllocSettlCurrency = new char[1];
 
     private boolean hasLegAllocSettlCurrency;
@@ -459,7 +462,7 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
                 legIndividualAllocIDLength = valueLength;
                 break;
 
-            case Constants.NO_NESTED2_PARTY_IDS:
+            case Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER:
                 hasNoNested2PartyIDsGroupCounter = true;
                 noNested2PartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 756, CODEC_VALIDATION_ENABLED);
                 if (nested2PartyIDsGroup == null)
@@ -619,23 +622,24 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
             builder.append("\",\n");
         }
 
-    if (hasNoNested2PartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"Nested2PartyIDsGroup\": [\n");
-        Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
-        for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
+        if (hasNoNested2PartyIDsGroupCounter)
         {
             indent(builder, level);
-            nested2PartyIDsGroup.appendTo(builder, level + 1);            if (nested2PartyIDsGroup.next() != null)
+            builder.append("\"Nested2PartyIDsGroup\": [\n");
+            Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
+            for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nested2PartyIDsGroup = nested2PartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nested2PartyIDsGroup.appendTo(builder, level + 1);
+                if (nested2PartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nested2PartyIDsGroup = nested2PartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegAllocQty())
         {
@@ -668,12 +672,12 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
     /**
      * {@inheritDoc}
      */
-    public LegAllocsGroupEncoder toEncoder(final Encoder encoder)
+    public LegPreAllocGrpEncoder.LegAllocsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LegAllocsGroupEncoder)encoder);
+        return toEncoder((LegPreAllocGrpEncoder.LegAllocsGroupEncoder)encoder);
     }
 
-    public LegAllocsGroupEncoder toEncoder(final LegAllocsGroupEncoder encoder)
+    public LegPreAllocGrpEncoder.LegAllocsGroupEncoder toEncoder(final LegPreAllocGrpEncoder.LegAllocsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasLegAllocAccount())
@@ -737,6 +741,7 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
         {
             return remainder > 0 && current != null;
         }
+
         public LegAllocsGroupDecoder next()
         {
             remainder--;
@@ -744,23 +749,27 @@ public class LegAllocsGroupDecoder extends CommonDecoderImpl implements NestedPa
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLegAllocsGroupCounter() ? parent.noLegAllocsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.legAllocsGroup();
         }
+
         public LegAllocsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LegAllocsGroupIterator legAllocsGroupIterator();
+    public LegAllocsGroupIterator legAllocsGroupIterator();
     public int noLegAllocsGroupCounter();
     public boolean hasNoLegAllocsGroupCounter();
     public LegAllocsGroupDecoder legAllocsGroup();

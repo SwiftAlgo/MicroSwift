@@ -181,6 +181,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocAccountWrapper = new CharArrayWrapper();
     private int allocAcctIDSource = MISSING_INT;
 
     private boolean hasAllocAcctIDSource;
@@ -302,6 +303,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper individualAllocIDWrapper = new CharArrayWrapper();
 
 
     private NestedPartyIDsGroupDecoder nestedPartyIDsGroup = null;
@@ -442,7 +444,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 individualAllocIDLength = valueLength;
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -604,23 +606,24 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAllocQty())
         {
@@ -637,12 +640,12 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     /**
      * {@inheritDoc}
      */
-    public AllocsGroupEncoder toEncoder(final Encoder encoder)
+    public PreAllocGrpEncoder.AllocsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AllocsGroupEncoder)encoder);
+        return toEncoder((PreAllocGrpEncoder.AllocsGroupEncoder)encoder);
     }
 
-    public AllocsGroupEncoder toEncoder(final AllocsGroupEncoder encoder)
+    public PreAllocGrpEncoder.AllocsGroupEncoder toEncoder(final PreAllocGrpEncoder.AllocsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasAllocAccount())
@@ -706,6 +709,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
         {
             return remainder > 0 && current != null;
         }
+
         public AllocsGroupDecoder next()
         {
             remainder--;
@@ -713,23 +717,27 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAllocsGroupCounter() ? parent.noAllocsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.allocsGroup();
         }
+
         public AllocsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AllocsGroupIterator allocsGroupIterator();
+    public AllocsGroupIterator allocsGroupIterator();
     public int noAllocsGroupCounter();
     public boolean hasNoAllocsGroupCounter();
     public AllocsGroupDecoder allocsGroup();

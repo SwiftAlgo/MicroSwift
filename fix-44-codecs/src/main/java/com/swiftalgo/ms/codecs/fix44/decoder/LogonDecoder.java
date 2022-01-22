@@ -176,7 +176,7 @@ public class LogonDecoder extends CommonDecoderImpl implements MessageDecoder, A
         messageFields.add(Constants.RESET_SEQ_NUM_FLAG);
         messageFields.add(Constants.NEXT_EXPECTED_MSG_SEQ_NUM);
         messageFields.add(Constants.MAX_MESSAGE_SIZE);
-        messageFields.add(Constants.NO_MSG_TYPES);
+        messageFields.add(Constants.NO_MSG_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.REF_MSG_TYPE);
         messageFields.add(Constants.MSG_DIRECTION);
         messageFields.add(Constants.TEST_MESSAGE_INDICATOR);
@@ -446,6 +446,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refMsgTypeWrapper = new CharArrayWrapper();
     private char msgDirection = MISSING_CHAR;
 
     private boolean hasMsgDirection;
@@ -623,12 +624,12 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MsgTypesGroupEncoder toEncoder(final Encoder encoder)
+    public LogonEncoder.MsgTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MsgTypesGroupEncoder)encoder);
+        return toEncoder((LogonEncoder.MsgTypesGroupEncoder)encoder);
     }
 
-    public MsgTypesGroupEncoder toEncoder(final MsgTypesGroupEncoder encoder)
+    public LogonEncoder.MsgTypesGroupEncoder toEncoder(final LogonEncoder.MsgTypesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefMsgType())
@@ -659,6 +660,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MsgTypesGroupDecoder next()
         {
             remainder--;
@@ -666,20 +668,24 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMsgTypesGroupCounter() ? parent.noMsgTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.msgTypesGroup();
         }
+
         public MsgTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -788,6 +794,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper usernameWrapper = new CharArrayWrapper();
     private char[] password = new char[1];
 
     private boolean hasPassword;
@@ -838,6 +845,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper passwordWrapper = new CharArrayWrapper();
     public int cancelOnDisconnectType()
     {
         throw new UnsupportedOperationException();
@@ -966,7 +974,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
                 maxMessageSize = getInt(buffer, valueOffset, endOfField, 383, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_MSG_TYPES:
+            case Constants.NO_MSG_TYPES_GROUP_COUNTER:
                 hasNoMsgTypesGroupCounter = true;
                 noMsgTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 384, CODEC_VALIDATION_ENABLED);
                 if (msgTypesGroup == null)
@@ -1210,23 +1218,24 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoMsgTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MsgTypesGroup\": [\n");
-        MsgTypesGroupDecoder msgTypesGroup = this.msgTypesGroup;
-        for (int i = 0, size = this.noMsgTypesGroupCounter; i < size; i++)
+        if (hasNoMsgTypesGroupCounter)
         {
             indent(builder, level);
-            msgTypesGroup.appendTo(builder, level + 1);            if (msgTypesGroup.next() != null)
+            builder.append("\"MsgTypesGroup\": [\n");
+            MsgTypesGroupDecoder msgTypesGroup = this.msgTypesGroup;
+            for (int i = 0, size = this.noMsgTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            msgTypesGroup = msgTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                msgTypesGroup.appendTo(builder, level + 1);
+                if (msgTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                msgTypesGroup = msgTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTestMessageIndicator())
         {

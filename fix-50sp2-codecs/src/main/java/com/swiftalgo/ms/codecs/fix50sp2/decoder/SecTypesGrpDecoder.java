@@ -221,6 +221,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private int product = MISSING_INT;
 
     private boolean hasProduct;
@@ -300,6 +301,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     private boolean hasTransactTime;
@@ -561,12 +563,12 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SecurityTypesGroupEncoder toEncoder(final Encoder encoder)
+    public SecTypesGrpEncoder.SecurityTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SecurityTypesGroupEncoder)encoder);
+        return toEncoder((SecTypesGrpEncoder.SecurityTypesGroupEncoder)encoder);
     }
 
-    public SecurityTypesGroupEncoder toEncoder(final SecurityTypesGroupEncoder encoder)
+    public SecTypesGrpEncoder.SecurityTypesGroupEncoder toEncoder(final SecTypesGrpEncoder.SecurityTypesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSecurityType())
@@ -612,6 +614,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SecurityTypesGroupDecoder next()
         {
             remainder--;
@@ -619,23 +622,27 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSecurityTypesGroupCounter() ? parent.noSecurityTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.securityTypesGroup();
         }
+
         public SecurityTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SecurityTypesGroupIterator securityTypesGroupIterator();
+    public SecurityTypesGroupIterator securityTypesGroupIterator();
     public int noSecurityTypesGroupCounter();
     public boolean hasNoSecurityTypesGroupCounter();
     public SecurityTypesGroupDecoder securityTypesGroup();

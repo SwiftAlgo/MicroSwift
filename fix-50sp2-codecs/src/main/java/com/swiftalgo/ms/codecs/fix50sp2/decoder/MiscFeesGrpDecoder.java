@@ -458,12 +458,12 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MiscFeesGroupEncoder toEncoder(final Encoder encoder)
+    public MiscFeesGrpEncoder.MiscFeesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MiscFeesGroupEncoder)encoder);
+        return toEncoder((MiscFeesGrpEncoder.MiscFeesGroupEncoder)encoder);
     }
 
-    public MiscFeesGroupEncoder toEncoder(final MiscFeesGroupEncoder encoder)
+    public MiscFeesGrpEncoder.MiscFeesGroupEncoder toEncoder(final MiscFeesGrpEncoder.MiscFeesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMiscFeeAmt())
@@ -504,6 +504,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MiscFeesGroupDecoder next()
         {
             remainder--;
@@ -511,23 +512,27 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMiscFeesGroupCounter() ? parent.noMiscFeesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.miscFeesGroup();
         }
+
         public MiscFeesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MiscFeesGroupIterator miscFeesGroupIterator();
+    public MiscFeesGroupIterator miscFeesGroupIterator();
     public int noMiscFeesGroupCounter();
     public boolean hasNoMiscFeesGroupCounter();
     public MiscFeesGroupDecoder miscFeesGroup();

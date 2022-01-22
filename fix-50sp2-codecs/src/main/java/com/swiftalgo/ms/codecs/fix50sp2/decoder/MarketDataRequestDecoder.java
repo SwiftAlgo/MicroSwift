@@ -83,8 +83,8 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
             REQUIRED_FIELDS.add(Constants.M_D_REQ_ID);
             REQUIRED_FIELDS.add(Constants.SUBSCRIPTION_REQUEST_TYPE);
             REQUIRED_FIELDS.add(Constants.MARKET_DEPTH);
-            REQUIRED_FIELDS.add(Constants.NO_M_D_ENTRY_TYPES);
-            REQUIRED_FIELDS.add(Constants.NO_RELATED_SYM);
+            REQUIRED_FIELDS.add(Constants.NO_M_D_ENTRY_TYPES_GROUP_COUNTER);
+            REQUIRED_FIELDS.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         }
     }
 
@@ -365,11 +365,11 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.M_D_REQ_ID);
         messageFields.add(Constants.SUBSCRIPTION_REQUEST_TYPE);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.MARKET_DEPTH);
@@ -378,14 +378,14 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.OPEN_CLOSE_SETTL_FLAG);
         messageFields.add(Constants.SCOPE);
         messageFields.add(Constants.M_D_IMPLICIT_DELETE);
-        messageFields.add(Constants.NO_M_D_ENTRY_TYPES);
+        messageFields.add(Constants.NO_M_D_ENTRY_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_ENTRY_TYPE);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -466,7 +466,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -474,14 +474,14 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -489,18 +489,18 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -562,28 +562,28 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -641,7 +641,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         messageFields.add(Constants.SETTL_DATE);
         messageFields.add(Constants.M_D_ENTRY_SIZE);
         messageFields.add(Constants.M_D_STREAM_ID);
-        messageFields.add(Constants.NO_TRADING_SESSIONS);
+        messageFields.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
         messageFields.add(Constants.APPL_QUEUE_ACTION);
@@ -694,6 +694,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
     }
 
 
+    private final CharArrayWrapper mDReqIDWrapper = new CharArrayWrapper();
     private char subscriptionRequestType = MISSING_CHAR;
 
     public char subscriptionRequestType()
@@ -1182,7 +1183,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
                 subscriptionRequestType = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -1250,7 +1251,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
                 mDImplicitDelete = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_M_D_ENTRY_TYPES:
+            case Constants.NO_M_D_ENTRY_TYPES_GROUP_COUNTER:
                 hasNoMDEntryTypesGroupCounter = true;
                 noMDEntryTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 267, CODEC_VALIDATION_ENABLED);
                 if (mDEntryTypesGroup == null)
@@ -1285,7 +1286,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
                 break;
 
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -1320,7 +1321,7 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
                 break;
 
 
-            case Constants.NO_TRADING_SESSIONS:
+            case Constants.NO_TRADING_SESSIONS_GROUP_COUNTER:
                 hasNoTradingSessionsGroupCounter = true;
                 noTradingSessionsGroupCounter = getInt(buffer, valueOffset, endOfField, 386, CODEC_VALIDATION_ENABLED);
                 if (tradingSessionsGroup == null)
@@ -1573,23 +1574,24 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
         builder.append(subscriptionRequestType);
         builder.append("\",\n");
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"MarketDepth\": \"");
@@ -1636,59 +1638,62 @@ public class MarketDataRequestDecoder extends CommonDecoderImpl implements Parti
             builder.append("\",\n");
         }
 
-    if (hasNoMDEntryTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MDEntryTypesGroup\": [\n");
-        MDEntryTypesGroupDecoder mDEntryTypesGroup = this.mDEntryTypesGroup;
-        for (int i = 0, size = this.noMDEntryTypesGroupCounter; i < size; i++)
+        if (hasNoMDEntryTypesGroupCounter)
         {
             indent(builder, level);
-            mDEntryTypesGroup.appendTo(builder, level + 1);            if (mDEntryTypesGroup.next() != null)
+            builder.append("\"MDEntryTypesGroup\": [\n");
+            MDEntryTypesGroupDecoder mDEntryTypesGroup = this.mDEntryTypesGroup;
+            for (int i = 0, size = this.noMDEntryTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            mDEntryTypesGroup = mDEntryTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                mDEntryTypesGroup.appendTo(builder, level + 1);
+                if (mDEntryTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                mDEntryTypesGroup = mDEntryTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTradingSessionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradingSessionsGroup\": [\n");
-        TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
-        for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
+        if (hasNoTradingSessionsGroupCounter)
         {
             indent(builder, level);
-            tradingSessionsGroup.appendTo(builder, level + 1);            if (tradingSessionsGroup.next() != null)
+            builder.append("\"TradingSessionsGroup\": [\n");
+            TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
+            for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradingSessionsGroup = tradingSessionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradingSessionsGroup.appendTo(builder, level + 1);
+                if (tradingSessionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradingSessionsGroup = tradingSessionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasApplQueueAction())
         {

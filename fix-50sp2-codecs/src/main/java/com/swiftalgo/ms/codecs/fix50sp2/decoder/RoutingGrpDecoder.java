@@ -177,6 +177,7 @@ public class RoutingIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper routingIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode RoutingIDsGroup
@@ -325,12 +326,12 @@ public class RoutingIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public RoutingIDsGroupEncoder toEncoder(final Encoder encoder)
+    public RoutingGrpEncoder.RoutingIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((RoutingIDsGroupEncoder)encoder);
+        return toEncoder((RoutingGrpEncoder.RoutingIDsGroupEncoder)encoder);
     }
 
-    public RoutingIDsGroupEncoder toEncoder(final RoutingIDsGroupEncoder encoder)
+    public RoutingGrpEncoder.RoutingIDsGroupEncoder toEncoder(final RoutingGrpEncoder.RoutingIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRoutingType())
@@ -361,6 +362,7 @@ public class RoutingIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public RoutingIDsGroupDecoder next()
         {
             remainder--;
@@ -368,23 +370,27 @@ public class RoutingIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoRoutingIDsGroupCounter() ? parent.noRoutingIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.routingIDsGroup();
         }
+
         public RoutingIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public RoutingIDsGroupIterator routingIDsGroupIterator();
+    public RoutingIDsGroupIterator routingIDsGroupIterator();
     public int noRoutingIDsGroupCounter();
     public boolean hasNoRoutingIDsGroupCounter();
     public RoutingIDsGroupDecoder routingIDsGroup();

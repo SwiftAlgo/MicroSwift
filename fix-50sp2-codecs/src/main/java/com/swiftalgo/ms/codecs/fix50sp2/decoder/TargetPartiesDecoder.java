@@ -140,6 +140,7 @@ public class TargetPartyIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper targetPartyIDWrapper = new CharArrayWrapper();
     private char targetPartyIDSource = MISSING_CHAR;
 
     private boolean hasTargetPartyIDSource;
@@ -349,12 +350,12 @@ public class TargetPartyIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TargetPartyIDsGroupEncoder toEncoder(final Encoder encoder)
+    public TargetPartiesEncoder.TargetPartyIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TargetPartyIDsGroupEncoder)encoder);
+        return toEncoder((TargetPartiesEncoder.TargetPartyIDsGroupEncoder)encoder);
     }
 
-    public TargetPartyIDsGroupEncoder toEncoder(final TargetPartyIDsGroupEncoder encoder)
+    public TargetPartiesEncoder.TargetPartyIDsGroupEncoder toEncoder(final TargetPartiesEncoder.TargetPartyIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTargetPartyID())
@@ -390,6 +391,7 @@ public class TargetPartyIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TargetPartyIDsGroupDecoder next()
         {
             remainder--;
@@ -397,23 +399,27 @@ public class TargetPartyIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTargetPartyIDsGroupCounter() ? parent.noTargetPartyIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.targetPartyIDsGroup();
         }
+
         public TargetPartyIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TargetPartyIDsGroupIterator targetPartyIDsGroupIterator();
+    public TargetPartyIDsGroupIterator targetPartyIDsGroupIterator();
     public int noTargetPartyIDsGroupCounter();
     public boolean hasNoTargetPartyIDsGroupCounter();
     public TargetPartyIDsGroupDecoder targetPartyIDsGroup();

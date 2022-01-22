@@ -253,12 +253,12 @@ public class ClearingInstructionsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ClearingInstructionsGroupEncoder toEncoder(final Encoder encoder)
+    public ClrInstGrpEncoder.ClearingInstructionsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ClearingInstructionsGroupEncoder)encoder);
+        return toEncoder((ClrInstGrpEncoder.ClearingInstructionsGroupEncoder)encoder);
     }
 
-    public ClearingInstructionsGroupEncoder toEncoder(final ClearingInstructionsGroupEncoder encoder)
+    public ClrInstGrpEncoder.ClearingInstructionsGroupEncoder toEncoder(final ClrInstGrpEncoder.ClearingInstructionsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasClearingInstruction())
@@ -284,6 +284,7 @@ public class ClearingInstructionsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ClearingInstructionsGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class ClearingInstructionsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoClearingInstructionsGroupCounter() ? parent.noClearingInstructionsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.clearingInstructionsGroup();
         }
+
         public ClearingInstructionsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ClearingInstructionsGroupIterator clearingInstructionsGroupIterator();
+    public ClearingInstructionsGroupIterator clearingInstructionsGroupIterator();
     public int noClearingInstructionsGroupCounter();
     public boolean hasNoClearingInstructionsGroupCounter();
     public ClearingInstructionsGroupDecoder clearingInstructionsGroup();

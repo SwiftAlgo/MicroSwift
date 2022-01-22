@@ -217,6 +217,7 @@ public class RateSourcesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper referencePageWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode RateSourcesGroup
@@ -384,12 +385,12 @@ public class RateSourcesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public RateSourcesGroupEncoder toEncoder(final Encoder encoder)
+    public RateSourceEncoder.RateSourcesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((RateSourcesGroupEncoder)encoder);
+        return toEncoder((RateSourceEncoder.RateSourcesGroupEncoder)encoder);
     }
 
-    public RateSourcesGroupEncoder toEncoder(final RateSourcesGroupEncoder encoder)
+    public RateSourceEncoder.RateSourcesGroupEncoder toEncoder(final RateSourceEncoder.RateSourcesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRateSource())
@@ -425,6 +426,7 @@ public class RateSourcesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public RateSourcesGroupDecoder next()
         {
             remainder--;
@@ -432,23 +434,27 @@ public class RateSourcesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoRateSourcesGroupCounter() ? parent.noRateSourcesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.rateSourcesGroup();
         }
+
         public RateSourcesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public RateSourcesGroupIterator rateSourcesGroupIterator();
+    public RateSourcesGroupIterator rateSourcesGroupIterator();
     public int noRateSourcesGroupCounter();
     public boolean hasNoRateSourcesGroupCounter();
     public RateSourcesGroupDecoder rateSourcesGroup();

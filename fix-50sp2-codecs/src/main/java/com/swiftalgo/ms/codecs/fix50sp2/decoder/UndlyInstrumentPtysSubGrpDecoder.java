@@ -139,6 +139,7 @@ public class UndlyInstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingInstrumentPartySubIDWrapper = new CharArrayWrapper();
     private int underlyingInstrumentPartySubIDType = MISSING_INT;
 
     private boolean hasUnderlyingInstrumentPartySubIDType;
@@ -308,12 +309,12 @@ public class UndlyInstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UndlyInstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public UndlyInstrumentPtysSubGrpEncoder.UndlyInstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UndlyInstrumentPartySubIDsGroupEncoder)encoder);
+        return toEncoder((UndlyInstrumentPtysSubGrpEncoder.UndlyInstrumentPartySubIDsGroupEncoder)encoder);
     }
 
-    public UndlyInstrumentPartySubIDsGroupEncoder toEncoder(final UndlyInstrumentPartySubIDsGroupEncoder encoder)
+    public UndlyInstrumentPtysSubGrpEncoder.UndlyInstrumentPartySubIDsGroupEncoder toEncoder(final UndlyInstrumentPtysSubGrpEncoder.UndlyInstrumentPartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingInstrumentPartySubID())
@@ -344,6 +345,7 @@ public class UndlyInstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UndlyInstrumentPartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class UndlyInstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUndlyInstrumentPartySubIDsGroupCounter() ? parent.noUndlyInstrumentPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.undlyInstrumentPartySubIDsGroup();
         }
+
         public UndlyInstrumentPartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UndlyInstrumentPartySubIDsGroupIterator undlyInstrumentPartySubIDsGroupIterator();
+    public UndlyInstrumentPartySubIDsGroupIterator undlyInstrumentPartySubIDsGroupIterator();
     public int noUndlyInstrumentPartySubIDsGroupCounter();
     public boolean hasNoUndlyInstrumentPartySubIDsGroupCounter();
     public UndlyInstrumentPartySubIDsGroupDecoder undlyInstrumentPartySubIDsGroup();

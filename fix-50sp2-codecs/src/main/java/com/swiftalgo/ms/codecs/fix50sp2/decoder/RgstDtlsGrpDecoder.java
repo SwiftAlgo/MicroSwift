@@ -194,6 +194,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
     }
 
 
+    private final CharArrayWrapper registDtlsWrapper = new CharArrayWrapper();
     private char[] registEmail = new char[1];
 
     private boolean hasRegistEmail;
@@ -244,6 +245,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
     }
 
 
+    private final CharArrayWrapper registEmailWrapper = new CharArrayWrapper();
     private char[] mailingDtls = new char[1];
 
     private boolean hasMailingDtls;
@@ -294,6 +296,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
     }
 
 
+    private final CharArrayWrapper mailingDtlsWrapper = new CharArrayWrapper();
     private char[] mailingInst = new char[1];
 
     private boolean hasMailingInst;
@@ -344,6 +347,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
     }
 
 
+    private final CharArrayWrapper mailingInstWrapper = new CharArrayWrapper();
 
 
     private NestedPartyIDsGroupDecoder nestedPartyIDsGroup = null;
@@ -594,7 +598,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
                 mailingInstLength = valueLength;
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -782,23 +786,24 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasOwnerType())
         {
@@ -831,12 +836,12 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
     /**
      * {@inheritDoc}
      */
-    public RegistDtlsGroupEncoder toEncoder(final Encoder encoder)
+    public RgstDtlsGrpEncoder.RegistDtlsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((RegistDtlsGroupEncoder)encoder);
+        return toEncoder((RgstDtlsGrpEncoder.RegistDtlsGroupEncoder)encoder);
     }
 
-    public RegistDtlsGroupEncoder toEncoder(final RegistDtlsGroupEncoder encoder)
+    public RgstDtlsGrpEncoder.RegistDtlsGroupEncoder toEncoder(final RgstDtlsGrpEncoder.RegistDtlsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRegistDtls())
@@ -910,6 +915,7 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
         {
             return remainder > 0 && current != null;
         }
+
         public RegistDtlsGroupDecoder next()
         {
             remainder--;
@@ -917,23 +923,27 @@ public class RegistDtlsGroupDecoder extends CommonDecoderImpl implements NestedP
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoRegistDtlsGroupCounter() ? parent.noRegistDtlsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.registDtlsGroup();
         }
+
         public RegistDtlsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public RegistDtlsGroupIterator registDtlsGroupIterator();
+    public RegistDtlsGroupIterator registDtlsGroupIterator();
     public int noRegistDtlsGroupCounter();
     public boolean hasNoRegistDtlsGroupCounter();
     public RegistDtlsGroupDecoder registDtlsGroup();

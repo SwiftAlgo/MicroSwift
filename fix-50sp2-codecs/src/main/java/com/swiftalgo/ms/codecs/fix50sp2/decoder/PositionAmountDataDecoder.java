@@ -230,6 +230,7 @@ public class PosAmtGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper positionCurrencyWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode PosAmtGroup
@@ -399,12 +400,12 @@ public class PosAmtGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public PosAmtGroupEncoder toEncoder(final Encoder encoder)
+    public PositionAmountDataEncoder.PosAmtGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((PosAmtGroupEncoder)encoder);
+        return toEncoder((PositionAmountDataEncoder.PosAmtGroupEncoder)encoder);
     }
 
-    public PosAmtGroupEncoder toEncoder(final PosAmtGroupEncoder encoder)
+    public PositionAmountDataEncoder.PosAmtGroupEncoder toEncoder(final PositionAmountDataEncoder.PosAmtGroupEncoder encoder)
     {
         encoder.reset();
         if (hasPosAmtType())
@@ -440,6 +441,7 @@ public class PosAmtGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public PosAmtGroupDecoder next()
         {
             remainder--;
@@ -447,23 +449,27 @@ public class PosAmtGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoPosAmtGroupCounter() ? parent.noPosAmtGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.posAmtGroup();
         }
+
         public PosAmtGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public PosAmtGroupIterator posAmtGroupIterator();
+    public PosAmtGroupIterator posAmtGroupIterator();
     public int noPosAmtGroupCounter();
     public boolean hasNoPosAmtGroupCounter();
     public PosAmtGroupDecoder posAmtGroup();

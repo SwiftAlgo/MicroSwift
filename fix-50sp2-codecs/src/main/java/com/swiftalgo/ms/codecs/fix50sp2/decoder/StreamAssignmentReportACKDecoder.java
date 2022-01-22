@@ -208,6 +208,7 @@ public class StreamAssignmentReportACKDecoder extends CommonDecoderImpl implemen
     }
 
 
+    private final CharArrayWrapper streamAsgnRptIDWrapper = new CharArrayWrapper();
     private int streamAsgnRejReason = MISSING_INT;
 
     private boolean hasStreamAsgnRejReason;
@@ -287,6 +288,7 @@ public class StreamAssignmentReportACKDecoder extends CommonDecoderImpl implemen
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

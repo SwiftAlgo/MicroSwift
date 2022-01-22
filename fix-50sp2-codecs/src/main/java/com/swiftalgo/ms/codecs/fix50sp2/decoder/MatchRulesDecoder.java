@@ -149,6 +149,7 @@ public class MatchRulesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper matchAlgorithmWrapper = new CharArrayWrapper();
     private char[] matchType = new char[1];
 
     private boolean hasMatchType;
@@ -358,12 +359,12 @@ public class MatchRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MatchRulesGroupEncoder toEncoder(final Encoder encoder)
+    public MatchRulesEncoder.MatchRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MatchRulesGroupEncoder)encoder);
+        return toEncoder((MatchRulesEncoder.MatchRulesGroupEncoder)encoder);
     }
 
-    public MatchRulesGroupEncoder toEncoder(final MatchRulesGroupEncoder encoder)
+    public MatchRulesEncoder.MatchRulesGroupEncoder toEncoder(final MatchRulesEncoder.MatchRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMatchAlgorithm())
@@ -394,6 +395,7 @@ public class MatchRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MatchRulesGroupDecoder next()
         {
             remainder--;
@@ -401,23 +403,27 @@ public class MatchRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMatchRulesGroupCounter() ? parent.noMatchRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.matchRulesGroup();
         }
+
         public MatchRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MatchRulesGroupIterator matchRulesGroupIterator();
+    public MatchRulesGroupIterator matchRulesGroupIterator();
     public int noMatchRulesGroupCounter();
     public boolean hasNoMatchRulesGroupCounter();
     public MatchRulesGroupDecoder matchRulesGroup();

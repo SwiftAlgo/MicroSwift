@@ -132,6 +132,7 @@ public class TrailerDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper checkSumWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode Trailer

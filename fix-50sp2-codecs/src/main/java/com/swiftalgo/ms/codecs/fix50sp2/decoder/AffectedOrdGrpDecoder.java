@@ -140,6 +140,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper origClOrdIDWrapper = new CharArrayWrapper();
     private char[] affectedOrderID = new char[1];
 
     private boolean hasAffectedOrderID;
@@ -190,6 +191,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper affectedOrderIDWrapper = new CharArrayWrapper();
     private char[] affectedSecondaryOrderID = new char[1];
 
     private boolean hasAffectedSecondaryOrderID;
@@ -240,6 +242,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper affectedSecondaryOrderIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode AffectedOrdersGroup
@@ -411,12 +414,12 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public AffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
+    public AffectedOrdGrpEncoder.AffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AffectedOrdersGroupEncoder)encoder);
+        return toEncoder((AffectedOrdGrpEncoder.AffectedOrdersGroupEncoder)encoder);
     }
 
-    public AffectedOrdersGroupEncoder toEncoder(final AffectedOrdersGroupEncoder encoder)
+    public AffectedOrdGrpEncoder.AffectedOrdersGroupEncoder toEncoder(final AffectedOrdGrpEncoder.AffectedOrdersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasOrigClOrdID())
@@ -452,6 +455,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public AffectedOrdersGroupDecoder next()
         {
             remainder--;
@@ -459,23 +463,27 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAffectedOrdersGroupCounter() ? parent.noAffectedOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.affectedOrdersGroup();
         }
+
         public AffectedOrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AffectedOrdersGroupIterator affectedOrdersGroupIterator();
+    public AffectedOrdersGroupIterator affectedOrdersGroupIterator();
     public int noAffectedOrdersGroupCounter();
     public boolean hasNoAffectedOrdersGroupCounter();
     public AffectedOrdersGroupDecoder affectedOrdersGroup();

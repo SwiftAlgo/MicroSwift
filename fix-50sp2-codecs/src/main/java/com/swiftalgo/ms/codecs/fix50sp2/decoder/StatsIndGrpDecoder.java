@@ -253,12 +253,12 @@ public class StatsIndicatorsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public StatsIndicatorsGroupEncoder toEncoder(final Encoder encoder)
+    public StatsIndGrpEncoder.StatsIndicatorsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((StatsIndicatorsGroupEncoder)encoder);
+        return toEncoder((StatsIndGrpEncoder.StatsIndicatorsGroupEncoder)encoder);
     }
 
-    public StatsIndicatorsGroupEncoder toEncoder(final StatsIndicatorsGroupEncoder encoder)
+    public StatsIndGrpEncoder.StatsIndicatorsGroupEncoder toEncoder(final StatsIndGrpEncoder.StatsIndicatorsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasStatsType())
@@ -284,6 +284,7 @@ public class StatsIndicatorsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public StatsIndicatorsGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class StatsIndicatorsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoStatsIndicatorsGroupCounter() ? parent.noStatsIndicatorsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.statsIndicatorsGroup();
         }
+
         public StatsIndicatorsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public StatsIndicatorsGroupIterator statsIndicatorsGroupIterator();
+    public StatsIndicatorsGroupIterator statsIndicatorsGroupIterator();
     public int noStatsIndicatorsGroupCounter();
     public boolean hasNoStatsIndicatorsGroupCounter();
     public StatsIndicatorsGroupDecoder statsIndicatorsGroup();

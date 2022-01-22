@@ -157,6 +157,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityAltIDWrapper = new CharArrayWrapper();
     private char[] securityAltIDSource = new char[1];
 
     private boolean hasSecurityAltIDSource;
@@ -207,6 +208,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SecurityAltIDGroup
@@ -357,12 +359,12 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public InstrumentEncoder.SecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SecurityAltIDGroupEncoder)encoder);
+        return toEncoder((InstrumentEncoder.SecurityAltIDGroupEncoder)encoder);
     }
 
-    public SecurityAltIDGroupEncoder toEncoder(final SecurityAltIDGroupEncoder encoder)
+    public InstrumentEncoder.SecurityAltIDGroupEncoder toEncoder(final InstrumentEncoder.SecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSecurityAltID())
@@ -393,6 +395,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -400,23 +403,27 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSecurityAltIDGroupCounter() ? parent.noSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.securityAltIDGroup();
         }
+
         public SecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SecurityAltIDGroupIterator securityAltIDGroupIterator();
+    public SecurityAltIDGroupIterator securityAltIDGroupIterator();
     public int noSecurityAltIDGroupCounter();
     public boolean hasNoSecurityAltIDGroupCounter();
     public SecurityAltIDGroupDecoder securityAltIDGroup();
@@ -753,6 +760,7 @@ public class EventsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper eventTextWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode EventsGroup
@@ -941,12 +949,12 @@ public class EventsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public EventsGroupEncoder toEncoder(final Encoder encoder)
+    public InstrumentEncoder.EventsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((EventsGroupEncoder)encoder);
+        return toEncoder((InstrumentEncoder.EventsGroupEncoder)encoder);
     }
 
-    public EventsGroupEncoder toEncoder(final EventsGroupEncoder encoder)
+    public InstrumentEncoder.EventsGroupEncoder toEncoder(final InstrumentEncoder.EventsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasEventType())
@@ -987,6 +995,7 @@ public class EventsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public EventsGroupDecoder next()
         {
             remainder--;
@@ -994,23 +1003,27 @@ public class EventsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoEventsGroupCounter() ? parent.noEventsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.eventsGroup();
         }
+
         public EventsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public EventsGroupIterator eventsGroupIterator();
+    public EventsGroupIterator eventsGroupIterator();
     public int noEventsGroupCounter();
     public boolean hasNoEventsGroupCounter();
     public EventsGroupDecoder eventsGroup();

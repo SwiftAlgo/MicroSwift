@@ -1116,11 +1116,11 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.ORIG_TRADE_ID);
         messageFields.add(Constants.ORIG_SECONDARY_TRADE_ID);
         messageFields.add(Constants.TRANSFER_REASON);
-        messageFields.add(Constants.NO_ROOT_PARTY_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_ID);
         messageFields.add(Constants.ROOT_PARTY_ID_SOURCE);
         messageFields.add(Constants.ROOT_PARTY_ROLE);
-        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.EXEC_TYPE);
@@ -1151,7 +1151,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -1232,7 +1232,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -1240,14 +1240,14 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -1255,10 +1255,10 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.LAST_PAR_PX);
@@ -1277,12 +1277,12 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.TRADE_LEG_REF_ID);
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.SETTL_TYPE);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -1344,18 +1344,18 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -1363,18 +1363,18 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.MATCH_STATUS);
         messageFields.add(Constants.MATCH_TYPE);
         messageFields.add(Constants.COPY_MSG_INDICATOR);
-        messageFields.add(Constants.NO_TRD_REP_INDICATORS);
+        messageFields.add(Constants.NO_TRD_REP_INDICATORS_GROUP_COUNTER);
         messageFields.add(Constants.TRD_REP_PARTY_ROLE);
         messageFields.add(Constants.TRD_REP_INDICATOR);
         messageFields.add(Constants.PUBLISH_TRD_INDICATOR);
         messageFields.add(Constants.TRADE_PUBLISH_INDICATOR);
         messageFields.add(Constants.SHORT_SALE_REASON);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -1430,16 +1430,16 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.LEG_SWAP_TYPE);
         messageFields.add(Constants.LEG_REPORT_ID);
         messageFields.add(Constants.LEG_NUMBER);
-        messageFields.add(Constants.NO_LEG_STIPULATIONS);
+        messageFields.add(Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_STIPULATION_TYPE);
         messageFields.add(Constants.LEG_STIPULATION_VALUE);
         messageFields.add(Constants.LEG_POSITION_EFFECT);
         messageFields.add(Constants.LEG_COVERED_OR_UNCOVERED);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.LEG_REF_ID);
@@ -1455,12 +1455,12 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.LEG_CURRENCY_RATIO);
         messageFields.add(Constants.LEG_EXEC_INST);
         messageFields.add(Constants.LEG_LAST_QTY);
-        messageFields.add(Constants.NO_OF_LEG_UNDERLYINGS);
+        messageFields.add(Constants.NO_OF_LEG_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_LEG_SYMBOL);
         messageFields.add(Constants.UNDERLYING_LEG_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_LEG_C_F_I_CODE);
@@ -1474,7 +1474,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.UNDERLYING_LEG_PUT_OR_CALL);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_EXCHANGE);
         messageFields.add(Constants.UNDERLYING_LEG_SECURITY_DESC);
-        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS);
+        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER);
         messageFields.add(Constants.TRD_REG_TIMESTAMP);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_TYPE);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_ORIGIN);
@@ -1488,7 +1488,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.ENCODED_TEXT);
         messageFields.add(Constants.AS_OF_INDICATOR);
         messageFields.add(Constants.CLEARING_FEE_INDICATOR);
-        messageFields.add(Constants.NO_POS_AMT);
+        messageFields.add(Constants.NO_POS_AMT_GROUP_COUNTER);
         messageFields.add(Constants.POS_AMT_TYPE);
         messageFields.add(Constants.POS_AMT);
         messageFields.add(Constants.POSITION_CURRENCY);
@@ -1496,16 +1496,16 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.MESSAGE_EVENT_SOURCE);
         messageFields.add(Constants.LAST_UPDATE_TIME);
         messageFields.add(Constants.RND_PX);
-        messageFields.add(Constants.NO_SIDES);
+        messageFields.add(Constants.NO_SIDES_GROUP_COUNTER);
         messageFields.add(Constants.SIDE);
         messageFields.add(Constants.SIDE_EXEC_ID);
         messageFields.add(Constants.ORDER_DELAY);
         messageFields.add(Constants.ORDER_DELAY_UNIT);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -1513,7 +1513,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.ACCOUNT_TYPE);
         messageFields.add(Constants.PROCESS_CODE);
         messageFields.add(Constants.ODD_LOT);
-        messageFields.add(Constants.NO_CLEARING_INSTRUCTIONS);
+        messageFields.add(Constants.NO_CLEARING_INSTRUCTIONS_GROUP_COUNTER);
         messageFields.add(Constants.CLEARING_INSTRUCTION);
         messageFields.add(Constants.TRADE_INPUT_SOURCE);
         messageFields.add(Constants.TRADE_INPUT_DEVICE);
@@ -1546,41 +1546,41 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.SETTL_CURR_FX_RATE_CALC);
         messageFields.add(Constants.POSITION_EFFECT);
         messageFields.add(Constants.SIDE_MULTI_LEG_REPORTING_TYPE);
-        messageFields.add(Constants.NO_CONT_AMTS);
+        messageFields.add(Constants.NO_CONT_AMTS_GROUP_COUNTER);
         messageFields.add(Constants.CONT_AMT_TYPE);
         messageFields.add(Constants.CONT_AMT_VALUE);
         messageFields.add(Constants.CONT_AMT_CURR);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
-        messageFields.add(Constants.NO_MISC_FEES);
+        messageFields.add(Constants.NO_MISC_FEES_GROUP_COUNTER);
         messageFields.add(Constants.MISC_FEE_AMT);
         messageFields.add(Constants.MISC_FEE_CURR);
         messageFields.add(Constants.MISC_FEE_TYPE);
         messageFields.add(Constants.MISC_FEE_BASIS);
         messageFields.add(Constants.EXCHANGE_RULE);
-        messageFields.add(Constants.NO_SETTL_DETAILS);
+        messageFields.add(Constants.NO_SETTL_DETAILS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_OBLIG_SOURCE);
-        messageFields.add(Constants.NO_SETTL_PARTY_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_ID);
         messageFields.add(Constants.SETTL_PARTY_ID_SOURCE);
         messageFields.add(Constants.SETTL_PARTY_ROLE);
-        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TRADE_ALLOC_INDICATOR);
         messageFields.add(Constants.PREALLOC_METHOD);
         messageFields.add(Constants.ALLOC_ID);
-        messageFields.add(Constants.NO_ALLOCS);
+        messageFields.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.ALLOC_ACCOUNT);
         messageFields.add(Constants.ALLOC_ACCT_ID_SOURCE);
         messageFields.add(Constants.ALLOC_SETTL_CURRENCY);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_ID);
-        messageFields.add(Constants.NO_NESTED2_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_ID);
         messageFields.add(Constants.NESTED2_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED2_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_QTY);
@@ -1635,7 +1635,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
         messageFields.add(Constants.LOT_TYPE);
         messageFields.add(Constants.TRANS_BKD_TIME);
         messageFields.add(Constants.ORIG_ORD_MOD_TIME);
-        messageFields.add(Constants.NO_SIDE_TRD_REG_T_S);
+        messageFields.add(Constants.NO_SIDE_TRD_REG_T_S_GROUP_COUNTER);
         messageFields.add(Constants.SIDE_TRD_REG_TIMESTAMP);
         messageFields.add(Constants.SIDE_TRD_REG_TIMESTAMP_TYPE);
         messageFields.add(Constants.SIDE_TRD_REG_TIMESTAMP_SRC);
@@ -1712,6 +1712,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tradeReportIDWrapper = new CharArrayWrapper();
     private char[] tradeID = new char[1];
 
     private boolean hasTradeID;
@@ -1762,6 +1763,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tradeIDWrapper = new CharArrayWrapper();
     private char[] secondaryTradeID = new char[1];
 
     private boolean hasSecondaryTradeID;
@@ -1812,6 +1814,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper secondaryTradeIDWrapper = new CharArrayWrapper();
     private char[] firmTradeID = new char[1];
 
     private boolean hasFirmTradeID;
@@ -1862,6 +1865,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper firmTradeIDWrapper = new CharArrayWrapper();
     private char[] secondaryFirmTradeID = new char[1];
 
     private boolean hasSecondaryFirmTradeID;
@@ -1912,6 +1916,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper secondaryFirmTradeIDWrapper = new CharArrayWrapper();
     private int tradeReportTransType = MISSING_INT;
 
     private boolean hasTradeReportTransType;
@@ -2199,6 +2204,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper origTradeIDWrapper = new CharArrayWrapper();
     private char[] origSecondaryTradeID = new char[1];
 
     private boolean hasOrigSecondaryTradeID;
@@ -2249,6 +2255,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper origSecondaryTradeIDWrapper = new CharArrayWrapper();
     private char[] transferReason = new char[1];
 
     private boolean hasTransferReason;
@@ -2299,6 +2306,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper transferReasonWrapper = new CharArrayWrapper();
 
 
     private RootPartyIDsGroupDecoder rootPartyIDsGroup = null;
@@ -2415,6 +2423,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tradeReportRefIDWrapper = new CharArrayWrapper();
     private char[] secondaryTradeReportRefID = new char[1];
 
     private boolean hasSecondaryTradeReportRefID;
@@ -2465,6 +2474,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper secondaryTradeReportRefIDWrapper = new CharArrayWrapper();
     private int trdRptStatus = MISSING_INT;
 
     private boolean hasTrdRptStatus;
@@ -2573,6 +2583,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper secondaryTradeReportIDWrapper = new CharArrayWrapper();
     private char subscriptionRequestType = MISSING_CHAR;
 
     private boolean hasSubscriptionRequestType;
@@ -2652,6 +2663,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tradeLinkIDWrapper = new CharArrayWrapper();
     private char[] trdMatchID = new char[1];
 
     private boolean hasTrdMatchID;
@@ -2702,6 +2714,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper trdMatchIDWrapper = new CharArrayWrapper();
     private char[] execID = new char[1];
 
     private boolean hasExecID;
@@ -2752,6 +2765,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper execIDWrapper = new CharArrayWrapper();
     private char[] secondaryExecID = new char[1];
 
     private boolean hasSecondaryExecID;
@@ -2802,6 +2816,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper secondaryExecIDWrapper = new CharArrayWrapper();
     private int execRestatementReason = MISSING_INT;
 
     private boolean hasExecRestatementReason;
@@ -2931,6 +2946,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper underlyingTradingSessionIDWrapper = new CharArrayWrapper();
     private char[] underlyingTradingSessionSubID = new char[1];
 
     private boolean hasUnderlyingTradingSessionSubID;
@@ -2981,6 +2997,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper underlyingTradingSessionSubIDWrapper = new CharArrayWrapper();
     private char[] settlSessID = new char[1];
 
     private boolean hasSettlSessID;
@@ -3090,6 +3107,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper settlSessSubIDWrapper = new CharArrayWrapper();
     private int qtyType = MISSING_INT;
 
     private boolean hasQtyType;
@@ -3240,6 +3258,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] marketID = new char[1];
 
     private boolean hasMarketID;
@@ -3341,6 +3360,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -3450,6 +3470,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -3625,6 +3646,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -3675,6 +3697,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -3725,6 +3748,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -3834,6 +3858,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -4034,6 +4059,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -4466,6 +4492,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -4579,6 +4606,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -4629,6 +4657,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -4729,6 +4758,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -4779,6 +4809,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -5322,6 +5353,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -5933,6 +5965,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -6025,6 +6058,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -6160,6 +6194,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -6211,6 +6246,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -6340,6 +6376,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -7036,6 +7073,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tradeLegRefIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     private boolean hasTransactTime;
@@ -7560,6 +7598,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper responseDestinationWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -7610,6 +7649,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -7827,6 +7867,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper tierCodeWrapper = new CharArrayWrapper();
     private char[] messageEventSource = new char[1];
 
     private boolean hasMessageEventSource;
@@ -7877,6 +7918,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper messageEventSourceWrapper = new CharArrayWrapper();
     private byte[] lastUpdateTime = new byte[24];
 
     private boolean hasLastUpdateTime;
@@ -8035,6 +8077,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
     }
 
 
+    private final CharArrayWrapper rptSysWrapper = new CharArrayWrapper();
     private DecimalFloat grossTradeAmt = DecimalFloat.newNaNValue();
 
     private boolean hasGrossTradeAmt;
@@ -8279,7 +8322,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 transferReasonLength = valueLength;
                 break;
 
-            case Constants.NO_ROOT_PARTY_IDS:
+            case Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER:
                 hasNoRootPartyIDsGroupCounter = true;
                 noRootPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1116, CODEC_VALIDATION_ENABLED);
                 if (rootPartyIDsGroup == null)
@@ -8488,7 +8531,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -8985,7 +9028,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -9034,7 +9077,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -9069,7 +9112,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -9201,7 +9244,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 settlTypeLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -9253,7 +9296,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 copyMsgIndicator = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_TRD_REP_INDICATORS:
+            case Constants.NO_TRD_REP_INDICATORS_GROUP_COUNTER:
                 hasNoTrdRepIndicatorsGroupCounter = true;
                 noTrdRepIndicatorsGroupCounter = getInt(buffer, valueOffset, endOfField, 1387, CODEC_VALIDATION_ENABLED);
                 if (trdRepIndicatorsGroup == null)
@@ -9303,7 +9346,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 shortSaleReason = getInt(buffer, valueOffset, endOfField, 853, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -9338,7 +9381,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 break;
 
 
-            case Constants.NO_TRD_REG_TIMESTAMPS:
+            case Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER:
                 hasNoTrdRegTimestampsGroupCounter = true;
                 noTrdRegTimestampsGroupCounter = getInt(buffer, valueOffset, endOfField, 768, CODEC_VALIDATION_ENABLED);
                 if (trdRegTimestampsGroup == null)
@@ -9415,7 +9458,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 clearingFeeIndicatorLength = valueLength;
                 break;
 
-            case Constants.NO_POS_AMT:
+            case Constants.NO_POS_AMT_GROUP_COUNTER:
                 hasNoPosAmtGroupCounter = true;
                 noPosAmtGroupCounter = getInt(buffer, valueOffset, endOfField, 753, CODEC_VALIDATION_ENABLED);
                 if (posAmtGroup == null)
@@ -9476,7 +9519,7 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
                 rndPx = getFloat(buffer, rndPx, valueOffset, valueLength, 991, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_SIDES:
+            case Constants.NO_SIDES_GROUP_COUNTER:
                 hasNoSidesGroupCounter = true;
                 noSidesGroupCounter = getInt(buffer, valueOffset, endOfField, 552, CODEC_VALIDATION_ENABLED);
                 if (sidesGroup == null)
@@ -10860,23 +10903,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoRootPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RootPartyIDsGroup\": [\n");
-        RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
-        for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
+        if (hasNoRootPartyIDsGroupCounter)
         {
             indent(builder, level);
-            rootPartyIDsGroup.appendTo(builder, level + 1);            if (rootPartyIDsGroup.next() != null)
+            builder.append("\"RootPartyIDsGroup\": [\n");
+            RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
+            for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rootPartyIDsGroup = rootPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rootPartyIDsGroup.appendTo(builder, level + 1);
+                if (rootPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rootPartyIDsGroup = rootPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasExecType())
         {
@@ -11102,23 +11146,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -11744,23 +11789,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -11778,41 +11824,43 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLastParPx())
         {
@@ -11942,23 +11990,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasMatchStatus())
         {
@@ -11984,23 +12033,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoTrdRepIndicatorsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TrdRepIndicatorsGroup\": [\n");
-        TrdRepIndicatorsGroupDecoder trdRepIndicatorsGroup = this.trdRepIndicatorsGroup;
-        for (int i = 0, size = this.noTrdRepIndicatorsGroupCounter; i < size; i++)
+        if (hasNoTrdRepIndicatorsGroupCounter)
         {
             indent(builder, level);
-            trdRepIndicatorsGroup.appendTo(builder, level + 1);            if (trdRepIndicatorsGroup.next() != null)
+            builder.append("\"TrdRepIndicatorsGroup\": [\n");
+            TrdRepIndicatorsGroupDecoder trdRepIndicatorsGroup = this.trdRepIndicatorsGroup;
+            for (int i = 0, size = this.noTrdRepIndicatorsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            trdRepIndicatorsGroup = trdRepIndicatorsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                trdRepIndicatorsGroup.appendTo(builder, level + 1);
+                if (trdRepIndicatorsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                trdRepIndicatorsGroup = trdRepIndicatorsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasPublishTrdIndicator())
         {
@@ -12026,41 +12076,43 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTrdRegTimestampsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TrdRegTimestampsGroup\": [\n");
-        TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
-        for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
+        if (hasNoTrdRegTimestampsGroupCounter)
         {
             indent(builder, level);
-            trdRegTimestampsGroup.appendTo(builder, level + 1);            if (trdRegTimestampsGroup.next() != null)
+            builder.append("\"TrdRegTimestampsGroup\": [\n");
+            TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
+            for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            trdRegTimestampsGroup = trdRegTimestampsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                trdRegTimestampsGroup.appendTo(builder, level + 1);
+                if (trdRegTimestampsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                trdRegTimestampsGroup = trdRegTimestampsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasResponseTransportType())
         {
@@ -12118,23 +12170,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoPosAmtGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PosAmtGroup\": [\n");
-        PosAmtGroupDecoder posAmtGroup = this.posAmtGroup;
-        for (int i = 0, size = this.noPosAmtGroupCounter; i < size; i++)
+        if (hasNoPosAmtGroupCounter)
         {
             indent(builder, level);
-            posAmtGroup.appendTo(builder, level + 1);            if (posAmtGroup.next() != null)
+            builder.append("\"PosAmtGroup\": [\n");
+            PosAmtGroupDecoder posAmtGroup = this.posAmtGroup;
+            for (int i = 0, size = this.noPosAmtGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            posAmtGroup = posAmtGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                posAmtGroup.appendTo(builder, level + 1);
+                if (posAmtGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                posAmtGroup = posAmtGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTierCode())
         {
@@ -12168,23 +12221,24 @@ public class TradeCaptureReportAckDecoder extends CommonDecoderImpl implements R
             builder.append("\",\n");
         }
 
-    if (hasNoSidesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SidesGroup\": [\n");
-        SidesGroupDecoder sidesGroup = this.sidesGroup;
-        for (int i = 0, size = this.noSidesGroupCounter; i < size; i++)
+        if (hasNoSidesGroupCounter)
         {
             indent(builder, level);
-            sidesGroup.appendTo(builder, level + 1);            if (sidesGroup.next() != null)
+            builder.append("\"SidesGroup\": [\n");
+            SidesGroupDecoder sidesGroup = this.sidesGroup;
+            for (int i = 0, size = this.noSidesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            sidesGroup = sidesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                sidesGroup.appendTo(builder, level + 1);
+                if (sidesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                sidesGroup = sidesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasRptSys())
         {

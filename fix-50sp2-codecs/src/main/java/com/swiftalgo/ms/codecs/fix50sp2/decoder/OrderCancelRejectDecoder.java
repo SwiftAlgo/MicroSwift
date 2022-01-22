@@ -238,6 +238,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -288,6 +289,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -338,6 +340,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private char[] clOrdID = new char[1];
 
     public char[] clOrdID()
@@ -366,6 +369,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] clOrdLinkID = new char[1];
 
     private boolean hasClOrdLinkID;
@@ -416,6 +420,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper clOrdLinkIDWrapper = new CharArrayWrapper();
     private char[] origClOrdID = new char[1];
 
     private boolean hasOrigClOrdID;
@@ -466,6 +471,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper origClOrdIDWrapper = new CharArrayWrapper();
     private char ordStatus = MISSING_CHAR;
 
     public char ordStatus()
@@ -602,6 +608,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] account = new char[1];
 
     private boolean hasAccount;
@@ -652,6 +659,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -954,6 +962,7 @@ public class OrderCancelRejectDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

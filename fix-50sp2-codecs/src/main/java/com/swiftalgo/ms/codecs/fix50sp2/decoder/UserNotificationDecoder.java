@@ -165,7 +165,7 @@ public class UserNotificationDecoder extends CommonDecoderImpl implements Userna
         messageFields.add(Constants.XML_DATA);
         messageFields.add(Constants.MESSAGE_ENCODING);
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
-        messageFields.add(Constants.NO_USERNAMES);
+        messageFields.add(Constants.NO_USERNAMES_GROUP_COUNTER);
         messageFields.add(Constants.USERNAME);
         messageFields.add(Constants.USER_STATUS);
         messageFields.add(Constants.TEXT);
@@ -292,6 +292,7 @@ public class UserNotificationDecoder extends CommonDecoderImpl implements Userna
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -388,7 +389,7 @@ public class UserNotificationDecoder extends CommonDecoderImpl implements Userna
 
             switch (tag)
             {
-            case Constants.NO_USERNAMES:
+            case Constants.NO_USERNAMES_GROUP_COUNTER:
                 hasNoUsernamesGroupCounter = true;
                 noUsernamesGroupCounter = getInt(buffer, valueOffset, endOfField, 809, CODEC_VALIDATION_ENABLED);
                 if (usernamesGroup == null)
@@ -550,23 +551,24 @@ public class UserNotificationDecoder extends CommonDecoderImpl implements Userna
         builder.append("  \"header\": ");
         header.appendTo(builder, level + 1);
         builder.append("\n");
-    if (hasNoUsernamesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UsernamesGroup\": [\n");
-        UsernamesGroupDecoder usernamesGroup = this.usernamesGroup;
-        for (int i = 0, size = this.noUsernamesGroupCounter; i < size; i++)
+        if (hasNoUsernamesGroupCounter)
         {
             indent(builder, level);
-            usernamesGroup.appendTo(builder, level + 1);            if (usernamesGroup.next() != null)
+            builder.append("\"UsernamesGroup\": [\n");
+            UsernamesGroupDecoder usernamesGroup = this.usernamesGroup;
+            for (int i = 0, size = this.noUsernamesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            usernamesGroup = usernamesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                usernamesGroup.appendTo(builder, level + 1);
+                if (usernamesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                usernamesGroup = usernamesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"UserStatus\": \"");

@@ -202,15 +202,15 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.ENCODED_TEXT);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.TRANSACT_TIME);
-        messageFields.add(Constants.NO_SETTL_INST);
+        messageFields.add(Constants.NO_SETTL_INST_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_INST_ID);
         messageFields.add(Constants.SETTL_INST_TRANS_TYPE);
         messageFields.add(Constants.SETTL_INST_REF_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.SIDE);
@@ -225,14 +225,14 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.STAND_INST_DB_TYPE);
         messageFields.add(Constants.STAND_INST_DB_NAME);
         messageFields.add(Constants.STAND_INST_DB_ID);
-        messageFields.add(Constants.NO_DLVY_INST);
+        messageFields.add(Constants.NO_DLVY_INST_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_INST_SOURCE);
         messageFields.add(Constants.DLVY_INST_TYPE);
-        messageFields.add(Constants.NO_SETTL_PARTY_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_ID);
         messageFields.add(Constants.SETTL_PARTY_ID_SOURCE);
         messageFields.add(Constants.SETTL_PARTY_ROLE);
-        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.PAYMENT_METHOD);
@@ -291,6 +291,7 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper settlInstMsgIDWrapper = new CharArrayWrapper();
     private char[] settlInstReqID = new char[1];
 
     private boolean hasSettlInstReqID;
@@ -341,6 +342,7 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper settlInstReqIDWrapper = new CharArrayWrapper();
     private char settlInstMode = MISSING_CHAR;
 
     public char settlInstMode()
@@ -435,6 +437,7 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -527,6 +530,7 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -699,7 +703,7 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
                 transactTimeLength = valueLength;
                 break;
 
-            case Constants.NO_SETTL_INST:
+            case Constants.NO_SETTL_INST_GROUP_COUNTER:
                 hasNoSettlInstGroupCounter = true;
                 noSettlInstGroupCounter = getInt(buffer, valueOffset, endOfField, 778, CODEC_VALIDATION_ENABLED);
                 if (settlInstGroup == null)
@@ -932,23 +936,24 @@ public class SettlementInstructionsDecoder extends CommonDecoderImpl implements 
         appendData(builder, transactTime, transactTimeLength);
         builder.append("\",\n");
 
-    if (hasNoSettlInstGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SettlInstGroup\": [\n");
-        SettlInstGroupDecoder settlInstGroup = this.settlInstGroup;
-        for (int i = 0, size = this.noSettlInstGroupCounter; i < size; i++)
+        if (hasNoSettlInstGroupCounter)
         {
             indent(builder, level);
-            settlInstGroup.appendTo(builder, level + 1);            if (settlInstGroup.next() != null)
+            builder.append("\"SettlInstGroup\": [\n");
+            SettlInstGroupDecoder settlInstGroup = this.settlInstGroup;
+            for (int i = 0, size = this.noSettlInstGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            settlInstGroup = settlInstGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                settlInstGroup.appendTo(builder, level + 1);
+                if (settlInstGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                settlInstGroup = settlInstGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

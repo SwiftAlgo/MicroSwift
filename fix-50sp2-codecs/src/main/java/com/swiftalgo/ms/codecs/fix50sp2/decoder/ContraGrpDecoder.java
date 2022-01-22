@@ -142,6 +142,7 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper contraBrokerWrapper = new CharArrayWrapper();
     private char[] contraTrader = new char[1];
 
     private boolean hasContraTrader;
@@ -192,6 +193,7 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper contraTraderWrapper = new CharArrayWrapper();
     private DecimalFloat contraTradeQty = DecimalFloat.newNaNValue();
 
     private boolean hasContraTradeQty;
@@ -313,6 +315,7 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper contraLegRefIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode ContraBrokersGroup
@@ -524,12 +527,12 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ContraBrokersGroupEncoder toEncoder(final Encoder encoder)
+    public ContraGrpEncoder.ContraBrokersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ContraBrokersGroupEncoder)encoder);
+        return toEncoder((ContraGrpEncoder.ContraBrokersGroupEncoder)encoder);
     }
 
-    public ContraBrokersGroupEncoder toEncoder(final ContraBrokersGroupEncoder encoder)
+    public ContraGrpEncoder.ContraBrokersGroupEncoder toEncoder(final ContraGrpEncoder.ContraBrokersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasContraBroker())
@@ -575,6 +578,7 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ContraBrokersGroupDecoder next()
         {
             remainder--;
@@ -582,23 +586,27 @@ public class ContraBrokersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoContraBrokersGroupCounter() ? parent.noContraBrokersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.contraBrokersGroup();
         }
+
         public ContraBrokersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ContraBrokersGroupIterator contraBrokersGroupIterator();
+    public ContraBrokersGroupIterator contraBrokersGroupIterator();
     public int noContraBrokersGroupCounter();
     public boolean hasNoContraBrokersGroupCounter();
     public ContraBrokersGroupDecoder contraBrokersGroup();

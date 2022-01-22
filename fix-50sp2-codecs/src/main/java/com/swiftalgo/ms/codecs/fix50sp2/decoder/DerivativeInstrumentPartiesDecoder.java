@@ -175,6 +175,7 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper derivativeInstrumentPartyIDWrapper = new CharArrayWrapper();
     private char[] derivativeInstrumentPartyIDSource = new char[1];
 
     private boolean hasDerivativeInstrumentPartyIDSource;
@@ -225,6 +226,7 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper derivativeInstrumentPartyIDSourceWrapper = new CharArrayWrapper();
     private int derivativeInstrumentPartyRole = MISSING_INT;
 
     private boolean hasDerivativeInstrumentPartyRole;
@@ -358,7 +360,7 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
                 derivativeInstrumentPartyRole = getInt(buffer, valueOffset, endOfField, 1295, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_DERIVATIVE_INSTRUMENT_PARTY_SUB_IDS:
+            case Constants.NO_DERIVATIVE_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoDerivativeInstrumentPartySubIDsGroupCounter = true;
                 noDerivativeInstrumentPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1296, CODEC_VALIDATION_ENABLED);
                 if (derivativeInstrumentPartySubIDsGroup == null)
@@ -495,23 +497,24 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
             builder.append("\",\n");
         }
 
-    if (hasNoDerivativeInstrumentPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DerivativeInstrumentPartySubIDsGroup\": [\n");
-        DerivativeInstrumentPartySubIDsGroupDecoder derivativeInstrumentPartySubIDsGroup = this.derivativeInstrumentPartySubIDsGroup;
-        for (int i = 0, size = this.noDerivativeInstrumentPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoDerivativeInstrumentPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            derivativeInstrumentPartySubIDsGroup.appendTo(builder, level + 1);            if (derivativeInstrumentPartySubIDsGroup.next() != null)
+            builder.append("\"DerivativeInstrumentPartySubIDsGroup\": [\n");
+            DerivativeInstrumentPartySubIDsGroupDecoder derivativeInstrumentPartySubIDsGroup = this.derivativeInstrumentPartySubIDsGroup;
+            for (int i = 0, size = this.noDerivativeInstrumentPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            derivativeInstrumentPartySubIDsGroup = derivativeInstrumentPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                derivativeInstrumentPartySubIDsGroup.appendTo(builder, level + 1);
+                if (derivativeInstrumentPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                derivativeInstrumentPartySubIDsGroup = derivativeInstrumentPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -520,12 +523,12 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
     /**
      * {@inheritDoc}
      */
-    public DerivativeInstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
+    public DerivativeInstrumentPartiesEncoder.DerivativeInstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DerivativeInstrumentPartiesGroupEncoder)encoder);
+        return toEncoder((DerivativeInstrumentPartiesEncoder.DerivativeInstrumentPartiesGroupEncoder)encoder);
     }
 
-    public DerivativeInstrumentPartiesGroupEncoder toEncoder(final DerivativeInstrumentPartiesGroupEncoder encoder)
+    public DerivativeInstrumentPartiesEncoder.DerivativeInstrumentPartiesGroupEncoder toEncoder(final DerivativeInstrumentPartiesEncoder.DerivativeInstrumentPartiesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDerivativeInstrumentPartyID())
@@ -579,6 +582,7 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
         {
             return remainder > 0 && current != null;
         }
+
         public DerivativeInstrumentPartiesGroupDecoder next()
         {
             remainder--;
@@ -586,23 +590,27 @@ public class DerivativeInstrumentPartiesGroupDecoder extends CommonDecoderImpl i
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDerivativeInstrumentPartiesGroupCounter() ? parent.noDerivativeInstrumentPartiesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.derivativeInstrumentPartiesGroup();
         }
+
         public DerivativeInstrumentPartiesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DerivativeInstrumentPartiesGroupIterator derivativeInstrumentPartiesGroupIterator();
+    public DerivativeInstrumentPartiesGroupIterator derivativeInstrumentPartiesGroupIterator();
     public int noDerivativeInstrumentPartiesGroupCounter();
     public boolean hasNoDerivativeInstrumentPartiesGroupCounter();
     public DerivativeInstrumentPartiesGroupDecoder derivativeInstrumentPartiesGroup();

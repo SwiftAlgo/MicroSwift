@@ -138,6 +138,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper altMDSourceIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode AltMDSourceGroup
@@ -267,12 +268,12 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public AltMDSourceGroupEncoder toEncoder(final Encoder encoder)
+    public MDRjctGrpEncoder.AltMDSourceGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AltMDSourceGroupEncoder)encoder);
+        return toEncoder((MDRjctGrpEncoder.AltMDSourceGroupEncoder)encoder);
     }
 
-    public AltMDSourceGroupEncoder toEncoder(final AltMDSourceGroupEncoder encoder)
+    public MDRjctGrpEncoder.AltMDSourceGroupEncoder toEncoder(final MDRjctGrpEncoder.AltMDSourceGroupEncoder encoder)
     {
         encoder.reset();
         if (hasAltMDSourceID())
@@ -298,6 +299,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public AltMDSourceGroupDecoder next()
         {
             remainder--;
@@ -305,23 +307,27 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAltMDSourceGroupCounter() ? parent.noAltMDSourceGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.altMDSourceGroup();
         }
+
         public AltMDSourceGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AltMDSourceGroupIterator altMDSourceGroupIterator();
+    public AltMDSourceGroupIterator altMDSourceGroupIterator();
     public int noAltMDSourceGroupCounter();
     public boolean hasNoAltMDSourceGroupCounter();
     public AltMDSourceGroupDecoder altMDSourceGroup();

@@ -103,7 +103,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             REQUIRED_FIELDS.add(Constants.CROSS_ID);
             REQUIRED_FIELDS.add(Constants.CROSS_TYPE);
             REQUIRED_FIELDS.add(Constants.CROSS_PRIORITIZATION);
-            REQUIRED_FIELDS.add(Constants.NO_SIDES);
+            REQUIRED_FIELDS.add(Constants.NO_SIDES_GROUP_COUNTER);
             REQUIRED_FIELDS.add(Constants.TRANSACT_TIME);
             REQUIRED_FIELDS.add(Constants.ORD_TYPE);
         }
@@ -1239,24 +1239,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.CROSS_ID);
         messageFields.add(Constants.CROSS_TYPE);
         messageFields.add(Constants.CROSS_PRIORITIZATION);
-        messageFields.add(Constants.NO_ROOT_PARTY_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_ID);
         messageFields.add(Constants.ROOT_PARTY_ID_SOURCE);
         messageFields.add(Constants.ROOT_PARTY_ROLE);
-        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_SIDES);
+        messageFields.add(Constants.NO_SIDES_GROUP_COUNTER);
         messageFields.add(Constants.SIDE);
         messageFields.add(Constants.ORIG_CL_ORD_ID);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
         messageFields.add(Constants.CL_ORD_LINK_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TRADE_ORIGINATION_DATE);
@@ -1268,16 +1268,16 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.BOOKING_UNIT);
         messageFields.add(Constants.PREALLOC_METHOD);
         messageFields.add(Constants.ALLOC_ID);
-        messageFields.add(Constants.NO_ALLOCS);
+        messageFields.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.ALLOC_ACCOUNT);
         messageFields.add(Constants.ALLOC_ACCT_ID_SOURCE);
         messageFields.add(Constants.ALLOC_SETTL_CURRENCY);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_ID);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_QTY);
@@ -1312,7 +1312,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -1393,7 +1393,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -1401,14 +1401,14 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -1416,18 +1416,18 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -1489,28 +1489,28 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -1580,7 +1580,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.MAX_FLOOR);
         messageFields.add(Constants.EX_DESTINATION);
         messageFields.add(Constants.EX_DESTINATION_ID_SOURCE);
-        messageFields.add(Constants.NO_TRADING_SESSIONS);
+        messageFields.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
         messageFields.add(Constants.PROCESS_CODE);
@@ -1588,7 +1588,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.LOCATE_REQD);
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.TRANS_BKD_TIME);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
         messageFields.add(Constants.ORD_TYPE);
@@ -1654,7 +1654,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         messageFields.add(Constants.DISCRETION_ROUND_DIRECTION);
         messageFields.add(Constants.DISCRETION_SCOPE);
         messageFields.add(Constants.TARGET_STRATEGY);
-        messageFields.add(Constants.NO_STRATEGY_PARAMETERS);
+        messageFields.add(Constants.NO_STRATEGY_PARAMETERS_GROUP_COUNTER);
         messageFields.add(Constants.STRATEGY_PARAMETER_NAME);
         messageFields.add(Constants.STRATEGY_PARAMETER_TYPE);
         messageFields.add(Constants.STRATEGY_PARAMETER_VALUE);
@@ -1711,6 +1711,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper crossIDWrapper = new CharArrayWrapper();
     private int crossType = MISSING_INT;
 
     public int crossType()
@@ -1866,6 +1867,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -1975,6 +1977,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -2150,6 +2153,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -2200,6 +2204,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -2250,6 +2255,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -2359,6 +2365,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2559,6 +2566,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -2991,6 +2999,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -3104,6 +3113,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -3154,6 +3164,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -3254,6 +3265,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -3304,6 +3316,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -3847,6 +3860,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -4458,6 +4472,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -4550,6 +4565,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -4685,6 +4701,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -4736,6 +4753,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -4865,6 +4883,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -6157,6 +6176,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerSymbolWrapper = new CharArrayWrapper();
     private char[] triggerSecurityID = new char[1];
 
     private boolean hasTriggerSecurityID;
@@ -6207,6 +6227,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerSecurityIDWrapper = new CharArrayWrapper();
     private char[] triggerSecurityIDSource = new char[1];
 
     private boolean hasTriggerSecurityIDSource;
@@ -6257,6 +6278,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerSecurityIDSourceWrapper = new CharArrayWrapper();
     private char[] triggerSecurityDesc = new char[1];
 
     private boolean hasTriggerSecurityDesc;
@@ -6307,6 +6329,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerSecurityDescWrapper = new CharArrayWrapper();
     private char triggerPriceType = MISSING_CHAR;
 
     private boolean hasTriggerPriceType;
@@ -6515,6 +6538,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerTradingSessionIDWrapper = new CharArrayWrapper();
     private char[] triggerTradingSessionSubID = new char[1];
 
     private boolean hasTriggerTradingSessionSubID;
@@ -6565,6 +6589,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper triggerTradingSessionSubIDWrapper = new CharArrayWrapper();
 
 
     private DecimalFloat spread = DecimalFloat.newNaNValue();
@@ -6747,6 +6772,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper benchmarkCurvePointWrapper = new CharArrayWrapper();
     private DecimalFloat benchmarkPrice = DecimalFloat.newNaNValue();
 
     private boolean hasBenchmarkPrice;
@@ -6839,6 +6865,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDWrapper = new CharArrayWrapper();
     private char[] benchmarkSecurityIDSource = new char[1];
 
     private boolean hasBenchmarkSecurityIDSource;
@@ -6889,6 +6916,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private char[] yieldType = new char[1];
@@ -7214,6 +7242,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper complianceIDWrapper = new CharArrayWrapper();
     private char[] iOIID = new char[1];
 
     private boolean hasIOIID;
@@ -7264,6 +7293,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper iOIIDWrapper = new CharArrayWrapper();
     private char[] quoteID = new char[1];
 
     private boolean hasQuoteID;
@@ -7314,6 +7344,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper quoteIDWrapper = new CharArrayWrapper();
     private char timeInForce = MISSING_CHAR;
 
     private boolean hasTimeInForce;
@@ -7789,6 +7820,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper pegSecurityIDSourceWrapper = new CharArrayWrapper();
     private char[] pegSecurityID = new char[1];
 
     private boolean hasPegSecurityID;
@@ -7839,6 +7871,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper pegSecurityIDWrapper = new CharArrayWrapper();
     private char[] pegSymbol = new char[1];
 
     private boolean hasPegSymbol;
@@ -7889,6 +7922,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper pegSymbolWrapper = new CharArrayWrapper();
     private char[] pegSecurityDesc = new char[1];
 
     private boolean hasPegSecurityDesc;
@@ -7939,6 +7973,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper pegSecurityDescWrapper = new CharArrayWrapper();
 
 
     private char discretionInst = MISSING_CHAR;
@@ -8253,6 +8288,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper targetStrategyParametersWrapper = new CharArrayWrapper();
     private DecimalFloat participationRate = DecimalFloat.newNaNValue();
 
     private boolean hasParticipationRate;
@@ -8382,6 +8418,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper registIDWrapper = new CharArrayWrapper();
     private char[] designation = new char[1];
 
     private boolean hasDesignation;
@@ -8432,6 +8469,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
     }
 
 
+    private final CharArrayWrapper designationWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode NewOrderCross
@@ -8500,7 +8538,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 crossPrioritization = getInt(buffer, valueOffset, endOfField, 550, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_ROOT_PARTY_IDS:
+            case Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER:
                 hasNoRootPartyIDsGroupCounter = true;
                 noRootPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1116, CODEC_VALIDATION_ENABLED);
                 if (rootPartyIDsGroup == null)
@@ -8535,7 +8573,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 break;
 
 
-            case Constants.NO_SIDES:
+            case Constants.NO_SIDES_GROUP_COUNTER:
                 hasNoSidesGroupCounter = true;
                 noSidesGroupCounter = getInt(buffer, valueOffset, endOfField, 552, CODEC_VALIDATION_ENABLED);
                 if (sidesGroup == null)
@@ -8598,7 +8636,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -9095,7 +9133,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -9144,7 +9182,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -9179,7 +9217,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -9215,7 +9253,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
 
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -9250,7 +9288,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 break;
 
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -9384,7 +9422,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 exDestinationIDSource = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_TRADING_SESSIONS:
+            case Constants.NO_TRADING_SESSIONS_GROUP_COUNTER:
                 hasNoTradingSessionsGroupCounter = true;
                 noTradingSessionsGroupCounter = getInt(buffer, valueOffset, endOfField, 386, CODEC_VALIDATION_ENABLED);
                 if (tradingSessionsGroup == null)
@@ -9447,7 +9485,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 transBkdTimeLength = valueLength;
                 break;
 
-            case Constants.NO_STIPULATIONS:
+            case Constants.NO_STIPULATIONS_GROUP_COUNTER:
                 hasNoStipulationsGroupCounter = true;
                 noStipulationsGroupCounter = getInt(buffer, valueOffset, endOfField, 232, CODEC_VALIDATION_ENABLED);
                 if (stipulationsGroup == null)
@@ -9851,7 +9889,7 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
                 targetStrategy = getInt(buffer, valueOffset, endOfField, 847, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_STRATEGY_PARAMETERS:
+            case Constants.NO_STRATEGY_PARAMETERS_GROUP_COUNTER:
                 hasNoStrategyParametersGroupCounter = true;
                 noStrategyParametersGroupCounter = getInt(buffer, valueOffset, endOfField, 957, CODEC_VALIDATION_ENABLED);
                 if (strategyParametersGroup == null)
@@ -11242,41 +11280,43 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
         builder.append(crossPrioritization);
         builder.append("\",\n");
 
-    if (hasNoRootPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RootPartyIDsGroup\": [\n");
-        RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
-        for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
+        if (hasNoRootPartyIDsGroupCounter)
         {
             indent(builder, level);
-            rootPartyIDsGroup.appendTo(builder, level + 1);            if (rootPartyIDsGroup.next() != null)
+            builder.append("\"RootPartyIDsGroup\": [\n");
+            RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
+            for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rootPartyIDsGroup = rootPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rootPartyIDsGroup.appendTo(builder, level + 1);
+                if (rootPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rootPartyIDsGroup = rootPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoSidesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SidesGroup\": [\n");
-        SidesGroupDecoder sidesGroup = this.sidesGroup;
-        for (int i = 0, size = this.noSidesGroupCounter; i < size; i++)
+        if (hasNoSidesGroupCounter)
         {
             indent(builder, level);
-            sidesGroup.appendTo(builder, level + 1);            if (sidesGroup.next() != null)
+            builder.append("\"SidesGroup\": [\n");
+            SidesGroupDecoder sidesGroup = this.sidesGroup;
+            for (int i = 0, size = this.noSidesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            sidesGroup = sidesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                sidesGroup.appendTo(builder, level + 1);
+                if (sidesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                sidesGroup = sidesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSymbol())
         {
@@ -11310,23 +11350,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -11952,23 +11993,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -11986,77 +12028,81 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSettlType())
         {
@@ -12202,23 +12248,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoTradingSessionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradingSessionsGroup\": [\n");
-        TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
-        for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
+        if (hasNoTradingSessionsGroupCounter)
         {
             indent(builder, level);
-            tradingSessionsGroup.appendTo(builder, level + 1);            if (tradingSessionsGroup.next() != null)
+            builder.append("\"TradingSessionsGroup\": [\n");
+            TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
+            for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradingSessionsGroup = tradingSessionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradingSessionsGroup.appendTo(builder, level + 1);
+                if (tradingSessionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradingSessionsGroup = tradingSessionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProcessCode())
         {
@@ -12257,23 +12304,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoStipulationsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StipulationsGroup\": [\n");
-        StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
-        for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
+        if (hasNoStipulationsGroupCounter)
         {
             indent(builder, level);
-            stipulationsGroup.appendTo(builder, level + 1);            if (stipulationsGroup.next() != null)
+            builder.append("\"StipulationsGroup\": [\n");
+            StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
+            for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            stipulationsGroup = stipulationsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                stipulationsGroup.appendTo(builder, level + 1);
+                if (stipulationsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                stipulationsGroup = stipulationsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"OrdType\": \"");
@@ -12776,23 +12824,24 @@ public class NewOrderCrossDecoder extends CommonDecoderImpl implements RootParti
             builder.append("\",\n");
         }
 
-    if (hasNoStrategyParametersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StrategyParametersGroup\": [\n");
-        StrategyParametersGroupDecoder strategyParametersGroup = this.strategyParametersGroup;
-        for (int i = 0, size = this.noStrategyParametersGroupCounter; i < size; i++)
+        if (hasNoStrategyParametersGroupCounter)
         {
             indent(builder, level);
-            strategyParametersGroup.appendTo(builder, level + 1);            if (strategyParametersGroup.next() != null)
+            builder.append("\"StrategyParametersGroup\": [\n");
+            StrategyParametersGroupDecoder strategyParametersGroup = this.strategyParametersGroup;
+            for (int i = 0, size = this.noStrategyParametersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            strategyParametersGroup = strategyParametersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                strategyParametersGroup.appendTo(builder, level + 1);
+                if (strategyParametersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                strategyParametersGroup = strategyParametersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTargetStrategyParameters())
         {

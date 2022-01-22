@@ -374,12 +374,12 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.ENCODED_MKT_SEGM_DESC);
         messageFields.add(Constants.PARENT_MKT_SEGM_ID);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_TICK_RULES);
+        messageFields.add(Constants.NO_TICK_RULES_GROUP_COUNTER);
         messageFields.add(Constants.START_TICK_PRICE_RANGE);
         messageFields.add(Constants.END_TICK_PRICE_RANGE);
         messageFields.add(Constants.TICK_INCREMENT);
         messageFields.add(Constants.TICK_RULE_TYPE);
-        messageFields.add(Constants.NO_LOT_TYPE_RULES);
+        messageFields.add(Constants.NO_LOT_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.LOT_TYPE);
         messageFields.add(Constants.MIN_LOT_SIZE);
         messageFields.add(Constants.PRICE_LIMIT_TYPE);
@@ -396,11 +396,11 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.MULTILEG_MODEL);
         messageFields.add(Constants.MULTILEG_PRICE_METHOD);
         messageFields.add(Constants.PRICE_TYPE);
-        messageFields.add(Constants.NO_ORD_TYPE_RULES);
+        messageFields.add(Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.ORD_TYPE);
-        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES);
+        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TIME_IN_FORCE);
-        messageFields.add(Constants.NO_EXEC_INST_RULES);
+        messageFields.add(Constants.NO_EXEC_INST_RULES_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_INST_VALUE);
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.TEXT);
@@ -476,6 +476,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -568,6 +569,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper marketReportIDWrapper = new CharArrayWrapper();
     private char[] marketReqID = new char[1];
 
     private boolean hasMarketReqID;
@@ -618,6 +620,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper marketReqIDWrapper = new CharArrayWrapper();
     private char marketUpdateAction = MISSING_CHAR;
 
     private boolean hasMarketUpdateAction;
@@ -725,6 +728,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] marketSegmentDesc = new char[1];
 
     private boolean hasMarketSegmentDesc;
@@ -775,6 +779,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper marketSegmentDescWrapper = new CharArrayWrapper();
     private int encodedMktSegmDescLen = MISSING_INT;
 
     private boolean hasEncodedMktSegmDescLen;
@@ -867,6 +872,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper parentMktSegmIDWrapper = new CharArrayWrapper();
     private char[] currency = new char[1];
 
     private boolean hasCurrency;
@@ -1577,6 +1583,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1759,7 +1766,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
                 currencyLength = valueLength;
                 break;
 
-            case Constants.NO_TICK_RULES:
+            case Constants.NO_TICK_RULES_GROUP_COUNTER:
                 hasNoTickRulesGroupCounter = true;
                 noTickRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1205, CODEC_VALIDATION_ENABLED);
                 if (tickRulesGroup == null)
@@ -1794,7 +1801,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
                 break;
 
 
-            case Constants.NO_LOT_TYPE_RULES:
+            case Constants.NO_LOT_TYPE_RULES_GROUP_COUNTER:
                 hasNoLotTypeRulesGroupCounter = true;
                 noLotTypeRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1234, CODEC_VALIDATION_ENABLED);
                 if (lotTypeRulesGroup == null)
@@ -1903,7 +1910,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
                 break;
 
 
-            case Constants.NO_ORD_TYPE_RULES:
+            case Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER:
                 hasNoOrdTypeRulesGroupCounter = true;
                 noOrdTypeRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1237, CODEC_VALIDATION_ENABLED);
                 if (ordTypeRulesGroup == null)
@@ -1938,7 +1945,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
                 break;
 
 
-            case Constants.NO_TIME_IN_FORCE_RULES:
+            case Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER:
                 hasNoTimeInForceRulesGroupCounter = true;
                 noTimeInForceRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1239, CODEC_VALIDATION_ENABLED);
                 if (timeInForceRulesGroup == null)
@@ -1973,7 +1980,7 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
                 break;
 
 
-            case Constants.NO_EXEC_INST_RULES:
+            case Constants.NO_EXEC_INST_RULES_GROUP_COUNTER:
                 hasNoExecInstRulesGroupCounter = true;
                 noExecInstRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1232, CODEC_VALIDATION_ENABLED);
                 if (execInstRulesGroup == null)
@@ -2474,41 +2481,43 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
             builder.append("\",\n");
         }
 
-    if (hasNoTickRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TickRulesGroup\": [\n");
-        TickRulesGroupDecoder tickRulesGroup = this.tickRulesGroup;
-        for (int i = 0, size = this.noTickRulesGroupCounter; i < size; i++)
+        if (hasNoTickRulesGroupCounter)
         {
             indent(builder, level);
-            tickRulesGroup.appendTo(builder, level + 1);            if (tickRulesGroup.next() != null)
+            builder.append("\"TickRulesGroup\": [\n");
+            TickRulesGroupDecoder tickRulesGroup = this.tickRulesGroup;
+            for (int i = 0, size = this.noTickRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tickRulesGroup = tickRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tickRulesGroup.appendTo(builder, level + 1);
+                if (tickRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tickRulesGroup = tickRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLotTypeRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LotTypeRulesGroup\": [\n");
-        LotTypeRulesGroupDecoder lotTypeRulesGroup = this.lotTypeRulesGroup;
-        for (int i = 0, size = this.noLotTypeRulesGroupCounter; i < size; i++)
+        if (hasNoLotTypeRulesGroupCounter)
         {
             indent(builder, level);
-            lotTypeRulesGroup.appendTo(builder, level + 1);            if (lotTypeRulesGroup.next() != null)
+            builder.append("\"LotTypeRulesGroup\": [\n");
+            LotTypeRulesGroupDecoder lotTypeRulesGroup = this.lotTypeRulesGroup;
+            for (int i = 0, size = this.noLotTypeRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            lotTypeRulesGroup = lotTypeRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                lotTypeRulesGroup.appendTo(builder, level + 1);
+                if (lotTypeRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                lotTypeRulesGroup = lotTypeRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasPriceLimitType())
         {
@@ -2622,59 +2631,62 @@ public class MarketDefinitionUpdateReportDecoder extends CommonDecoderImpl imple
             builder.append("\",\n");
         }
 
-    if (hasNoOrdTypeRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdTypeRulesGroup\": [\n");
-        OrdTypeRulesGroupDecoder ordTypeRulesGroup = this.ordTypeRulesGroup;
-        for (int i = 0, size = this.noOrdTypeRulesGroupCounter; i < size; i++)
+        if (hasNoOrdTypeRulesGroupCounter)
         {
             indent(builder, level);
-            ordTypeRulesGroup.appendTo(builder, level + 1);            if (ordTypeRulesGroup.next() != null)
+            builder.append("\"OrdTypeRulesGroup\": [\n");
+            OrdTypeRulesGroupDecoder ordTypeRulesGroup = this.ordTypeRulesGroup;
+            for (int i = 0, size = this.noOrdTypeRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordTypeRulesGroup = ordTypeRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordTypeRulesGroup.appendTo(builder, level + 1);
+                if (ordTypeRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordTypeRulesGroup = ordTypeRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTimeInForceRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TimeInForceRulesGroup\": [\n");
-        TimeInForceRulesGroupDecoder timeInForceRulesGroup = this.timeInForceRulesGroup;
-        for (int i = 0, size = this.noTimeInForceRulesGroupCounter; i < size; i++)
+        if (hasNoTimeInForceRulesGroupCounter)
         {
             indent(builder, level);
-            timeInForceRulesGroup.appendTo(builder, level + 1);            if (timeInForceRulesGroup.next() != null)
+            builder.append("\"TimeInForceRulesGroup\": [\n");
+            TimeInForceRulesGroupDecoder timeInForceRulesGroup = this.timeInForceRulesGroup;
+            for (int i = 0, size = this.noTimeInForceRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            timeInForceRulesGroup = timeInForceRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                timeInForceRulesGroup.appendTo(builder, level + 1);
+                if (timeInForceRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                timeInForceRulesGroup = timeInForceRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoExecInstRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ExecInstRulesGroup\": [\n");
-        ExecInstRulesGroupDecoder execInstRulesGroup = this.execInstRulesGroup;
-        for (int i = 0, size = this.noExecInstRulesGroupCounter; i < size; i++)
+        if (hasNoExecInstRulesGroupCounter)
         {
             indent(builder, level);
-            execInstRulesGroup.appendTo(builder, level + 1);            if (execInstRulesGroup.next() != null)
+            builder.append("\"ExecInstRulesGroup\": [\n");
+            ExecInstRulesGroupDecoder execInstRulesGroup = this.execInstRulesGroup;
+            for (int i = 0, size = this.noExecInstRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            execInstRulesGroup = execInstRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                execInstRulesGroup.appendTo(builder, level + 1);
+                if (execInstRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                execInstRulesGroup = execInstRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTransactTime())
         {

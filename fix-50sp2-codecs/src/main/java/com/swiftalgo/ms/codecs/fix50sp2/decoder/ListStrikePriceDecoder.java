@@ -69,7 +69,7 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         {
             REQUIRED_FIELDS.add(Constants.LIST_ID);
             REQUIRED_FIELDS.add(Constants.TOT_NO_STRIKES);
-            REQUIRED_FIELDS.add(Constants.NO_STRIKES);
+            REQUIRED_FIELDS.add(Constants.NO_STRIKES_GROUP_COUNTER);
         }
     }
 
@@ -187,12 +187,12 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         messageFields.add(Constants.LIST_ID);
         messageFields.add(Constants.TOT_NO_STRIKES);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_STRIKES);
+        messageFields.add(Constants.NO_STRIKES_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -273,7 +273,7 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -281,14 +281,14 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -296,18 +296,18 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -369,18 +369,18 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -441,6 +441,7 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private int totNoStrikes = MISSING_INT;
 
     public int totNoStrikes()
@@ -577,7 +578,7 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_STRIKES:
+            case Constants.NO_STRIKES_GROUP_COUNTER:
                 hasNoStrikesGroupCounter = true;
                 noStrikesGroupCounter = getInt(buffer, valueOffset, endOfField, 428, CODEC_VALIDATION_ENABLED);
                 if (strikesGroup == null)
@@ -730,23 +731,24 @@ public class ListStrikePriceDecoder extends CommonDecoderImpl implements Instrmt
             builder.append("\",\n");
         }
 
-    if (hasNoStrikesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StrikesGroup\": [\n");
-        StrikesGroupDecoder strikesGroup = this.strikesGroup;
-        for (int i = 0, size = this.noStrikesGroupCounter; i < size; i++)
+        if (hasNoStrikesGroupCounter)
         {
             indent(builder, level);
-            strikesGroup.appendTo(builder, level + 1);            if (strikesGroup.next() != null)
+            builder.append("\"StrikesGroup\": [\n");
+            StrikesGroupDecoder strikesGroup = this.strikesGroup;
+            for (int i = 0, size = this.noStrikesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            strikesGroup = strikesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                strikesGroup.appendTo(builder, level + 1);
+                if (strikesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                strikesGroup = strikesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

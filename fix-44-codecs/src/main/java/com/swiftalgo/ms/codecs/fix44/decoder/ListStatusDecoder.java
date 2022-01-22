@@ -45,7 +45,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements MessageDecod
             REQUIRED_FIELDS.add(Constants.LIST_ORDER_STATUS);
             REQUIRED_FIELDS.add(Constants.RPT_SEQ);
             REQUIRED_FIELDS.add(Constants.TOT_NO_ORDERS);
-            REQUIRED_FIELDS.add(Constants.NO_ORDERS);
+            REQUIRED_FIELDS.add(Constants.NO_ORDERS_GROUP_COUNTER);
         }
     }
 
@@ -189,7 +189,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements MessageDecod
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.TOT_NO_ORDERS);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_ORDERS);
+        messageFields.add(Constants.NO_ORDERS_GROUP_COUNTER);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
         messageFields.add(Constants.CUM_QTY);
@@ -249,6 +249,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements MessageDecod
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private int listStatusType = MISSING_INT;
 
     public int listStatusType()
@@ -347,6 +348,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements MessageDecod
     }
 
 
+    private final CharArrayWrapper listStatusTextWrapper = new CharArrayWrapper();
     private int encodedListStatusTextLen = MISSING_INT;
 
     private boolean hasEncodedListStatusTextLen;
@@ -586,6 +588,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -636,6 +639,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private DecimalFloat cumQty = DecimalFloat.newNaNValue();
 
     public DecimalFloat cumQty()
@@ -787,6 +791,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1149,12 +1154,12 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public OrdersGroupEncoder toEncoder(final Encoder encoder)
+    public ListStatusEncoder.OrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OrdersGroupEncoder)encoder);
+        return toEncoder((ListStatusEncoder.OrdersGroupEncoder)encoder);
     }
 
-    public OrdersGroupEncoder toEncoder(final OrdersGroupEncoder encoder)
+    public ListStatusEncoder.OrdersGroupEncoder toEncoder(final ListStatusEncoder.OrdersGroupEncoder encoder)
     {
         encoder.reset();
         encoder.clOrdID(this.clOrdID(), 0, clOrdIDLength());
@@ -1212,6 +1217,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public OrdersGroupDecoder next()
         {
             remainder--;
@@ -1219,20 +1225,24 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOrdersGroupCounter() ? parent.noOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ordersGroup();
         }
+
         public OrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -1380,7 +1390,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_ORDERS:
+            case Constants.NO_ORDERS_GROUP_COUNTER:
                 hasNoOrdersGroupCounter = true;
                 noOrdersGroupCounter = getInt(buffer, valueOffset, endOfField, 73, CODEC_VALIDATION_ENABLED);
                 if (ordersGroup == null)
@@ -1632,23 +1642,24 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoOrdersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdersGroup\": [\n");
-        OrdersGroupDecoder ordersGroup = this.ordersGroup;
-        for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
+        if (hasNoOrdersGroupCounter)
         {
             indent(builder, level);
-            ordersGroup.appendTo(builder, level + 1);            if (ordersGroup.next() != null)
+            builder.append("\"OrdersGroup\": [\n");
+            OrdersGroupDecoder ordersGroup = this.ordersGroup;
+            for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordersGroup = ordersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordersGroup.appendTo(builder, level + 1);
+                if (ordersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordersGroup = ordersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

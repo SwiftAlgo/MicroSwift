@@ -186,6 +186,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSymbolWrapper = new CharArrayWrapper();
     private char[] underlyingLegSymbolSfx = new char[1];
 
     private boolean hasUnderlyingLegSymbolSfx;
@@ -236,6 +237,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSymbolSfxWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecurityID = new char[1];
 
     private boolean hasUnderlyingLegSecurityID;
@@ -286,6 +288,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityIDWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecurityIDSource = new char[1];
 
     private boolean hasUnderlyingLegSecurityIDSource;
@@ -336,6 +339,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private UnderlyingLegSecurityAltIDGroupDecoder underlyingLegSecurityAltIDGroup = null;
@@ -423,6 +427,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegCFICodeWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecurityType = new char[1];
 
     private boolean hasUnderlyingLegSecurityType;
@@ -473,6 +478,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityTypeWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecuritySubType = new char[1];
 
     private boolean hasUnderlyingLegSecuritySubType;
@@ -523,6 +529,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] underlyingLegMaturityMonthYear = new byte[8];
 
     private boolean hasUnderlyingLegMaturityMonthYear;
@@ -786,6 +793,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityExchangeWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecurityDesc = new char[1];
 
     private boolean hasUnderlyingLegSecurityDesc;
@@ -836,6 +844,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityDescWrapper = new CharArrayWrapper();
 
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
@@ -921,7 +930,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
                 underlyingLegSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYING_LEG_SECURITY_ALT_ID:
+            case Constants.NO_UNDERLYING_LEG_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoUnderlyingLegSecurityAltIDGroupCounter = true;
                 noUnderlyingLegSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 1334, CODEC_VALIDATION_ENABLED);
                 if (underlyingLegSecurityAltIDGroup == null)
@@ -1210,23 +1219,24 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingLegSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingLegSecurityAltIDGroup\": [\n");
-        UnderlyingLegSecurityAltIDGroupDecoder underlyingLegSecurityAltIDGroup = this.underlyingLegSecurityAltIDGroup;
-        for (int i = 0, size = this.noUnderlyingLegSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoUnderlyingLegSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            underlyingLegSecurityAltIDGroup.appendTo(builder, level + 1);            if (underlyingLegSecurityAltIDGroup.next() != null)
+            builder.append("\"UnderlyingLegSecurityAltIDGroup\": [\n");
+            UnderlyingLegSecurityAltIDGroupDecoder underlyingLegSecurityAltIDGroup = this.underlyingLegSecurityAltIDGroup;
+            for (int i = 0, size = this.noUnderlyingLegSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingLegSecurityAltIDGroup = underlyingLegSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingLegSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (underlyingLegSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingLegSecurityAltIDGroup = underlyingLegSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingLegCFICode())
         {
@@ -1323,12 +1333,12 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
     /**
      * {@inheritDoc}
      */
-    public OfLegUnderlyingsGroupEncoder toEncoder(final Encoder encoder)
+    public TradeCapLegUnderlyingsGrpEncoder.OfLegUnderlyingsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OfLegUnderlyingsGroupEncoder)encoder);
+        return toEncoder((TradeCapLegUnderlyingsGrpEncoder.OfLegUnderlyingsGroupEncoder)encoder);
     }
 
-    public OfLegUnderlyingsGroupEncoder toEncoder(final OfLegUnderlyingsGroupEncoder encoder)
+    public TradeCapLegUnderlyingsGrpEncoder.OfLegUnderlyingsGroupEncoder toEncoder(final TradeCapLegUnderlyingsGrpEncoder.OfLegUnderlyingsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -1444,6 +1454,7 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
         {
             return remainder > 0 && current != null;
         }
+
         public OfLegUnderlyingsGroupDecoder next()
         {
             remainder--;
@@ -1451,23 +1462,27 @@ public class OfLegUnderlyingsGroupDecoder extends CommonDecoderImpl implements U
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOfLegUnderlyingsGroupCounter() ? parent.noOfLegUnderlyingsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ofLegUnderlyingsGroup();
         }
+
         public OfLegUnderlyingsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public OfLegUnderlyingsGroupIterator ofLegUnderlyingsGroupIterator();
+    public OfLegUnderlyingsGroupIterator ofLegUnderlyingsGroupIterator();
     public int noOfLegUnderlyingsGroupCounter();
     public boolean hasNoOfLegUnderlyingsGroupCounter();
     public OfLegUnderlyingsGroupDecoder ofLegUnderlyingsGroup();

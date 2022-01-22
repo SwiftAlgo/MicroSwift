@@ -330,7 +330,7 @@ public class ComplexEventDatesGroupDecoder extends CommonDecoderImpl implements 
                 complexEventEndDateLength = valueLength;
                 break;
 
-            case Constants.NO_COMPLEX_EVENT_TIMES:
+            case Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER:
                 hasNoComplexEventTimesGroupCounter = true;
                 noComplexEventTimesGroupCounter = getInt(buffer, valueOffset, endOfField, 1494, CODEC_VALIDATION_ENABLED);
                 if (complexEventTimesGroup == null)
@@ -453,23 +453,24 @@ public class ComplexEventDatesGroupDecoder extends CommonDecoderImpl implements 
             builder.append("\",\n");
         }
 
-    if (hasNoComplexEventTimesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventTimesGroup\": [\n");
-        ComplexEventTimesGroupDecoder complexEventTimesGroup = this.complexEventTimesGroup;
-        for (int i = 0, size = this.noComplexEventTimesGroupCounter; i < size; i++)
+        if (hasNoComplexEventTimesGroupCounter)
         {
             indent(builder, level);
-            complexEventTimesGroup.appendTo(builder, level + 1);            if (complexEventTimesGroup.next() != null)
+            builder.append("\"ComplexEventTimesGroup\": [\n");
+            ComplexEventTimesGroupDecoder complexEventTimesGroup = this.complexEventTimesGroup;
+            for (int i = 0, size = this.noComplexEventTimesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventTimesGroup = complexEventTimesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventTimesGroup.appendTo(builder, level + 1);
+                if (complexEventTimesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventTimesGroup = complexEventTimesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -478,12 +479,12 @@ public class ComplexEventDatesGroupDecoder extends CommonDecoderImpl implements 
     /**
      * {@inheritDoc}
      */
-    public ComplexEventDatesGroupEncoder toEncoder(final Encoder encoder)
+    public ComplexEventDatesEncoder.ComplexEventDatesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ComplexEventDatesGroupEncoder)encoder);
+        return toEncoder((ComplexEventDatesEncoder.ComplexEventDatesGroupEncoder)encoder);
     }
 
-    public ComplexEventDatesGroupEncoder toEncoder(final ComplexEventDatesGroupEncoder encoder)
+    public ComplexEventDatesEncoder.ComplexEventDatesGroupEncoder toEncoder(final ComplexEventDatesEncoder.ComplexEventDatesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasComplexEventStartDate())
@@ -532,6 +533,7 @@ public class ComplexEventDatesGroupDecoder extends CommonDecoderImpl implements 
         {
             return remainder > 0 && current != null;
         }
+
         public ComplexEventDatesGroupDecoder next()
         {
             remainder--;
@@ -539,23 +541,27 @@ public class ComplexEventDatesGroupDecoder extends CommonDecoderImpl implements 
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoComplexEventDatesGroupCounter() ? parent.noComplexEventDatesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.complexEventDatesGroup();
         }
+
         public ComplexEventDatesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ComplexEventDatesGroupIterator complexEventDatesGroupIterator();
+    public ComplexEventDatesGroupIterator complexEventDatesGroupIterator();
     public int noComplexEventDatesGroupCounter();
     public boolean hasNoComplexEventDatesGroupCounter();
     public ComplexEventDatesGroupDecoder complexEventDatesGroup();

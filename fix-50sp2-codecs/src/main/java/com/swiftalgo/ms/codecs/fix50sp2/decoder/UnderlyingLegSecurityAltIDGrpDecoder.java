@@ -139,6 +139,7 @@ public class UnderlyingLegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityAltIDWrapper = new CharArrayWrapper();
     private char[] underlyingLegSecurityAltIDSource = new char[1];
 
     private boolean hasUnderlyingLegSecurityAltIDSource;
@@ -189,6 +190,7 @@ public class UnderlyingLegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingLegSecurityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UnderlyingLegSecurityAltIDGroup
@@ -339,12 +341,12 @@ public class UnderlyingLegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UnderlyingLegSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public UnderlyingLegSecurityAltIDGrpEncoder.UnderlyingLegSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UnderlyingLegSecurityAltIDGroupEncoder)encoder);
+        return toEncoder((UnderlyingLegSecurityAltIDGrpEncoder.UnderlyingLegSecurityAltIDGroupEncoder)encoder);
     }
 
-    public UnderlyingLegSecurityAltIDGroupEncoder toEncoder(final UnderlyingLegSecurityAltIDGroupEncoder encoder)
+    public UnderlyingLegSecurityAltIDGrpEncoder.UnderlyingLegSecurityAltIDGroupEncoder toEncoder(final UnderlyingLegSecurityAltIDGrpEncoder.UnderlyingLegSecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingLegSecurityAltID())
@@ -375,6 +377,7 @@ public class UnderlyingLegSecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UnderlyingLegSecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class UnderlyingLegSecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUnderlyingLegSecurityAltIDGroupCounter() ? parent.noUnderlyingLegSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.underlyingLegSecurityAltIDGroup();
         }
+
         public UnderlyingLegSecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UnderlyingLegSecurityAltIDGroupIterator underlyingLegSecurityAltIDGroupIterator();
+    public UnderlyingLegSecurityAltIDGroupIterator underlyingLegSecurityAltIDGroupIterator();
     public int noUnderlyingLegSecurityAltIDGroupCounter();
     public boolean hasNoUnderlyingLegSecurityAltIDGroupCounter();
     public UnderlyingLegSecurityAltIDGroupDecoder underlyingLegSecurityAltIDGroup();

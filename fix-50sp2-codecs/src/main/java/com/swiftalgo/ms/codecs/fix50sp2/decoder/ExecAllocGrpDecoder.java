@@ -175,6 +175,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper execIDWrapper = new CharArrayWrapper();
     private char[] secondaryExecID = new char[1];
 
     private boolean hasSecondaryExecID;
@@ -225,6 +226,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper secondaryExecIDWrapper = new CharArrayWrapper();
     private DecimalFloat lastPx = DecimalFloat.newNaNValue();
 
     private boolean hasLastPx;
@@ -346,6 +348,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradeIDWrapper = new CharArrayWrapper();
     private char[] firmTradeID = new char[1];
 
     private boolean hasFirmTradeID;
@@ -396,6 +399,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper firmTradeIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode ExecsGroup
@@ -664,12 +668,12 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ExecsGroupEncoder toEncoder(final Encoder encoder)
+    public ExecAllocGrpEncoder.ExecsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ExecsGroupEncoder)encoder);
+        return toEncoder((ExecAllocGrpEncoder.ExecsGroupEncoder)encoder);
     }
 
-    public ExecsGroupEncoder toEncoder(final ExecsGroupEncoder encoder)
+    public ExecAllocGrpEncoder.ExecsGroupEncoder toEncoder(final ExecAllocGrpEncoder.ExecsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasLastQty())
@@ -730,6 +734,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ExecsGroupDecoder next()
         {
             remainder--;
@@ -737,23 +742,27 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoExecsGroupCounter() ? parent.noExecsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.execsGroup();
         }
+
         public ExecsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ExecsGroupIterator execsGroupIterator();
+    public ExecsGroupIterator execsGroupIterator();
     public int noExecsGroupCounter();
     public boolean hasNoExecsGroupCounter();
     public ExecsGroupDecoder execsGroup();

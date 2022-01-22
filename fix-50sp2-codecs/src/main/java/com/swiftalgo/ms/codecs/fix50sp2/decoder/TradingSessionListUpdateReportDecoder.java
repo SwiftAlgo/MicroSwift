@@ -52,7 +52,7 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
     {
         if (CODEC_VALIDATION_ENABLED)
         {
-            REQUIRED_FIELDS.add(Constants.NO_TRADING_SESSIONS);
+            REQUIRED_FIELDS.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         }
     }
 
@@ -174,7 +174,7 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
         messageFields.add(Constants.APPL_LAST_SEQ_NUM);
         messageFields.add(Constants.APPL_RESEND_FLAG);
         messageFields.add(Constants.TRAD_SES_REQ_ID);
-        messageFields.add(Constants.NO_TRADING_SESSIONS);
+        messageFields.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
         messageFields.add(Constants.TRAD_SES_UPDATE_ACTION);
@@ -193,16 +193,16 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
         messageFields.add(Constants.TRAD_SES_CLOSE_TIME);
         messageFields.add(Constants.TRAD_SES_END_TIME);
         messageFields.add(Constants.TOTAL_VOLUME_TRADED);
-        messageFields.add(Constants.NO_ORD_TYPE_RULES);
+        messageFields.add(Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.ORD_TYPE);
-        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES);
+        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TIME_IN_FORCE);
-        messageFields.add(Constants.NO_EXEC_INST_RULES);
+        messageFields.add(Constants.NO_EXEC_INST_RULES_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_INST_VALUE);
-        messageFields.add(Constants.NO_MATCH_RULES);
+        messageFields.add(Constants.NO_MATCH_RULES_GROUP_COUNTER);
         messageFields.add(Constants.MATCH_ALGORITHM);
         messageFields.add(Constants.MATCH_TYPE);
-        messageFields.add(Constants.NO_M_D_FEED_TYPES);
+        messageFields.add(Constants.NO_M_D_FEED_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_FEED_TYPE);
         messageFields.add(Constants.MARKET_DEPTH);
         messageFields.add(Constants.M_D_BOOK_TYPE);
@@ -280,6 +280,7 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -394,6 +395,7 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
     }
 
 
+    private final CharArrayWrapper tradSesReqIDWrapper = new CharArrayWrapper();
 
 
     private TradingSessionsGroupDecoder tradingSessionsGroup = null;
@@ -515,7 +517,7 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
                 tradSesReqIDLength = valueLength;
                 break;
 
-            case Constants.NO_TRADING_SESSIONS:
+            case Constants.NO_TRADING_SESSIONS_GROUP_COUNTER:
                 hasNoTradingSessionsGroupCounter = true;
                 noTradingSessionsGroupCounter = getInt(buffer, valueOffset, endOfField, 386, CODEC_VALIDATION_ENABLED);
                 if (tradingSessionsGroup == null)
@@ -701,23 +703,24 @@ public class TradingSessionListUpdateReportDecoder extends CommonDecoderImpl imp
             builder.append("\",\n");
         }
 
-    if (hasNoTradingSessionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradingSessionsGroup\": [\n");
-        TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
-        for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
+        if (hasNoTradingSessionsGroupCounter)
         {
             indent(builder, level);
-            tradingSessionsGroup.appendTo(builder, level + 1);            if (tradingSessionsGroup.next() != null)
+            builder.append("\"TradingSessionsGroup\": [\n");
+            TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
+            for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradingSessionsGroup = tradingSessionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradingSessionsGroup.appendTo(builder, level + 1);
+                if (tradingSessionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradingSessionsGroup = tradingSessionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

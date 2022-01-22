@@ -139,6 +139,7 @@ public class NotAffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper notAffOrigClOrdIDWrapper = new CharArrayWrapper();
     private char[] notAffectedOrderID = new char[1];
 
     private boolean hasNotAffectedOrderID;
@@ -189,6 +190,7 @@ public class NotAffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper notAffectedOrderIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode NotAffectedOrdersGroup
@@ -339,12 +341,12 @@ public class NotAffectedOrdersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public NotAffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
+    public NotAffectedOrdersGrpEncoder.NotAffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((NotAffectedOrdersGroupEncoder)encoder);
+        return toEncoder((NotAffectedOrdersGrpEncoder.NotAffectedOrdersGroupEncoder)encoder);
     }
 
-    public NotAffectedOrdersGroupEncoder toEncoder(final NotAffectedOrdersGroupEncoder encoder)
+    public NotAffectedOrdersGrpEncoder.NotAffectedOrdersGroupEncoder toEncoder(final NotAffectedOrdersGrpEncoder.NotAffectedOrdersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasNotAffOrigClOrdID())
@@ -375,6 +377,7 @@ public class NotAffectedOrdersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public NotAffectedOrdersGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class NotAffectedOrdersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoNotAffectedOrdersGroupCounter() ? parent.noNotAffectedOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.notAffectedOrdersGroup();
         }
+
         public NotAffectedOrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public NotAffectedOrdersGroupIterator notAffectedOrdersGroupIterator();
+    public NotAffectedOrdersGroupIterator notAffectedOrdersGroupIterator();
     public int noNotAffectedOrdersGroupCounter();
     public boolean hasNoNotAffectedOrdersGroupCounter();
     public NotAffectedOrdersGroupDecoder notAffectedOrdersGroup();

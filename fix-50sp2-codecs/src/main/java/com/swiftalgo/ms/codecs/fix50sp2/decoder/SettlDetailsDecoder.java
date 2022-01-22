@@ -259,7 +259,7 @@ public class SettlDetailsGroupDecoder extends CommonDecoderImpl implements Settl
                 settlObligSource = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_SETTL_PARTY_IDS:
+            case Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER:
                 hasNoSettlPartyIDsGroupCounter = true;
                 noSettlPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 781, CODEC_VALIDATION_ENABLED);
                 if (settlPartyIDsGroup == null)
@@ -368,23 +368,24 @@ public class SettlDetailsGroupDecoder extends CommonDecoderImpl implements Settl
             builder.append("\",\n");
         }
 
-    if (hasNoSettlPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SettlPartyIDsGroup\": [\n");
-        SettlPartyIDsGroupDecoder settlPartyIDsGroup = this.settlPartyIDsGroup;
-        for (int i = 0, size = this.noSettlPartyIDsGroupCounter; i < size; i++)
+        if (hasNoSettlPartyIDsGroupCounter)
         {
             indent(builder, level);
-            settlPartyIDsGroup.appendTo(builder, level + 1);            if (settlPartyIDsGroup.next() != null)
+            builder.append("\"SettlPartyIDsGroup\": [\n");
+            SettlPartyIDsGroupDecoder settlPartyIDsGroup = this.settlPartyIDsGroup;
+            for (int i = 0, size = this.noSettlPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            settlPartyIDsGroup = settlPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                settlPartyIDsGroup.appendTo(builder, level + 1);
+                if (settlPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                settlPartyIDsGroup = settlPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -393,12 +394,12 @@ public class SettlDetailsGroupDecoder extends CommonDecoderImpl implements Settl
     /**
      * {@inheritDoc}
      */
-    public SettlDetailsGroupEncoder toEncoder(final Encoder encoder)
+    public SettlDetailsEncoder.SettlDetailsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SettlDetailsGroupEncoder)encoder);
+        return toEncoder((SettlDetailsEncoder.SettlDetailsGroupEncoder)encoder);
     }
 
-    public SettlDetailsGroupEncoder toEncoder(final SettlDetailsGroupEncoder encoder)
+    public SettlDetailsEncoder.SettlDetailsGroupEncoder toEncoder(final SettlDetailsEncoder.SettlDetailsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSettlObligSource())
@@ -442,6 +443,7 @@ public class SettlDetailsGroupDecoder extends CommonDecoderImpl implements Settl
         {
             return remainder > 0 && current != null;
         }
+
         public SettlDetailsGroupDecoder next()
         {
             remainder--;
@@ -449,23 +451,27 @@ public class SettlDetailsGroupDecoder extends CommonDecoderImpl implements Settl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSettlDetailsGroupCounter() ? parent.noSettlDetailsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.settlDetailsGroup();
         }
+
         public SettlDetailsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SettlDetailsGroupIterator settlDetailsGroupIterator();
+    public SettlDetailsGroupIterator settlDetailsGroupIterator();
     public int noSettlDetailsGroupCounter();
     public boolean hasNoSettlDetailsGroupCounter();
     public SettlDetailsGroupDecoder settlDetailsGroup();

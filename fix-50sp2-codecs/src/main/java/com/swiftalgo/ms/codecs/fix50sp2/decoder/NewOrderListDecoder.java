@@ -98,7 +98,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
             REQUIRED_FIELDS.add(Constants.LIST_ID);
             REQUIRED_FIELDS.add(Constants.BID_TYPE);
             REQUIRED_FIELDS.add(Constants.TOT_NO_ORDERS);
-            REQUIRED_FIELDS.add(Constants.NO_ORDERS);
+            REQUIRED_FIELDS.add(Constants.NO_ORDERS_GROUP_COUNTER);
         }
     }
 
@@ -328,24 +328,24 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.ALLOWABLE_ONE_SIDEDNESS_CURR);
         messageFields.add(Constants.TOT_NO_ORDERS);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_ROOT_PARTY_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_ID);
         messageFields.add(Constants.ROOT_PARTY_ID_SOURCE);
         messageFields.add(Constants.ROOT_PARTY_ROLE);
-        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_ORDERS);
+        messageFields.add(Constants.NO_ORDERS_GROUP_COUNTER);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
         messageFields.add(Constants.LIST_SEQ_NO);
         messageFields.add(Constants.CL_ORD_LINK_ID);
         messageFields.add(Constants.SETTL_INST_MODE);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TRADE_ORIGINATION_DATE);
@@ -357,16 +357,16 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.BOOKING_UNIT);
         messageFields.add(Constants.ALLOC_ID);
         messageFields.add(Constants.PREALLOC_METHOD);
-        messageFields.add(Constants.NO_ALLOCS);
+        messageFields.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.ALLOC_ACCOUNT);
         messageFields.add(Constants.ALLOC_ACCT_ID_SOURCE);
         messageFields.add(Constants.ALLOC_SETTL_CURRENCY);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_ID);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_QTY);
@@ -390,7 +390,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.MAX_FLOOR);
         messageFields.add(Constants.EX_DESTINATION);
         messageFields.add(Constants.EX_DESTINATION_ID_SOURCE);
-        messageFields.add(Constants.NO_TRADING_SESSIONS);
+        messageFields.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
         messageFields.add(Constants.PROCESS_CODE);
@@ -398,7 +398,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -479,7 +479,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -487,14 +487,14 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -502,18 +502,18 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -575,18 +575,18 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -596,7 +596,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.SIDE_VALUE_IND);
         messageFields.add(Constants.LOCATE_REQD);
         messageFields.add(Constants.TRANSACT_TIME);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
         messageFields.add(Constants.QTY_TYPE);
@@ -690,7 +690,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
         messageFields.add(Constants.DISCRETION_ROUND_DIRECTION);
         messageFields.add(Constants.DISCRETION_SCOPE);
         messageFields.add(Constants.TARGET_STRATEGY);
-        messageFields.add(Constants.NO_STRATEGY_PARAMETERS);
+        messageFields.add(Constants.NO_STRATEGY_PARAMETERS_GROUP_COUNTER);
         messageFields.add(Constants.STRATEGY_PARAMETER_NAME);
         messageFields.add(Constants.STRATEGY_PARAMETER_TYPE);
         messageFields.add(Constants.STRATEGY_PARAMETER_VALUE);
@@ -744,6 +744,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] bidID = new char[1];
 
     private boolean hasBidID;
@@ -794,6 +795,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
     }
 
 
+    private final CharArrayWrapper bidIDWrapper = new CharArrayWrapper();
     private char[] clientBidID = new char[1];
 
     private boolean hasClientBidID;
@@ -844,6 +846,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
     }
 
 
+    private final CharArrayWrapper clientBidIDWrapper = new CharArrayWrapper();
     private int progRptReqs = MISSING_INT;
 
     private boolean hasProgRptReqs;
@@ -1017,6 +1020,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
     }
 
 
+    private final CharArrayWrapper registIDWrapper = new CharArrayWrapper();
     private char listExecInstType = MISSING_CHAR;
 
     private boolean hasListExecInstType;
@@ -1096,6 +1100,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
     }
 
 
+    private final CharArrayWrapper listExecInstWrapper = new CharArrayWrapper();
     private int contingencyType = MISSING_INT;
 
     private boolean hasContingencyType;
@@ -1522,7 +1527,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_ROOT_PARTY_IDS:
+            case Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER:
                 hasNoRootPartyIDsGroupCounter = true;
                 noRootPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1116, CODEC_VALIDATION_ENABLED);
                 if (rootPartyIDsGroup == null)
@@ -1557,7 +1562,7 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
                 break;
 
 
-            case Constants.NO_ORDERS:
+            case Constants.NO_ORDERS_GROUP_COUNTER:
                 hasNoOrdersGroupCounter = true;
                 noOrdersGroupCounter = getInt(buffer, valueOffset, endOfField, 73, CODEC_VALIDATION_ENABLED);
                 if (ordersGroup == null)
@@ -1946,41 +1951,43 @@ public class NewOrderListDecoder extends CommonDecoderImpl implements RootPartie
             builder.append("\",\n");
         }
 
-    if (hasNoRootPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RootPartyIDsGroup\": [\n");
-        RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
-        for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
+        if (hasNoRootPartyIDsGroupCounter)
         {
             indent(builder, level);
-            rootPartyIDsGroup.appendTo(builder, level + 1);            if (rootPartyIDsGroup.next() != null)
+            builder.append("\"RootPartyIDsGroup\": [\n");
+            RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
+            for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rootPartyIDsGroup = rootPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rootPartyIDsGroup.appendTo(builder, level + 1);
+                if (rootPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rootPartyIDsGroup = rootPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoOrdersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdersGroup\": [\n");
-        OrdersGroupDecoder ordersGroup = this.ordersGroup;
-        for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
+        if (hasNoOrdersGroupCounter)
         {
             indent(builder, level);
-            ordersGroup.appendTo(builder, level + 1);            if (ordersGroup.next() != null)
+            builder.append("\"OrdersGroup\": [\n");
+            OrdersGroupDecoder ordersGroup = this.ordersGroup;
+            for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordersGroup = ordersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordersGroup.appendTo(builder, level + 1);
+                if (ordersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordersGroup = ordersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

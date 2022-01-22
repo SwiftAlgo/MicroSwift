@@ -294,12 +294,12 @@ public class LotTypeRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public LotTypeRulesGroupEncoder toEncoder(final Encoder encoder)
+    public LotTypeRulesEncoder.LotTypeRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LotTypeRulesGroupEncoder)encoder);
+        return toEncoder((LotTypeRulesEncoder.LotTypeRulesGroupEncoder)encoder);
     }
 
-    public LotTypeRulesGroupEncoder toEncoder(final LotTypeRulesGroupEncoder encoder)
+    public LotTypeRulesEncoder.LotTypeRulesGroupEncoder toEncoder(final LotTypeRulesEncoder.LotTypeRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasLotType())
@@ -330,6 +330,7 @@ public class LotTypeRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public LotTypeRulesGroupDecoder next()
         {
             remainder--;
@@ -337,23 +338,27 @@ public class LotTypeRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLotTypeRulesGroupCounter() ? parent.noLotTypeRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.lotTypeRulesGroup();
         }
+
         public LotTypeRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LotTypeRulesGroupIterator lotTypeRulesGroupIterator();
+    public LotTypeRulesGroupIterator lotTypeRulesGroupIterator();
     public int noLotTypeRulesGroupCounter();
     public boolean hasNoLotTypeRulesGroupCounter();
     public LotTypeRulesGroupDecoder lotTypeRulesGroup();

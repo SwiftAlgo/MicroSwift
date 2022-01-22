@@ -175,6 +175,7 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
     }
 
 
+    private final CharArrayWrapper nestedPartyIDWrapper = new CharArrayWrapper();
     private char nestedPartyIDSource = MISSING_CHAR;
 
     private boolean hasNestedPartyIDSource;
@@ -327,7 +328,7 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
                 nestedPartyRole = getInt(buffer, valueOffset, endOfField, 538, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED_PARTY_SUB_IDS:
+            case Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoNestedPartySubIDsGroupCounter = true;
                 noNestedPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 804, CODEC_VALIDATION_ENABLED);
                 if (nestedPartySubIDsGroup == null)
@@ -464,23 +465,24 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartySubIDsGroup\": [\n");
-        NestedPartySubIDsGroupDecoder nestedPartySubIDsGroup = this.nestedPartySubIDsGroup;
-        for (int i = 0, size = this.noNestedPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartySubIDsGroup.appendTo(builder, level + 1);            if (nestedPartySubIDsGroup.next() != null)
+            builder.append("\"NestedPartySubIDsGroup\": [\n");
+            NestedPartySubIDsGroupDecoder nestedPartySubIDsGroup = this.nestedPartySubIDsGroup;
+            for (int i = 0, size = this.noNestedPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartySubIDsGroup = nestedPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartySubIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartySubIDsGroup = nestedPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -489,12 +491,12 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
     /**
      * {@inheritDoc}
      */
-    public NestedPartyIDsGroupEncoder toEncoder(final Encoder encoder)
+    public NestedPartiesEncoder.NestedPartyIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((NestedPartyIDsGroupEncoder)encoder);
+        return toEncoder((NestedPartiesEncoder.NestedPartyIDsGroupEncoder)encoder);
     }
 
-    public NestedPartyIDsGroupEncoder toEncoder(final NestedPartyIDsGroupEncoder encoder)
+    public NestedPartiesEncoder.NestedPartyIDsGroupEncoder toEncoder(final NestedPartiesEncoder.NestedPartyIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasNestedPartyID())
@@ -548,6 +550,7 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
         {
             return remainder > 0 && current != null;
         }
+
         public NestedPartyIDsGroupDecoder next()
         {
             remainder--;
@@ -555,23 +558,27 @@ public class NestedPartyIDsGroupDecoder extends CommonDecoderImpl implements Nst
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoNestedPartyIDsGroupCounter() ? parent.noNestedPartyIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.nestedPartyIDsGroup();
         }
+
         public NestedPartyIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public NestedPartyIDsGroupIterator nestedPartyIDsGroupIterator();
+    public NestedPartyIDsGroupIterator nestedPartyIDsGroupIterator();
     public int noNestedPartyIDsGroupCounter();
     public boolean hasNoNestedPartyIDsGroupCounter();
     public NestedPartyIDsGroupDecoder nestedPartyIDsGroup();

@@ -294,12 +294,12 @@ public class ExpirationGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ExpirationGroupEncoder toEncoder(final Encoder encoder)
+    public ExpirationQtyEncoder.ExpirationGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ExpirationGroupEncoder)encoder);
+        return toEncoder((ExpirationQtyEncoder.ExpirationGroupEncoder)encoder);
     }
 
-    public ExpirationGroupEncoder toEncoder(final ExpirationGroupEncoder encoder)
+    public ExpirationQtyEncoder.ExpirationGroupEncoder toEncoder(final ExpirationQtyEncoder.ExpirationGroupEncoder encoder)
     {
         encoder.reset();
         if (hasExpirationQtyType())
@@ -330,6 +330,7 @@ public class ExpirationGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ExpirationGroupDecoder next()
         {
             remainder--;
@@ -337,23 +338,27 @@ public class ExpirationGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoExpirationGroupCounter() ? parent.noExpirationGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.expirationGroup();
         }
+
         public ExpirationGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ExpirationGroupIterator expirationGroupIterator();
+    public ExpirationGroupIterator expirationGroupIterator();
     public int noExpirationGroupCounter();
     public boolean hasNoExpirationGroupCounter();
     public ExpirationGroupDecoder expirationGroup();

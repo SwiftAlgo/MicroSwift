@@ -269,11 +269,11 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
         messageFields.add(Constants.MESSAGE_ENCODING);
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.ALLOC_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.SECONDARY_ALLOC_ID);
@@ -289,18 +289,18 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
         messageFields.add(Constants.TEXT);
         messageFields.add(Constants.ENCODED_TEXT_LEN);
         messageFields.add(Constants.ENCODED_TEXT);
-        messageFields.add(Constants.NO_ALLOCS);
+        messageFields.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.ALLOC_ACCOUNT);
         messageFields.add(Constants.ALLOC_ACCT_ID_SOURCE);
         messageFields.add(Constants.ALLOC_PRICE);
         messageFields.add(Constants.ALLOC_POSITION_EFFECT);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_ID);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_REJ_CODE);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_TEXT);
@@ -357,6 +357,7 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper allocIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -444,6 +445,7 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper secondaryAllocIDWrapper = new CharArrayWrapper();
     private byte[] tradeDate = new byte[8];
 
     private boolean hasTradeDate;
@@ -813,6 +815,7 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -952,7 +955,7 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
                 allocIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -1062,7 +1065,7 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
                 endOfField = valueOffset + encodedTextLen;
                 break;
 
-            case Constants.NO_ALLOCS:
+            case Constants.NO_ALLOCS_GROUP_COUNTER:
                 hasNoAllocsGroupCounter = true;
                 noAllocsGroupCounter = getInt(buffer, valueOffset, endOfField, 78, CODEC_VALIDATION_ENABLED);
                 if (allocsGroup == null)
@@ -1283,23 +1286,24 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
         builder.append(this.allocID(), 0, allocIDLength());
         builder.append("\",\n");
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSecondaryAllocID())
         {
@@ -1402,23 +1406,24 @@ public class AllocationInstructionAckDecoder extends CommonDecoderImpl implement
             builder.append("\",\n");
         }
 
-    if (hasNoAllocsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AllocsGroup\": [\n");
-        AllocsGroupDecoder allocsGroup = this.allocsGroup;
-        for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
+        if (hasNoAllocsGroupCounter)
         {
             indent(builder, level);
-            allocsGroup.appendTo(builder, level + 1);            if (allocsGroup.next() != null)
+            builder.append("\"AllocsGroup\": [\n");
+            AllocsGroupDecoder allocsGroup = this.allocsGroup;
+            for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            allocsGroup = allocsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                allocsGroup.appendTo(builder, level + 1);
+                if (allocsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                allocsGroup = allocsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

@@ -223,7 +223,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
         messageFields.add(Constants.SECURITY_RESPONSE_TYPE);
         messageFields.add(Constants.TOT_NO_SECURITY_TYPES);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_SECURITY_TYPES);
+        messageFields.add(Constants.NO_SECURITY_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_TYPE);
         messageFields.add(Constants.SECURITY_SUB_TYPE);
         messageFields.add(Constants.PRODUCT);
@@ -307,6 +307,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -399,6 +400,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
     }
 
 
+    private final CharArrayWrapper securityReqIDWrapper = new CharArrayWrapper();
     private char[] securityResponseID = new char[1];
 
     public char[] securityResponseID()
@@ -427,6 +429,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
     }
 
 
+    private final CharArrayWrapper securityResponseIDWrapper = new CharArrayWrapper();
     private int securityResponseType = MISSING_INT;
 
     public int securityResponseType()
@@ -571,6 +574,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -713,6 +717,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionID = new char[1];
 
     private boolean hasTradingSessionID;
@@ -963,7 +968,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_SECURITY_TYPES:
+            case Constants.NO_SECURITY_TYPES_GROUP_COUNTER:
                 hasNoSecurityTypesGroupCounter = true;
                 noSecurityTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 558, CODEC_VALIDATION_ENABLED);
                 if (securityTypesGroup == null)
@@ -1297,23 +1302,24 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements Applicati
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityTypesGroup\": [\n");
-        SecurityTypesGroupDecoder securityTypesGroup = this.securityTypesGroup;
-        for (int i = 0, size = this.noSecurityTypesGroupCounter; i < size; i++)
+        if (hasNoSecurityTypesGroupCounter)
         {
             indent(builder, level);
-            securityTypesGroup.appendTo(builder, level + 1);            if (securityTypesGroup.next() != null)
+            builder.append("\"SecurityTypesGroup\": [\n");
+            SecurityTypesGroupDecoder securityTypesGroup = this.securityTypesGroup;
+            for (int i = 0, size = this.noSecurityTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityTypesGroup = securityTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityTypesGroup.appendTo(builder, level + 1);
+                if (securityTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityTypesGroup = securityTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

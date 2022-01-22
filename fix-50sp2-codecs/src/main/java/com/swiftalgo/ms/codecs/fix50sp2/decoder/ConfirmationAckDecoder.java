@@ -208,6 +208,7 @@ public class ConfirmationAckDecoder extends CommonDecoderImpl implements Message
     }
 
 
+    private final CharArrayWrapper confirmIDWrapper = new CharArrayWrapper();
     private byte[] tradeDate = new byte[8];
 
     public byte[] tradeDate()
@@ -387,6 +388,7 @@ public class ConfirmationAckDecoder extends CommonDecoderImpl implements Message
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

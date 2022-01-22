@@ -139,6 +139,7 @@ public class Nested3PartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper nested3PartySubIDWrapper = new CharArrayWrapper();
     private int nested3PartySubIDType = MISSING_INT;
 
     private boolean hasNested3PartySubIDType;
@@ -308,12 +309,12 @@ public class Nested3PartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public Nested3PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public NstdPtys3SubGrpEncoder.Nested3PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((Nested3PartySubIDsGroupEncoder)encoder);
+        return toEncoder((NstdPtys3SubGrpEncoder.Nested3PartySubIDsGroupEncoder)encoder);
     }
 
-    public Nested3PartySubIDsGroupEncoder toEncoder(final Nested3PartySubIDsGroupEncoder encoder)
+    public NstdPtys3SubGrpEncoder.Nested3PartySubIDsGroupEncoder toEncoder(final NstdPtys3SubGrpEncoder.Nested3PartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasNested3PartySubID())
@@ -344,6 +345,7 @@ public class Nested3PartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public Nested3PartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class Nested3PartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoNested3PartySubIDsGroupCounter() ? parent.noNested3PartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.nested3PartySubIDsGroup();
         }
+
         public Nested3PartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public Nested3PartySubIDsGroupIterator nested3PartySubIDsGroupIterator();
+    public Nested3PartySubIDsGroupIterator nested3PartySubIDsGroupIterator();
     public int noNested3PartySubIDsGroupCounter();
     public boolean hasNoNested3PartySubIDsGroupCounter();
     public Nested3PartySubIDsGroupDecoder nested3PartySubIDsGroup();

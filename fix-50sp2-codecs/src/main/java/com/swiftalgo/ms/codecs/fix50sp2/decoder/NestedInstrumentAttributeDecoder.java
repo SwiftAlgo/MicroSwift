@@ -160,6 +160,7 @@ public class NestedInstrAttribGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper nestedInstrAttribValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode NestedInstrAttribGroup
@@ -308,12 +309,12 @@ public class NestedInstrAttribGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public NestedInstrAttribGroupEncoder toEncoder(final Encoder encoder)
+    public NestedInstrumentAttributeEncoder.NestedInstrAttribGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((NestedInstrAttribGroupEncoder)encoder);
+        return toEncoder((NestedInstrumentAttributeEncoder.NestedInstrAttribGroupEncoder)encoder);
     }
 
-    public NestedInstrAttribGroupEncoder toEncoder(final NestedInstrAttribGroupEncoder encoder)
+    public NestedInstrumentAttributeEncoder.NestedInstrAttribGroupEncoder toEncoder(final NestedInstrumentAttributeEncoder.NestedInstrAttribGroupEncoder encoder)
     {
         encoder.reset();
         if (hasNestedInstrAttribType())
@@ -344,6 +345,7 @@ public class NestedInstrAttribGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public NestedInstrAttribGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class NestedInstrAttribGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoNestedInstrAttribGroupCounter() ? parent.noNestedInstrAttribGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.nestedInstrAttribGroup();
         }
+
         public NestedInstrAttribGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public NestedInstrAttribGroupIterator nestedInstrAttribGroupIterator();
+    public NestedInstrAttribGroupIterator nestedInstrAttribGroupIterator();
     public int noNestedInstrAttribGroupCounter();
     public boolean hasNoNestedInstrAttribGroupCounter();
     public NestedInstrAttribGroupDecoder nestedInstrAttribGroup();

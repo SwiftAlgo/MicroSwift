@@ -190,6 +190,7 @@ public class HeartbeatDecoder extends CommonDecoderImpl implements MessageDecode
     }
 
 
+    private final CharArrayWrapper testReqIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode Heartbeat

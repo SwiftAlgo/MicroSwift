@@ -378,12 +378,12 @@ public class StipulationsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public StipulationsGroupEncoder toEncoder(final Encoder encoder)
+    public StipulationsEncoder.StipulationsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((StipulationsGroupEncoder)encoder);
+        return toEncoder((StipulationsEncoder.StipulationsGroupEncoder)encoder);
     }
 
-    public StipulationsGroupEncoder toEncoder(final StipulationsGroupEncoder encoder)
+    public StipulationsEncoder.StipulationsGroupEncoder toEncoder(final StipulationsEncoder.StipulationsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasStipulationType())
@@ -414,6 +414,7 @@ public class StipulationsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public StipulationsGroupDecoder next()
         {
             remainder--;
@@ -421,23 +422,27 @@ public class StipulationsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoStipulationsGroupCounter() ? parent.noStipulationsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.stipulationsGroup();
         }
+
         public StipulationsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public StipulationsGroupIterator stipulationsGroupIterator();
+    public StipulationsGroupIterator stipulationsGroupIterator();
     public int noStipulationsGroupCounter();
     public boolean hasNoStipulationsGroupCounter();
     public StipulationsGroupDecoder stipulationsGroup();

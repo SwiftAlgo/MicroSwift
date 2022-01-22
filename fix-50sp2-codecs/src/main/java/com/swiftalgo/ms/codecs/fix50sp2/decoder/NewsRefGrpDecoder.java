@@ -148,6 +148,7 @@ public class NewsRefIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper newsRefIDWrapper = new CharArrayWrapper();
     private int newsRefType = MISSING_INT;
 
     private boolean hasNewsRefType;
@@ -325,12 +326,12 @@ public class NewsRefIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public NewsRefIDsGroupEncoder toEncoder(final Encoder encoder)
+    public NewsRefGrpEncoder.NewsRefIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((NewsRefIDsGroupEncoder)encoder);
+        return toEncoder((NewsRefGrpEncoder.NewsRefIDsGroupEncoder)encoder);
     }
 
-    public NewsRefIDsGroupEncoder toEncoder(final NewsRefIDsGroupEncoder encoder)
+    public NewsRefGrpEncoder.NewsRefIDsGroupEncoder toEncoder(final NewsRefGrpEncoder.NewsRefIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasNewsRefID())
@@ -361,6 +362,7 @@ public class NewsRefIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public NewsRefIDsGroupDecoder next()
         {
             remainder--;
@@ -368,23 +370,27 @@ public class NewsRefIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoNewsRefIDsGroupCounter() ? parent.noNewsRefIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.newsRefIDsGroup();
         }
+
         public NewsRefIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public NewsRefIDsGroupIterator newsRefIDsGroupIterator();
+    public NewsRefIDsGroupIterator newsRefIDsGroupIterator();
     public int noNewsRefIDsGroupCounter();
     public boolean hasNoNewsRefIDsGroupCounter();
     public NewsRefIDsGroupDecoder newsRefIDsGroup();

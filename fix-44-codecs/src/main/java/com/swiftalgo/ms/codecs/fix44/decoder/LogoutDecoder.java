@@ -192,6 +192,7 @@ public class LogoutDecoder extends CommonDecoderImpl implements MessageDecoder, 
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

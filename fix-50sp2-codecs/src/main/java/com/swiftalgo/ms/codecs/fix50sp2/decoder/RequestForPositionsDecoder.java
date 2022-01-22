@@ -759,11 +759,11 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.MATCH_STATUS);
         messageFields.add(Constants.SUBSCRIPTION_REQUEST_TYPE);
         messageFields.add(Constants.SETTL_CURRENCY);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -773,7 +773,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -854,7 +854,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -862,14 +862,14 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -877,19 +877,19 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -941,12 +941,12 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.LEG_PUT_OR_CALL);
         messageFields.add(Constants.LEG_OPTION_RATIO);
         messageFields.add(Constants.LEG_PRICE);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -1008,18 +1008,18 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -1027,7 +1027,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
         messageFields.add(Constants.CLEARING_BUSINESS_DATE);
         messageFields.add(Constants.SETTL_SESS_ID);
         messageFields.add(Constants.SETTL_SESS_SUB_ID);
-        messageFields.add(Constants.NO_TRADING_SESSIONS);
+        messageFields.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
         messageFields.add(Constants.TRANSACT_TIME);
@@ -1083,6 +1083,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper posReqIDWrapper = new CharArrayWrapper();
     private int posReqType = MISSING_INT;
 
     public int posReqType()
@@ -1293,6 +1294,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -1402,6 +1404,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -1511,6 +1514,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -1686,6 +1690,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -1736,6 +1741,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -1786,6 +1792,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -1895,6 +1902,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2095,6 +2103,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -2527,6 +2536,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -2640,6 +2650,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -2690,6 +2701,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -2790,6 +2802,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -2840,6 +2853,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -3383,6 +3397,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -3994,6 +4009,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -4086,6 +4102,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -4221,6 +4238,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -4272,6 +4290,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -4401,6 +4420,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -4874,6 +4894,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper settlSessSubIDWrapper = new CharArrayWrapper();
 
 
     private TradingSessionsGroupDecoder tradingSessionsGroup = null;
@@ -5018,6 +5039,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper responseDestinationWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -5068,6 +5090,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -5191,7 +5214,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 settlCurrencyLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -5271,7 +5294,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -5768,7 +5791,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -5817,7 +5840,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -5852,7 +5875,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -5895,7 +5918,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 currencyLength = valueLength;
                 break;
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -5930,7 +5953,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 break;
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -5985,7 +6008,7 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
                 settlSessSubIDLength = valueLength;
                 break;
 
-            case Constants.NO_TRADING_SESSIONS:
+            case Constants.NO_TRADING_SESSIONS_GROUP_COUNTER:
                 hasNoTradingSessionsGroupCounter = true;
                 noTradingSessionsGroupCounter = getInt(buffer, valueOffset, endOfField, 386, CODEC_VALIDATION_ENABLED);
                 if (tradingSessionsGroup == null)
@@ -6887,23 +6910,24 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {
@@ -6961,23 +6985,24 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -7603,23 +7628,24 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -7637,41 +7663,43 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasCurrency())
         {
@@ -7681,41 +7709,43 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"ClearingBusinessDate\": \"");
@@ -7738,23 +7768,24 @@ public class RequestForPositionsDecoder extends CommonDecoderImpl implements Par
             builder.append("\",\n");
         }
 
-    if (hasNoTradingSessionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradingSessionsGroup\": [\n");
-        TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
-        for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
+        if (hasNoTradingSessionsGroupCounter)
         {
             indent(builder, level);
-            tradingSessionsGroup.appendTo(builder, level + 1);            if (tradingSessionsGroup.next() != null)
+            builder.append("\"TradingSessionsGroup\": [\n");
+            TradingSessionsGroupDecoder tradingSessionsGroup = this.tradingSessionsGroup;
+            for (int i = 0, size = this.noTradingSessionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradingSessionsGroup = tradingSessionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradingSessionsGroup.appendTo(builder, level + 1);
+                if (tradingSessionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradingSessionsGroup = tradingSessionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"TransactTime\": \"");

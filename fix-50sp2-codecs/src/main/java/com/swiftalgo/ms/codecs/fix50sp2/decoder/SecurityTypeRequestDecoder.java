@@ -223,6 +223,7 @@ public class SecurityTypeRequestDecoder extends CommonDecoderImpl implements Mes
     }
 
 
+    private final CharArrayWrapper securityReqIDWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -273,6 +274,7 @@ public class SecurityTypeRequestDecoder extends CommonDecoderImpl implements Mes
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -415,6 +417,7 @@ public class SecurityTypeRequestDecoder extends CommonDecoderImpl implements Mes
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionID = new char[1];
 
     private boolean hasTradingSessionID;
@@ -671,6 +674,7 @@ public class SecurityTypeRequestDecoder extends CommonDecoderImpl implements Mes
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SecurityTypeRequest

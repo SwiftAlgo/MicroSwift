@@ -233,12 +233,12 @@ public class MDEntryTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MDEntryTypesGroupEncoder toEncoder(final Encoder encoder)
+    public MDReqGrpEncoder.MDEntryTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MDEntryTypesGroupEncoder)encoder);
+        return toEncoder((MDReqGrpEncoder.MDEntryTypesGroupEncoder)encoder);
     }
 
-    public MDEntryTypesGroupEncoder toEncoder(final MDEntryTypesGroupEncoder encoder)
+    public MDReqGrpEncoder.MDEntryTypesGroupEncoder toEncoder(final MDReqGrpEncoder.MDEntryTypesGroupEncoder encoder)
     {
         encoder.reset();
         encoder.mDEntryType(this.mDEntryType());        return encoder;
@@ -260,6 +260,7 @@ public class MDEntryTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MDEntryTypesGroupDecoder next()
         {
             remainder--;
@@ -267,23 +268,27 @@ public class MDEntryTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMDEntryTypesGroupCounter() ? parent.noMDEntryTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.mDEntryTypesGroup();
         }
+
         public MDEntryTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MDEntryTypesGroupIterator mDEntryTypesGroupIterator();
+    public MDEntryTypesGroupIterator mDEntryTypesGroupIterator();
     public int noMDEntryTypesGroupCounter();
     public boolean hasNoMDEntryTypesGroupCounter();
     public MDEntryTypesGroupDecoder mDEntryTypesGroup();

@@ -139,6 +139,7 @@ public class InstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper instrumentPartySubIDWrapper = new CharArrayWrapper();
     private int instrumentPartySubIDType = MISSING_INT;
 
     private boolean hasInstrumentPartySubIDType;
@@ -308,12 +309,12 @@ public class InstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public InstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public InstrumentPtysSubGrpEncoder.InstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((InstrumentPartySubIDsGroupEncoder)encoder);
+        return toEncoder((InstrumentPtysSubGrpEncoder.InstrumentPartySubIDsGroupEncoder)encoder);
     }
 
-    public InstrumentPartySubIDsGroupEncoder toEncoder(final InstrumentPartySubIDsGroupEncoder encoder)
+    public InstrumentPtysSubGrpEncoder.InstrumentPartySubIDsGroupEncoder toEncoder(final InstrumentPtysSubGrpEncoder.InstrumentPartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasInstrumentPartySubID())
@@ -344,6 +345,7 @@ public class InstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public InstrumentPartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class InstrumentPartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoInstrumentPartySubIDsGroupCounter() ? parent.noInstrumentPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.instrumentPartySubIDsGroup();
         }
+
         public InstrumentPartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public InstrumentPartySubIDsGroupIterator instrumentPartySubIDsGroupIterator();
+    public InstrumentPartySubIDsGroupIterator instrumentPartySubIDsGroupIterator();
     public int noInstrumentPartySubIDsGroupCounter();
     public boolean hasNoInstrumentPartySubIDsGroupCounter();
     public InstrumentPartySubIDsGroupDecoder instrumentPartySubIDsGroup();

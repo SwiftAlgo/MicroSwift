@@ -139,6 +139,7 @@ public class SettlPartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper settlPartySubIDWrapper = new CharArrayWrapper();
     private int settlPartySubIDType = MISSING_INT;
 
     private boolean hasSettlPartySubIDType;
@@ -308,12 +309,12 @@ public class SettlPartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SettlPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public SettlPtysSubGrpEncoder.SettlPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SettlPartySubIDsGroupEncoder)encoder);
+        return toEncoder((SettlPtysSubGrpEncoder.SettlPartySubIDsGroupEncoder)encoder);
     }
 
-    public SettlPartySubIDsGroupEncoder toEncoder(final SettlPartySubIDsGroupEncoder encoder)
+    public SettlPtysSubGrpEncoder.SettlPartySubIDsGroupEncoder toEncoder(final SettlPtysSubGrpEncoder.SettlPartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSettlPartySubID())
@@ -344,6 +345,7 @@ public class SettlPartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SettlPartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class SettlPartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSettlPartySubIDsGroupCounter() ? parent.noSettlPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.settlPartySubIDsGroup();
         }
+
         public SettlPartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SettlPartySubIDsGroupIterator settlPartySubIDsGroupIterator();
+    public SettlPartySubIDsGroupIterator settlPartySubIDsGroupIterator();
     public int noSettlPartySubIDsGroupCounter();
     public boolean hasNoSettlPartySubIDsGroupCounter();
     public SettlPartySubIDsGroupDecoder settlPartySubIDsGroup();

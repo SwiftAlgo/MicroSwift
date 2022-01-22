@@ -160,6 +160,7 @@ public class DerivativeInstrAttribGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeInstrAttribValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode DerivativeInstrAttribGroup
@@ -308,12 +309,12 @@ public class DerivativeInstrAttribGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public DerivativeInstrAttribGroupEncoder toEncoder(final Encoder encoder)
+    public DerivativeInstrumentAttributeEncoder.DerivativeInstrAttribGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DerivativeInstrAttribGroupEncoder)encoder);
+        return toEncoder((DerivativeInstrumentAttributeEncoder.DerivativeInstrAttribGroupEncoder)encoder);
     }
 
-    public DerivativeInstrAttribGroupEncoder toEncoder(final DerivativeInstrAttribGroupEncoder encoder)
+    public DerivativeInstrumentAttributeEncoder.DerivativeInstrAttribGroupEncoder toEncoder(final DerivativeInstrumentAttributeEncoder.DerivativeInstrAttribGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDerivativeInstrAttribType())
@@ -344,6 +345,7 @@ public class DerivativeInstrAttribGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public DerivativeInstrAttribGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class DerivativeInstrAttribGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDerivativeInstrAttribGroupCounter() ? parent.noDerivativeInstrAttribGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.derivativeInstrAttribGroup();
         }
+
         public DerivativeInstrAttribGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DerivativeInstrAttribGroupIterator derivativeInstrAttribGroupIterator();
+    public DerivativeInstrAttribGroupIterator derivativeInstrAttribGroupIterator();
     public int noDerivativeInstrAttribGroupCounter();
     public boolean hasNoDerivativeInstrAttribGroupCounter();
     public DerivativeInstrAttribGroupDecoder derivativeInstrAttribGroup();

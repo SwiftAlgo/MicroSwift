@@ -185,7 +185,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements MessageDe
         messageFields.add(Constants.SECURITY_RESPONSE_TYPE);
         messageFields.add(Constants.TOT_NO_SECURITY_TYPES);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_SECURITY_TYPES);
+        messageFields.add(Constants.NO_SECURITY_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_TYPE);
         messageFields.add(Constants.SECURITY_SUB_TYPE);
         messageFields.add(Constants.PRODUCT);
@@ -243,6 +243,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements MessageDe
     }
 
 
+    private final CharArrayWrapper securityReqIDWrapper = new CharArrayWrapper();
     private char[] securityResponseID = new char[1];
 
     public char[] securityResponseID()
@@ -271,6 +272,7 @@ public class SecurityTypesDecoder extends CommonDecoderImpl implements MessageDe
     }
 
 
+    private final CharArrayWrapper securityResponseIDWrapper = new CharArrayWrapper();
     private int securityResponseType = MISSING_INT;
 
     public int securityResponseType()
@@ -516,6 +518,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private int product = MISSING_INT;
 
     private boolean hasProduct;
@@ -595,6 +598,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SecurityTypesGroup
@@ -785,12 +789,12 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SecurityTypesGroupEncoder toEncoder(final Encoder encoder)
+    public SecurityTypesEncoder.SecurityTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SecurityTypesGroupEncoder)encoder);
+        return toEncoder((SecurityTypesEncoder.SecurityTypesGroupEncoder)encoder);
     }
 
-    public SecurityTypesGroupEncoder toEncoder(final SecurityTypesGroupEncoder encoder)
+    public SecurityTypesEncoder.SecurityTypesGroupEncoder toEncoder(final SecurityTypesEncoder.SecurityTypesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSecurityType())
@@ -831,6 +835,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SecurityTypesGroupDecoder next()
         {
             remainder--;
@@ -838,20 +843,24 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSecurityTypesGroupCounter() ? parent.noSecurityTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.securityTypesGroup();
         }
+
         public SecurityTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -939,6 +948,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1031,6 +1041,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -1081,6 +1092,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
     private char subscriptionRequestType = MISSING_CHAR;
 
     private boolean hasSubscriptionRequestType;
@@ -1190,7 +1202,7 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_SECURITY_TYPES:
+            case Constants.NO_SECURITY_TYPES_GROUP_COUNTER:
                 hasNoSecurityTypesGroupCounter = true;
                 noSecurityTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 558, CODEC_VALIDATION_ENABLED);
                 if (securityTypesGroup == null)
@@ -1441,23 +1453,24 @@ public class SecurityTypesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityTypesGroup\": [\n");
-        SecurityTypesGroupDecoder securityTypesGroup = this.securityTypesGroup;
-        for (int i = 0, size = this.noSecurityTypesGroupCounter; i < size; i++)
+        if (hasNoSecurityTypesGroupCounter)
         {
             indent(builder, level);
-            securityTypesGroup.appendTo(builder, level + 1);            if (securityTypesGroup.next() != null)
+            builder.append("\"SecurityTypesGroup\": [\n");
+            SecurityTypesGroupDecoder securityTypesGroup = this.securityTypesGroup;
+            for (int i = 0, size = this.noSecurityTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityTypesGroup = securityTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityTypesGroup.appendTo(builder, level + 1);
+                if (securityTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityTypesGroup = securityTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

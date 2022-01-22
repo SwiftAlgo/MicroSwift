@@ -294,12 +294,12 @@ public class OfSecSizesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public OfSecSizesGroupEncoder toEncoder(final Encoder encoder)
+    public SecSizesGrpEncoder.OfSecSizesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OfSecSizesGroupEncoder)encoder);
+        return toEncoder((SecSizesGrpEncoder.OfSecSizesGroupEncoder)encoder);
     }
 
-    public OfSecSizesGroupEncoder toEncoder(final OfSecSizesGroupEncoder encoder)
+    public SecSizesGrpEncoder.OfSecSizesGroupEncoder toEncoder(final SecSizesGrpEncoder.OfSecSizesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMDSecSizeType())
@@ -330,6 +330,7 @@ public class OfSecSizesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public OfSecSizesGroupDecoder next()
         {
             remainder--;
@@ -337,23 +338,27 @@ public class OfSecSizesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOfSecSizesGroupCounter() ? parent.noOfSecSizesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ofSecSizesGroup();
         }
+
         public OfSecSizesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public OfSecSizesGroupIterator ofSecSizesGroupIterator();
+    public OfSecSizesGroupIterator ofSecSizesGroupIterator();
     public int noOfSecSizesGroupCounter();
     public boolean hasNoOfSecSizesGroupCounter();
     public OfSecSizesGroupDecoder ofSecSizesGroup();

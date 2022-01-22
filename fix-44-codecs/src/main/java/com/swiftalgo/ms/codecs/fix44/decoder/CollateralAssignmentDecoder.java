@@ -680,11 +680,11 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.COLL_ASGN_REF_ID);
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.EXPIRE_TIME);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -693,16 +693,16 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.ORDER_ID);
         messageFields.add(Constants.SECONDARY_ORDER_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
-        messageFields.add(Constants.NO_EXECS);
+        messageFields.add(Constants.NO_EXECS_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_ID);
-        messageFields.add(Constants.NO_TRADES);
+        messageFields.add(Constants.NO_TRADES_GROUP_COUNTER);
         messageFields.add(Constants.TRADE_REPORT_ID);
         messageFields.add(Constants.SECONDARY_TRADE_REPORT_ID);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -740,7 +740,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_PX);
@@ -760,12 +760,12 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.QUANTITY);
         messageFields.add(Constants.QTY_TYPE);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -805,12 +805,12 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.LEG_DATED_DATE);
         messageFields.add(Constants.LEG_CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.LEG_INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -854,19 +854,19 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.COLL_ACTION);
         messageFields.add(Constants.MARGIN_EXCESS);
         messageFields.add(Constants.TOTAL_NET_VALUE);
         messageFields.add(Constants.CASH_OUTSTANDING);
-        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS);
+        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER);
         messageFields.add(Constants.TRD_REG_TIMESTAMP);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_TYPE);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_ORIGIN);
         messageFields.add(Constants.SIDE);
-        messageFields.add(Constants.NO_MISC_FEES);
+        messageFields.add(Constants.NO_MISC_FEES_GROUP_COUNTER);
         messageFields.add(Constants.MISC_FEE_AMT);
         messageFields.add(Constants.MISC_FEE_CURR);
         messageFields.add(Constants.MISC_FEE_TYPE);
@@ -885,21 +885,21 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
         messageFields.add(Constants.BENCHMARK_PRICE_TYPE);
         messageFields.add(Constants.BENCHMARK_SECURITY_ID);
         messageFields.add(Constants.BENCHMARK_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
         messageFields.add(Constants.SETTL_DELIVERY_TYPE);
         messageFields.add(Constants.STAND_INST_DB_TYPE);
         messageFields.add(Constants.STAND_INST_DB_NAME);
         messageFields.add(Constants.STAND_INST_DB_ID);
-        messageFields.add(Constants.NO_DLVY_INST);
+        messageFields.add(Constants.NO_DLVY_INST_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_INST_SOURCE);
         messageFields.add(Constants.DLVY_INST_TYPE);
-        messageFields.add(Constants.NO_SETTL_PARTY_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_ID);
         messageFields.add(Constants.SETTL_PARTY_ID_SOURCE);
         messageFields.add(Constants.SETTL_PARTY_ROLE);
-        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TRADING_SESSION_ID);
@@ -957,6 +957,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper collAsgnIDWrapper = new CharArrayWrapper();
     private char[] collReqID = new char[1];
 
     private boolean hasCollReqID;
@@ -1007,6 +1008,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper collReqIDWrapper = new CharArrayWrapper();
     private int collAsgnReason = MISSING_INT;
 
     public int collAsgnReason()
@@ -1087,6 +1089,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper collAsgnRefIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -1252,6 +1255,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int accountType = MISSING_INT;
 
     private boolean hasAccountType;
@@ -1331,6 +1335,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] orderID = new char[1];
 
     private boolean hasOrderID;
@@ -1381,6 +1386,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -1431,6 +1437,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -1481,6 +1488,7 @@ public class CollateralAssignmentDecoder extends CommonDecoderImpl implements Pa
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
 
 
 public class ExecsGroupDecoder extends CommonDecoderImpl
@@ -1587,6 +1595,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper execIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode ExecsGroup
@@ -1716,12 +1725,12 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ExecsGroupEncoder toEncoder(final Encoder encoder)
+    public CollateralAssignmentEncoder.ExecsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ExecsGroupEncoder)encoder);
+        return toEncoder((CollateralAssignmentEncoder.ExecsGroupEncoder)encoder);
     }
 
-    public ExecsGroupEncoder toEncoder(final ExecsGroupEncoder encoder)
+    public CollateralAssignmentEncoder.ExecsGroupEncoder toEncoder(final CollateralAssignmentEncoder.ExecsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasExecID())
@@ -1747,6 +1756,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ExecsGroupDecoder next()
         {
             remainder--;
@@ -1754,20 +1764,24 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoExecsGroupCounter() ? parent.noExecsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.execsGroup();
         }
+
         public ExecsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -1912,6 +1926,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradeReportIDWrapper = new CharArrayWrapper();
     private char[] secondaryTradeReportID = new char[1];
 
     private boolean hasSecondaryTradeReportID;
@@ -1962,6 +1977,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper secondaryTradeReportIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode TradesGroup
@@ -2112,12 +2128,12 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TradesGroupEncoder toEncoder(final Encoder encoder)
+    public CollateralAssignmentEncoder.TradesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TradesGroupEncoder)encoder);
+        return toEncoder((CollateralAssignmentEncoder.TradesGroupEncoder)encoder);
     }
 
-    public TradesGroupEncoder toEncoder(final TradesGroupEncoder encoder)
+    public CollateralAssignmentEncoder.TradesGroupEncoder toEncoder(final CollateralAssignmentEncoder.TradesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTradeReportID())
@@ -2148,6 +2164,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TradesGroupDecoder next()
         {
             remainder--;
@@ -2155,20 +2172,24 @@ public class TradesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTradesGroupCounter() ? parent.noTradesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.tradesGroup();
         }
+
         public TradesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -2235,6 +2256,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -2344,6 +2366,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -2517,6 +2540,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -2626,6 +2650,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2905,6 +2930,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -3018,6 +3044,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -3068,6 +3095,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -3168,6 +3196,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -3218,6 +3247,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -3502,6 +3532,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -3594,6 +3625,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -3686,6 +3718,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -3807,6 +3840,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
     private EventsGroupDecoder eventsGroup = null;
     public EventsGroupDecoder eventsGroup()
@@ -3994,6 +4028,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper agreementDescWrapper = new CharArrayWrapper();
     private char[] agreementID = new char[1];
 
     private boolean hasAgreementID;
@@ -4044,6 +4079,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper agreementIDWrapper = new CharArrayWrapper();
     private byte[] agreementDate = new byte[8];
 
     private boolean hasAgreementDate;
@@ -4651,6 +4687,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSymbolWrapper = new CharArrayWrapper();
     private char[] legSymbolSfx = new char[1];
 
     private boolean hasLegSymbolSfx;
@@ -4701,6 +4738,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSymbolSfxWrapper = new CharArrayWrapper();
     private char[] legSecurityID = new char[1];
 
     private boolean hasLegSecurityID;
@@ -4751,6 +4789,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityIDWrapper = new CharArrayWrapper();
     private char[] legSecurityIDSource = new char[1];
 
     private boolean hasLegSecurityIDSource;
@@ -4801,6 +4840,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityIDSourceWrapper = new CharArrayWrapper();
 
     private LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = null;
     public LegSecurityAltIDGroupDecoder legSecurityAltIDGroup()
@@ -4907,6 +4947,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legCFICodeWrapper = new CharArrayWrapper();
     private char[] legSecurityType = new char[1];
 
     private boolean hasLegSecurityType;
@@ -4957,6 +4998,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityTypeWrapper = new CharArrayWrapper();
     private char[] legSecuritySubType = new char[1];
 
     private boolean hasLegSecuritySubType;
@@ -5007,6 +5049,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] legMaturityMonthYear = new byte[8];
 
     private boolean hasLegMaturityMonthYear;
@@ -5257,6 +5300,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int legRepurchaseTerm = MISSING_INT;
 
     private boolean hasLegRepurchaseTerm;
@@ -5370,6 +5414,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legCreditRatingWrapper = new CharArrayWrapper();
     private char[] legInstrRegistry = new char[1];
 
     private boolean hasLegInstrRegistry;
@@ -5420,6 +5465,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legInstrRegistryWrapper = new CharArrayWrapper();
     private char[] legCountryOfIssue = new char[1];
 
     private boolean hasLegCountryOfIssue;
@@ -5520,6 +5566,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] legLocaleOfIssue = new char[1];
 
     private boolean hasLegLocaleOfIssue;
@@ -5570,6 +5617,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] legRedemptionDate = new byte[8];
 
     private boolean hasLegRedemptionDate;
@@ -5854,6 +5902,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legIssuerWrapper = new CharArrayWrapper();
     private int encodedLegIssuerLen = MISSING_INT;
 
     private boolean hasEncodedLegIssuerLen;
@@ -5946,6 +5995,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityDescWrapper = new CharArrayWrapper();
     private int encodedLegSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedLegSecurityDescLen;
@@ -6130,6 +6180,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legPoolWrapper = new CharArrayWrapper();
     private byte[] legDatedDate = new byte[8];
 
     private boolean hasLegDatedDate;
@@ -6365,7 +6416,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
                 legSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_LEG_SECURITY_ALT_ID:
+            case Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoLegSecurityAltIDGroupCounter = true;
                 noLegSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 604, CODEC_VALIDATION_ENABLED);
                 if (legSecurityAltIDGroup == null)
@@ -6971,23 +7022,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             builder.append("\",\n");
         }
 
-    if (hasNoLegSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegSecurityAltIDGroup\": [\n");
-        LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = this.legSecurityAltIDGroup;
-        for (int i = 0, size = this.noLegSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoLegSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            legSecurityAltIDGroup.appendTo(builder, level + 1);            if (legSecurityAltIDGroup.next() != null)
+            builder.append("\"LegSecurityAltIDGroup\": [\n");
+            LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = this.legSecurityAltIDGroup;
+            for (int i = 0, size = this.noLegSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legSecurityAltIDGroup = legSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (legSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legSecurityAltIDGroup = legSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegProduct())
         {
@@ -7292,12 +7344,12 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     /**
      * {@inheritDoc}
      */
-    public LegsGroupEncoder toEncoder(final Encoder encoder)
+    public CollateralAssignmentEncoder.LegsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LegsGroupEncoder)encoder);
+        return toEncoder((CollateralAssignmentEncoder.LegsGroupEncoder)encoder);
     }
 
-    public LegsGroupEncoder toEncoder(final LegsGroupEncoder encoder)
+    public CollateralAssignmentEncoder.LegsGroupEncoder toEncoder(final CollateralAssignmentEncoder.LegsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -7543,6 +7595,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
         {
             return remainder > 0 && current != null;
         }
+
         public LegsGroupDecoder next()
         {
             remainder--;
@@ -7550,20 +7603,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLegsGroupCounter() ? parent.noLegsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.legsGroup();
         }
+
         public LegsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -7804,6 +7861,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolWrapper = new CharArrayWrapper();
     private char[] underlyingSymbolSfx = new char[1];
 
     private boolean hasUnderlyingSymbolSfx;
@@ -7854,6 +7912,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolSfxWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityID = new char[1];
 
     private boolean hasUnderlyingSecurityID;
@@ -7904,6 +7963,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityIDSource = new char[1];
 
     private boolean hasUnderlyingSecurityIDSource;
@@ -7954,6 +8014,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDSourceWrapper = new CharArrayWrapper();
 
     private UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = null;
     public UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup()
@@ -8060,6 +8121,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingCFICodeWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityType = new char[1];
 
     private boolean hasUnderlyingSecurityType;
@@ -8110,6 +8172,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSecuritySubType = new char[1];
 
     private boolean hasUnderlyingSecuritySubType;
@@ -8160,6 +8223,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] underlyingMaturityMonthYear = new byte[8];
 
     private boolean hasUnderlyingMaturityMonthYear;
@@ -8439,6 +8503,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int underlyingRepurchaseTerm = MISSING_INT;
 
     private boolean hasUnderlyingRepurchaseTerm;
@@ -8552,6 +8617,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingCreditRatingWrapper = new CharArrayWrapper();
     private char[] underlyingInstrRegistry = new char[1];
 
     private boolean hasUnderlyingInstrRegistry;
@@ -8602,6 +8668,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingInstrRegistryWrapper = new CharArrayWrapper();
     private char[] underlyingCountryOfIssue = new char[1];
 
     private boolean hasUnderlyingCountryOfIssue;
@@ -8702,6 +8769,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] underlyingLocaleOfIssue = new char[1];
 
     private boolean hasUnderlyingLocaleOfIssue;
@@ -8752,6 +8820,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] underlyingRedemptionDate = new byte[8];
 
     private boolean hasUnderlyingRedemptionDate;
@@ -9036,6 +9105,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingIssuerWrapper = new CharArrayWrapper();
     private int encodedUnderlyingIssuerLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingIssuerLen;
@@ -9128,6 +9198,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityDescWrapper = new CharArrayWrapper();
     private int encodedUnderlyingSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingSecurityDescLen;
@@ -9220,6 +9291,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingCPProgramWrapper = new CharArrayWrapper();
     private char[] underlyingCPRegType = new char[1];
 
     private boolean hasUnderlyingCPRegType;
@@ -9270,6 +9342,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     }
 
 
+    private final CharArrayWrapper underlyingCPRegTypeWrapper = new CharArrayWrapper();
     private char[] underlyingCurrency = new char[1];
 
     private boolean hasUnderlyingCurrency;
@@ -9617,7 +9690,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
                 underlyingSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYING_SECURITY_ALT_ID:
+            case Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoUnderlyingSecurityAltIDGroupCounter = true;
                 noUnderlyingSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 457, CODEC_VALIDATION_ENABLED);
                 if (underlyingSecurityAltIDGroup == null)
@@ -9900,7 +9973,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
                 underlyingEndValue = getFloat(buffer, underlyingEndValue, valueOffset, valueLength, 886, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDERLYING_STIPS:
+            case Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER:
                 hasNoUnderlyingStipsGroupCounter = true;
                 noUnderlyingStipsGroupCounter = getInt(buffer, valueOffset, endOfField, 887, CODEC_VALIDATION_ENABLED);
                 if (underlyingStipsGroup == null)
@@ -10322,23 +10395,24 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
-        UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
-        for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoUnderlyingSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            underlyingSecurityAltIDGroup.appendTo(builder, level + 1);            if (underlyingSecurityAltIDGroup.next() != null)
+            builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
+            UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
+            for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (underlyingSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingProduct())
         {
@@ -10668,23 +10742,24 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingStipsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingStipsGroup\": [\n");
-        UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
-        for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingStipsGroupCounter)
         {
             indent(builder, level);
-            underlyingStipsGroup.appendTo(builder, level + 1);            if (underlyingStipsGroup.next() != null)
+            builder.append("\"UnderlyingStipsGroup\": [\n");
+            UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
+            for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingStipsGroup = underlyingStipsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingStipsGroup.appendTo(builder, level + 1);
+                if (underlyingStipsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingStipsGroup = underlyingStipsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasCollAction())
         {
@@ -10701,12 +10776,12 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
     /**
      * {@inheritDoc}
      */
-    public UnderlyingsGroupEncoder toEncoder(final Encoder encoder)
+    public CollateralAssignmentEncoder.UnderlyingsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UnderlyingsGroupEncoder)encoder);
+        return toEncoder((CollateralAssignmentEncoder.UnderlyingsGroupEncoder)encoder);
     }
 
-    public UnderlyingsGroupEncoder toEncoder(final UnderlyingsGroupEncoder encoder)
+    public CollateralAssignmentEncoder.UnderlyingsGroupEncoder toEncoder(final CollateralAssignmentEncoder.UnderlyingsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -10991,6 +11066,7 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
         {
             return remainder > 0 && current != null;
         }
+
         public UnderlyingsGroupDecoder next()
         {
             remainder--;
@@ -10998,20 +11074,24 @@ public class UnderlyingsGroupDecoder extends CommonDecoderImpl implements Underl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUnderlyingsGroupCounter() ? parent.noUnderlyingsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.underlyingsGroup();
         }
+
         public UnderlyingsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -11604,12 +11684,12 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MiscFeesGroupEncoder toEncoder(final Encoder encoder)
+    public CollateralAssignmentEncoder.MiscFeesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MiscFeesGroupEncoder)encoder);
+        return toEncoder((CollateralAssignmentEncoder.MiscFeesGroupEncoder)encoder);
     }
 
-    public MiscFeesGroupEncoder toEncoder(final MiscFeesGroupEncoder encoder)
+    public CollateralAssignmentEncoder.MiscFeesGroupEncoder toEncoder(final CollateralAssignmentEncoder.MiscFeesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMiscFeeAmt())
@@ -11650,6 +11730,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MiscFeesGroupDecoder next()
         {
             remainder--;
@@ -11657,20 +11738,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMiscFeesGroupCounter() ? parent.noMiscFeesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.miscFeesGroup();
         }
+
         public MiscFeesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -12023,6 +12108,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper benchmarkCurvePointWrapper = new CharArrayWrapper();
     private DecimalFloat benchmarkPrice = DecimalFloat.newNaNValue();
 
     private boolean hasBenchmarkPrice;
@@ -12115,6 +12201,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDWrapper = new CharArrayWrapper();
     private char[] benchmarkSecurityIDSource = new char[1];
 
     private boolean hasBenchmarkSecurityIDSource;
@@ -12321,6 +12408,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper standInstDbNameWrapper = new CharArrayWrapper();
     private char[] standInstDbID = new char[1];
 
     private boolean hasStandInstDbID;
@@ -12371,6 +12459,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper standInstDbIDWrapper = new CharArrayWrapper();
 
     private DlvyInstGroupDecoder dlvyInstGroup = null;
     public DlvyInstGroupDecoder dlvyInstGroup()
@@ -12457,6 +12546,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -12507,6 +12597,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
     private char[] settlSessID = new char[1];
 
     private boolean hasSettlSessID;
@@ -12557,6 +12648,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper settlSessIDWrapper = new CharArrayWrapper();
     private char[] settlSessSubID = new char[1];
 
     private boolean hasSettlSessSubID;
@@ -12607,6 +12699,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper settlSessSubIDWrapper = new CharArrayWrapper();
     private byte[] clearingBusinessDate = new byte[8];
 
     private boolean hasClearingBusinessDate;
@@ -12707,6 +12800,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -12844,7 +12938,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 expireTimeLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -12919,7 +13013,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 secondaryClOrdIDLength = valueLength;
                 break;
 
-            case Constants.NO_EXECS:
+            case Constants.NO_EXECS_GROUP_COUNTER:
                 hasNoExecsGroupCounter = true;
                 noExecsGroupCounter = getInt(buffer, valueOffset, endOfField, 124, CODEC_VALIDATION_ENABLED);
                 if (execsGroup == null)
@@ -12953,7 +13047,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 }
                 break;
 
-            case Constants.NO_TRADES:
+            case Constants.NO_TRADES_GROUP_COUNTER:
                 hasNoTradesGroupCounter = true;
                 noTradesGroupCounter = getInt(buffer, valueOffset, endOfField, 897, CODEC_VALIDATION_ENABLED);
                 if (tradesGroup == null)
@@ -13014,7 +13108,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -13267,7 +13361,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -13398,7 +13492,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 currencyLength = valueLength;
                 break;
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -13432,7 +13526,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 }
                 break;
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -13481,7 +13575,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 cashOutstanding = getFloat(buffer, cashOutstanding, valueOffset, valueLength, 901, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_TRD_REG_TIMESTAMPS:
+            case Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER:
                 hasNoTrdRegTimestampsGroupCounter = true;
                 noTrdRegTimestampsGroupCounter = getInt(buffer, valueOffset, endOfField, 768, CODEC_VALIDATION_ENABLED);
                 if (trdRegTimestampsGroup == null)
@@ -13521,7 +13615,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 side = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_MISC_FEES:
+            case Constants.NO_MISC_FEES_GROUP_COUNTER:
                 hasNoMiscFeesGroupCounter = true;
                 noMiscFeesGroupCounter = getInt(buffer, valueOffset, endOfField, 136, CODEC_VALIDATION_ENABLED);
                 if (miscFeesGroup == null)
@@ -13636,7 +13730,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 break;
 
 
-            case Constants.NO_STIPULATIONS:
+            case Constants.NO_STIPULATIONS_GROUP_COUNTER:
                 hasNoStipulationsGroupCounter = true;
                 noStipulationsGroupCounter = getInt(buffer, valueOffset, endOfField, 232, CODEC_VALIDATION_ENABLED);
                 if (stipulationsGroup == null)
@@ -13695,7 +13789,7 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
                 standInstDbIDLength = valueLength;
                 break;
 
-            case Constants.NO_DLVY_INST:
+            case Constants.NO_DLVY_INST_GROUP_COUNTER:
                 hasNoDlvyInstGroupCounter = true;
                 noDlvyInstGroupCounter = getInt(buffer, valueOffset, endOfField, 85, CODEC_VALIDATION_ENABLED);
                 if (dlvyInstGroup == null)
@@ -14641,23 +14735,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {
@@ -14707,41 +14802,43 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoExecsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ExecsGroup\": [\n");
-        ExecsGroupDecoder execsGroup = this.execsGroup;
-        for (int i = 0, size = this.noExecsGroupCounter; i < size; i++)
+        if (hasNoExecsGroupCounter)
         {
             indent(builder, level);
-            execsGroup.appendTo(builder, level + 1);            if (execsGroup.next() != null)
+            builder.append("\"ExecsGroup\": [\n");
+            ExecsGroupDecoder execsGroup = this.execsGroup;
+            for (int i = 0, size = this.noExecsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            execsGroup = execsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                execsGroup.appendTo(builder, level + 1);
+                if (execsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                execsGroup = execsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTradesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradesGroup\": [\n");
-        TradesGroupDecoder tradesGroup = this.tradesGroup;
-        for (int i = 0, size = this.noTradesGroupCounter; i < size; i++)
+        if (hasNoTradesGroupCounter)
         {
             indent(builder, level);
-            tradesGroup.appendTo(builder, level + 1);            if (tradesGroup.next() != null)
+            builder.append("\"TradesGroup\": [\n");
+            TradesGroupDecoder tradesGroup = this.tradesGroup;
+            for (int i = 0, size = this.noTradesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradesGroup = tradesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradesGroup.appendTo(builder, level + 1);
+                if (tradesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradesGroup = tradesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"Symbol\": \"");
@@ -14772,23 +14869,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -15070,23 +15168,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -15208,41 +15307,43 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasMarginExcess())
         {
@@ -15268,23 +15369,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoTrdRegTimestampsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TrdRegTimestampsGroup\": [\n");
-        TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
-        for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
+        if (hasNoTrdRegTimestampsGroupCounter)
         {
             indent(builder, level);
-            trdRegTimestampsGroup.appendTo(builder, level + 1);            if (trdRegTimestampsGroup.next() != null)
+            builder.append("\"TrdRegTimestampsGroup\": [\n");
+            TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
+            for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            trdRegTimestampsGroup = trdRegTimestampsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                trdRegTimestampsGroup.appendTo(builder, level + 1);
+                if (trdRegTimestampsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                trdRegTimestampsGroup = trdRegTimestampsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSide())
         {
@@ -15294,23 +15396,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoMiscFeesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MiscFeesGroup\": [\n");
-        MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
-        for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
+        if (hasNoMiscFeesGroupCounter)
         {
             indent(builder, level);
-            miscFeesGroup.appendTo(builder, level + 1);            if (miscFeesGroup.next() != null)
+            builder.append("\"MiscFeesGroup\": [\n");
+            MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
+            for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            miscFeesGroup = miscFeesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                miscFeesGroup.appendTo(builder, level + 1);
+                if (miscFeesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                miscFeesGroup = miscFeesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasPrice())
         {
@@ -15424,23 +15527,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoStipulationsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StipulationsGroup\": [\n");
-        StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
-        for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
+        if (hasNoStipulationsGroupCounter)
         {
             indent(builder, level);
-            stipulationsGroup.appendTo(builder, level + 1);            if (stipulationsGroup.next() != null)
+            builder.append("\"StipulationsGroup\": [\n");
+            StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
+            for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            stipulationsGroup = stipulationsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                stipulationsGroup.appendTo(builder, level + 1);
+                if (stipulationsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                stipulationsGroup = stipulationsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSettlDeliveryType())
         {
@@ -15474,23 +15578,24 @@ public class MiscFeesGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoDlvyInstGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DlvyInstGroup\": [\n");
-        DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
-        for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
+        if (hasNoDlvyInstGroupCounter)
         {
             indent(builder, level);
-            dlvyInstGroup.appendTo(builder, level + 1);            if (dlvyInstGroup.next() != null)
+            builder.append("\"DlvyInstGroup\": [\n");
+            DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
+            for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            dlvyInstGroup = dlvyInstGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                dlvyInstGroup.appendTo(builder, level + 1);
+                if (dlvyInstGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                dlvyInstGroup = dlvyInstGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTradingSessionID())
         {

@@ -187,6 +187,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] orderID = new char[1];
 
     private boolean hasOrderID;
@@ -237,6 +238,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -287,6 +289,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -337,6 +340,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private char[] listID = new char[1];
 
     private boolean hasListID;
@@ -387,6 +391,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
 
 
     private Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = null;
@@ -578,7 +583,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
                 listIDLength = valueLength;
                 break;
 
-            case Constants.NO_NESTED2_PARTY_IDS:
+            case Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER:
                 hasNoNested2PartyIDsGroupCounter = true;
                 noNested2PartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 756, CODEC_VALIDATION_ENABLED);
                 if (nested2PartyIDsGroup == null)
@@ -776,23 +781,24 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoNested2PartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"Nested2PartyIDsGroup\": [\n");
-        Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
-        for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
+        if (hasNoNested2PartyIDsGroupCounter)
         {
             indent(builder, level);
-            nested2PartyIDsGroup.appendTo(builder, level + 1);            if (nested2PartyIDsGroup.next() != null)
+            builder.append("\"Nested2PartyIDsGroup\": [\n");
+            Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
+            for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nested2PartyIDsGroup = nested2PartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nested2PartyIDsGroup.appendTo(builder, level + 1);
+                if (nested2PartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nested2PartyIDsGroup = nested2PartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasOrderQty())
         {
@@ -825,12 +831,12 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
     /**
      * {@inheritDoc}
      */
-    public OrdersGroupEncoder toEncoder(final Encoder encoder)
+    public OrdAllocGrpEncoder.OrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OrdersGroupEncoder)encoder);
+        return toEncoder((OrdAllocGrpEncoder.OrdersGroupEncoder)encoder);
     }
 
-    public OrdersGroupEncoder toEncoder(final OrdersGroupEncoder encoder)
+    public OrdAllocGrpEncoder.OrdersGroupEncoder toEncoder(final OrdAllocGrpEncoder.OrdersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasClOrdID())
@@ -909,6 +915,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
         {
             return remainder > 0 && current != null;
         }
+
         public OrdersGroupDecoder next()
         {
             remainder--;
@@ -916,23 +923,27 @@ public class OrdersGroupDecoder extends CommonDecoderImpl implements NestedParti
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOrdersGroupCounter() ? parent.noOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ordersGroup();
         }
+
         public OrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public OrdersGroupIterator ordersGroupIterator();
+    public OrdersGroupIterator ordersGroupIterator();
     public int noOrdersGroupCounter();
     public boolean hasNoOrdersGroupCounter();
     public OrdersGroupDecoder ordersGroup();

@@ -139,6 +139,7 @@ public class LegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper legSecurityAltIDWrapper = new CharArrayWrapper();
     private char[] legSecurityAltIDSource = new char[1];
 
     private boolean hasLegSecurityAltIDSource;
@@ -189,6 +190,7 @@ public class LegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper legSecurityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode LegSecurityAltIDGroup
@@ -339,12 +341,12 @@ public class LegSecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public LegSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public LegSecAltIDGrpEncoder.LegSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LegSecurityAltIDGroupEncoder)encoder);
+        return toEncoder((LegSecAltIDGrpEncoder.LegSecurityAltIDGroupEncoder)encoder);
     }
 
-    public LegSecurityAltIDGroupEncoder toEncoder(final LegSecurityAltIDGroupEncoder encoder)
+    public LegSecAltIDGrpEncoder.LegSecurityAltIDGroupEncoder toEncoder(final LegSecAltIDGrpEncoder.LegSecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasLegSecurityAltID())
@@ -375,6 +377,7 @@ public class LegSecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public LegSecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class LegSecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLegSecurityAltIDGroupCounter() ? parent.noLegSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.legSecurityAltIDGroup();
         }
+
         public LegSecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LegSecurityAltIDGroupIterator legSecurityAltIDGroupIterator();
+    public LegSecurityAltIDGroupIterator legSecurityAltIDGroupIterator();
     public int noLegSecurityAltIDGroupCounter();
     public boolean hasNoLegSecurityAltIDGroupCounter();
     public LegSecurityAltIDGroupDecoder legSecurityAltIDGroup();

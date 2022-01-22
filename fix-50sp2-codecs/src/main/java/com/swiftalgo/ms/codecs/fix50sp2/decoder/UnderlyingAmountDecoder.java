@@ -233,6 +233,7 @@ public class UnderlyingAmountsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSettlementStatusWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UnderlyingAmountsGroup
@@ -421,12 +422,12 @@ public class UnderlyingAmountsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UnderlyingAmountsGroupEncoder toEncoder(final Encoder encoder)
+    public UnderlyingAmountEncoder.UnderlyingAmountsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UnderlyingAmountsGroupEncoder)encoder);
+        return toEncoder((UnderlyingAmountEncoder.UnderlyingAmountsGroupEncoder)encoder);
     }
 
-    public UnderlyingAmountsGroupEncoder toEncoder(final UnderlyingAmountsGroupEncoder encoder)
+    public UnderlyingAmountEncoder.UnderlyingAmountsGroupEncoder toEncoder(final UnderlyingAmountEncoder.UnderlyingAmountsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingPayAmount())
@@ -467,6 +468,7 @@ public class UnderlyingAmountsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UnderlyingAmountsGroupDecoder next()
         {
             remainder--;
@@ -474,23 +476,27 @@ public class UnderlyingAmountsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUnderlyingAmountsGroupCounter() ? parent.noUnderlyingAmountsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.underlyingAmountsGroup();
         }
+
         public UnderlyingAmountsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UnderlyingAmountsGroupIterator underlyingAmountsGroupIterator();
+    public UnderlyingAmountsGroupIterator underlyingAmountsGroupIterator();
     public int noUnderlyingAmountsGroupCounter();
     public boolean hasNoUnderlyingAmountsGroupCounter();
     public UnderlyingAmountsGroupDecoder underlyingAmountsGroup();

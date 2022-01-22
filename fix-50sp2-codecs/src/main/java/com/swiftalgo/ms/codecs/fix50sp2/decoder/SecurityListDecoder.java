@@ -296,12 +296,12 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.MARKET_ID);
         messageFields.add(Constants.MARKET_SEGMENT_ID);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -382,7 +382,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -390,14 +390,14 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -405,15 +405,15 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.DELIVERY_FORM);
         messageFields.add(Constants.PCT_AT_RISK);
-        messageFields.add(Constants.NO_INSTR_ATTRIB);
+        messageFields.add(Constants.NO_INSTR_ATTRIB_GROUP_COUNTER);
         messageFields.add(Constants.INSTR_ATTRIB_TYPE);
         messageFields.add(Constants.INSTR_ATTRIB_VALUE);
         messageFields.add(Constants.AGREEMENT_DESC);
@@ -425,12 +425,12 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.END_DATE);
         messageFields.add(Constants.DELIVERY_TYPE);
         messageFields.add(Constants.MARGIN_RATIO);
-        messageFields.add(Constants.NO_TICK_RULES);
+        messageFields.add(Constants.NO_TICK_RULES_GROUP_COUNTER);
         messageFields.add(Constants.START_TICK_PRICE_RANGE);
         messageFields.add(Constants.END_TICK_PRICE_RANGE);
         messageFields.add(Constants.TICK_INCREMENT);
         messageFields.add(Constants.TICK_RULE_TYPE);
-        messageFields.add(Constants.NO_LOT_TYPE_RULES);
+        messageFields.add(Constants.NO_LOT_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.LOT_TYPE);
         messageFields.add(Constants.MIN_LOT_SIZE);
         messageFields.add(Constants.PRICE_LIMIT_TYPE);
@@ -447,44 +447,44 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.MULTILEG_MODEL);
         messageFields.add(Constants.MULTILEG_PRICE_METHOD);
         messageFields.add(Constants.PRICE_TYPE);
-        messageFields.add(Constants.NO_TRADING_SESSION_RULES);
+        messageFields.add(Constants.NO_TRADING_SESSION_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
-        messageFields.add(Constants.NO_ORD_TYPE_RULES);
+        messageFields.add(Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.ORD_TYPE);
-        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES);
+        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TIME_IN_FORCE);
-        messageFields.add(Constants.NO_EXEC_INST_RULES);
+        messageFields.add(Constants.NO_EXEC_INST_RULES_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_INST_VALUE);
-        messageFields.add(Constants.NO_MATCH_RULES);
+        messageFields.add(Constants.NO_MATCH_RULES_GROUP_COUNTER);
         messageFields.add(Constants.MATCH_ALGORITHM);
         messageFields.add(Constants.MATCH_TYPE);
-        messageFields.add(Constants.NO_M_D_FEED_TYPES);
+        messageFields.add(Constants.NO_M_D_FEED_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_FEED_TYPE);
         messageFields.add(Constants.MARKET_DEPTH);
         messageFields.add(Constants.M_D_BOOK_TYPE);
-        messageFields.add(Constants.NO_NESTED_INSTR_ATTRIB);
+        messageFields.add(Constants.NO_NESTED_INSTR_ATTRIB_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_INSTR_ATTRIB_TYPE);
         messageFields.add(Constants.NESTED_INSTR_ATTRIB_VALUE);
-        messageFields.add(Constants.NO_STRIKE_RULES);
+        messageFields.add(Constants.NO_STRIKE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.STRIKE_RULE_ID);
         messageFields.add(Constants.START_STRIKE_PX_RANGE);
         messageFields.add(Constants.END_STRIKE_PX_RANGE);
         messageFields.add(Constants.STRIKE_INCREMENT);
         messageFields.add(Constants.STRIKE_EXERCISE_STYLE);
-        messageFields.add(Constants.NO_MATURITY_RULES);
+        messageFields.add(Constants.NO_MATURITY_RULES_GROUP_COUNTER);
         messageFields.add(Constants.MATURITY_RULE_ID);
         messageFields.add(Constants.MATURITY_MONTH_YEAR_FORMAT);
         messageFields.add(Constants.MATURITY_MONTH_YEAR_INCREMENT_UNITS);
         messageFields.add(Constants.START_MATURITY_MONTH_YEAR);
         messageFields.add(Constants.END_MATURITY_MONTH_YEAR);
         messageFields.add(Constants.MATURITY_MONTH_YEAR_INCREMENT);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -546,32 +546,32 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -625,7 +625,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
         messageFields.add(Constants.LEG_PRICE);
         messageFields.add(Constants.LEG_SWAP_TYPE);
         messageFields.add(Constants.LEG_SETTL_TYPE);
-        messageFields.add(Constants.NO_LEG_STIPULATIONS);
+        messageFields.add(Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_STIPULATION_TYPE);
         messageFields.add(Constants.LEG_STIPULATION_VALUE);
         messageFields.add(Constants.LEG_BENCHMARK_CURVE_CURRENCY);
@@ -721,6 +721,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -906,6 +907,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper securityListIDWrapper = new CharArrayWrapper();
     private char[] securityListRefID = new char[1];
 
     private boolean hasSecurityListRefID;
@@ -956,6 +958,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper securityListRefIDWrapper = new CharArrayWrapper();
     private char[] securityListDesc = new char[1];
 
     private boolean hasSecurityListDesc;
@@ -1006,6 +1009,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper securityListDescWrapper = new CharArrayWrapper();
     private int encodedSecurityListDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityListDescLen;
@@ -1156,6 +1160,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper securityReqIDWrapper = new CharArrayWrapper();
     private char[] securityResponseID = new char[1];
 
     private boolean hasSecurityResponseID;
@@ -1206,6 +1211,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper securityResponseIDWrapper = new CharArrayWrapper();
     private int securityRequestResult = MISSING_INT;
 
     private boolean hasSecurityRequestResult;
@@ -1406,6 +1412,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private boolean lastFragment;
 
     private boolean hasLastFragment;
@@ -1645,7 +1652,7 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -2055,23 +2062,24 @@ public class SecurityListDecoder extends CommonDecoderImpl implements Applicatio
             builder.append("\",\n");
         }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

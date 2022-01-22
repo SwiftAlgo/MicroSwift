@@ -253,12 +253,12 @@ public class IOIQualifiersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public IOIQualifiersGroupEncoder toEncoder(final Encoder encoder)
+    public IOIQualGrpEncoder.IOIQualifiersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((IOIQualifiersGroupEncoder)encoder);
+        return toEncoder((IOIQualGrpEncoder.IOIQualifiersGroupEncoder)encoder);
     }
 
-    public IOIQualifiersGroupEncoder toEncoder(final IOIQualifiersGroupEncoder encoder)
+    public IOIQualGrpEncoder.IOIQualifiersGroupEncoder toEncoder(final IOIQualGrpEncoder.IOIQualifiersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasIOIQualifier())
@@ -284,6 +284,7 @@ public class IOIQualifiersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public IOIQualifiersGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class IOIQualifiersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoIOIQualifiersGroupCounter() ? parent.noIOIQualifiersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.iOIQualifiersGroup();
         }
+
         public IOIQualifiersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public IOIQualifiersGroupIterator iOIQualifiersGroupIterator();
+    public IOIQualifiersGroupIterator iOIQualifiersGroupIterator();
     public int noIOIQualifiersGroupCounter();
     public boolean hasNoIOIQualifiersGroupCounter();
     public IOIQualifiersGroupDecoder iOIQualifiersGroup();

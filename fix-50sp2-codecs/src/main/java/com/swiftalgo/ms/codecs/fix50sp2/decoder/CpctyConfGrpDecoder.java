@@ -358,12 +358,12 @@ public class CapacitiesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public CapacitiesGroupEncoder toEncoder(final Encoder encoder)
+    public CpctyConfGrpEncoder.CapacitiesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((CapacitiesGroupEncoder)encoder);
+        return toEncoder((CpctyConfGrpEncoder.CapacitiesGroupEncoder)encoder);
     }
 
-    public CapacitiesGroupEncoder toEncoder(final CapacitiesGroupEncoder encoder)
+    public CpctyConfGrpEncoder.CapacitiesGroupEncoder toEncoder(final CpctyConfGrpEncoder.CapacitiesGroupEncoder encoder)
     {
         encoder.reset();
         encoder.orderCapacity(this.orderCapacity());
@@ -391,6 +391,7 @@ public class CapacitiesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public CapacitiesGroupDecoder next()
         {
             remainder--;
@@ -398,23 +399,27 @@ public class CapacitiesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoCapacitiesGroupCounter() ? parent.noCapacitiesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.capacitiesGroup();
         }
+
         public CapacitiesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public CapacitiesGroupIterator capacitiesGroupIterator();
+    public CapacitiesGroupIterator capacitiesGroupIterator();
     public int noCapacitiesGroupCounter();
     public boolean hasNoCapacitiesGroupCounter();
     public CapacitiesGroupDecoder capacitiesGroup();

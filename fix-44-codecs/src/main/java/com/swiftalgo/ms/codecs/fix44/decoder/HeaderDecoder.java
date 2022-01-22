@@ -132,6 +132,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper beginStringWrapper = new CharArrayWrapper();
     private int bodyLength = MISSING_INT;
 
     public int bodyLength()
@@ -204,6 +205,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper senderCompIDWrapper = new CharArrayWrapper();
     private char[] targetCompID = new char[1];
 
     public char[] targetCompID()
@@ -232,6 +234,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper targetCompIDWrapper = new CharArrayWrapper();
     private char[] onBehalfOfCompID = new char[1];
 
     private boolean hasOnBehalfOfCompID;
@@ -282,6 +285,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper onBehalfOfCompIDWrapper = new CharArrayWrapper();
     private char[] deliverToCompID = new char[1];
 
     private boolean hasDeliverToCompID;
@@ -332,6 +336,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper deliverToCompIDWrapper = new CharArrayWrapper();
     private int secureDataLen = MISSING_INT;
 
     private boolean hasSecureDataLen;
@@ -433,6 +438,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper senderSubIDWrapper = new CharArrayWrapper();
     private char[] senderLocationID = new char[1];
 
     private boolean hasSenderLocationID;
@@ -483,6 +489,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper senderLocationIDWrapper = new CharArrayWrapper();
     private char[] targetSubID = new char[1];
 
     private boolean hasTargetSubID;
@@ -533,6 +540,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper targetSubIDWrapper = new CharArrayWrapper();
     private char[] targetLocationID = new char[1];
 
     private boolean hasTargetLocationID;
@@ -583,6 +591,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper targetLocationIDWrapper = new CharArrayWrapper();
     private char[] onBehalfOfSubID = new char[1];
 
     private boolean hasOnBehalfOfSubID;
@@ -633,6 +642,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper onBehalfOfSubIDWrapper = new CharArrayWrapper();
     private char[] onBehalfOfLocationID = new char[1];
 
     private boolean hasOnBehalfOfLocationID;
@@ -683,6 +693,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper onBehalfOfLocationIDWrapper = new CharArrayWrapper();
     private char[] deliverToSubID = new char[1];
 
     private boolean hasDeliverToSubID;
@@ -733,6 +744,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper deliverToSubIDWrapper = new CharArrayWrapper();
     private char[] deliverToLocationID = new char[1];
 
     private boolean hasDeliverToLocationID;
@@ -783,6 +795,7 @@ public class HeaderDecoder extends CommonDecoderImpl implements SessionHeaderDec
     }
 
 
+    private final CharArrayWrapper deliverToLocationIDWrapper = new CharArrayWrapper();
     private boolean possDupFlag;
 
     private boolean hasPossDupFlag;

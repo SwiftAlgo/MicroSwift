@@ -46,7 +46,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
             REQUIRED_FIELDS.add(Constants.LIST_ORDER_STATUS);
             REQUIRED_FIELDS.add(Constants.RPT_SEQ);
             REQUIRED_FIELDS.add(Constants.TOT_NO_ORDERS);
-            REQUIRED_FIELDS.add(Constants.NO_ORDERS);
+            REQUIRED_FIELDS.add(Constants.NO_ORDERS_GROUP_COUNTER);
         }
     }
 
@@ -218,7 +218,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.TOT_NO_ORDERS);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_ORDERS);
+        messageFields.add(Constants.NO_ORDERS_GROUP_COUNTER);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.ORDER_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
@@ -279,6 +279,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private int listStatusType = MISSING_INT;
 
     public int listStatusType()
@@ -435,6 +436,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
     }
 
 
+    private final CharArrayWrapper listStatusTextWrapper = new CharArrayWrapper();
     private int encodedListStatusTextLen = MISSING_INT;
 
     private boolean hasEncodedListStatusTextLen;
@@ -714,7 +716,7 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_ORDERS:
+            case Constants.NO_ORDERS_GROUP_COUNTER:
                 hasNoOrdersGroupCounter = true;
                 noOrdersGroupCounter = getInt(buffer, valueOffset, endOfField, 73, CODEC_VALIDATION_ENABLED);
                 if (ordersGroup == null)
@@ -995,23 +997,24 @@ public class ListStatusDecoder extends CommonDecoderImpl implements OrdListStatG
             builder.append("\",\n");
         }
 
-    if (hasNoOrdersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdersGroup\": [\n");
-        OrdersGroupDecoder ordersGroup = this.ordersGroup;
-        for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
+        if (hasNoOrdersGroupCounter)
         {
             indent(builder, level);
-            ordersGroup.appendTo(builder, level + 1);            if (ordersGroup.next() != null)
+            builder.append("\"OrdersGroup\": [\n");
+            OrdersGroupDecoder ordersGroup = this.ordersGroup;
+            for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordersGroup = ordersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordersGroup.appendTo(builder, level + 1);
+                if (ordersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordersGroup = ordersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

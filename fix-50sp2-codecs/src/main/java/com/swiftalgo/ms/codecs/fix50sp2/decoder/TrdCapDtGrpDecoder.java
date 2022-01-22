@@ -411,12 +411,12 @@ public class DatesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public DatesGroupEncoder toEncoder(final Encoder encoder)
+    public TrdCapDtGrpEncoder.DatesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DatesGroupEncoder)encoder);
+        return toEncoder((TrdCapDtGrpEncoder.DatesGroupEncoder)encoder);
     }
 
-    public DatesGroupEncoder toEncoder(final DatesGroupEncoder encoder)
+    public TrdCapDtGrpEncoder.DatesGroupEncoder toEncoder(final TrdCapDtGrpEncoder.DatesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTradeDate())
@@ -452,6 +452,7 @@ public class DatesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public DatesGroupDecoder next()
         {
             remainder--;
@@ -459,23 +460,27 @@ public class DatesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDatesGroupCounter() ? parent.noDatesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.datesGroup();
         }
+
         public DatesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DatesGroupIterator datesGroupIterator();
+    public DatesGroupIterator datesGroupIterator();
     public int noDatesGroupCounter();
     public boolean hasNoDatesGroupCounter();
     public DatesGroupDecoder datesGroup();

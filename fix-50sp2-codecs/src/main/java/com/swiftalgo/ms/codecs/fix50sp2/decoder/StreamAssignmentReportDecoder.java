@@ -192,20 +192,20 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.STREAM_ASGN_RPT_ID);
         messageFields.add(Constants.STREAM_ASGN_REQ_TYPE);
         messageFields.add(Constants.STREAM_ASGN_REQ_ID);
-        messageFields.add(Constants.NO_ASGN_REQS);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_ASGN_REQS_GROUP_COUNTER);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -286,7 +286,7 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -294,14 +294,14 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -309,10 +309,10 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.SETTL_TYPE);
@@ -369,6 +369,7 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper streamAsgnRptIDWrapper = new CharArrayWrapper();
     private int streamAsgnReqType = MISSING_INT;
 
     private boolean hasStreamAsgnReqType;
@@ -448,6 +449,7 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper streamAsgnReqIDWrapper = new CharArrayWrapper();
 
 
     private AsgnReqsGroupDecoder asgnReqsGroup = null;
@@ -557,7 +559,7 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
                 streamAsgnReqIDLength = valueLength;
                 break;
 
-            case Constants.NO_ASGN_REQS:
+            case Constants.NO_ASGN_REQS_GROUP_COUNTER:
                 hasNoAsgnReqsGroupCounter = true;
                 noAsgnReqsGroupCounter = getInt(buffer, valueOffset, endOfField, 1499, CODEC_VALIDATION_ENABLED);
                 if (asgnReqsGroup == null)
@@ -713,23 +715,24 @@ public class StreamAssignmentReportDecoder extends CommonDecoderImpl implements 
             builder.append("\",\n");
         }
 
-    if (hasNoAsgnReqsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AsgnReqsGroup\": [\n");
-        AsgnReqsGroupDecoder asgnReqsGroup = this.asgnReqsGroup;
-        for (int i = 0, size = this.noAsgnReqsGroupCounter; i < size; i++)
+        if (hasNoAsgnReqsGroupCounter)
         {
             indent(builder, level);
-            asgnReqsGroup.appendTo(builder, level + 1);            if (asgnReqsGroup.next() != null)
+            builder.append("\"AsgnReqsGroup\": [\n");
+            AsgnReqsGroupDecoder asgnReqsGroup = this.asgnReqsGroup;
+            for (int i = 0, size = this.noAsgnReqsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            asgnReqsGroup = asgnReqsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                asgnReqsGroup.appendTo(builder, level + 1);
+                if (asgnReqsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                asgnReqsGroup = asgnReqsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

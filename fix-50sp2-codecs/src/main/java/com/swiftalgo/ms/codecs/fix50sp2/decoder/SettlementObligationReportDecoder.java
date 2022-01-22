@@ -213,7 +213,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
         messageFields.add(Constants.ENCODED_TEXT_LEN);
         messageFields.add(Constants.ENCODED_TEXT);
         messageFields.add(Constants.TRANSACT_TIME);
-        messageFields.add(Constants.NO_SETTL_OBLIG);
+        messageFields.add(Constants.NO_SETTL_OBLIG_GROUP_COUNTER);
         messageFields.add(Constants.NET_GROSS_IND);
         messageFields.add(Constants.SETTL_OBLIG_ID);
         messageFields.add(Constants.SETTL_OBLIG_TRANS_TYPE);
@@ -228,7 +228,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -309,7 +309,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -317,14 +317,14 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -332,29 +332,29 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.EFFECTIVE_TIME);
         messageFields.add(Constants.EXPIRE_TIME);
         messageFields.add(Constants.LAST_UPDATE_TIME);
-        messageFields.add(Constants.NO_SETTL_DETAILS);
+        messageFields.add(Constants.NO_SETTL_DETAILS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_OBLIG_SOURCE);
-        messageFields.add(Constants.NO_SETTL_PARTY_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_ID);
         messageFields.add(Constants.SETTL_PARTY_ID_SOURCE);
         messageFields.add(Constants.SETTL_PARTY_ROLE);
-        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID);
         messageFields.add(Constants.SETTL_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.SIGNATURE_LENGTH);
@@ -427,6 +427,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -590,6 +591,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
     }
 
 
+    private final CharArrayWrapper settlObligMsgIDWrapper = new CharArrayWrapper();
     private int settlObligMode = MISSING_INT;
 
     public int settlObligMode()
@@ -655,6 +657,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -908,7 +911,7 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
                 transactTimeLength = valueLength;
                 break;
 
-            case Constants.NO_SETTL_OBLIG:
+            case Constants.NO_SETTL_OBLIG_GROUP_COUNTER:
                 hasNoSettlObligGroupCounter = true;
                 noSettlObligGroupCounter = getInt(buffer, valueOffset, endOfField, 1165, CODEC_VALIDATION_ENABLED);
                 if (settlObligGroup == null)
@@ -1187,23 +1190,24 @@ public class SettlementObligationReportDecoder extends CommonDecoderImpl impleme
             builder.append("\",\n");
         }
 
-    if (hasNoSettlObligGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SettlObligGroup\": [\n");
-        SettlObligGroupDecoder settlObligGroup = this.settlObligGroup;
-        for (int i = 0, size = this.noSettlObligGroupCounter; i < size; i++)
+        if (hasNoSettlObligGroupCounter)
         {
             indent(builder, level);
-            settlObligGroup.appendTo(builder, level + 1);            if (settlObligGroup.next() != null)
+            builder.append("\"SettlObligGroup\": [\n");
+            SettlObligGroupDecoder settlObligGroup = this.settlObligGroup;
+            for (int i = 0, size = this.noSettlObligGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            settlObligGroup = settlObligGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                settlObligGroup.appendTo(builder, level + 1);
+                if (settlObligGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                settlObligGroup = settlObligGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

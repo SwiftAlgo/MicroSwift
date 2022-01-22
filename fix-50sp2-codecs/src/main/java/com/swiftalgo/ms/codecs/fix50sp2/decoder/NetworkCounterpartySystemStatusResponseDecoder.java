@@ -42,7 +42,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
         {
             REQUIRED_FIELDS.add(Constants.NETWORK_STATUS_RESPONSE_TYPE);
             REQUIRED_FIELDS.add(Constants.NETWORK_RESPONSE_ID);
-            REQUIRED_FIELDS.add(Constants.NO_COMP_IDS);
+            REQUIRED_FIELDS.add(Constants.NO_COMP_IDS_GROUP_COUNTER);
         }
     }
 
@@ -168,7 +168,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
         messageFields.add(Constants.NETWORK_REQUEST_ID);
         messageFields.add(Constants.NETWORK_RESPONSE_ID);
         messageFields.add(Constants.LAST_NETWORK_RESPONSE_ID);
-        messageFields.add(Constants.NO_COMP_IDS);
+        messageFields.add(Constants.NO_COMP_IDS_GROUP_COUNTER);
         messageFields.add(Constants.REF_COMP_ID);
         messageFields.add(Constants.REF_SUB_ID);
         messageFields.add(Constants.LOCATION_ID);
@@ -259,6 +259,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
     }
 
 
+    private final CharArrayWrapper networkRequestIDWrapper = new CharArrayWrapper();
     private char[] networkResponseID = new char[1];
 
     public char[] networkResponseID()
@@ -287,6 +288,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
     }
 
 
+    private final CharArrayWrapper networkResponseIDWrapper = new CharArrayWrapper();
     private char[] lastNetworkResponseID = new char[1];
 
     private boolean hasLastNetworkResponseID;
@@ -337,6 +339,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
     }
 
 
+    private final CharArrayWrapper lastNetworkResponseIDWrapper = new CharArrayWrapper();
 
 
     private CompIDsGroupDecoder compIDsGroup = null;
@@ -452,7 +455,7 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
                 lastNetworkResponseIDLength = valueLength;
                 break;
 
-            case Constants.NO_COMP_IDS:
+            case Constants.NO_COMP_IDS_GROUP_COUNTER:
                 hasNoCompIDsGroupCounter = true;
                 noCompIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 936, CODEC_VALIDATION_ENABLED);
                 if (compIDsGroup == null)
@@ -619,23 +622,24 @@ public class NetworkCounterpartySystemStatusResponseDecoder extends CommonDecode
             builder.append("\",\n");
         }
 
-    if (hasNoCompIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"CompIDsGroup\": [\n");
-        CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
-        for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
+        if (hasNoCompIDsGroupCounter)
         {
             indent(builder, level);
-            compIDsGroup.appendTo(builder, level + 1);            if (compIDsGroup.next() != null)
+            builder.append("\"CompIDsGroup\": [\n");
+            CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
+            for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            compIDsGroup = compIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                compIDsGroup.appendTo(builder, level + 1);
+                if (compIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                compIDsGroup = compIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

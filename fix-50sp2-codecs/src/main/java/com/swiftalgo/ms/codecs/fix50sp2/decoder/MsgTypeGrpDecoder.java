@@ -152,6 +152,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refMsgTypeWrapper = new CharArrayWrapper();
     private char msgDirection = MISSING_CHAR;
 
     private boolean hasMsgDirection;
@@ -231,6 +232,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refApplVerIDWrapper = new CharArrayWrapper();
     private int refApplExtID = MISSING_INT;
 
     private boolean hasRefApplExtID;
@@ -302,6 +304,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refCstmApplVerIDWrapper = new CharArrayWrapper();
     private boolean defaultVerIndicator;
 
     private boolean hasDefaultVerIndicator;
@@ -551,12 +554,12 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MsgTypesGroupEncoder toEncoder(final Encoder encoder)
+    public MsgTypeGrpEncoder.MsgTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MsgTypesGroupEncoder)encoder);
+        return toEncoder((MsgTypeGrpEncoder.MsgTypesGroupEncoder)encoder);
     }
 
-    public MsgTypesGroupEncoder toEncoder(final MsgTypesGroupEncoder encoder)
+    public MsgTypeGrpEncoder.MsgTypesGroupEncoder toEncoder(final MsgTypeGrpEncoder.MsgTypesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefMsgType())
@@ -607,6 +610,7 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MsgTypesGroupDecoder next()
         {
             remainder--;
@@ -614,23 +618,27 @@ public class MsgTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMsgTypesGroupCounter() ? parent.noMsgTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.msgTypesGroup();
         }
+
         public MsgTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MsgTypesGroupIterator msgTypesGroupIterator();
+    public MsgTypesGroupIterator msgTypesGroupIterator();
     public int noMsgTypesGroupCounter();
     public boolean hasNoMsgTypesGroupCounter();
     public MsgTypesGroupDecoder msgTypesGroup();

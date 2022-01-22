@@ -191,6 +191,7 @@ public class UserRequestDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper userRequestIDWrapper = new CharArrayWrapper();
     private int userRequestType = MISSING_INT;
 
     public int userRequestType()
@@ -234,6 +235,7 @@ public class UserRequestDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper usernameWrapper = new CharArrayWrapper();
     private char[] password = new char[1];
 
     private boolean hasPassword;
@@ -284,6 +286,7 @@ public class UserRequestDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper passwordWrapper = new CharArrayWrapper();
     private char[] newPassword = new char[1];
 
     private boolean hasNewPassword;
@@ -334,6 +337,7 @@ public class UserRequestDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper newPasswordWrapper = new CharArrayWrapper();
     private int encryptedPasswordMethod = MISSING_INT;
 
     private boolean hasEncryptedPasswordMethod;

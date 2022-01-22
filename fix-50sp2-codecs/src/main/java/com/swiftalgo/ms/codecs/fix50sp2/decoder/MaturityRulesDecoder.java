@@ -162,6 +162,7 @@ public class MaturityRulesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper maturityRuleIDWrapper = new CharArrayWrapper();
     private int maturityMonthYearFormat = MISSING_INT;
 
     private boolean hasMaturityMonthYearFormat;
@@ -569,12 +570,12 @@ public class MaturityRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MaturityRulesGroupEncoder toEncoder(final Encoder encoder)
+    public MaturityRulesEncoder.MaturityRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MaturityRulesGroupEncoder)encoder);
+        return toEncoder((MaturityRulesEncoder.MaturityRulesGroupEncoder)encoder);
     }
 
-    public MaturityRulesGroupEncoder toEncoder(final MaturityRulesGroupEncoder encoder)
+    public MaturityRulesEncoder.MaturityRulesGroupEncoder toEncoder(final MaturityRulesEncoder.MaturityRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMaturityRuleID())
@@ -625,6 +626,7 @@ public class MaturityRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MaturityRulesGroupDecoder next()
         {
             remainder--;
@@ -632,23 +634,27 @@ public class MaturityRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMaturityRulesGroupCounter() ? parent.noMaturityRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.maturityRulesGroup();
         }
+
         public MaturityRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MaturityRulesGroupIterator maturityRulesGroupIterator();
+    public MaturityRulesGroupIterator maturityRulesGroupIterator();
     public int noMaturityRulesGroupCounter();
     public boolean hasNoMaturityRulesGroupCounter();
     public MaturityRulesGroupDecoder maturityRulesGroup();

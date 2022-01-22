@@ -175,6 +175,7 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
     }
 
 
+    private final CharArrayWrapper underlyingInstrumentPartyIDWrapper = new CharArrayWrapper();
     private char underlyingInstrumentPartyIDSource = MISSING_CHAR;
 
     private boolean hasUnderlyingInstrumentPartyIDSource;
@@ -327,7 +328,7 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
                 underlyingInstrumentPartyRole = getInt(buffer, valueOffset, endOfField, 1061, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS:
+            case Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoUndlyInstrumentPartySubIDsGroupCounter = true;
                 noUndlyInstrumentPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1062, CODEC_VALIDATION_ENABLED);
                 if (undlyInstrumentPartySubIDsGroup == null)
@@ -464,23 +465,24 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
             builder.append("\",\n");
         }
 
-    if (hasNoUndlyInstrumentPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UndlyInstrumentPartySubIDsGroup\": [\n");
-        UndlyInstrumentPartySubIDsGroupDecoder undlyInstrumentPartySubIDsGroup = this.undlyInstrumentPartySubIDsGroup;
-        for (int i = 0, size = this.noUndlyInstrumentPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoUndlyInstrumentPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            undlyInstrumentPartySubIDsGroup.appendTo(builder, level + 1);            if (undlyInstrumentPartySubIDsGroup.next() != null)
+            builder.append("\"UndlyInstrumentPartySubIDsGroup\": [\n");
+            UndlyInstrumentPartySubIDsGroupDecoder undlyInstrumentPartySubIDsGroup = this.undlyInstrumentPartySubIDsGroup;
+            for (int i = 0, size = this.noUndlyInstrumentPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            undlyInstrumentPartySubIDsGroup = undlyInstrumentPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                undlyInstrumentPartySubIDsGroup.appendTo(builder, level + 1);
+                if (undlyInstrumentPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                undlyInstrumentPartySubIDsGroup = undlyInstrumentPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -489,12 +491,12 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
     /**
      * {@inheritDoc}
      */
-    public UndlyInstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
+    public UndlyInstrumentPartiesEncoder.UndlyInstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UndlyInstrumentPartiesGroupEncoder)encoder);
+        return toEncoder((UndlyInstrumentPartiesEncoder.UndlyInstrumentPartiesGroupEncoder)encoder);
     }
 
-    public UndlyInstrumentPartiesGroupEncoder toEncoder(final UndlyInstrumentPartiesGroupEncoder encoder)
+    public UndlyInstrumentPartiesEncoder.UndlyInstrumentPartiesGroupEncoder toEncoder(final UndlyInstrumentPartiesEncoder.UndlyInstrumentPartiesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingInstrumentPartyID())
@@ -548,6 +550,7 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
         {
             return remainder > 0 && current != null;
         }
+
         public UndlyInstrumentPartiesGroupDecoder next()
         {
             remainder--;
@@ -555,23 +558,27 @@ public class UndlyInstrumentPartiesGroupDecoder extends CommonDecoderImpl implem
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUndlyInstrumentPartiesGroupCounter() ? parent.noUndlyInstrumentPartiesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.undlyInstrumentPartiesGroup();
         }
+
         public UndlyInstrumentPartiesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UndlyInstrumentPartiesGroupIterator undlyInstrumentPartiesGroupIterator();
+    public UndlyInstrumentPartiesGroupIterator undlyInstrumentPartiesGroupIterator();
     public int noUndlyInstrumentPartiesGroupCounter();
     public boolean hasNoUndlyInstrumentPartiesGroupCounter();
     public UndlyInstrumentPartiesGroupDecoder undlyInstrumentPartiesGroup();

@@ -172,6 +172,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] orderID = new char[1];
 
     private boolean hasOrderID;
@@ -222,6 +223,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -272,6 +274,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private DecimalFloat cumQty = DecimalFloat.newNaNValue();
 
     public DecimalFloat cumQty()
@@ -423,6 +426,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -809,12 +813,12 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public OrdersGroupEncoder toEncoder(final Encoder encoder)
+    public OrdListStatGrpEncoder.OrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OrdersGroupEncoder)encoder);
+        return toEncoder((OrdListStatGrpEncoder.OrdersGroupEncoder)encoder);
     }
 
-    public OrdersGroupEncoder toEncoder(final OrdersGroupEncoder encoder)
+    public OrdListStatGrpEncoder.OrdersGroupEncoder toEncoder(final OrdListStatGrpEncoder.OrdersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasClOrdID())
@@ -881,6 +885,7 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public OrdersGroupDecoder next()
         {
             remainder--;
@@ -888,23 +893,27 @@ public class OrdersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOrdersGroupCounter() ? parent.noOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ordersGroup();
         }
+
         public OrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public OrdersGroupIterator ordersGroupIterator();
+    public OrdersGroupIterator ordersGroupIterator();
     public int noOrdersGroupCounter();
     public boolean hasNoOrdersGroupCounter();
     public OrdersGroupDecoder ordersGroup();

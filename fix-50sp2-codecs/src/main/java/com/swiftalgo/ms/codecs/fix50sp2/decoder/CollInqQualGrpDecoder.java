@@ -253,12 +253,12 @@ public class CollInquiryQualifierGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public CollInquiryQualifierGroupEncoder toEncoder(final Encoder encoder)
+    public CollInqQualGrpEncoder.CollInquiryQualifierGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((CollInquiryQualifierGroupEncoder)encoder);
+        return toEncoder((CollInqQualGrpEncoder.CollInquiryQualifierGroupEncoder)encoder);
     }
 
-    public CollInquiryQualifierGroupEncoder toEncoder(final CollInquiryQualifierGroupEncoder encoder)
+    public CollInqQualGrpEncoder.CollInquiryQualifierGroupEncoder toEncoder(final CollInqQualGrpEncoder.CollInquiryQualifierGroupEncoder encoder)
     {
         encoder.reset();
         if (hasCollInquiryQualifier())
@@ -284,6 +284,7 @@ public class CollInquiryQualifierGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public CollInquiryQualifierGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class CollInquiryQualifierGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoCollInquiryQualifierGroupCounter() ? parent.noCollInquiryQualifierGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.collInquiryQualifierGroup();
         }
+
         public CollInquiryQualifierGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public CollInquiryQualifierGroupIterator collInquiryQualifierGroupIterator();
+    public CollInquiryQualifierGroupIterator collInquiryQualifierGroupIterator();
     public int noCollInquiryQualifierGroupCounter();
     public boolean hasNoCollInquiryQualifierGroupCounter();
     public CollInquiryQualifierGroupDecoder collInquiryQualifierGroup();

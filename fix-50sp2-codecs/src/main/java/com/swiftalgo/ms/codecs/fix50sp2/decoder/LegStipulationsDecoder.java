@@ -139,6 +139,7 @@ public class LegStipulationsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper legStipulationTypeWrapper = new CharArrayWrapper();
     private char[] legStipulationValue = new char[1];
 
     private boolean hasLegStipulationValue;
@@ -189,6 +190,7 @@ public class LegStipulationsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper legStipulationValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode LegStipulationsGroup
@@ -339,12 +341,12 @@ public class LegStipulationsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public LegStipulationsGroupEncoder toEncoder(final Encoder encoder)
+    public LegStipulationsEncoder.LegStipulationsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LegStipulationsGroupEncoder)encoder);
+        return toEncoder((LegStipulationsEncoder.LegStipulationsGroupEncoder)encoder);
     }
 
-    public LegStipulationsGroupEncoder toEncoder(final LegStipulationsGroupEncoder encoder)
+    public LegStipulationsEncoder.LegStipulationsGroupEncoder toEncoder(final LegStipulationsEncoder.LegStipulationsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasLegStipulationType())
@@ -375,6 +377,7 @@ public class LegStipulationsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public LegStipulationsGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class LegStipulationsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLegStipulationsGroupCounter() ? parent.noLegStipulationsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.legStipulationsGroup();
         }
+
         public LegStipulationsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LegStipulationsGroupIterator legStipulationsGroupIterator();
+    public LegStipulationsGroupIterator legStipulationsGroupIterator();
     public int noLegStipulationsGroupCounter();
     public boolean hasNoLegStipulationsGroupCounter();
     public LegStipulationsGroupDecoder legStipulationsGroup();

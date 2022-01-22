@@ -193,6 +193,7 @@ public class PartyIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper partyIDWrapper = new CharArrayWrapper();
     private char partyIDSource = MISSING_CHAR;
 
     private boolean hasPartyIDSource;
@@ -358,6 +359,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper partySubIDWrapper = new CharArrayWrapper();
     private int partySubIDType = MISSING_INT;
 
     private boolean hasPartySubIDType;
@@ -527,12 +529,12 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public PartyIDsGroupEncoder.PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((PartySubIDsGroupEncoder)encoder);
+        return toEncoder((PartyIDsGroupEncoder.PartySubIDsGroupEncoder)encoder);
     }
 
-    public PartySubIDsGroupEncoder toEncoder(final PartySubIDsGroupEncoder encoder)
+    public PartyIDsGroupEncoder.PartySubIDsGroupEncoder toEncoder(final PartyIDsGroupEncoder.PartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasPartySubID())
@@ -563,6 +565,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public PartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -570,20 +573,24 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoPartySubIDsGroupCounter() ? parent.noPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.partySubIDsGroup();
         }
+
         public PartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -694,7 +701,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
                 partyRole = getInt(buffer, valueOffset, endOfField, 452, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_PARTY_SUB_IDS:
+            case Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoPartySubIDsGroupCounter = true;
                 noPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 802, CODEC_VALIDATION_ENABLED);
                 if (partySubIDsGroup == null)
@@ -830,23 +837,24 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartySubIDsGroup\": [\n");
-        PartySubIDsGroupDecoder partySubIDsGroup = this.partySubIDsGroup;
-        for (int i = 0, size = this.noPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            partySubIDsGroup.appendTo(builder, level + 1);            if (partySubIDsGroup.next() != null)
+            builder.append("\"PartySubIDsGroup\": [\n");
+            PartySubIDsGroupDecoder partySubIDsGroup = this.partySubIDsGroup;
+            for (int i = 0, size = this.noPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partySubIDsGroup = partySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partySubIDsGroup.appendTo(builder, level + 1);
+                if (partySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partySubIDsGroup = partySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -855,12 +863,12 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public PartyIDsGroupEncoder toEncoder(final Encoder encoder)
+    public PartiesEncoder.PartyIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((PartyIDsGroupEncoder)encoder);
+        return toEncoder((PartiesEncoder.PartyIDsGroupEncoder)encoder);
     }
 
-    public PartyIDsGroupEncoder toEncoder(final PartyIDsGroupEncoder encoder)
+    public PartiesEncoder.PartyIDsGroupEncoder toEncoder(final PartiesEncoder.PartyIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasPartyID())
@@ -912,6 +920,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public PartyIDsGroupDecoder next()
         {
             remainder--;
@@ -919,23 +928,27 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoPartyIDsGroupCounter() ? parent.noPartyIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.partyIDsGroup();
         }
+
         public PartyIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public PartyIDsGroupIterator partyIDsGroupIterator();
+    public PartyIDsGroupIterator partyIDsGroupIterator();
     public int noPartyIDsGroupCounter();
     public boolean hasNoPartyIDsGroupCounter();
     public PartyIDsGroupDecoder partyIDsGroup();

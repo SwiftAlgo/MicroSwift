@@ -616,7 +616,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -678,18 +678,18 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -698,7 +698,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.DERIVATIVE_SYMBOL_SFX);
         messageFields.add(Constants.DERIVATIVE_SECURITY_ID);
         messageFields.add(Constants.DERIVATIVE_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_DERIVATIVE_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_DERIVATIVE_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.DERIVATIVE_SECURITY_ALT_ID);
         messageFields.add(Constants.DERIVATIVE_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.DERIVATIVE_PRODUCT);
@@ -756,31 +756,31 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.DERIVATIVE_SECURITY_X_M_L);
         messageFields.add(Constants.DERIVATIVE_SECURITY_X_M_L_SCHEMA);
         messageFields.add(Constants.DERIVATIVE_CONTRACT_SETTL_MONTH);
-        messageFields.add(Constants.NO_DERIVATIVE_EVENTS);
+        messageFields.add(Constants.NO_DERIVATIVE_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.DERIVATIVE_EVENT_TYPE);
         messageFields.add(Constants.DERIVATIVE_EVENT_DATE);
         messageFields.add(Constants.DERIVATIVE_EVENT_TIME);
         messageFields.add(Constants.DERIVATIVE_EVENT_PX);
         messageFields.add(Constants.DERIVATIVE_EVENT_TEXT);
-        messageFields.add(Constants.NO_DERIVATIVE_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_DERIVATIVE_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.DERIVATIVE_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.DERIVATIVE_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.DERIVATIVE_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_DERIVATIVE_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_DERIVATIVE_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.DERIVATIVE_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.DERIVATIVE_INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_DERIVATIVE_INSTR_ATTRIB);
+        messageFields.add(Constants.NO_DERIVATIVE_INSTR_ATTRIB_GROUP_COUNTER);
         messageFields.add(Constants.DERIVATIVE_INSTR_ATTRIB_TYPE);
         messageFields.add(Constants.DERIVATIVE_INSTR_ATTRIB_VALUE);
-        messageFields.add(Constants.NO_MARKET_SEGMENTS);
+        messageFields.add(Constants.NO_MARKET_SEGMENTS_GROUP_COUNTER);
         messageFields.add(Constants.MARKET_ID);
         messageFields.add(Constants.MARKET_SEGMENT_ID);
-        messageFields.add(Constants.NO_TICK_RULES);
+        messageFields.add(Constants.NO_TICK_RULES_GROUP_COUNTER);
         messageFields.add(Constants.START_TICK_PRICE_RANGE);
         messageFields.add(Constants.END_TICK_PRICE_RANGE);
         messageFields.add(Constants.TICK_INCREMENT);
         messageFields.add(Constants.TICK_RULE_TYPE);
-        messageFields.add(Constants.NO_LOT_TYPE_RULES);
+        messageFields.add(Constants.NO_LOT_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.LOT_TYPE);
         messageFields.add(Constants.MIN_LOT_SIZE);
         messageFields.add(Constants.PRICE_LIMIT_TYPE);
@@ -797,32 +797,32 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.MULTILEG_MODEL);
         messageFields.add(Constants.MULTILEG_PRICE_METHOD);
         messageFields.add(Constants.PRICE_TYPE);
-        messageFields.add(Constants.NO_TRADING_SESSION_RULES);
+        messageFields.add(Constants.NO_TRADING_SESSION_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TRADING_SESSION_ID);
         messageFields.add(Constants.TRADING_SESSION_SUB_ID);
-        messageFields.add(Constants.NO_ORD_TYPE_RULES);
+        messageFields.add(Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.ORD_TYPE);
-        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES);
+        messageFields.add(Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.TIME_IN_FORCE);
-        messageFields.add(Constants.NO_EXEC_INST_RULES);
+        messageFields.add(Constants.NO_EXEC_INST_RULES_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_INST_VALUE);
-        messageFields.add(Constants.NO_MATCH_RULES);
+        messageFields.add(Constants.NO_MATCH_RULES_GROUP_COUNTER);
         messageFields.add(Constants.MATCH_ALGORITHM);
         messageFields.add(Constants.MATCH_TYPE);
-        messageFields.add(Constants.NO_M_D_FEED_TYPES);
+        messageFields.add(Constants.NO_M_D_FEED_TYPES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_FEED_TYPE);
         messageFields.add(Constants.MARKET_DEPTH);
         messageFields.add(Constants.M_D_BOOK_TYPE);
-        messageFields.add(Constants.NO_NESTED_INSTR_ATTRIB);
+        messageFields.add(Constants.NO_NESTED_INSTR_ATTRIB_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_INSTR_ATTRIB_TYPE);
         messageFields.add(Constants.NESTED_INSTR_ATTRIB_VALUE);
-        messageFields.add(Constants.NO_STRIKE_RULES);
+        messageFields.add(Constants.NO_STRIKE_RULES_GROUP_COUNTER);
         messageFields.add(Constants.STRIKE_RULE_ID);
         messageFields.add(Constants.START_STRIKE_PX_RANGE);
         messageFields.add(Constants.END_STRIKE_PX_RANGE);
         messageFields.add(Constants.STRIKE_INCREMENT);
         messageFields.add(Constants.STRIKE_EXERCISE_STYLE);
-        messageFields.add(Constants.NO_MATURITY_RULES);
+        messageFields.add(Constants.NO_MATURITY_RULES_GROUP_COUNTER);
         messageFields.add(Constants.MATURITY_RULE_ID);
         messageFields.add(Constants.MATURITY_MONTH_YEAR_FORMAT);
         messageFields.add(Constants.MATURITY_MONTH_YEAR_INCREMENT_UNITS);
@@ -832,14 +832,14 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.TRANSACT_TIME);
         messageFields.add(Constants.TOT_NO_RELATED_SYM);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.LIST_UPDATE_ACTION);
         messageFields.add(Constants.CORPORATE_ACTION);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -920,7 +920,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -928,14 +928,14 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -943,15 +943,15 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.DELIVERY_FORM);
         messageFields.add(Constants.PCT_AT_RISK);
-        messageFields.add(Constants.NO_INSTR_ATTRIB);
+        messageFields.add(Constants.NO_INSTR_ATTRIB_GROUP_COUNTER);
         messageFields.add(Constants.INSTR_ATTRIB_TYPE);
         messageFields.add(Constants.INSTR_ATTRIB_VALUE);
         messageFields.add(Constants.SECONDARY_PRICE_LIMIT_TYPE);
@@ -959,12 +959,12 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
         messageFields.add(Constants.SECONDARY_HIGH_LIMIT_PRICE);
         messageFields.add(Constants.SECONDARY_TRADING_REFERENCE_PRICE);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -1090,6 +1090,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -1204,6 +1205,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityReqIDWrapper = new CharArrayWrapper();
     private char[] securityResponseID = new char[1];
 
     private boolean hasSecurityResponseID;
@@ -1254,6 +1256,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityResponseIDWrapper = new CharArrayWrapper();
     private int securityRequestResult = MISSING_INT;
 
     private boolean hasSecurityRequestResult;
@@ -1363,6 +1366,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolWrapper = new CharArrayWrapper();
     private char[] underlyingSymbolSfx = new char[1];
 
     private boolean hasUnderlyingSymbolSfx;
@@ -1413,6 +1417,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolSfxWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityID = new char[1];
 
     private boolean hasUnderlyingSecurityID;
@@ -1463,6 +1468,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityIDSource = new char[1];
 
     private boolean hasUnderlyingSecurityIDSource;
@@ -1513,6 +1519,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = null;
@@ -1621,6 +1628,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCFICodeWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityType = new char[1];
 
     private boolean hasUnderlyingSecurityType;
@@ -1671,6 +1679,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSecuritySubType = new char[1];
 
     private boolean hasUnderlyingSecuritySubType;
@@ -1721,6 +1730,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] underlyingMaturityMonthYear = new byte[8];
 
     private boolean hasUnderlyingMaturityMonthYear;
@@ -1971,6 +1981,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingRestructuringTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSeniority = new char[1];
 
     private boolean hasUnderlyingSeniority;
@@ -2021,6 +2032,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSeniorityWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingNotionalPercentageOutstanding = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingNotionalPercentageOutstanding;
@@ -2205,6 +2217,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int underlyingRepurchaseTerm = MISSING_INT;
 
     private boolean hasUnderlyingRepurchaseTerm;
@@ -2318,6 +2331,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCreditRatingWrapper = new CharArrayWrapper();
     private char[] underlyingInstrRegistry = new char[1];
 
     private boolean hasUnderlyingInstrRegistry;
@@ -2368,6 +2382,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingInstrRegistryWrapper = new CharArrayWrapper();
     private char[] underlyingCountryOfIssue = new char[1];
 
     private boolean hasUnderlyingCountryOfIssue;
@@ -2468,6 +2483,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] underlyingLocaleOfIssue = new char[1];
 
     private boolean hasUnderlyingLocaleOfIssue;
@@ -2518,6 +2534,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] underlyingRedemptionDate = new byte[8];
 
     private boolean hasUnderlyingRedemptionDate;
@@ -2773,6 +2790,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingUnitOfMeasureQty;
@@ -2844,6 +2862,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingPriceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingPriceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingPriceUnitOfMeasureQty;
@@ -2915,6 +2934,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingTimeUnitWrapper = new CharArrayWrapper();
     private int underlyingExerciseStyle = MISSING_INT;
 
     private boolean hasUnderlyingExerciseStyle;
@@ -3057,6 +3077,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingIssuerWrapper = new CharArrayWrapper();
     private int encodedUnderlyingIssuerLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingIssuerLen;
@@ -3149,6 +3170,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityDescWrapper = new CharArrayWrapper();
     private int encodedUnderlyingSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingSecurityDescLen;
@@ -3241,6 +3263,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCPProgramWrapper = new CharArrayWrapper();
     private char[] underlyingCPRegType = new char[1];
 
     private boolean hasUnderlyingCPRegType;
@@ -3291,6 +3314,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCPRegTypeWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingAllocationPercent = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingAllocationPercent;
@@ -3834,6 +3858,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSettlMethodWrapper = new CharArrayWrapper();
     private int underlyingPutOrCall = MISSING_INT;
 
     private boolean hasUnderlyingPutOrCall;
@@ -3908,6 +3933,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSymbolWrapper = new CharArrayWrapper();
     private char[] derivativeSymbolSfx = new char[1];
 
     private boolean hasDerivativeSymbolSfx;
@@ -3958,6 +3984,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSymbolSfxWrapper = new CharArrayWrapper();
     private char[] derivativeSecurityID = new char[1];
 
     private boolean hasDerivativeSecurityID;
@@ -4008,6 +4035,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityIDWrapper = new CharArrayWrapper();
     private char[] derivativeSecurityIDSource = new char[1];
 
     private boolean hasDerivativeSecurityIDSource;
@@ -4058,6 +4086,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private DerivativeSecurityAltIDGroupDecoder derivativeSecurityAltIDGroup = null;
@@ -4166,6 +4195,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeProductComplexWrapper = new CharArrayWrapper();
     private boolean derivFlexProductEligibilityIndicator;
 
     private boolean hasDerivFlexProductEligibilityIndicator;
@@ -4237,6 +4267,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityGroupWrapper = new CharArrayWrapper();
     private char[] derivativeCFICode = new char[1];
 
     private boolean hasDerivativeCFICode;
@@ -4287,6 +4318,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeCFICodeWrapper = new CharArrayWrapper();
     private char[] derivativeSecurityType = new char[1];
 
     private boolean hasDerivativeSecurityType;
@@ -4337,6 +4369,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityTypeWrapper = new CharArrayWrapper();
     private char[] derivativeSecuritySubType = new char[1];
 
     private boolean hasDerivativeSecuritySubType;
@@ -4387,6 +4420,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] derivativeMaturityMonthYear = new byte[8];
 
     private boolean hasDerivativeMaturityMonthYear;
@@ -4587,6 +4621,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSettleOnOpenFlagWrapper = new CharArrayWrapper();
     private char derivativeInstrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasDerivativeInstrmtAssignmentMethod;
@@ -4658,6 +4693,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityStatusWrapper = new CharArrayWrapper();
     private byte[] derivativeIssueDate = new byte[8];
 
     private boolean hasDerivativeIssueDate;
@@ -4758,6 +4794,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeInstrRegistryWrapper = new CharArrayWrapper();
     private char[] derivativeCountryOfIssue = new char[1];
 
     private boolean hasDerivativeCountryOfIssue;
@@ -4858,6 +4895,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] derivativeLocaleOfIssue = new char[1];
 
     private boolean hasDerivativeLocaleOfIssue;
@@ -4908,6 +4946,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeLocaleOfIssueWrapper = new CharArrayWrapper();
     private DecimalFloat derivativeStrikePrice = DecimalFloat.newNaNValue();
 
     private boolean hasDerivativeStrikePrice;
@@ -5197,6 +5236,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat derivativeUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasDerivativeUnitOfMeasureQty;
@@ -5268,6 +5308,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativePriceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat derivativePriceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasDerivativePriceUnitOfMeasureQty;
@@ -5360,6 +5401,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativePriceQuoteMethodWrapper = new CharArrayWrapper();
     private char[] derivativeValuationMethod = new char[1];
 
     private boolean hasDerivativeValuationMethod;
@@ -5410,6 +5452,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeValuationMethodWrapper = new CharArrayWrapper();
     private int derivativeListMethod = MISSING_INT;
 
     private boolean hasDerivativeListMethod;
@@ -5586,6 +5629,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeTimeUnitWrapper = new CharArrayWrapper();
     private char[] derivativeSecurityExchange = new char[1];
 
     private boolean hasDerivativeSecurityExchange;
@@ -5728,6 +5772,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeIssuerWrapper = new CharArrayWrapper();
     private int derivativeEncodedIssuerLen = MISSING_INT;
 
     private boolean hasDerivativeEncodedIssuerLen;
@@ -5820,6 +5865,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityDescWrapper = new CharArrayWrapper();
     private int derivativeEncodedSecurityDescLen = MISSING_INT;
 
     private boolean hasDerivativeEncodedSecurityDescLen;
@@ -5955,6 +6001,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityXMLSchemaWrapper = new CharArrayWrapper();
 
     private byte[] derivativeContractSettlMonth = new byte[8];
 
@@ -6414,7 +6461,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 underlyingSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYING_SECURITY_ALT_ID:
+            case Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoUnderlyingSecurityAltIDGroupCounter = true;
                 noUnderlyingSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 457, CODEC_VALIDATION_ENABLED);
                 if (underlyingSecurityAltIDGroup == null)
@@ -6802,7 +6849,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 underlyingEndValue = getFloat(buffer, underlyingEndValue, valueOffset, valueLength, 886, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDERLYING_STIPS:
+            case Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER:
                 hasNoUnderlyingStipsGroupCounter = true;
                 noUnderlyingStipsGroupCounter = getInt(buffer, valueOffset, endOfField, 887, CODEC_VALIDATION_ENABLED);
                 if (underlyingStipsGroup == null)
@@ -6857,7 +6904,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 underlyingCapValue = getFloat(buffer, underlyingCapValue, valueOffset, valueLength, 1038, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDLY_INSTRUMENT_PARTIES:
+            case Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoUndlyInstrumentPartiesGroupCounter = true;
                 noUndlyInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1058, CODEC_VALIDATION_ENABLED);
                 if (undlyInstrumentPartiesGroup == null)
@@ -6933,7 +6980,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 derivativeSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_DERIVATIVE_SECURITY_ALT_ID:
+            case Constants.NO_DERIVATIVE_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoDerivativeSecurityAltIDGroupCounter = true;
                 noDerivativeSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 1218, CODEC_VALIDATION_ENABLED);
                 if (derivativeSecurityAltIDGroup == null)
@@ -7299,7 +7346,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 derivativeContractSettlMonthLength = valueLength;
                 break;
 
-            case Constants.NO_DERIVATIVE_EVENTS:
+            case Constants.NO_DERIVATIVE_EVENTS_GROUP_COUNTER:
                 hasNoDerivativeEventsGroupCounter = true;
                 noDerivativeEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1286, CODEC_VALIDATION_ENABLED);
                 if (derivativeEventsGroup == null)
@@ -7334,7 +7381,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 break;
 
 
-            case Constants.NO_DERIVATIVE_INSTRUMENT_PARTIES:
+            case Constants.NO_DERIVATIVE_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoDerivativeInstrumentPartiesGroupCounter = true;
                 noDerivativeInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1292, CODEC_VALIDATION_ENABLED);
                 if (derivativeInstrumentPartiesGroup == null)
@@ -7370,7 +7417,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
 
 
 
-            case Constants.NO_DERIVATIVE_INSTR_ATTRIB:
+            case Constants.NO_DERIVATIVE_INSTR_ATTRIB_GROUP_COUNTER:
                 hasNoDerivativeInstrAttribGroupCounter = true;
                 noDerivativeInstrAttribGroupCounter = getInt(buffer, valueOffset, endOfField, 1311, CODEC_VALIDATION_ENABLED);
                 if (derivativeInstrAttribGroup == null)
@@ -7405,7 +7452,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 break;
 
 
-            case Constants.NO_MARKET_SEGMENTS:
+            case Constants.NO_MARKET_SEGMENTS_GROUP_COUNTER:
                 hasNoMarketSegmentsGroupCounter = true;
                 noMarketSegmentsGroupCounter = getInt(buffer, valueOffset, endOfField, 1310, CODEC_VALIDATION_ENABLED);
                 if (marketSegmentsGroup == null)
@@ -7458,7 +7505,7 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -8624,23 +8671,24 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
-        UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
-        for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoUnderlyingSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            underlyingSecurityAltIDGroup.appendTo(builder, level + 1);            if (underlyingSecurityAltIDGroup.next() != null)
+            builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
+            UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
+            for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (underlyingSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingProduct())
         {
@@ -9114,23 +9162,24 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingStipsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingStipsGroup\": [\n");
-        UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
-        for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingStipsGroupCounter)
         {
             indent(builder, level);
-            underlyingStipsGroup.appendTo(builder, level + 1);            if (underlyingStipsGroup.next() != null)
+            builder.append("\"UnderlyingStipsGroup\": [\n");
+            UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
+            for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingStipsGroup = underlyingStipsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingStipsGroup.appendTo(builder, level + 1);
+                if (underlyingStipsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingStipsGroup = underlyingStipsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingAdjustedQuantity())
         {
@@ -9164,23 +9213,24 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoUndlyInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UndlyInstrumentPartiesGroup\": [\n");
-        UndlyInstrumentPartiesGroupDecoder undlyInstrumentPartiesGroup = this.undlyInstrumentPartiesGroup;
-        for (int i = 0, size = this.noUndlyInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoUndlyInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            undlyInstrumentPartiesGroup.appendTo(builder, level + 1);            if (undlyInstrumentPartiesGroup.next() != null)
+            builder.append("\"UndlyInstrumentPartiesGroup\": [\n");
+            UndlyInstrumentPartiesGroupDecoder undlyInstrumentPartiesGroup = this.undlyInstrumentPartiesGroup;
+            for (int i = 0, size = this.noUndlyInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            undlyInstrumentPartiesGroup = undlyInstrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                undlyInstrumentPartiesGroup.appendTo(builder, level + 1);
+                if (undlyInstrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                undlyInstrumentPartiesGroup = undlyInstrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingSettlMethod())
         {
@@ -9230,23 +9280,24 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoDerivativeSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DerivativeSecurityAltIDGroup\": [\n");
-        DerivativeSecurityAltIDGroupDecoder derivativeSecurityAltIDGroup = this.derivativeSecurityAltIDGroup;
-        for (int i = 0, size = this.noDerivativeSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoDerivativeSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            derivativeSecurityAltIDGroup.appendTo(builder, level + 1);            if (derivativeSecurityAltIDGroup.next() != null)
+            builder.append("\"DerivativeSecurityAltIDGroup\": [\n");
+            DerivativeSecurityAltIDGroupDecoder derivativeSecurityAltIDGroup = this.derivativeSecurityAltIDGroup;
+            for (int i = 0, size = this.noDerivativeSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            derivativeSecurityAltIDGroup = derivativeSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                derivativeSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (derivativeSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                derivativeSecurityAltIDGroup = derivativeSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDerivativeProduct())
         {
@@ -9688,77 +9739,81 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoDerivativeEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DerivativeEventsGroup\": [\n");
-        DerivativeEventsGroupDecoder derivativeEventsGroup = this.derivativeEventsGroup;
-        for (int i = 0, size = this.noDerivativeEventsGroupCounter; i < size; i++)
+        if (hasNoDerivativeEventsGroupCounter)
         {
             indent(builder, level);
-            derivativeEventsGroup.appendTo(builder, level + 1);            if (derivativeEventsGroup.next() != null)
+            builder.append("\"DerivativeEventsGroup\": [\n");
+            DerivativeEventsGroupDecoder derivativeEventsGroup = this.derivativeEventsGroup;
+            for (int i = 0, size = this.noDerivativeEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            derivativeEventsGroup = derivativeEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                derivativeEventsGroup.appendTo(builder, level + 1);
+                if (derivativeEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                derivativeEventsGroup = derivativeEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoDerivativeInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DerivativeInstrumentPartiesGroup\": [\n");
-        DerivativeInstrumentPartiesGroupDecoder derivativeInstrumentPartiesGroup = this.derivativeInstrumentPartiesGroup;
-        for (int i = 0, size = this.noDerivativeInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoDerivativeInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            derivativeInstrumentPartiesGroup.appendTo(builder, level + 1);            if (derivativeInstrumentPartiesGroup.next() != null)
+            builder.append("\"DerivativeInstrumentPartiesGroup\": [\n");
+            DerivativeInstrumentPartiesGroupDecoder derivativeInstrumentPartiesGroup = this.derivativeInstrumentPartiesGroup;
+            for (int i = 0, size = this.noDerivativeInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            derivativeInstrumentPartiesGroup = derivativeInstrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                derivativeInstrumentPartiesGroup.appendTo(builder, level + 1);
+                if (derivativeInstrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                derivativeInstrumentPartiesGroup = derivativeInstrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoDerivativeInstrAttribGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DerivativeInstrAttribGroup\": [\n");
-        DerivativeInstrAttribGroupDecoder derivativeInstrAttribGroup = this.derivativeInstrAttribGroup;
-        for (int i = 0, size = this.noDerivativeInstrAttribGroupCounter; i < size; i++)
+        if (hasNoDerivativeInstrAttribGroupCounter)
         {
             indent(builder, level);
-            derivativeInstrAttribGroup.appendTo(builder, level + 1);            if (derivativeInstrAttribGroup.next() != null)
+            builder.append("\"DerivativeInstrAttribGroup\": [\n");
+            DerivativeInstrAttribGroupDecoder derivativeInstrAttribGroup = this.derivativeInstrAttribGroup;
+            for (int i = 0, size = this.noDerivativeInstrAttribGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            derivativeInstrAttribGroup = derivativeInstrAttribGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                derivativeInstrAttribGroup.appendTo(builder, level + 1);
+                if (derivativeInstrAttribGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                derivativeInstrAttribGroup = derivativeInstrAttribGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoMarketSegmentsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MarketSegmentsGroup\": [\n");
-        MarketSegmentsGroupDecoder marketSegmentsGroup = this.marketSegmentsGroup;
-        for (int i = 0, size = this.noMarketSegmentsGroupCounter; i < size; i++)
+        if (hasNoMarketSegmentsGroupCounter)
         {
             indent(builder, level);
-            marketSegmentsGroup.appendTo(builder, level + 1);            if (marketSegmentsGroup.next() != null)
+            builder.append("\"MarketSegmentsGroup\": [\n");
+            MarketSegmentsGroupDecoder marketSegmentsGroup = this.marketSegmentsGroup;
+            for (int i = 0, size = this.noMarketSegmentsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            marketSegmentsGroup = marketSegmentsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                marketSegmentsGroup.appendTo(builder, level + 1);
+                if (marketSegmentsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                marketSegmentsGroup = marketSegmentsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTransactTime())
         {
@@ -9784,23 +9839,24 @@ public class DerivativeSecurityListUpdateReportDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

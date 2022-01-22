@@ -182,6 +182,7 @@ public class MarketDefinitionRequestDecoder extends CommonDecoderImpl implements
     }
 
 
+    private final CharArrayWrapper marketReqIDWrapper = new CharArrayWrapper();
     private char subscriptionRequestType = MISSING_CHAR;
 
     public char subscriptionRequestType()
@@ -297,6 +298,7 @@ public class MarketDefinitionRequestDecoder extends CommonDecoderImpl implements
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] parentMktSegmID = new char[1];
 
     private boolean hasParentMktSegmID;
@@ -347,6 +349,7 @@ public class MarketDefinitionRequestDecoder extends CommonDecoderImpl implements
     }
 
 
+    private final CharArrayWrapper parentMktSegmIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode MarketDefinitionRequest

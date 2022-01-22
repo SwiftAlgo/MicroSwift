@@ -139,6 +139,7 @@ public class RootPartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper rootPartySubIDWrapper = new CharArrayWrapper();
     private int rootPartySubIDType = MISSING_INT;
 
     private boolean hasRootPartySubIDType;
@@ -308,12 +309,12 @@ public class RootPartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public RootPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public RootSubPartiesEncoder.RootPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((RootPartySubIDsGroupEncoder)encoder);
+        return toEncoder((RootSubPartiesEncoder.RootPartySubIDsGroupEncoder)encoder);
     }
 
-    public RootPartySubIDsGroupEncoder toEncoder(final RootPartySubIDsGroupEncoder encoder)
+    public RootSubPartiesEncoder.RootPartySubIDsGroupEncoder toEncoder(final RootSubPartiesEncoder.RootPartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRootPartySubID())
@@ -344,6 +345,7 @@ public class RootPartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public RootPartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class RootPartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoRootPartySubIDsGroupCounter() ? parent.noRootPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.rootPartySubIDsGroup();
         }
+
         public RootPartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public RootPartySubIDsGroupIterator rootPartySubIDsGroupIterator();
+    public RootPartySubIDsGroupIterator rootPartySubIDsGroupIterator();
     public int noRootPartySubIDsGroupCounter();
     public boolean hasNoRootPartySubIDsGroupCounter();
     public RootPartySubIDsGroupDecoder rootPartySubIDsGroup();

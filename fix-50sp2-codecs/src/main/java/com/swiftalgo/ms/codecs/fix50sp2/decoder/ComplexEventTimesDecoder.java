@@ -339,12 +339,12 @@ public class ComplexEventTimesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ComplexEventTimesGroupEncoder toEncoder(final Encoder encoder)
+    public ComplexEventTimesEncoder.ComplexEventTimesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ComplexEventTimesGroupEncoder)encoder);
+        return toEncoder((ComplexEventTimesEncoder.ComplexEventTimesGroupEncoder)encoder);
     }
 
-    public ComplexEventTimesGroupEncoder toEncoder(final ComplexEventTimesGroupEncoder encoder)
+    public ComplexEventTimesEncoder.ComplexEventTimesGroupEncoder toEncoder(final ComplexEventTimesEncoder.ComplexEventTimesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasComplexEventStartTime())
@@ -375,6 +375,7 @@ public class ComplexEventTimesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ComplexEventTimesGroupDecoder next()
         {
             remainder--;
@@ -382,23 +383,27 @@ public class ComplexEventTimesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoComplexEventTimesGroupCounter() ? parent.noComplexEventTimesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.complexEventTimesGroup();
         }
+
         public ComplexEventTimesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ComplexEventTimesGroupIterator complexEventTimesGroupIterator();
+    public ComplexEventTimesGroupIterator complexEventTimesGroupIterator();
     public int noComplexEventTimesGroupCounter();
     public boolean hasNoComplexEventTimesGroupCounter();
     public ComplexEventTimesGroupDecoder complexEventTimesGroup();

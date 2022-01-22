@@ -458,7 +458,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
         messageFields.add(Constants.MASS_CANCEL_RESPONSE);
         messageFields.add(Constants.MASS_CANCEL_REJECT_REASON);
         messageFields.add(Constants.TOTAL_AFFECTED_ORDERS);
-        messageFields.add(Constants.NO_AFFECTED_ORDERS);
+        messageFields.add(Constants.NO_AFFECTED_ORDERS_GROUP_COUNTER);
         messageFields.add(Constants.ORIG_CL_ORD_ID);
         messageFields.add(Constants.AFFECTED_ORDER_ID);
         messageFields.add(Constants.AFFECTED_SECONDARY_ORDER_ID);
@@ -468,7 +468,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -506,7 +506,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_PX);
@@ -517,7 +517,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -561,7 +561,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.SIDE);
@@ -638,6 +638,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -688,6 +689,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private char[] orderID = new char[1];
 
     public char[] orderID()
@@ -716,6 +718,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -766,6 +769,7 @@ public class OrderMassCancelReportDecoder extends CommonDecoderImpl implements I
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char massCancelRequestType = MISSING_CHAR;
 
     public char massCancelRequestType()
@@ -984,6 +988,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper origClOrdIDWrapper = new CharArrayWrapper();
     private char[] affectedOrderID = new char[1];
 
     private boolean hasAffectedOrderID;
@@ -1034,6 +1039,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper affectedOrderIDWrapper = new CharArrayWrapper();
     private char[] affectedSecondaryOrderID = new char[1];
 
     private boolean hasAffectedSecondaryOrderID;
@@ -1084,6 +1090,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper affectedSecondaryOrderIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode AffectedOrdersGroup
@@ -1255,12 +1262,12 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public AffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
+    public OrderMassCancelReportEncoder.AffectedOrdersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AffectedOrdersGroupEncoder)encoder);
+        return toEncoder((OrderMassCancelReportEncoder.AffectedOrdersGroupEncoder)encoder);
     }
 
-    public AffectedOrdersGroupEncoder toEncoder(final AffectedOrdersGroupEncoder encoder)
+    public OrderMassCancelReportEncoder.AffectedOrdersGroupEncoder toEncoder(final OrderMassCancelReportEncoder.AffectedOrdersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasOrigClOrdID())
@@ -1296,6 +1303,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public AffectedOrdersGroupDecoder next()
         {
             remainder--;
@@ -1303,20 +1311,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAffectedOrdersGroupCounter() ? parent.noAffectedOrdersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.affectedOrdersGroup();
         }
+
         public AffectedOrdersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -1404,6 +1416,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -1454,6 +1467,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
 
     private char[] symbol = new char[1];
 
@@ -1483,6 +1497,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -1592,6 +1607,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -1765,6 +1781,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -1874,6 +1891,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2153,6 +2171,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -2266,6 +2285,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -2316,6 +2336,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -2416,6 +2437,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -2466,6 +2488,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -2750,6 +2773,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -2842,6 +2866,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -2934,6 +2959,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -3055,6 +3081,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
     private EventsGroupDecoder eventsGroup = null;
     public EventsGroupDecoder eventsGroup()
@@ -3220,6 +3247,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolWrapper = new CharArrayWrapper();
     private char[] underlyingSymbolSfx = new char[1];
 
     private boolean hasUnderlyingSymbolSfx;
@@ -3270,6 +3298,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSymbolSfxWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityID = new char[1];
 
     private boolean hasUnderlyingSecurityID;
@@ -3320,6 +3349,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityIDSource = new char[1];
 
     private boolean hasUnderlyingSecurityIDSource;
@@ -3370,6 +3400,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDSourceWrapper = new CharArrayWrapper();
 
     private UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = null;
     public UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup()
@@ -3476,6 +3507,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCFICodeWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityType = new char[1];
 
     private boolean hasUnderlyingSecurityType;
@@ -3526,6 +3558,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSecuritySubType = new char[1];
 
     private boolean hasUnderlyingSecuritySubType;
@@ -3576,6 +3609,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] underlyingMaturityMonthYear = new byte[8];
 
     private boolean hasUnderlyingMaturityMonthYear;
@@ -3855,6 +3889,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int underlyingRepurchaseTerm = MISSING_INT;
 
     private boolean hasUnderlyingRepurchaseTerm;
@@ -3968,6 +4003,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCreditRatingWrapper = new CharArrayWrapper();
     private char[] underlyingInstrRegistry = new char[1];
 
     private boolean hasUnderlyingInstrRegistry;
@@ -4018,6 +4054,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingInstrRegistryWrapper = new CharArrayWrapper();
     private char[] underlyingCountryOfIssue = new char[1];
 
     private boolean hasUnderlyingCountryOfIssue;
@@ -4118,6 +4155,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] underlyingLocaleOfIssue = new char[1];
 
     private boolean hasUnderlyingLocaleOfIssue;
@@ -4168,6 +4206,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] underlyingRedemptionDate = new byte[8];
 
     private boolean hasUnderlyingRedemptionDate;
@@ -4452,6 +4491,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingIssuerWrapper = new CharArrayWrapper();
     private int encodedUnderlyingIssuerLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingIssuerLen;
@@ -4544,6 +4584,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingSecurityDescWrapper = new CharArrayWrapper();
     private int encodedUnderlyingSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingSecurityDescLen;
@@ -4636,6 +4677,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCPProgramWrapper = new CharArrayWrapper();
     private char[] underlyingCPRegType = new char[1];
 
     private boolean hasUnderlyingCPRegType;
@@ -4686,6 +4728,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingCPRegTypeWrapper = new CharArrayWrapper();
     private char[] underlyingCurrency = new char[1];
 
     private boolean hasUnderlyingCurrency;
@@ -5050,6 +5093,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -5193,7 +5237,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
                 totalAffectedOrders = getInt(buffer, valueOffset, endOfField, 533, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_AFFECTED_ORDERS:
+            case Constants.NO_AFFECTED_ORDERS_GROUP_COUNTER:
                 hasNoAffectedOrdersGroupCounter = true;
                 noAffectedOrdersGroupCounter = getInt(buffer, valueOffset, endOfField, 534, CODEC_VALIDATION_ENABLED);
                 if (affectedOrdersGroup == null)
@@ -5268,7 +5312,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -5521,7 +5565,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -5597,7 +5641,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
                 underlyingSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYING_SECURITY_ALT_ID:
+            case Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoUnderlyingSecurityAltIDGroupCounter = true;
                 noUnderlyingSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 457, CODEC_VALIDATION_ENABLED);
                 if (underlyingSecurityAltIDGroup == null)
@@ -5880,7 +5924,7 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
                 underlyingEndValue = getFloat(buffer, underlyingEndValue, valueOffset, valueLength, 886, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDERLYING_STIPS:
+            case Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER:
                 hasNoUnderlyingStipsGroupCounter = true;
                 noUnderlyingStipsGroupCounter = getInt(buffer, valueOffset, endOfField, 887, CODEC_VALIDATION_ENABLED);
                 if (underlyingStipsGroup == null)
@@ -6751,23 +6795,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoAffectedOrdersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AffectedOrdersGroup\": [\n");
-        AffectedOrdersGroupDecoder affectedOrdersGroup = this.affectedOrdersGroup;
-        for (int i = 0, size = this.noAffectedOrdersGroupCounter; i < size; i++)
+        if (hasNoAffectedOrdersGroupCounter)
         {
             indent(builder, level);
-            affectedOrdersGroup.appendTo(builder, level + 1);            if (affectedOrdersGroup.next() != null)
+            builder.append("\"AffectedOrdersGroup\": [\n");
+            AffectedOrdersGroupDecoder affectedOrdersGroup = this.affectedOrdersGroup;
+            for (int i = 0, size = this.noAffectedOrdersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            affectedOrdersGroup = affectedOrdersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                affectedOrdersGroup.appendTo(builder, level + 1);
+                if (affectedOrdersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                affectedOrdersGroup = affectedOrdersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTradingSessionID())
         {
@@ -6814,23 +6859,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -7112,23 +7158,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -7175,23 +7222,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
-        UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
-        for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoUnderlyingSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            underlyingSecurityAltIDGroup.appendTo(builder, level + 1);            if (underlyingSecurityAltIDGroup.next() != null)
+            builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
+            UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
+            for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (underlyingSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingProduct())
         {
@@ -7521,23 +7569,24 @@ public class AffectedOrdersGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingStipsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingStipsGroup\": [\n");
-        UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
-        for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingStipsGroupCounter)
         {
             indent(builder, level);
-            underlyingStipsGroup.appendTo(builder, level + 1);            if (underlyingStipsGroup.next() != null)
+            builder.append("\"UnderlyingStipsGroup\": [\n");
+            UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
+            for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingStipsGroup = underlyingStipsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingStipsGroup.appendTo(builder, level + 1);
+                if (underlyingStipsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingStipsGroup = underlyingStipsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSide())
         {

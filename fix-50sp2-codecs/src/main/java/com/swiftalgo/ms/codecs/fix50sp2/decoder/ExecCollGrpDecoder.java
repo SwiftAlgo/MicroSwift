@@ -138,6 +138,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper execIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode ExecsGroup
@@ -267,12 +268,12 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ExecsGroupEncoder toEncoder(final Encoder encoder)
+    public ExecCollGrpEncoder.ExecsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ExecsGroupEncoder)encoder);
+        return toEncoder((ExecCollGrpEncoder.ExecsGroupEncoder)encoder);
     }
 
-    public ExecsGroupEncoder toEncoder(final ExecsGroupEncoder encoder)
+    public ExecCollGrpEncoder.ExecsGroupEncoder toEncoder(final ExecCollGrpEncoder.ExecsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasExecID())
@@ -298,6 +299,7 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ExecsGroupDecoder next()
         {
             remainder--;
@@ -305,23 +307,27 @@ public class ExecsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoExecsGroupCounter() ? parent.noExecsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.execsGroup();
         }
+
         public ExecsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ExecsGroupIterator execsGroupIterator();
+    public ExecsGroupIterator execsGroupIterator();
     public int noExecsGroupCounter();
     public boolean hasNoExecsGroupCounter();
     public ExecsGroupDecoder execsGroup();

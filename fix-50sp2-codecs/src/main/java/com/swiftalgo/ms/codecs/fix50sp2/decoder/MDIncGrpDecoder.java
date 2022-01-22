@@ -1396,6 +1396,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDEntryIDWrapper = new CharArrayWrapper();
     private char[] mDEntryRefID = new char[1];
 
     private boolean hasMDEntryRefID;
@@ -1446,6 +1447,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDEntryRefIDWrapper = new CharArrayWrapper();
     private char[] mDStreamID = new char[1];
 
     private boolean hasMDStreamID;
@@ -1496,6 +1498,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDStreamIDWrapper = new CharArrayWrapper();
 
     private char[] symbol = new char[1];
 
@@ -1547,6 +1550,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -1656,6 +1660,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -1831,6 +1836,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -1881,6 +1887,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -1931,6 +1938,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -2040,6 +2048,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2240,6 +2249,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -2672,6 +2682,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -2785,6 +2796,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -2835,6 +2847,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -2935,6 +2948,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -2985,6 +2999,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -3528,6 +3543,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -4139,6 +4155,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -4231,6 +4248,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -4366,6 +4384,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -4417,6 +4436,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -4546,6 +4566,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -5389,6 +5410,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper benchmarkCurvePointWrapper = new CharArrayWrapper();
     private DecimalFloat benchmarkPrice = DecimalFloat.newNaNValue();
 
     private boolean hasBenchmarkPrice;
@@ -5481,6 +5503,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDWrapper = new CharArrayWrapper();
     private char[] benchmarkSecurityIDSource = new char[1];
 
     private boolean hasBenchmarkSecurityIDSource;
@@ -5531,6 +5554,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDSourceWrapper = new CharArrayWrapper();
 
     private char ordType = MISSING_CHAR;
 
@@ -6380,6 +6404,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDEntryOriginatorWrapper = new CharArrayWrapper();
     private char[] locationID = new char[1];
 
     private boolean hasLocationID;
@@ -6430,6 +6455,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper locationIDWrapper = new CharArrayWrapper();
     private char[] deskID = new char[1];
 
     private boolean hasDeskID;
@@ -6480,6 +6506,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper deskIDWrapper = new CharArrayWrapper();
     private char[] openCloseSettlFlag = new char[1];
 
     private boolean hasOpenCloseSettlFlag;
@@ -6803,6 +6830,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -6853,6 +6881,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] quoteEntryID = new char[1];
 
     private boolean hasQuoteEntryID;
@@ -6903,6 +6932,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper quoteEntryIDWrapper = new CharArrayWrapper();
     private char[] tradeID = new char[1];
 
     private boolean hasTradeID;
@@ -6953,6 +6983,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper tradeIDWrapper = new CharArrayWrapper();
     private char[] mDEntryBuyer = new char[1];
 
     private boolean hasMDEntryBuyer;
@@ -7003,6 +7034,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDEntryBuyerWrapper = new CharArrayWrapper();
     private char[] mDEntrySeller = new char[1];
 
     private boolean hasMDEntrySeller;
@@ -7053,6 +7085,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper mDEntrySellerWrapper = new CharArrayWrapper();
     private int numberOfOrders = MISSING_INT;
 
     private boolean hasNumberOfOrders;
@@ -7238,6 +7271,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -7997,7 +8031,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -8494,7 +8528,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -8543,7 +8577,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -8578,7 +8612,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -8614,7 +8648,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
 
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -8649,7 +8683,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 break;
 
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -8815,7 +8849,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 settlCurrencyLength = valueLength;
                 break;
 
-            case Constants.NO_RATE_SOURCES:
+            case Constants.NO_RATE_SOURCES_GROUP_COUNTER:
                 hasNoRateSourcesGroupCounter = true;
                 noRateSourcesGroupCounter = getInt(buffer, valueOffset, endOfField, 1445, CODEC_VALIDATION_ENABLED);
                 if (rateSourcesGroup == null)
@@ -8855,7 +8889,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 mDEntrySize = getFloat(buffer, mDEntrySize, valueOffset, valueLength, 271, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_OF_SEC_SIZES:
+            case Constants.NO_OF_SEC_SIZES_GROUP_COUNTER:
                 hasNoOfSecSizesGroupCounter = true;
                 noOfSecSizesGroupCounter = getInt(buffer, valueOffset, endOfField, 1177, CODEC_VALIDATION_ENABLED);
                 if (ofSecSizesGroup == null)
@@ -9215,7 +9249,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 mDEntryForwardPoints = getFloat(buffer, mDEntryForwardPoints, valueOffset, valueLength, 1027, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_STATS_INDICATORS:
+            case Constants.NO_STATS_INDICATORS_GROUP_COUNTER:
                 hasNoStatsIndicatorsGroupCounter = true;
                 noStatsIndicatorsGroupCounter = getInt(buffer, valueOffset, endOfField, 1175, CODEC_VALIDATION_ENABLED);
                 if (statsIndicatorsGroup == null)
@@ -9250,7 +9284,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
                 break;
 
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -10581,23 +10615,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -11223,23 +11258,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -11257,77 +11293,81 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasFinancialStatus())
         {
@@ -11497,23 +11537,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoRateSourcesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RateSourcesGroup\": [\n");
-        RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
-        for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
+        if (hasNoRateSourcesGroupCounter)
         {
             indent(builder, level);
-            rateSourcesGroup.appendTo(builder, level + 1);            if (rateSourcesGroup.next() != null)
+            builder.append("\"RateSourcesGroup\": [\n");
+            RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
+            for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rateSourcesGroup = rateSourcesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rateSourcesGroup.appendTo(builder, level + 1);
+                if (rateSourcesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rateSourcesGroup = rateSourcesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasMDEntrySize())
         {
@@ -11523,23 +11564,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoOfSecSizesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OfSecSizesGroup\": [\n");
-        OfSecSizesGroupDecoder ofSecSizesGroup = this.ofSecSizesGroup;
-        for (int i = 0, size = this.noOfSecSizesGroupCounter; i < size; i++)
+        if (hasNoOfSecSizesGroupCounter)
         {
             indent(builder, level);
-            ofSecSizesGroup.appendTo(builder, level + 1);            if (ofSecSizesGroup.next() != null)
+            builder.append("\"OfSecSizesGroup\": [\n");
+            OfSecSizesGroupDecoder ofSecSizesGroup = this.ofSecSizesGroup;
+            for (int i = 0, size = this.noOfSecSizesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ofSecSizesGroup = ofSecSizesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ofSecSizesGroup.appendTo(builder, level + 1);
+                if (ofSecSizesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ofSecSizesGroup = ofSecSizesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLotType())
         {
@@ -11973,41 +12015,43 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             builder.append("\",\n");
         }
 
-    if (hasNoStatsIndicatorsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StatsIndicatorsGroup\": [\n");
-        StatsIndicatorsGroupDecoder statsIndicatorsGroup = this.statsIndicatorsGroup;
-        for (int i = 0, size = this.noStatsIndicatorsGroupCounter; i < size; i++)
+        if (hasNoStatsIndicatorsGroupCounter)
         {
             indent(builder, level);
-            statsIndicatorsGroup.appendTo(builder, level + 1);            if (statsIndicatorsGroup.next() != null)
+            builder.append("\"StatsIndicatorsGroup\": [\n");
+            StatsIndicatorsGroupDecoder statsIndicatorsGroup = this.statsIndicatorsGroup;
+            for (int i = 0, size = this.noStatsIndicatorsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            statsIndicatorsGroup = statsIndicatorsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                statsIndicatorsGroup.appendTo(builder, level + 1);
+                if (statsIndicatorsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                statsIndicatorsGroup = statsIndicatorsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -12016,12 +12060,12 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
     /**
      * {@inheritDoc}
      */
-    public MDEntriesGroupEncoder toEncoder(final Encoder encoder)
+    public MDIncGrpEncoder.MDEntriesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MDEntriesGroupEncoder)encoder);
+        return toEncoder((MDIncGrpEncoder.MDEntriesGroupEncoder)encoder);
     }
 
-    public MDEntriesGroupEncoder toEncoder(final MDEntriesGroupEncoder encoder)
+    public MDIncGrpEncoder.MDEntriesGroupEncoder toEncoder(final MDIncGrpEncoder.MDEntriesGroupEncoder encoder)
     {
         encoder.reset();
         encoder.mDUpdateAction(this.mDUpdateAction());
@@ -13070,6 +13114,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
         {
             return remainder > 0 && current != null;
         }
+
         public MDEntriesGroupDecoder next()
         {
             remainder--;
@@ -13077,23 +13122,27 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements Instrume
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMDEntriesGroupCounter() ? parent.noMDEntriesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.mDEntriesGroup();
         }
+
         public MDEntriesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MDEntriesGroupIterator mDEntriesGroupIterator();
+    public MDEntriesGroupIterator mDEntriesGroupIterator();
     public int noMDEntriesGroupCounter();
     public boolean hasNoMDEntriesGroupCounter();
     public MDEntriesGroupDecoder mDEntriesGroup();

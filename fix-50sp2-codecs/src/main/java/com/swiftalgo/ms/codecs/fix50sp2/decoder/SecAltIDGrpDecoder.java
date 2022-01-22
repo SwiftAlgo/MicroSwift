@@ -139,6 +139,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityAltIDWrapper = new CharArrayWrapper();
     private char[] securityAltIDSource = new char[1];
 
     private boolean hasSecurityAltIDSource;
@@ -189,6 +190,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper securityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SecurityAltIDGroup
@@ -339,12 +341,12 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public SecAltIDGrpEncoder.SecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SecurityAltIDGroupEncoder)encoder);
+        return toEncoder((SecAltIDGrpEncoder.SecurityAltIDGroupEncoder)encoder);
     }
 
-    public SecurityAltIDGroupEncoder toEncoder(final SecurityAltIDGroupEncoder encoder)
+    public SecAltIDGrpEncoder.SecurityAltIDGroupEncoder toEncoder(final SecAltIDGrpEncoder.SecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSecurityAltID())
@@ -375,6 +377,7 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class SecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSecurityAltIDGroupCounter() ? parent.noSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.securityAltIDGroup();
         }
+
         public SecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SecurityAltIDGroupIterator securityAltIDGroupIterator();
+    public SecurityAltIDGroupIterator securityAltIDGroupIterator();
     public int noSecurityAltIDGroupCounter();
     public boolean hasNoSecurityAltIDGroupCounter();
     public SecurityAltIDGroupDecoder securityAltIDGroup();

@@ -215,11 +215,11 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.SETTL_INST_REQ_ID);
         messageFields.add(Constants.TRANSACT_TIME);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_ACCOUNT);
@@ -282,6 +282,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper settlInstReqIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -397,6 +398,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper allocAccountWrapper = new CharArrayWrapper();
     private int allocAcctIDSource = MISSING_INT;
 
     private boolean hasAllocAcctIDSource;
@@ -585,6 +587,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] settlCurrency = new char[1];
 
     private boolean hasSettlCurrency;
@@ -864,6 +867,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper standInstDbNameWrapper = new CharArrayWrapper();
     private char[] standInstDbID = new char[1];
 
     private boolean hasStandInstDbID;
@@ -914,6 +918,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper standInstDbIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SettlementInstructionRequest
@@ -980,7 +985,7 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
                 transactTimeLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -1279,23 +1284,24 @@ public class SettlementInstructionRequestDecoder extends CommonDecoderImpl imple
         appendData(builder, transactTime, transactTimeLength);
         builder.append("\",\n");
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAllocAccount())
         {

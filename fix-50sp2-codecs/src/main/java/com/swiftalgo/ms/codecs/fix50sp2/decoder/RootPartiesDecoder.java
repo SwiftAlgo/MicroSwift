@@ -175,6 +175,7 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
     }
 
 
+    private final CharArrayWrapper rootPartyIDWrapper = new CharArrayWrapper();
     private char rootPartyIDSource = MISSING_CHAR;
 
     private boolean hasRootPartyIDSource;
@@ -327,7 +328,7 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
                 rootPartyRole = getInt(buffer, valueOffset, endOfField, 1119, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_ROOT_PARTY_SUB_IDS:
+            case Constants.NO_ROOT_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoRootPartySubIDsGroupCounter = true;
                 noRootPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1120, CODEC_VALIDATION_ENABLED);
                 if (rootPartySubIDsGroup == null)
@@ -464,23 +465,24 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
             builder.append("\",\n");
         }
 
-    if (hasNoRootPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RootPartySubIDsGroup\": [\n");
-        RootPartySubIDsGroupDecoder rootPartySubIDsGroup = this.rootPartySubIDsGroup;
-        for (int i = 0, size = this.noRootPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoRootPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            rootPartySubIDsGroup.appendTo(builder, level + 1);            if (rootPartySubIDsGroup.next() != null)
+            builder.append("\"RootPartySubIDsGroup\": [\n");
+            RootPartySubIDsGroupDecoder rootPartySubIDsGroup = this.rootPartySubIDsGroup;
+            for (int i = 0, size = this.noRootPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rootPartySubIDsGroup = rootPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rootPartySubIDsGroup.appendTo(builder, level + 1);
+                if (rootPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rootPartySubIDsGroup = rootPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -489,12 +491,12 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
     /**
      * {@inheritDoc}
      */
-    public RootPartyIDsGroupEncoder toEncoder(final Encoder encoder)
+    public RootPartiesEncoder.RootPartyIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((RootPartyIDsGroupEncoder)encoder);
+        return toEncoder((RootPartiesEncoder.RootPartyIDsGroupEncoder)encoder);
     }
 
-    public RootPartyIDsGroupEncoder toEncoder(final RootPartyIDsGroupEncoder encoder)
+    public RootPartiesEncoder.RootPartyIDsGroupEncoder toEncoder(final RootPartiesEncoder.RootPartyIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRootPartyID())
@@ -548,6 +550,7 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
         {
             return remainder > 0 && current != null;
         }
+
         public RootPartyIDsGroupDecoder next()
         {
             remainder--;
@@ -555,23 +558,27 @@ public class RootPartyIDsGroupDecoder extends CommonDecoderImpl implements RootS
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoRootPartyIDsGroupCounter() ? parent.noRootPartyIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.rootPartyIDsGroup();
         }
+
         public RootPartyIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public RootPartyIDsGroupIterator rootPartyIDsGroupIterator();
+    public RootPartyIDsGroupIterator rootPartyIDsGroupIterator();
     public int noRootPartyIDsGroupCounter();
     public boolean hasNoRootPartyIDsGroupCounter();
     public RootPartyIDsGroupDecoder rootPartyIDsGroup();

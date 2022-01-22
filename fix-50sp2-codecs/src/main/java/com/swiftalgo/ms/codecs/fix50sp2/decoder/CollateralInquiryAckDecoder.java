@@ -853,14 +853,14 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.COLL_INQUIRY_ID);
         messageFields.add(Constants.COLL_INQUIRY_STATUS);
         messageFields.add(Constants.COLL_INQUIRY_RESULT);
-        messageFields.add(Constants.NO_COLL_INQUIRY_QUALIFIER);
+        messageFields.add(Constants.NO_COLL_INQUIRY_QUALIFIER_GROUP_COUNTER);
         messageFields.add(Constants.COLL_INQUIRY_QUALIFIER);
         messageFields.add(Constants.TOT_NUM_REPORTS);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -869,16 +869,16 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.ORDER_ID);
         messageFields.add(Constants.SECONDARY_ORDER_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
-        messageFields.add(Constants.NO_EXECS);
+        messageFields.add(Constants.NO_EXECS_GROUP_COUNTER);
         messageFields.add(Constants.EXEC_ID);
-        messageFields.add(Constants.NO_TRADES);
+        messageFields.add(Constants.NO_TRADES_GROUP_COUNTER);
         messageFields.add(Constants.TRADE_REPORT_ID);
         messageFields.add(Constants.SECONDARY_TRADE_REPORT_ID);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -959,7 +959,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -967,14 +967,14 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -982,10 +982,10 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.AGREEMENT_DESC);
@@ -1001,12 +1001,12 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.QUANTITY);
         messageFields.add(Constants.QTY_TYPE);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -1058,12 +1058,12 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.LEG_PUT_OR_CALL);
         messageFields.add(Constants.LEG_OPTION_RATIO);
         messageFields.add(Constants.LEG_PRICE);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -1125,18 +1125,18 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -1198,6 +1198,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper collInquiryIDWrapper = new CharArrayWrapper();
     private int collInquiryStatus = MISSING_INT;
 
     public int collInquiryStatus()
@@ -1387,6 +1388,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int accountType = MISSING_INT;
 
     private boolean hasAccountType;
@@ -1466,6 +1468,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] orderID = new char[1];
 
     private boolean hasOrderID;
@@ -1516,6 +1519,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -1566,6 +1570,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -1616,6 +1621,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
 
 
     private ExecsGroupDecoder execsGroup = null;
@@ -1741,6 +1747,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -1850,6 +1857,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -2025,6 +2033,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -2075,6 +2084,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -2125,6 +2135,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -2234,6 +2245,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -2434,6 +2446,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -2866,6 +2879,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -2979,6 +2993,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -3029,6 +3044,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -3129,6 +3145,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -3179,6 +3196,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -3722,6 +3740,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -4333,6 +4352,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -4425,6 +4445,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -4560,6 +4581,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -4611,6 +4633,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -4740,6 +4763,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -5003,6 +5027,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper agreementDescWrapper = new CharArrayWrapper();
     private char[] agreementID = new char[1];
 
     private boolean hasAgreementID;
@@ -5053,6 +5078,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper agreementIDWrapper = new CharArrayWrapper();
     private byte[] agreementDate = new byte[8];
 
     private boolean hasAgreementDate;
@@ -5784,6 +5810,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper settlSessSubIDWrapper = new CharArrayWrapper();
     private byte[] clearingBusinessDate = new byte[8];
 
     private boolean hasClearingBusinessDate;
@@ -5913,6 +5940,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper responseDestinationWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -5963,6 +5991,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -6074,7 +6103,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 collInquiryResult = getInt(buffer, valueOffset, endOfField, 946, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_COLL_INQUIRY_QUALIFIER:
+            case Constants.NO_COLL_INQUIRY_QUALIFIER_GROUP_COUNTER:
                 hasNoCollInquiryQualifierGroupCounter = true;
                 noCollInquiryQualifierGroupCounter = getInt(buffer, valueOffset, endOfField, 938, CODEC_VALIDATION_ENABLED);
                 if (collInquiryQualifierGroup == null)
@@ -6114,7 +6143,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 totNumReports = getInt(buffer, valueOffset, endOfField, 911, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -6189,7 +6218,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 secondaryClOrdIDLength = valueLength;
                 break;
 
-            case Constants.NO_EXECS:
+            case Constants.NO_EXECS_GROUP_COUNTER:
                 hasNoExecsGroupCounter = true;
                 noExecsGroupCounter = getInt(buffer, valueOffset, endOfField, 124, CODEC_VALIDATION_ENABLED);
                 if (execsGroup == null)
@@ -6224,7 +6253,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 break;
 
 
-            case Constants.NO_TRADES:
+            case Constants.NO_TRADES_GROUP_COUNTER:
                 hasNoTradesGroupCounter = true;
                 noTradesGroupCounter = getInt(buffer, valueOffset, endOfField, 897, CODEC_VALIDATION_ENABLED);
                 if (tradesGroup == null)
@@ -6287,7 +6316,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -6784,7 +6813,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -6833,7 +6862,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -6868,7 +6897,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -6986,7 +7015,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 currencyLength = valueLength;
                 break;
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -7021,7 +7050,7 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
                 break;
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -8058,23 +8087,24 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoCollInquiryQualifierGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"CollInquiryQualifierGroup\": [\n");
-        CollInquiryQualifierGroupDecoder collInquiryQualifierGroup = this.collInquiryQualifierGroup;
-        for (int i = 0, size = this.noCollInquiryQualifierGroupCounter; i < size; i++)
+        if (hasNoCollInquiryQualifierGroupCounter)
         {
             indent(builder, level);
-            collInquiryQualifierGroup.appendTo(builder, level + 1);            if (collInquiryQualifierGroup.next() != null)
+            builder.append("\"CollInquiryQualifierGroup\": [\n");
+            CollInquiryQualifierGroupDecoder collInquiryQualifierGroup = this.collInquiryQualifierGroup;
+            for (int i = 0, size = this.noCollInquiryQualifierGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            collInquiryQualifierGroup = collInquiryQualifierGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                collInquiryQualifierGroup.appendTo(builder, level + 1);
+                if (collInquiryQualifierGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                collInquiryQualifierGroup = collInquiryQualifierGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTotNumReports())
         {
@@ -8084,23 +8114,24 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {
@@ -8150,41 +8181,43 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoExecsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ExecsGroup\": [\n");
-        ExecsGroupDecoder execsGroup = this.execsGroup;
-        for (int i = 0, size = this.noExecsGroupCounter; i < size; i++)
+        if (hasNoExecsGroupCounter)
         {
             indent(builder, level);
-            execsGroup.appendTo(builder, level + 1);            if (execsGroup.next() != null)
+            builder.append("\"ExecsGroup\": [\n");
+            ExecsGroupDecoder execsGroup = this.execsGroup;
+            for (int i = 0, size = this.noExecsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            execsGroup = execsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                execsGroup.appendTo(builder, level + 1);
+                if (execsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                execsGroup = execsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTradesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TradesGroup\": [\n");
-        TradesGroupDecoder tradesGroup = this.tradesGroup;
-        for (int i = 0, size = this.noTradesGroupCounter; i < size; i++)
+        if (hasNoTradesGroupCounter)
         {
             indent(builder, level);
-            tradesGroup.appendTo(builder, level + 1);            if (tradesGroup.next() != null)
+            builder.append("\"TradesGroup\": [\n");
+            TradesGroupDecoder tradesGroup = this.tradesGroup;
+            for (int i = 0, size = this.noTradesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            tradesGroup = tradesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                tradesGroup.appendTo(builder, level + 1);
+                if (tradesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                tradesGroup = tradesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSymbol())
         {
@@ -8218,23 +8251,24 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -8860,23 +8894,24 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -8894,41 +8929,43 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAgreementDesc())
         {
@@ -9034,41 +9071,43 @@ public class CollateralInquiryAckDecoder extends CommonDecoderImpl implements Co
             builder.append("\",\n");
         }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTradingSessionID())
         {

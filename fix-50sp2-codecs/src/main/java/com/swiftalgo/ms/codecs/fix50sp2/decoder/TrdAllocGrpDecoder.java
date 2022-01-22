@@ -198,6 +198,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocAccountWrapper = new CharArrayWrapper();
     private int allocAcctIDSource = MISSING_INT;
 
     private boolean hasAllocAcctIDSource;
@@ -319,6 +320,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper individualAllocIDWrapper = new CharArrayWrapper();
 
 
     private Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = null;
@@ -427,6 +429,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocCustomerCapacityWrapper = new CharArrayWrapper();
     private int allocMethod = MISSING_INT;
 
     private boolean hasAllocMethod;
@@ -506,6 +509,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper secondaryIndividualAllocIDWrapper = new CharArrayWrapper();
     private char[] allocClearingFeeIndicator = new char[1];
 
     private boolean hasAllocClearingFeeIndicator;
@@ -556,6 +560,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocClearingFeeIndicatorWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode AllocsGroup
@@ -638,7 +643,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 individualAllocIDLength = valueLength;
                 break;
 
-            case Constants.NO_NESTED2_PARTY_IDS:
+            case Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER:
                 hasNoNested2PartyIDsGroupCounter = true;
                 noNested2PartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 756, CODEC_VALIDATION_ENABLED);
                 if (nested2PartyIDsGroup == null)
@@ -850,23 +855,24 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoNested2PartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"Nested2PartyIDsGroup\": [\n");
-        Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
-        for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
+        if (hasNoNested2PartyIDsGroupCounter)
         {
             indent(builder, level);
-            nested2PartyIDsGroup.appendTo(builder, level + 1);            if (nested2PartyIDsGroup.next() != null)
+            builder.append("\"Nested2PartyIDsGroup\": [\n");
+            Nested2PartyIDsGroupDecoder nested2PartyIDsGroup = this.nested2PartyIDsGroup;
+            for (int i = 0, size = this.noNested2PartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nested2PartyIDsGroup = nested2PartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nested2PartyIDsGroup.appendTo(builder, level + 1);
+                if (nested2PartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nested2PartyIDsGroup = nested2PartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAllocQty())
         {
@@ -915,12 +921,12 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     /**
      * {@inheritDoc}
      */
-    public AllocsGroupEncoder toEncoder(final Encoder encoder)
+    public TrdAllocGrpEncoder.AllocsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AllocsGroupEncoder)encoder);
+        return toEncoder((TrdAllocGrpEncoder.AllocsGroupEncoder)encoder);
     }
 
-    public AllocsGroupEncoder toEncoder(final AllocsGroupEncoder encoder)
+    public TrdAllocGrpEncoder.AllocsGroupEncoder toEncoder(final TrdAllocGrpEncoder.AllocsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasAllocAccount())
@@ -1004,6 +1010,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
         {
             return remainder > 0 && current != null;
         }
+
         public AllocsGroupDecoder next()
         {
             remainder--;
@@ -1011,23 +1018,27 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAllocsGroupCounter() ? parent.noAllocsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.allocsGroup();
         }
+
         public AllocsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AllocsGroupIterator allocsGroupIterator();
+    public AllocsGroupIterator allocsGroupIterator();
     public int noAllocsGroupCounter();
     public boolean hasNoAllocsGroupCounter();
     public AllocsGroupDecoder allocsGroup();

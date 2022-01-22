@@ -140,6 +140,7 @@ public class HopsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper hopCompIDWrapper = new CharArrayWrapper();
     private byte[] hopSendingTime = new byte[24];
 
     private boolean hasHopSendingTime;
@@ -380,12 +381,12 @@ public class HopsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public HopsGroupEncoder toEncoder(final Encoder encoder)
+    public HopGrpEncoder.HopsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((HopsGroupEncoder)encoder);
+        return toEncoder((HopGrpEncoder.HopsGroupEncoder)encoder);
     }
 
-    public HopsGroupEncoder toEncoder(final HopsGroupEncoder encoder)
+    public HopGrpEncoder.HopsGroupEncoder toEncoder(final HopGrpEncoder.HopsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasHopCompID())
@@ -421,6 +422,7 @@ public class HopsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public HopsGroupDecoder next()
         {
             remainder--;
@@ -428,23 +430,27 @@ public class HopsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoHopsGroupCounter() ? parent.noHopsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.hopsGroup();
         }
+
         public HopsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public HopsGroupIterator hopsGroupIterator();
+    public HopsGroupIterator hopsGroupIterator();
     public int noHopsGroupCounter();
     public boolean hasNoHopsGroupCounter();
     public HopsGroupDecoder hopsGroup();

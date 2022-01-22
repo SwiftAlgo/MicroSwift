@@ -138,6 +138,7 @@ public class UsernamesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper usernameWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UsernamesGroup
@@ -267,12 +268,12 @@ public class UsernamesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UsernamesGroupEncoder toEncoder(final Encoder encoder)
+    public UsernameGrpEncoder.UsernamesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UsernamesGroupEncoder)encoder);
+        return toEncoder((UsernameGrpEncoder.UsernamesGroupEncoder)encoder);
     }
 
-    public UsernamesGroupEncoder toEncoder(final UsernamesGroupEncoder encoder)
+    public UsernameGrpEncoder.UsernamesGroupEncoder toEncoder(final UsernameGrpEncoder.UsernamesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUsername())
@@ -298,6 +299,7 @@ public class UsernamesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UsernamesGroupDecoder next()
         {
             remainder--;
@@ -305,23 +307,27 @@ public class UsernamesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUsernamesGroupCounter() ? parent.noUsernamesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.usernamesGroup();
         }
+
         public UsernamesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UsernamesGroupIterator usernamesGroupIterator();
+    public UsernamesGroupIterator usernamesGroupIterator();
     public int noUsernamesGroupCounter();
     public boolean hasNoUsernamesGroupCounter();
     public UsernamesGroupDecoder usernamesGroup();

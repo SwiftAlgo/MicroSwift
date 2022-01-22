@@ -77,7 +77,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         if (CODEC_VALIDATION_ENABLED)
         {
             REQUIRED_FIELDS.add(Constants.QUOTE_ID);
-            REQUIRED_FIELDS.add(Constants.NO_QUOTE_SETS);
+            REQUIRED_FIELDS.add(Constants.NO_QUOTE_SETS_GROUP_COUNTER);
         }
     }
 
@@ -264,11 +264,11 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.QUOTE_ID);
         messageFields.add(Constants.QUOTE_TYPE);
         messageFields.add(Constants.QUOTE_RESPONSE_LEVEL);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -276,13 +276,13 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.ACCOUNT_TYPE);
         messageFields.add(Constants.DEF_BID_SIZE);
         messageFields.add(Constants.DEF_OFFER_SIZE);
-        messageFields.add(Constants.NO_QUOTE_SETS);
+        messageFields.add(Constants.NO_QUOTE_SETS_GROUP_COUNTER);
         messageFields.add(Constants.QUOTE_SET_ID);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -344,18 +344,18 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -363,13 +363,13 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.QUOTE_SET_VALID_UNTIL_TIME);
         messageFields.add(Constants.TOT_NO_QUOTE_ENTRIES);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_QUOTE_ENTRIES);
+        messageFields.add(Constants.NO_QUOTE_ENTRIES_GROUP_COUNTER);
         messageFields.add(Constants.QUOTE_ENTRY_ID);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -450,7 +450,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -458,14 +458,14 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -473,18 +473,18 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -631,6 +631,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
     }
 
 
+    private final CharArrayWrapper quoteReqIDWrapper = new CharArrayWrapper();
     private char[] quoteID = new char[1];
 
     public char[] quoteID()
@@ -659,6 +660,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
     }
 
 
+    private final CharArrayWrapper quoteIDWrapper = new CharArrayWrapper();
     private int quoteType = MISSING_INT;
 
     private boolean hasQuoteType;
@@ -804,6 +806,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -1018,7 +1021,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
                 quoteResponseLevel = getInt(buffer, valueOffset, endOfField, 301, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -1080,7 +1083,7 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
                 defOfferSize = getFloat(buffer, defOfferSize, valueOffset, valueLength, 294, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_QUOTE_SETS:
+            case Constants.NO_QUOTE_SETS_GROUP_COUNTER:
                 hasNoQuoteSetsGroupCounter = true;
                 noQuoteSetsGroupCounter = getInt(buffer, valueOffset, endOfField, 296, CODEC_VALIDATION_ENABLED);
                 if (quoteSetsGroup == null)
@@ -1295,23 +1298,24 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {
@@ -1353,23 +1357,24 @@ public class MassQuoteDecoder extends CommonDecoderImpl implements PartiesDecode
             builder.append("\",\n");
         }
 
-    if (hasNoQuoteSetsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"QuoteSetsGroup\": [\n");
-        QuoteSetsGroupDecoder quoteSetsGroup = this.quoteSetsGroup;
-        for (int i = 0, size = this.noQuoteSetsGroupCounter; i < size; i++)
+        if (hasNoQuoteSetsGroupCounter)
         {
             indent(builder, level);
-            quoteSetsGroup.appendTo(builder, level + 1);            if (quoteSetsGroup.next() != null)
+            builder.append("\"QuoteSetsGroup\": [\n");
+            QuoteSetsGroupDecoder quoteSetsGroup = this.quoteSetsGroup;
+            for (int i = 0, size = this.noQuoteSetsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            quoteSetsGroup = quoteSetsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                quoteSetsGroup.appendTo(builder, level + 1);
+                if (quoteSetsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                quoteSetsGroup = quoteSetsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

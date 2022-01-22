@@ -678,6 +678,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper mDEntryIDWrapper = new CharArrayWrapper();
     private DecimalFloat mDEntryPx = DecimalFloat.newNaNValue();
 
     private boolean hasMDEntryPx;
@@ -1133,6 +1134,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper benchmarkCurvePointWrapper = new CharArrayWrapper();
     private DecimalFloat benchmarkPrice = DecimalFloat.newNaNValue();
 
     private boolean hasBenchmarkPrice;
@@ -1225,6 +1227,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDWrapper = new CharArrayWrapper();
     private char[] benchmarkSecurityIDSource = new char[1];
 
     private boolean hasBenchmarkSecurityIDSource;
@@ -1275,6 +1278,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDSourceWrapper = new CharArrayWrapper();
 
     private char ordType = MISSING_CHAR;
 
@@ -2036,6 +2040,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper mDEntryOriginatorWrapper = new CharArrayWrapper();
     private char[] locationID = new char[1];
 
     private boolean hasLocationID;
@@ -2086,6 +2091,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper locationIDWrapper = new CharArrayWrapper();
     private char[] deskID = new char[1];
 
     private boolean hasDeskID;
@@ -2136,6 +2142,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper deskIDWrapper = new CharArrayWrapper();
     private char[] openCloseSettlFlag = new char[1];
 
     private boolean hasOpenCloseSettlFlag;
@@ -2459,6 +2466,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -2509,6 +2517,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] quoteEntryID = new char[1];
 
     private boolean hasQuoteEntryID;
@@ -2559,6 +2568,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper quoteEntryIDWrapper = new CharArrayWrapper();
     private char[] mDEntryBuyer = new char[1];
 
     private boolean hasMDEntryBuyer;
@@ -2609,6 +2619,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper mDEntryBuyerWrapper = new CharArrayWrapper();
     private char[] mDEntrySeller = new char[1];
 
     private boolean hasMDEntrySeller;
@@ -2659,6 +2670,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper mDEntrySellerWrapper = new CharArrayWrapper();
     private int numberOfOrders = MISSING_INT;
 
     private boolean hasNumberOfOrders;
@@ -2852,6 +2864,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -3529,7 +3542,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
                 settlCurrencyLength = valueLength;
                 break;
 
-            case Constants.NO_RATE_SOURCES:
+            case Constants.NO_RATE_SOURCES_GROUP_COUNTER:
                 hasNoRateSourcesGroupCounter = true;
                 noRateSourcesGroupCounter = getInt(buffer, valueOffset, endOfField, 1445, CODEC_VALIDATION_ENABLED);
                 if (rateSourcesGroup == null)
@@ -3569,7 +3582,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
                 mDEntrySize = getFloat(buffer, mDEntrySize, valueOffset, valueLength, 271, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_OF_SEC_SIZES:
+            case Constants.NO_OF_SEC_SIZES_GROUP_COUNTER:
                 hasNoOfSecSizesGroupCounter = true;
                 noOfSecSizesGroupCounter = getInt(buffer, valueOffset, endOfField, 1177, CODEC_VALIDATION_ENABLED);
                 if (ofSecSizesGroup == null)
@@ -3896,7 +3909,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
                 mDEntryForwardPoints = getFloat(buffer, mDEntryForwardPoints, valueOffset, valueLength, 1027, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -4612,23 +4625,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
             builder.append("\",\n");
         }
 
-    if (hasNoRateSourcesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RateSourcesGroup\": [\n");
-        RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
-        for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
+        if (hasNoRateSourcesGroupCounter)
         {
             indent(builder, level);
-            rateSourcesGroup.appendTo(builder, level + 1);            if (rateSourcesGroup.next() != null)
+            builder.append("\"RateSourcesGroup\": [\n");
+            RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
+            for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rateSourcesGroup = rateSourcesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rateSourcesGroup.appendTo(builder, level + 1);
+                if (rateSourcesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rateSourcesGroup = rateSourcesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasMDEntrySize())
         {
@@ -4638,23 +4652,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
             builder.append("\",\n");
         }
 
-    if (hasNoOfSecSizesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OfSecSizesGroup\": [\n");
-        OfSecSizesGroupDecoder ofSecSizesGroup = this.ofSecSizesGroup;
-        for (int i = 0, size = this.noOfSecSizesGroupCounter; i < size; i++)
+        if (hasNoOfSecSizesGroupCounter)
         {
             indent(builder, level);
-            ofSecSizesGroup.appendTo(builder, level + 1);            if (ofSecSizesGroup.next() != null)
+            builder.append("\"OfSecSizesGroup\": [\n");
+            OfSecSizesGroupDecoder ofSecSizesGroup = this.ofSecSizesGroup;
+            for (int i = 0, size = this.noOfSecSizesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ofSecSizesGroup = ofSecSizesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ofSecSizesGroup.appendTo(builder, level + 1);
+                if (ofSecSizesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ofSecSizesGroup = ofSecSizesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLotType())
         {
@@ -5048,23 +5063,24 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -5073,12 +5089,12 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
     /**
      * {@inheritDoc}
      */
-    public MDEntriesGroupEncoder toEncoder(final Encoder encoder)
+    public MDFullGrpEncoder.MDEntriesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MDEntriesGroupEncoder)encoder);
+        return toEncoder((MDFullGrpEncoder.MDEntriesGroupEncoder)encoder);
     }
 
-    public MDEntriesGroupEncoder toEncoder(final MDEntriesGroupEncoder encoder)
+    public MDFullGrpEncoder.MDEntriesGroupEncoder toEncoder(final MDFullGrpEncoder.MDEntriesGroupEncoder encoder)
     {
         encoder.reset();
         encoder.mDEntryType(this.mDEntryType());
@@ -5509,6 +5525,7 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
         {
             return remainder > 0 && current != null;
         }
+
         public MDEntriesGroupDecoder next()
         {
             remainder--;
@@ -5516,23 +5533,27 @@ public class MDEntriesGroupDecoder extends CommonDecoderImpl implements YieldDat
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMDEntriesGroupCounter() ? parent.noMDEntriesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.mDEntriesGroup();
         }
+
         public MDEntriesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MDEntriesGroupIterator mDEntriesGroupIterator();
+    public MDEntriesGroupIterator mDEntriesGroupIterator();
     public int noMDEntriesGroupCounter();
     public boolean hasNoMDEntriesGroupCounter();
     public MDEntriesGroupDecoder mDEntriesGroup();

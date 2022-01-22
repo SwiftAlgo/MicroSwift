@@ -139,6 +139,7 @@ public class DerivativeInstrumentPartySubIDsGroupDecoder extends CommonDecoderIm
     }
 
 
+    private final CharArrayWrapper derivativeInstrumentPartySubIDWrapper = new CharArrayWrapper();
     private int derivativeInstrumentPartySubIDType = MISSING_INT;
 
     private boolean hasDerivativeInstrumentPartySubIDType;
@@ -308,12 +309,12 @@ public class DerivativeInstrumentPartySubIDsGroupDecoder extends CommonDecoderIm
     /**
      * {@inheritDoc}
      */
-    public DerivativeInstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public DerivativeInstrumentPartySubIDsGrpEncoder.DerivativeInstrumentPartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DerivativeInstrumentPartySubIDsGroupEncoder)encoder);
+        return toEncoder((DerivativeInstrumentPartySubIDsGrpEncoder.DerivativeInstrumentPartySubIDsGroupEncoder)encoder);
     }
 
-    public DerivativeInstrumentPartySubIDsGroupEncoder toEncoder(final DerivativeInstrumentPartySubIDsGroupEncoder encoder)
+    public DerivativeInstrumentPartySubIDsGrpEncoder.DerivativeInstrumentPartySubIDsGroupEncoder toEncoder(final DerivativeInstrumentPartySubIDsGrpEncoder.DerivativeInstrumentPartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDerivativeInstrumentPartySubID())
@@ -344,6 +345,7 @@ public class DerivativeInstrumentPartySubIDsGroupDecoder extends CommonDecoderIm
         {
             return remainder > 0 && current != null;
         }
+
         public DerivativeInstrumentPartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -351,23 +353,27 @@ public class DerivativeInstrumentPartySubIDsGroupDecoder extends CommonDecoderIm
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDerivativeInstrumentPartySubIDsGroupCounter() ? parent.noDerivativeInstrumentPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.derivativeInstrumentPartySubIDsGroup();
         }
+
         public DerivativeInstrumentPartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DerivativeInstrumentPartySubIDsGroupIterator derivativeInstrumentPartySubIDsGroupIterator();
+    public DerivativeInstrumentPartySubIDsGroupIterator derivativeInstrumentPartySubIDsGroupIterator();
     public int noDerivativeInstrumentPartySubIDsGroupCounter();
     public boolean hasNoDerivativeInstrumentPartySubIDsGroupCounter();
     public DerivativeInstrumentPartySubIDsGroupDecoder derivativeInstrumentPartySubIDsGroup();

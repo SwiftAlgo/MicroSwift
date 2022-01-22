@@ -254,6 +254,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cashDistribAgentNameWrapper = new CharArrayWrapper();
     private char[] cashDistribAgentCode = new char[1];
 
     private boolean hasCashDistribAgentCode;
@@ -304,6 +305,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cashDistribAgentCodeWrapper = new CharArrayWrapper();
     private char[] cashDistribAgentAcctNumber = new char[1];
 
     private boolean hasCashDistribAgentAcctNumber;
@@ -354,6 +356,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cashDistribAgentAcctNumberWrapper = new CharArrayWrapper();
     private char[] cashDistribPayRef = new char[1];
 
     private boolean hasCashDistribPayRef;
@@ -404,6 +407,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cashDistribPayRefWrapper = new CharArrayWrapper();
     private char[] cashDistribAgentAcctName = new char[1];
 
     private boolean hasCashDistribAgentAcctName;
@@ -454,6 +458,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper cashDistribAgentAcctNameWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode DistribInstsGroup
@@ -726,12 +731,12 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public DistribInstsGroupEncoder toEncoder(final Encoder encoder)
+    public RgstDistInstGrpEncoder.DistribInstsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DistribInstsGroupEncoder)encoder);
+        return toEncoder((RgstDistInstGrpEncoder.DistribInstsGroupEncoder)encoder);
     }
 
-    public DistribInstsGroupEncoder toEncoder(final DistribInstsGroupEncoder encoder)
+    public RgstDistInstGrpEncoder.DistribInstsGroupEncoder toEncoder(final RgstDistInstGrpEncoder.DistribInstsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDistribPaymentMethod())
@@ -792,6 +797,7 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public DistribInstsGroupDecoder next()
         {
             remainder--;
@@ -799,23 +805,27 @@ public class DistribInstsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDistribInstsGroupCounter() ? parent.noDistribInstsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.distribInstsGroup();
         }
+
         public DistribInstsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DistribInstsGroupIterator distribInstsGroupIterator();
+    public DistribInstsGroupIterator distribInstsGroupIterator();
     public int noDistribInstsGroupCounter();
     public boolean hasNoDistribInstsGroupCounter();
     public DistribInstsGroupDecoder distribInstsGroup();

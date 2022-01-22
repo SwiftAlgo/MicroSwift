@@ -141,6 +141,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refCompIDWrapper = new CharArrayWrapper();
     private char[] refSubID = new char[1];
 
     private boolean hasRefSubID;
@@ -191,6 +192,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refSubIDWrapper = new CharArrayWrapper();
     private char[] locationID = new char[1];
 
     private boolean hasLocationID;
@@ -241,6 +243,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper locationIDWrapper = new CharArrayWrapper();
     private char[] deskID = new char[1];
 
     private boolean hasDeskID;
@@ -291,6 +294,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper deskIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode CompIDsGroup
@@ -483,12 +487,12 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public CompIDsGroupEncoder toEncoder(final Encoder encoder)
+    public CompIDReqGrpEncoder.CompIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((CompIDsGroupEncoder)encoder);
+        return toEncoder((CompIDReqGrpEncoder.CompIDsGroupEncoder)encoder);
     }
 
-    public CompIDsGroupEncoder toEncoder(final CompIDsGroupEncoder encoder)
+    public CompIDReqGrpEncoder.CompIDsGroupEncoder toEncoder(final CompIDReqGrpEncoder.CompIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefCompID())
@@ -529,6 +533,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public CompIDsGroupDecoder next()
         {
             remainder--;
@@ -536,23 +541,27 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoCompIDsGroupCounter() ? parent.noCompIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.compIDsGroup();
         }
+
         public CompIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public CompIDsGroupIterator compIDsGroupIterator();
+    public CompIDsGroupIterator compIDsGroupIterator();
     public int noCompIDsGroupCounter();
     public boolean hasNoCompIDsGroupCounter();
     public CompIDsGroupDecoder compIDsGroup();

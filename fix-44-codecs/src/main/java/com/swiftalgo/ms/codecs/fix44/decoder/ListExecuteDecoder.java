@@ -175,6 +175,7 @@ public class ListExecuteDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] clientBidID = new char[1];
 
     private boolean hasClientBidID;
@@ -225,6 +226,7 @@ public class ListExecuteDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper clientBidIDWrapper = new CharArrayWrapper();
     private char[] bidID = new char[1];
 
     private boolean hasBidID;
@@ -275,6 +277,7 @@ public class ListExecuteDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper bidIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -353,6 +356,7 @@ public class ListExecuteDecoder extends CommonDecoderImpl implements MessageDeco
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

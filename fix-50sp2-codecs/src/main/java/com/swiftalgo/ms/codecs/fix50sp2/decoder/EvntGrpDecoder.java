@@ -301,6 +301,7 @@ public class EventsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper eventTextWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode EventsGroup
@@ -510,12 +511,12 @@ public class EventsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public EventsGroupEncoder toEncoder(final Encoder encoder)
+    public EvntGrpEncoder.EventsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((EventsGroupEncoder)encoder);
+        return toEncoder((EvntGrpEncoder.EventsGroupEncoder)encoder);
     }
 
-    public EventsGroupEncoder toEncoder(final EventsGroupEncoder encoder)
+    public EvntGrpEncoder.EventsGroupEncoder toEncoder(final EvntGrpEncoder.EventsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasEventType())
@@ -561,6 +562,7 @@ public class EventsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public EventsGroupDecoder next()
         {
             remainder--;
@@ -568,23 +570,27 @@ public class EventsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoEventsGroupCounter() ? parent.noEventsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.eventsGroup();
         }
+
         public EventsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public EventsGroupIterator eventsGroupIterator();
+    public EventsGroupIterator eventsGroupIterator();
     public int noEventsGroupCounter();
     public boolean hasNoEventsGroupCounter();
     public EventsGroupDecoder eventsGroup();

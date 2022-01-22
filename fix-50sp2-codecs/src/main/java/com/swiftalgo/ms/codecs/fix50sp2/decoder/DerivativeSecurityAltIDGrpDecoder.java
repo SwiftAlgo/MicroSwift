@@ -139,6 +139,7 @@ public class DerivativeSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityAltIDWrapper = new CharArrayWrapper();
     private char[] derivativeSecurityAltIDSource = new char[1];
 
     private boolean hasDerivativeSecurityAltIDSource;
@@ -189,6 +190,7 @@ public class DerivativeSecurityAltIDGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeSecurityAltIDSourceWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode DerivativeSecurityAltIDGroup
@@ -339,12 +341,12 @@ public class DerivativeSecurityAltIDGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public DerivativeSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
+    public DerivativeSecurityAltIDGrpEncoder.DerivativeSecurityAltIDGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DerivativeSecurityAltIDGroupEncoder)encoder);
+        return toEncoder((DerivativeSecurityAltIDGrpEncoder.DerivativeSecurityAltIDGroupEncoder)encoder);
     }
 
-    public DerivativeSecurityAltIDGroupEncoder toEncoder(final DerivativeSecurityAltIDGroupEncoder encoder)
+    public DerivativeSecurityAltIDGrpEncoder.DerivativeSecurityAltIDGroupEncoder toEncoder(final DerivativeSecurityAltIDGrpEncoder.DerivativeSecurityAltIDGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDerivativeSecurityAltID())
@@ -375,6 +377,7 @@ public class DerivativeSecurityAltIDGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public DerivativeSecurityAltIDGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class DerivativeSecurityAltIDGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDerivativeSecurityAltIDGroupCounter() ? parent.noDerivativeSecurityAltIDGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.derivativeSecurityAltIDGroup();
         }
+
         public DerivativeSecurityAltIDGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DerivativeSecurityAltIDGroupIterator derivativeSecurityAltIDGroupIterator();
+    public DerivativeSecurityAltIDGroupIterator derivativeSecurityAltIDGroupIterator();
     public int noDerivativeSecurityAltIDGroupCounter();
     public boolean hasNoDerivativeSecurityAltIDGroupCounter();
     public DerivativeSecurityAltIDGroupDecoder derivativeSecurityAltIDGroup();

@@ -179,6 +179,7 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
     }
 
 
+    private final CharArrayWrapper fillExecIDWrapper = new CharArrayWrapper();
     private DecimalFloat fillPx = DecimalFloat.newNaNValue();
 
     private boolean hasFillPx;
@@ -357,7 +358,7 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
                 fillLiquidityInd = getInt(buffer, valueOffset, endOfField, 1443, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED4_PARTY_IDS:
+            case Constants.NO_NESTED4_PARTY_IDS_GROUP_COUNTER:
                 hasNoNested4PartyIDsGroupCounter = true;
                 noNested4PartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1414, CODEC_VALIDATION_ENABLED);
                 if (nested4PartyIDsGroup == null)
@@ -508,23 +509,24 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
             builder.append("\",\n");
         }
 
-    if (hasNoNested4PartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"Nested4PartyIDsGroup\": [\n");
-        Nested4PartyIDsGroupDecoder nested4PartyIDsGroup = this.nested4PartyIDsGroup;
-        for (int i = 0, size = this.noNested4PartyIDsGroupCounter; i < size; i++)
+        if (hasNoNested4PartyIDsGroupCounter)
         {
             indent(builder, level);
-            nested4PartyIDsGroup.appendTo(builder, level + 1);            if (nested4PartyIDsGroup.next() != null)
+            builder.append("\"Nested4PartyIDsGroup\": [\n");
+            Nested4PartyIDsGroupDecoder nested4PartyIDsGroup = this.nested4PartyIDsGroup;
+            for (int i = 0, size = this.noNested4PartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nested4PartyIDsGroup = nested4PartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nested4PartyIDsGroup.appendTo(builder, level + 1);
+                if (nested4PartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nested4PartyIDsGroup = nested4PartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -533,12 +535,12 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
     /**
      * {@inheritDoc}
      */
-    public FillsGroupEncoder toEncoder(final Encoder encoder)
+    public FillsGrpEncoder.FillsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((FillsGroupEncoder)encoder);
+        return toEncoder((FillsGrpEncoder.FillsGroupEncoder)encoder);
     }
 
-    public FillsGroupEncoder toEncoder(final FillsGroupEncoder encoder)
+    public FillsGrpEncoder.FillsGroupEncoder toEncoder(final FillsGrpEncoder.FillsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasFillExecID())
@@ -597,6 +599,7 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
         {
             return remainder > 0 && current != null;
         }
+
         public FillsGroupDecoder next()
         {
             remainder--;
@@ -604,23 +607,27 @@ public class FillsGroupDecoder extends CommonDecoderImpl implements NestedPartie
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoFillsGroupCounter() ? parent.noFillsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.fillsGroup();
         }
+
         public FillsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public FillsGroupIterator fillsGroupIterator();
+    public FillsGroupIterator fillsGroupIterator();
     public int noFillsGroupCounter();
     public boolean hasNoFillsGroupCounter();
     public FillsGroupDecoder fillsGroup();

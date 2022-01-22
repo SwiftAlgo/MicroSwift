@@ -236,12 +236,12 @@ public class QuoteQualifiersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public QuoteQualifiersGroupEncoder toEncoder(final Encoder encoder)
+    public QuotQualGrpEncoder.QuoteQualifiersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((QuoteQualifiersGroupEncoder)encoder);
+        return toEncoder((QuotQualGrpEncoder.QuoteQualifiersGroupEncoder)encoder);
     }
 
-    public QuoteQualifiersGroupEncoder toEncoder(final QuoteQualifiersGroupEncoder encoder)
+    public QuotQualGrpEncoder.QuoteQualifiersGroupEncoder toEncoder(final QuotQualGrpEncoder.QuoteQualifiersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasQuoteQualifier())
@@ -267,6 +267,7 @@ public class QuoteQualifiersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public QuoteQualifiersGroupDecoder next()
         {
             remainder--;
@@ -274,23 +275,27 @@ public class QuoteQualifiersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoQuoteQualifiersGroupCounter() ? parent.noQuoteQualifiersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.quoteQualifiersGroup();
         }
+
         public QuoteQualifiersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public QuoteQualifiersGroupIterator quoteQualifiersGroupIterator();
+    public QuoteQualifiersGroupIterator quoteQualifiersGroupIterator();
     public int noQuoteQualifiersGroupCounter();
     public boolean hasNoQuoteQualifiersGroupCounter();
     public QuoteQualifiersGroupDecoder quoteQualifiersGroup();

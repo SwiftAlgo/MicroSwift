@@ -87,7 +87,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
     {
         if (CODEC_VALIDATION_ENABLED)
         {
-            REQUIRED_FIELDS.add(Constants.NO_M_D_ENTRIES);
+            REQUIRED_FIELDS.add(Constants.NO_M_D_ENTRIES_GROUP_COUNTER);
         }
     }
 
@@ -259,7 +259,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.M_D_FEED_TYPE);
         messageFields.add(Constants.TRADE_DATE);
         messageFields.add(Constants.M_D_REQ_ID);
-        messageFields.add(Constants.NO_M_D_ENTRIES);
+        messageFields.add(Constants.NO_M_D_ENTRIES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_UPDATE_ACTION);
         messageFields.add(Constants.DELETE_REASON);
         messageFields.add(Constants.M_D_SUB_BOOK_TYPE);
@@ -272,7 +272,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -353,7 +353,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -361,14 +361,14 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -376,18 +376,18 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -449,28 +449,28 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -543,12 +543,12 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.ORD_TYPE);
         messageFields.add(Constants.CURRENCY);
         messageFields.add(Constants.SETTL_CURRENCY);
-        messageFields.add(Constants.NO_RATE_SOURCES);
+        messageFields.add(Constants.NO_RATE_SOURCES_GROUP_COUNTER);
         messageFields.add(Constants.RATE_SOURCE);
         messageFields.add(Constants.RATE_SOURCE_TYPE);
         messageFields.add(Constants.REFERENCE_PAGE);
         messageFields.add(Constants.M_D_ENTRY_SIZE);
-        messageFields.add(Constants.NO_OF_SEC_SIZES);
+        messageFields.add(Constants.NO_OF_SEC_SIZES_GROUP_COUNTER);
         messageFields.add(Constants.M_D_SEC_SIZE_TYPE);
         messageFields.add(Constants.M_D_SEC_SIZE);
         messageFields.add(Constants.LOT_TYPE);
@@ -605,18 +605,18 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.DEALING_CAPACITY);
         messageFields.add(Constants.M_D_ENTRY_SPOT_RATE);
         messageFields.add(Constants.M_D_ENTRY_FORWARD_POINTS);
-        messageFields.add(Constants.NO_STATS_INDICATORS);
+        messageFields.add(Constants.NO_STATS_INDICATORS_GROUP_COUNTER);
         messageFields.add(Constants.STATS_TYPE);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.APPL_QUEUE_DEPTH);
         messageFields.add(Constants.APPL_QUEUE_RESOLUTION);
-        messageFields.add(Constants.NO_ROUTING_IDS);
+        messageFields.add(Constants.NO_ROUTING_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROUTING_TYPE);
         messageFields.add(Constants.ROUTING_ID);
         messageFields.add(Constants.SIGNATURE_LENGTH);
@@ -689,6 +689,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -832,6 +833,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper mDFeedTypeWrapper = new CharArrayWrapper();
     private byte[] tradeDate = new byte[8];
 
     private boolean hasTradeDate;
@@ -932,6 +934,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper mDReqIDWrapper = new CharArrayWrapper();
 
 
     private MDEntriesGroupDecoder mDEntriesGroup = null;
@@ -1159,7 +1162,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
                 mDReqIDLength = valueLength;
                 break;
 
-            case Constants.NO_M_D_ENTRIES:
+            case Constants.NO_M_D_ENTRIES_GROUP_COUNTER:
                 hasNoMDEntriesGroupCounter = true;
                 noMDEntriesGroupCounter = getInt(buffer, valueOffset, endOfField, 268, CODEC_VALIDATION_ENABLED);
                 if (mDEntriesGroup == null)
@@ -1204,7 +1207,7 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
                 applQueueResolution = getInt(buffer, valueOffset, endOfField, 814, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_ROUTING_IDS:
+            case Constants.NO_ROUTING_IDS_GROUP_COUNTER:
                 hasNoRoutingIDsGroupCounter = true;
                 noRoutingIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 215, CODEC_VALIDATION_ENABLED);
                 if (routingIDsGroup == null)
@@ -1459,23 +1462,24 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
             builder.append("\",\n");
         }
 
-    if (hasNoMDEntriesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MDEntriesGroup\": [\n");
-        MDEntriesGroupDecoder mDEntriesGroup = this.mDEntriesGroup;
-        for (int i = 0, size = this.noMDEntriesGroupCounter; i < size; i++)
+        if (hasNoMDEntriesGroupCounter)
         {
             indent(builder, level);
-            mDEntriesGroup.appendTo(builder, level + 1);            if (mDEntriesGroup.next() != null)
+            builder.append("\"MDEntriesGroup\": [\n");
+            MDEntriesGroupDecoder mDEntriesGroup = this.mDEntriesGroup;
+            for (int i = 0, size = this.noMDEntriesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            mDEntriesGroup = mDEntriesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                mDEntriesGroup.appendTo(builder, level + 1);
+                if (mDEntriesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                mDEntriesGroup = mDEntriesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasApplQueueDepth())
         {
@@ -1493,23 +1497,24 @@ public class MarketDataIncrementalRefreshDecoder extends CommonDecoderImpl imple
             builder.append("\",\n");
         }
 
-    if (hasNoRoutingIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RoutingIDsGroup\": [\n");
-        RoutingIDsGroupDecoder routingIDsGroup = this.routingIDsGroup;
-        for (int i = 0, size = this.noRoutingIDsGroupCounter; i < size; i++)
+        if (hasNoRoutingIDsGroupCounter)
         {
             indent(builder, level);
-            routingIDsGroup.appendTo(builder, level + 1);            if (routingIDsGroup.next() != null)
+            builder.append("\"RoutingIDsGroup\": [\n");
+            RoutingIDsGroupDecoder routingIDsGroup = this.routingIDsGroup;
+            for (int i = 0, size = this.noRoutingIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            routingIDsGroup = routingIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                routingIDsGroup.appendTo(builder, level + 1);
+                if (routingIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                routingIDsGroup = routingIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

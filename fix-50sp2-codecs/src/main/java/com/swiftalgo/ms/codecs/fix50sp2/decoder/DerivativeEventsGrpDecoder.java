@@ -284,6 +284,7 @@ public class DerivativeEventsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper derivativeEventTextWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode DerivativeEventsGroup
@@ -493,12 +494,12 @@ public class DerivativeEventsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public DerivativeEventsGroupEncoder toEncoder(final Encoder encoder)
+    public DerivativeEventsGrpEncoder.DerivativeEventsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DerivativeEventsGroupEncoder)encoder);
+        return toEncoder((DerivativeEventsGrpEncoder.DerivativeEventsGroupEncoder)encoder);
     }
 
-    public DerivativeEventsGroupEncoder toEncoder(final DerivativeEventsGroupEncoder encoder)
+    public DerivativeEventsGrpEncoder.DerivativeEventsGroupEncoder toEncoder(final DerivativeEventsGrpEncoder.DerivativeEventsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasDerivativeEventType())
@@ -544,6 +545,7 @@ public class DerivativeEventsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public DerivativeEventsGroupDecoder next()
         {
             remainder--;
@@ -551,23 +553,27 @@ public class DerivativeEventsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDerivativeEventsGroupCounter() ? parent.noDerivativeEventsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.derivativeEventsGroup();
         }
+
         public DerivativeEventsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DerivativeEventsGroupIterator derivativeEventsGroupIterator();
+    public DerivativeEventsGroupIterator derivativeEventsGroupIterator();
     public int noDerivativeEventsGroupCounter();
     public boolean hasNoDerivativeEventsGroupCounter();
     public DerivativeEventsGroupDecoder derivativeEventsGroup();

@@ -149,6 +149,7 @@ public class StrategyParametersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper strategyParameterNameWrapper = new CharArrayWrapper();
     private int strategyParameterType = MISSING_INT;
 
     private boolean hasStrategyParameterType;
@@ -228,6 +229,7 @@ public class StrategyParametersGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper strategyParameterValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode StrategyParametersGroup
@@ -397,12 +399,12 @@ public class StrategyParametersGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public StrategyParametersGroupEncoder toEncoder(final Encoder encoder)
+    public StrategyParametersGrpEncoder.StrategyParametersGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((StrategyParametersGroupEncoder)encoder);
+        return toEncoder((StrategyParametersGrpEncoder.StrategyParametersGroupEncoder)encoder);
     }
 
-    public StrategyParametersGroupEncoder toEncoder(final StrategyParametersGroupEncoder encoder)
+    public StrategyParametersGrpEncoder.StrategyParametersGroupEncoder toEncoder(final StrategyParametersGrpEncoder.StrategyParametersGroupEncoder encoder)
     {
         encoder.reset();
         if (hasStrategyParameterName())
@@ -438,6 +440,7 @@ public class StrategyParametersGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public StrategyParametersGroupDecoder next()
         {
             remainder--;
@@ -445,23 +448,27 @@ public class StrategyParametersGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoStrategyParametersGroupCounter() ? parent.noStrategyParametersGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.strategyParametersGroup();
         }
+
         public StrategyParametersGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public StrategyParametersGroupIterator strategyParametersGroupIterator();
+    public StrategyParametersGroupIterator strategyParametersGroupIterator();
     public int noStrategyParametersGroupCounter();
     public boolean hasNoStrategyParametersGroupCounter();
     public StrategyParametersGroupDecoder strategyParametersGroup();

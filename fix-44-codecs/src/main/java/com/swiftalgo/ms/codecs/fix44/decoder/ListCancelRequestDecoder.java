@@ -175,6 +175,7 @@ public class ListCancelRequestDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -353,6 +354,7 @@ public class ListCancelRequestDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

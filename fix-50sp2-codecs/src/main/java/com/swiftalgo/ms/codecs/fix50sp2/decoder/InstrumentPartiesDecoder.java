@@ -175,6 +175,7 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper instrumentPartyIDWrapper = new CharArrayWrapper();
     private char instrumentPartyIDSource = MISSING_CHAR;
 
     private boolean hasInstrumentPartyIDSource;
@@ -327,7 +328,7 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
                 instrumentPartyRole = getInt(buffer, valueOffset, endOfField, 1051, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTY_SUB_IDS:
+            case Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoInstrumentPartySubIDsGroupCounter = true;
                 noInstrumentPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1052, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartySubIDsGroup == null)
@@ -464,23 +465,24 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartySubIDsGroup\": [\n");
-        InstrumentPartySubIDsGroupDecoder instrumentPartySubIDsGroup = this.instrumentPartySubIDsGroup;
-        for (int i = 0, size = this.noInstrumentPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            instrumentPartySubIDsGroup.appendTo(builder, level + 1);            if (instrumentPartySubIDsGroup.next() != null)
+            builder.append("\"InstrumentPartySubIDsGroup\": [\n");
+            InstrumentPartySubIDsGroupDecoder instrumentPartySubIDsGroup = this.instrumentPartySubIDsGroup;
+            for (int i = 0, size = this.noInstrumentPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartySubIDsGroup = instrumentPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartySubIDsGroup.appendTo(builder, level + 1);
+                if (instrumentPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartySubIDsGroup = instrumentPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -489,12 +491,12 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
     /**
      * {@inheritDoc}
      */
-    public InstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
+    public InstrumentPartiesEncoder.InstrumentPartiesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((InstrumentPartiesGroupEncoder)encoder);
+        return toEncoder((InstrumentPartiesEncoder.InstrumentPartiesGroupEncoder)encoder);
     }
 
-    public InstrumentPartiesGroupEncoder toEncoder(final InstrumentPartiesGroupEncoder encoder)
+    public InstrumentPartiesEncoder.InstrumentPartiesGroupEncoder toEncoder(final InstrumentPartiesEncoder.InstrumentPartiesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasInstrumentPartyID())
@@ -548,6 +550,7 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
         {
             return remainder > 0 && current != null;
         }
+
         public InstrumentPartiesGroupDecoder next()
         {
             remainder--;
@@ -555,23 +558,27 @@ public class InstrumentPartiesGroupDecoder extends CommonDecoderImpl implements 
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoInstrumentPartiesGroupCounter() ? parent.noInstrumentPartiesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.instrumentPartiesGroup();
         }
+
         public InstrumentPartiesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public InstrumentPartiesGroupIterator instrumentPartiesGroupIterator();
+    public InstrumentPartiesGroupIterator instrumentPartiesGroupIterator();
     public int noInstrumentPartiesGroupCounter();
     public boolean hasNoInstrumentPartiesGroupCounter();
     public InstrumentPartiesGroupDecoder instrumentPartiesGroup();

@@ -260,32 +260,32 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.CLEARING_BUSINESS_DATE);
         messageFields.add(Constants.SETTL_SESS_ID);
         messageFields.add(Constants.POS_MAINT_RPT_REF_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_POSITIONS);
+        messageFields.add(Constants.NO_POSITIONS_GROUP_COUNTER);
         messageFields.add(Constants.POS_TYPE);
         messageFields.add(Constants.LONG_QTY);
         messageFields.add(Constants.SHORT_QTY);
         messageFields.add(Constants.POS_QTY_STATUS);
         messageFields.add(Constants.QUANTITY_DATE);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -366,7 +366,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -374,14 +374,14 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -389,10 +389,10 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.SETTL_PRICE);
@@ -444,6 +444,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper posMaintRptIDWrapper = new CharArrayWrapper();
     private int posReqType = MISSING_INT;
 
     private boolean hasPosReqType;
@@ -610,6 +611,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
     }
 
 
+    private final CharArrayWrapper posMaintRptRefIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -848,7 +850,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
                 posMaintRptRefIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -883,7 +885,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
                 break;
 
 
-            case Constants.NO_POSITIONS:
+            case Constants.NO_POSITIONS_GROUP_COUNTER:
                 hasNoPositionsGroupCounter = true;
                 noPositionsGroupCounter = getInt(buffer, valueOffset, endOfField, 702, CODEC_VALIDATION_ENABLED);
                 if (positionsGroup == null)
@@ -918,7 +920,7 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
                 break;
 
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -1150,59 +1152,62 @@ public class AdjustedPositionReportDecoder extends CommonDecoderImpl implements 
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoPositionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PositionsGroup\": [\n");
-        PositionsGroupDecoder positionsGroup = this.positionsGroup;
-        for (int i = 0, size = this.noPositionsGroupCounter; i < size; i++)
+        if (hasNoPositionsGroupCounter)
         {
             indent(builder, level);
-            positionsGroup.appendTo(builder, level + 1);            if (positionsGroup.next() != null)
+            builder.append("\"PositionsGroup\": [\n");
+            PositionsGroupDecoder positionsGroup = this.positionsGroup;
+            for (int i = 0, size = this.noPositionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            positionsGroup = positionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                positionsGroup.appendTo(builder, level + 1);
+                if (positionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                positionsGroup = positionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSettlPrice())
         {

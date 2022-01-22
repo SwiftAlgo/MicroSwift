@@ -139,6 +139,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradeReportIDWrapper = new CharArrayWrapper();
     private char[] secondaryTradeReportID = new char[1];
 
     private boolean hasSecondaryTradeReportID;
@@ -189,6 +190,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper secondaryTradeReportIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode TradesGroup
@@ -339,12 +341,12 @@ public class TradesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TradesGroupEncoder toEncoder(final Encoder encoder)
+    public TrdCollGrpEncoder.TradesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TradesGroupEncoder)encoder);
+        return toEncoder((TrdCollGrpEncoder.TradesGroupEncoder)encoder);
     }
 
-    public TradesGroupEncoder toEncoder(final TradesGroupEncoder encoder)
+    public TrdCollGrpEncoder.TradesGroupEncoder toEncoder(final TrdCollGrpEncoder.TradesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTradeReportID())
@@ -375,6 +377,7 @@ public class TradesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TradesGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class TradesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTradesGroupCounter() ? parent.noTradesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.tradesGroup();
         }
+
         public TradesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TradesGroupIterator tradesGroupIterator();
+    public TradesGroupIterator tradesGroupIterator();
     public int noTradesGroupCounter();
     public boolean hasNoTradesGroupCounter();
     public TradesGroupDecoder tradesGroup();

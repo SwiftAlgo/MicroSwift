@@ -376,12 +376,12 @@ public class TickRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TickRulesGroupEncoder toEncoder(final Encoder encoder)
+    public TickRulesEncoder.TickRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TickRulesGroupEncoder)encoder);
+        return toEncoder((TickRulesEncoder.TickRulesGroupEncoder)encoder);
     }
 
-    public TickRulesGroupEncoder toEncoder(final TickRulesGroupEncoder encoder)
+    public TickRulesEncoder.TickRulesGroupEncoder toEncoder(final TickRulesEncoder.TickRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasStartTickPriceRange())
@@ -422,6 +422,7 @@ public class TickRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TickRulesGroupDecoder next()
         {
             remainder--;
@@ -429,23 +430,27 @@ public class TickRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTickRulesGroupCounter() ? parent.noTickRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.tickRulesGroup();
         }
+
         public TickRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TickRulesGroupIterator tickRulesGroupIterator();
+    public TickRulesGroupIterator tickRulesGroupIterator();
     public int noTickRulesGroupCounter();
     public boolean hasNoTickRulesGroupCounter();
     public TickRulesGroupDecoder tickRulesGroup();

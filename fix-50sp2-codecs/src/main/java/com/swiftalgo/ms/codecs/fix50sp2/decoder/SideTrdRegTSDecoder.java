@@ -211,6 +211,7 @@ public class SideTrdRegTSGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper sideTrdRegTimestampSrcWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SideTrdRegTSGroup
@@ -380,12 +381,12 @@ public class SideTrdRegTSGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public SideTrdRegTSGroupEncoder toEncoder(final Encoder encoder)
+    public SideTrdRegTSEncoder.SideTrdRegTSGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SideTrdRegTSGroupEncoder)encoder);
+        return toEncoder((SideTrdRegTSEncoder.SideTrdRegTSGroupEncoder)encoder);
     }
 
-    public SideTrdRegTSGroupEncoder toEncoder(final SideTrdRegTSGroupEncoder encoder)
+    public SideTrdRegTSEncoder.SideTrdRegTSGroupEncoder toEncoder(final SideTrdRegTSEncoder.SideTrdRegTSGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSideTrdRegTimestamp())
@@ -421,6 +422,7 @@ public class SideTrdRegTSGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public SideTrdRegTSGroupDecoder next()
         {
             remainder--;
@@ -428,23 +430,27 @@ public class SideTrdRegTSGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSideTrdRegTSGroupCounter() ? parent.noSideTrdRegTSGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.sideTrdRegTSGroup();
         }
+
         public SideTrdRegTSGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SideTrdRegTSGroupIterator sideTrdRegTSGroupIterator();
+    public SideTrdRegTSGroupIterator sideTrdRegTSGroupIterator();
     public int noSideTrdRegTSGroupCounter();
     public boolean hasNoSideTrdRegTSGroupCounter();
     public SideTrdRegTSGroupDecoder sideTrdRegTSGroup();

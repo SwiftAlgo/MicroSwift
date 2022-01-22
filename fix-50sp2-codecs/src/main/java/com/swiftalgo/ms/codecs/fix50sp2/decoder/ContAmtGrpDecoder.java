@@ -366,12 +366,12 @@ public class ContAmtsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ContAmtsGroupEncoder toEncoder(final Encoder encoder)
+    public ContAmtGrpEncoder.ContAmtsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ContAmtsGroupEncoder)encoder);
+        return toEncoder((ContAmtGrpEncoder.ContAmtsGroupEncoder)encoder);
     }
 
-    public ContAmtsGroupEncoder toEncoder(final ContAmtsGroupEncoder encoder)
+    public ContAmtGrpEncoder.ContAmtsGroupEncoder toEncoder(final ContAmtGrpEncoder.ContAmtsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasContAmtType())
@@ -407,6 +407,7 @@ public class ContAmtsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ContAmtsGroupDecoder next()
         {
             remainder--;
@@ -414,23 +415,27 @@ public class ContAmtsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoContAmtsGroupCounter() ? parent.noContAmtsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.contAmtsGroup();
         }
+
         public ContAmtsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ContAmtsGroupIterator contAmtsGroupIterator();
+    public ContAmtsGroupIterator contAmtsGroupIterator();
     public int noContAmtsGroupCounter();
     public boolean hasNoContAmtsGroupCounter();
     public ContAmtsGroupDecoder contAmtsGroup();

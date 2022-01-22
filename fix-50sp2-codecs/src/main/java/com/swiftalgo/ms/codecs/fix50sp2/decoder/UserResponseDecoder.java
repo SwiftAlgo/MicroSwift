@@ -184,6 +184,7 @@ public class UserResponseDecoder extends CommonDecoderImpl implements MessageDec
     }
 
 
+    private final CharArrayWrapper userRequestIDWrapper = new CharArrayWrapper();
     private char[] username = new char[1];
 
     public char[] username()
@@ -212,6 +213,7 @@ public class UserResponseDecoder extends CommonDecoderImpl implements MessageDec
     }
 
 
+    private final CharArrayWrapper usernameWrapper = new CharArrayWrapper();
     private int userStatus = MISSING_INT;
 
     private boolean hasUserStatus;
@@ -291,6 +293,7 @@ public class UserResponseDecoder extends CommonDecoderImpl implements MessageDec
     }
 
 
+    private final CharArrayWrapper userStatusTextWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UserResponse

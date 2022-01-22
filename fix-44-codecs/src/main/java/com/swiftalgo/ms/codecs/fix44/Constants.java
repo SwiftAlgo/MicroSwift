@@ -309,6 +309,8 @@ public class Constants
 
     public static final int TRANS_BKD_TIME = 483;
 
+    public static final int NO_NESTED2_PARTY_IDS_GROUP_COUNTER = 756;
+
     public static final int CONFIRM_REF_ID = 772;
 
     public static final int UNDERLYING_QTY = 879;
@@ -367,6 +369,8 @@ public class Constants
 
     public static final int DISTRIB_PERCENTAGE = 512;
 
+    public static final int NO_REGIST_DTLS_GROUP_COUNTER = 473;
+
     public static final int TRAD_SES_STATUS = 340;
 
     public static final int LIST_NAME = 392;
@@ -423,6 +427,8 @@ public class Constants
 
     public static final int DEF_BID_SIZE = 293;
 
+    public static final int NO_RELATED_SYM_GROUP_COUNTER = 146;
+
     public static final int INTEREST_AT_MATURITY = 738;
 
     public static final int HEADLINE = 148;
@@ -443,6 +449,8 @@ public class Constants
 
     public static final int SIDE_VALUE_IND = 401;
 
+    public static final int NO_DATES_GROUP_COUNTER = 580;
+
     public static final int LEG_SECURITY_DESC = 620;
 
     public static final int YIELD_REDEMPTION_DATE = 696;
@@ -460,6 +468,8 @@ public class Constants
     public static final int TOTAL_NET_VALUE = 900;
 
     public static final int TRAD_SES_REQ_ID = 335;
+
+    public static final int NO_STRIKES_GROUP_COUNTER = 428;
 
     public static final int LEG_POSITION_EFFECT = 564;
 
@@ -481,6 +491,8 @@ public class Constants
 
     public static final int LAST_LIQUIDITY_IND = 851;
 
+    public static final int NO_M_D_ENTRIES_GROUP_COUNTER = 268;
+
     public static final int SETTL_CURR_AMT = 119;
 
     public static final int ALLOC_REPORT_ID = 755;
@@ -497,9 +509,13 @@ public class Constants
 
     public static final int NO_TRADES = 897;
 
+    public static final int NO_COMP_IDS_GROUP_COUNTER = 936;
+
     public static final int NO_STIPULATIONS = 232;
 
     public static final int QUOTE_STATUS_REQ_ID = 649;
+
+    public static final int NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER = 604;
 
     public static final int USERNAME = 553;
 
@@ -542,6 +558,8 @@ public class Constants
     public static final int MARKET_DEPTH = 264;
 
     public static final int NO_POSITIONS = 702;
+
+    public static final int NO_POSITIONS_GROUP_COUNTER = 702;
 
     public static final int NO_AFFECTED_ORDERS = 534;
 
@@ -601,6 +619,8 @@ public class Constants
 
     public static final int REF_SUB_ID = 931;
 
+    public static final int NO_CLEARING_INSTRUCTIONS_GROUP_COUNTER = 576;
+
     public static final int QUOTE_REJECT_REASON = 300;
 
     public static final int POS_MAINT_RESULT = 723;
@@ -625,9 +645,13 @@ public class Constants
 
     public static final int ALT_M_D_SOURCE_ID = 817;
 
+    public static final int NO_ALLOCS_GROUP_COUNTER = 78;
+
     public static final int CASH_DISTRIB_CURR = 478;
 
     public static final int TRADE_INPUT_DEVICE = 579;
+
+    public static final int NO_SETTL_PARTY_IDS_GROUP_COUNTER = 781;
 
     public static final int NO_NESTED2_PARTY_SUB_IDS = 806;
 
@@ -636,6 +660,8 @@ public class Constants
     public static final int LEG_REF_ID = 654;
 
     public static final int EVENT_TYPE = 865;
+
+    public static final int NO_MSG_TYPES_GROUP_COUNTER = 384;
 
     public static final int EXEC_PRICE_TYPE = 484;
 
@@ -683,6 +709,8 @@ public class Constants
 
     public static final int NO_SECURITY_TYPES = 558;
 
+    public static final int NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER = 768;
+
     public static final int LIST_SEQ_NO = 67;
 
     public static final int LEG_POOL = 740;
@@ -708,6 +736,8 @@ public class Constants
     public static final int CROSS_TYPE = 549;
 
     public static final int REGIST_REF_ID = 508;
+
+    public static final int NO_NESTED3_PARTY_IDS_GROUP_COUNTER = 948;
 
     public static final int LIQUIDITY_VALUE = 404;
 
@@ -750,6 +780,8 @@ public class Constants
     public static final int LEG_INSTR_REGISTRY = 599;
 
     public static final int LEG_SECURITY_TYPE = 609;
+
+    public static final int NO_EVENTS_GROUP_COUNTER = 864;
 
     public static final int HEART_BT_INT = 108;
 
@@ -801,6 +833,8 @@ public class Constants
 
     public static final int LEG_COUPON_PAYMENT_DATE = 248;
 
+    public static final int NO_LEG_ALLOCS_GROUP_COUNTER = 670;
+
     public static final int NEXT_EXPECTED_MSG_SEQ_NUM = 789;
 
     public static final int USER_REQUEST_ID = 923;
@@ -824,6 +858,8 @@ public class Constants
     public static final int COPY_MSG_INDICATOR = 797;
 
     public static final int MID_PX = 631;
+
+    public static final int NO_UNDERLYING_STIPS_GROUP_COUNTER = 887;
 
     public static final int TAX_ADVANTAGE_TYPE = 495;
 
@@ -863,6 +899,8 @@ public class Constants
 
     public static final int CASH_DISTRIB_AGENT_ACCT_NAME = 502;
 
+    public static final int NO_SECURITY_TYPES_GROUP_COUNTER = 558;
+
     public static final int STRIKE_TIME = 443;
 
     public static final int SECURITY_REQUEST_RESULT = 560;
@@ -879,7 +917,11 @@ public class Constants
 
     public static final int COMMISSION = 12;
 
+    public static final int NO_TRADING_SESSIONS_GROUP_COUNTER = 386;
+
     public static final int PARTY_SUB_ID = 523;
+
+    public static final int NO_CONTRA_BROKERS_GROUP_COUNTER = 382;
 
     public static final int MASS_STATUS_REQ_ID = 584;
 
@@ -955,6 +997,8 @@ public class Constants
 
     public static final int MIN_TRADE_VOL = 562;
 
+    public static final int NO_UNDERLYINGS_GROUP_COUNTER = 711;
+
     public static final int PRICE2 = 640;
 
     public static final int PROG_PERIOD_INTERVAL = 415;
@@ -973,7 +1017,11 @@ public class Constants
 
     public static final int DISCRETION_OFFSET_VALUE = 389;
 
+    public static final int NO_NESTED2_PARTY_SUB_IDS_GROUP_COUNTER = 806;
+
     public static final int LEG_CONTRACT_SETTL_MONTH = 955;
+
+    public static final int NO_LINES_OF_TEXT_GROUP_COUNTER = 33;
 
     public static final int UNDERLYING_TRADING_SESSION_SUB_ID = 823;
 
@@ -986,6 +1034,8 @@ public class Constants
     public static final int BENCHMARK_CURVE_NAME = 221;
 
     public static final int SCOPE = 546;
+
+    public static final int NO_STIPULATIONS_GROUP_COUNTER = 232;
 
     public static final int POSS_DUP_FLAG = 43;
 
@@ -1043,6 +1093,8 @@ public class Constants
 
     public static final int BID_REQUEST_TRANS_TYPE = 374;
 
+    public static final int NO_M_D_ENTRY_TYPES_GROUP_COUNTER = 267;
+
     public static final int PARTICIPATION_RATE = 849;
 
     public static final int UNDERLYING_DIRTY_PRICE = 882;
@@ -1056,6 +1108,8 @@ public class Constants
     public static final int MARGIN_RATIO = 898;
 
     public static final int LEG_MATURITY_MONTH_YEAR = 610;
+
+    public static final int NO_LEG_STIPULATIONS_GROUP_COUNTER = 683;
 
     public static final int COLL_INQUIRY_QUALIFIER = 896;
 
@@ -1079,11 +1133,15 @@ public class Constants
 
     public static final int OFFER_PX = 133;
 
+    public static final int NO_BID_COMPONENTS_GROUP_COUNTER = 420;
+
     public static final int LEG_OPT_ATTRIBUTE = 613;
 
     public static final int DELIVERY_DATE = 743;
 
     public static final int ALLOC_NET_MONEY = 154;
+
+    public static final int NO_SETTL_INST_GROUP_COUNTER = 778;
 
     public static final int AVG_PX = 6;
 
@@ -1215,6 +1273,8 @@ public class Constants
 
     public static final int PRODUCT = 460;
 
+    public static final int NO_QUOTE_QUALIFIERS_GROUP_COUNTER = 735;
+
     public static final int OWNER_TYPE = 522;
 
     public static final int PARTY_SUB_ID_TYPE = 803;
@@ -1237,6 +1297,8 @@ public class Constants
 
     public static final int COLL_INQUIRY_ID = 909;
 
+    public static final int NO_ROUTING_IDS_GROUP_COUNTER = 215;
+
     public static final int OPT_ATTRIBUTE = 206;
 
     public static final int TOTAL_VOLUME_TRADED = 387;
@@ -1251,13 +1313,19 @@ public class Constants
 
     public static final int ADV_REF_ID = 3;
 
+    public static final int NO_NESTED_PARTY_IDS_GROUP_COUNTER = 539;
+
     public static final int MATURITY_NET_MONEY = 890;
+
+    public static final int NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER = 801;
 
     public static final int SENDER_LOCATION_ID = 142;
 
     public static final int REF_ALLOC_ID = 72;
 
     public static final int COUNTRY_OF_ISSUE = 470;
+
+    public static final int NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER = 804;
 
     public static final int TOT_NO_ALLOCS = 892;
 
@@ -1295,6 +1363,8 @@ public class Constants
 
     public static final int LEG_STIPULATION_VALUE = 689;
 
+    public static final int NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER = 457;
+
     public static final int LAST_MKT = 30;
 
     public static final int LEG_SECURITY_EXCHANGE = 616;
@@ -1317,6 +1387,8 @@ public class Constants
 
     public static final int BENCHMARK_SECURITY_ID = 699;
 
+    public static final int NO_QUOTE_ENTRIES_GROUP_COUNTER = 295;
+
     public static final int ALLOC_HANDL_INST = 209;
 
     public static final int TOT_NUM_ASSIGNMENT_REPORTS = 832;
@@ -1328,6 +1400,8 @@ public class Constants
     public static final int SETTL_CURR_FX_RATE_CALC = 156;
 
     public static final int TARGET_COMP_ID = 56;
+
+    public static final int NO_SIDES_GROUP_COUNTER = 552;
 
     public static final int CONTRACT_SETTL_MONTH = 667;
 
@@ -1389,6 +1463,8 @@ public class Constants
 
     public static final int TRANSACT_TIME = 60;
 
+    public static final int NO_ORDERS_GROUP_COUNTER = 73;
+
     public static final int CROSS_PERCENT = 413;
 
     public static final int TOT_NUM_REPORTS = 911;
@@ -1407,7 +1483,11 @@ public class Constants
 
     public static final int NESTED3_PARTY_SUB_ID_TYPE = 954;
 
+    public static final int NO_MISC_FEES_GROUP_COUNTER = 136;
+
     public static final int TRADE_REPORT_REF_ID = 572;
+
+    public static final int NO_BID_DESCRIPTORS_GROUP_COUNTER = 398;
 
     public static final int NO_TRADING_SESSIONS = 386;
 
@@ -1503,7 +1583,11 @@ public class Constants
 
     public static final int D_K_REASON = 127;
 
+    public static final int NO_ALT_M_D_SOURCE_GROUP_COUNTER = 816;
+
     public static final int UNDERLYING_CREDIT_RATING = 256;
+
+    public static final int NO_PARTY_IDS_GROUP_COUNTER = 453;
 
     public static final int FINANCIAL_STATUS = 291;
 
@@ -1512,6 +1596,8 @@ public class Constants
     public static final int THRESHOLD_AMOUNT = 834;
 
     public static final int NO_POS_AMT = 753;
+
+    public static final int NO_CAPACITIES_GROUP_COUNTER = 862;
 
     public static final int TOT_NO_RELATED_SYM = 393;
 
@@ -1546,6 +1632,8 @@ public class Constants
     public static final int TOT_NO_STRIKES = 422;
 
     public static final int LEG_STATE_OR_PROVINCE_OF_ISSUE = 597;
+
+    public static final int NO_NESTED3_PARTY_SUB_IDS_GROUP_COUNTER = 952;
 
     public static final int REGIST_DTLS = 509;
 
@@ -1683,6 +1771,8 @@ public class Constants
 
     public static final int INSTR_ATTRIB_TYPE = 871;
 
+    public static final int NO_COLL_INQUIRY_QUALIFIER_GROUP_COUNTER = 938;
+
     public static final int REGIST_ACCT_TYPE = 493;
 
     public static final int BOOKING_REF_ID = 466;
@@ -1729,6 +1819,8 @@ public class Constants
 
     public static final int BID_SIZE = 134;
 
+    public static final int NO_CONT_AMTS_GROUP_COUNTER = 518;
+
     public static final int SECURITY_REQ_ID = 320;
 
     public static final int TICK_DIRECTION = 274;
@@ -1763,6 +1855,8 @@ public class Constants
 
     public static final int SETTL_INST_REQ_ID = 791;
 
+    public static final int NO_TRADES_GROUP_COUNTER = 897;
+
     public static final int PEG_LIMIT_TYPE = 837;
 
     public static final int CONFIRM_REJ_REASON = 774;
@@ -1785,6 +1879,8 @@ public class Constants
 
     public static final int NO_NESTED2_PARTY_IDS = 756;
 
+    public static final int NO_AFFECTED_ORDERS_GROUP_COUNTER = 534;
+
     public static final int MISC_FEE_CURR = 138;
 
     public static final int TIME_IN_FORCE = 59;
@@ -1795,6 +1891,8 @@ public class Constants
 
     public static final int LAST_CAPACITY = 29;
 
+    public static final int NO_DLVY_INST_GROUP_COUNTER = 85;
+
     public static final int TARGET_SUB_ID = 57;
 
     public static final int UNDERLYING_CURRENCY = 318;
@@ -1802,6 +1900,8 @@ public class Constants
     public static final int UNSOLICITED_INDICATOR = 325;
 
     public static final int ALLOC_STATUS = 87;
+
+    public static final int NO_POS_AMT_GROUP_COUNTER = 753;
 
     public static final int NO_MISC_FEES = 136;
 
@@ -1893,6 +1993,8 @@ public class Constants
 
     public static final int BASIS_FEATURE_DATE = 259;
 
+    public static final int NO_QUOTE_SETS_GROUP_COUNTER = 296;
+
     public static final int BEGIN_SEQ_NO = 7;
 
     public static final int POS_REQ_TYPE = 724;
@@ -1918,6 +2020,8 @@ public class Constants
     public static final int OFFER_SPOT_RATE = 190;
 
     public static final int COLL_STATUS = 910;
+
+    public static final int NO_EXECS_GROUP_COUNTER = 124;
 
     public static final int STIPULATION_TYPE = 233;
 
@@ -1971,6 +2075,8 @@ public class Constants
 
     public static final int INDIVIDUAL_ALLOC_REJ_CODE = 776;
 
+    public static final int NO_LEGS_GROUP_COUNTER = 555;
+
     public static final int ORD_STATUS_REQ_ID = 790;
 
     public static final int ROUTING_TYPE = 216;
@@ -2014,6 +2120,8 @@ public class Constants
     public static final int MULTI_LEG_REPORTING_TYPE = 442;
 
     public static final int LAST_FORWARD_POINTS = 195;
+
+    public static final int NO_I_O_I_QUALIFIERS_GROUP_COUNTER = 199;
 
     public static final int CARD_NUMBER = 489;
 
@@ -2067,6 +2175,10 @@ public class Constants
 
     public static final int NESTED_PARTY_ROLE = 538;
 
+    public static final int NO_INSTR_ATTRIB_GROUP_COUNTER = 870;
+
+    public static final int NO_SECURITY_ALT_ID_GROUP_COUNTER = 454;
+
     public static final int DISCRETION_SCOPE = 846;
 
     public static final int UNDERLYING_SECURITY_ID = 309;
@@ -2079,6 +2191,8 @@ public class Constants
 
     public static final int LAST_FRAGMENT = 893;
 
+    public static final int NO_PARTY_SUB_IDS_GROUP_COUNTER = 802;
+
     public static final int SETTL_PARTY_ROLE = 784;
 
     public static final int ENCODED_UNDERLYING_SECURITY_DESC_LEN = 364;
@@ -2086,6 +2200,8 @@ public class Constants
     public static final int LEG_BID_PX = 681;
 
     public static final int MSG_DIRECTION = 385;
+
+    public static final int NO_DISTRIB_INSTS_GROUP_COUNTER = 510;
 
     public static final int REGIST_EMAIL = 511;
 
@@ -2117,7 +2233,7 @@ public class Constants
 
     public static final int UNDERLYING_SECURITY_SUB_TYPE = 763;
 
-    public static final IntHashSet ALL_FIELDS = new IntHashSet(1832);
+    public static final IntHashSet ALL_FIELDS = new IntHashSet(1948);
     static
     {
         ALL_FIELDS.add(Constants.LIST_STATUS_TEXT);
@@ -2132,6 +2248,7 @@ public class Constants
         ALL_FIELDS.add(Constants.M_D_ENTRY_BUYER);
         ALL_FIELDS.add(Constants.SETTL_INST_SOURCE);
         ALL_FIELDS.add(Constants.TRANS_BKD_TIME);
+        ALL_FIELDS.add(Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.CONFIRM_REF_ID);
         ALL_FIELDS.add(Constants.UNDERLYING_QTY);
         ALL_FIELDS.add(Constants.COLL_REQ_ID);
@@ -2161,6 +2278,7 @@ public class Constants
         ALL_FIELDS.add(Constants.POS_TYPE);
         ALL_FIELDS.add(Constants.DESK_ID);
         ALL_FIELDS.add(Constants.DISTRIB_PERCENTAGE);
+        ALL_FIELDS.add(Constants.NO_REGIST_DTLS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TRAD_SES_STATUS);
         ALL_FIELDS.add(Constants.LIST_NAME);
         ALL_FIELDS.add(Constants.FAIR_VALUE);
@@ -2189,6 +2307,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ENCODED_TEXT_LEN);
         ALL_FIELDS.add(Constants.LIST_EXEC_INST_TYPE);
         ALL_FIELDS.add(Constants.DEF_BID_SIZE);
+        ALL_FIELDS.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.INTEREST_AT_MATURITY);
         ALL_FIELDS.add(Constants.HEADLINE);
         ALL_FIELDS.add(Constants.LEG_PRICE_TYPE);
@@ -2199,6 +2318,7 @@ public class Constants
         ALL_FIELDS.add(Constants.SENDER_SUB_ID);
         ALL_FIELDS.add(Constants.CASH_ORDER_QTY);
         ALL_FIELDS.add(Constants.SIDE_VALUE_IND);
+        ALL_FIELDS.add(Constants.NO_DATES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LEG_SECURITY_DESC);
         ALL_FIELDS.add(Constants.YIELD_REDEMPTION_DATE);
         ALL_FIELDS.add(Constants.UNDERLYING_INSTR_REGISTRY);
@@ -2208,6 +2328,7 @@ public class Constants
         ALL_FIELDS.add(Constants.LEGAL_CONFIRM);
         ALL_FIELDS.add(Constants.TOTAL_NET_VALUE);
         ALL_FIELDS.add(Constants.TRAD_SES_REQ_ID);
+        ALL_FIELDS.add(Constants.NO_STRIKES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LEG_POSITION_EFFECT);
         ALL_FIELDS.add(Constants.NO_SIDES);
         ALL_FIELDS.add(Constants.ASGN_RPT_ID);
@@ -2218,6 +2339,7 @@ public class Constants
         ALL_FIELDS.add(Constants.TRADE_LINK_ID);
         ALL_FIELDS.add(Constants.AFFIRM_STATUS);
         ALL_FIELDS.add(Constants.LAST_LIQUIDITY_IND);
+        ALL_FIELDS.add(Constants.NO_M_D_ENTRIES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.SETTL_CURR_AMT);
         ALL_FIELDS.add(Constants.ALLOC_REPORT_ID);
         ALL_FIELDS.add(Constants.RPT_SEQ);
@@ -2226,8 +2348,10 @@ public class Constants
         ALL_FIELDS.add(Constants.DISCRETION_MOVE_TYPE);
         ALL_FIELDS.add(Constants.SECONDARY_ORDER_ID);
         ALL_FIELDS.add(Constants.NO_TRADES);
+        ALL_FIELDS.add(Constants.NO_COMP_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NO_STIPULATIONS);
         ALL_FIELDS.add(Constants.QUOTE_STATUS_REQ_ID);
+        ALL_FIELDS.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.USERNAME);
         ALL_FIELDS.add(Constants.ALLOWABLE_ONE_SIDEDNESS_PCT);
         ALL_FIELDS.add(Constants.TEST_REQ_ID);
@@ -2249,6 +2373,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ENCODED_SUBJECT);
         ALL_FIELDS.add(Constants.MARKET_DEPTH);
         ALL_FIELDS.add(Constants.NO_POSITIONS);
+        ALL_FIELDS.add(Constants.NO_POSITIONS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NO_AFFECTED_ORDERS);
         ALL_FIELDS.add(Constants.SELLER_DAYS);
         ALL_FIELDS.add(Constants.CONTRA_LEG_REF_ID);
@@ -2278,6 +2403,7 @@ public class Constants
         ALL_FIELDS.add(Constants.UNDERLYING_C_P_PROGRAM);
         ALL_FIELDS.add(Constants.ALLOC_REPORT_REF_ID);
         ALL_FIELDS.add(Constants.REF_SUB_ID);
+        ALL_FIELDS.add(Constants.NO_CLEARING_INSTRUCTIONS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.QUOTE_REJECT_REASON);
         ALL_FIELDS.add(Constants.POS_MAINT_RESULT);
         ALL_FIELDS.add(Constants.TRADE_INPUT_SOURCE);
@@ -2290,12 +2416,15 @@ public class Constants
         ALL_FIELDS.add(Constants.COLL_ASGN_RESP_TYPE);
         ALL_FIELDS.add(Constants.ENCODED_LEG_ISSUER);
         ALL_FIELDS.add(Constants.ALT_M_D_SOURCE_ID);
+        ALL_FIELDS.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.CASH_DISTRIB_CURR);
         ALL_FIELDS.add(Constants.TRADE_INPUT_DEVICE);
+        ALL_FIELDS.add(Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NO_NESTED2_PARTY_SUB_IDS);
         ALL_FIELDS.add(Constants.MATURITY_MONTH_YEAR);
         ALL_FIELDS.add(Constants.LEG_REF_ID);
         ALL_FIELDS.add(Constants.EVENT_TYPE);
+        ALL_FIELDS.add(Constants.NO_MSG_TYPES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.EXEC_PRICE_TYPE);
         ALL_FIELDS.add(Constants.DISCRETION_INST);
         ALL_FIELDS.add(Constants.LEG_CREDIT_RATING);
@@ -2319,6 +2448,7 @@ public class Constants
         ALL_FIELDS.add(Constants.LEG_DATED_DATE);
         ALL_FIELDS.add(Constants.UNDERLYING_PX);
         ALL_FIELDS.add(Constants.NO_SECURITY_TYPES);
+        ALL_FIELDS.add(Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LIST_SEQ_NO);
         ALL_FIELDS.add(Constants.LEG_POOL);
         ALL_FIELDS.add(Constants.SECURITY_RESPONSE_ID);
@@ -2332,6 +2462,7 @@ public class Constants
         ALL_FIELDS.add(Constants.STATUS_TEXT);
         ALL_FIELDS.add(Constants.CROSS_TYPE);
         ALL_FIELDS.add(Constants.REGIST_REF_ID);
+        ALL_FIELDS.add(Constants.NO_NESTED3_PARTY_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LIQUIDITY_VALUE);
         ALL_FIELDS.add(Constants.LIQUIDITY_PCT_HIGH);
         ALL_FIELDS.add(Constants.ALLOC_SETTL_CURRENCY);
@@ -2353,6 +2484,7 @@ public class Constants
         ALL_FIELDS.add(Constants.NO_REGIST_DTLS);
         ALL_FIELDS.add(Constants.LEG_INSTR_REGISTRY);
         ALL_FIELDS.add(Constants.LEG_SECURITY_TYPE);
+        ALL_FIELDS.add(Constants.NO_EVENTS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.HEART_BT_INT);
         ALL_FIELDS.add(Constants.LEG_ALLOC_ACCT_ID_SOURCE);
         ALL_FIELDS.add(Constants.ROUNDING_DIRECTION);
@@ -2378,6 +2510,7 @@ public class Constants
         ALL_FIELDS.add(Constants.REVERSAL_INDICATOR);
         ALL_FIELDS.add(Constants.ORDER_CAPACITY);
         ALL_FIELDS.add(Constants.LEG_COUPON_PAYMENT_DATE);
+        ALL_FIELDS.add(Constants.NO_LEG_ALLOCS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NEXT_EXPECTED_MSG_SEQ_NUM);
         ALL_FIELDS.add(Constants.USER_REQUEST_ID);
         ALL_FIELDS.add(Constants.ON_BEHALF_OF_SUB_ID);
@@ -2390,6 +2523,7 @@ public class Constants
         ALL_FIELDS.add(Constants.STAND_INST_DB_NAME);
         ALL_FIELDS.add(Constants.COPY_MSG_INDICATOR);
         ALL_FIELDS.add(Constants.MID_PX);
+        ALL_FIELDS.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TAX_ADVANTAGE_TYPE);
         ALL_FIELDS.add(Constants.MIN_QTY);
         ALL_FIELDS.add(Constants.REGIST_STATUS);
@@ -2409,6 +2543,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ISSUE_DATE);
         ALL_FIELDS.add(Constants.CASH_DISTRIB_AGENT_ACCT_NUMBER);
         ALL_FIELDS.add(Constants.CASH_DISTRIB_AGENT_ACCT_NAME);
+        ALL_FIELDS.add(Constants.NO_SECURITY_TYPES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.STRIKE_TIME);
         ALL_FIELDS.add(Constants.SECURITY_REQUEST_RESULT);
         ALL_FIELDS.add(Constants.ALLOC_REPORT_TYPE);
@@ -2417,7 +2552,9 @@ public class Constants
         ALL_FIELDS.add(Constants.REGIST_TRANS_TYPE);
         ALL_FIELDS.add(Constants.LEG_QTY);
         ALL_FIELDS.add(Constants.COMMISSION);
+        ALL_FIELDS.add(Constants.NO_TRADING_SESSIONS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.PARTY_SUB_ID);
+        ALL_FIELDS.add(Constants.NO_CONTRA_BROKERS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.MASS_STATUS_REQ_ID);
         ALL_FIELDS.add(Constants.USER_STATUS_TEXT);
         ALL_FIELDS.add(Constants.M_D_ENTRY_REF_ID);
@@ -2455,6 +2592,7 @@ public class Constants
         ALL_FIELDS.add(Constants.DISCRETION_PRICE);
         ALL_FIELDS.add(Constants.NO_NESTED_PARTY_IDS);
         ALL_FIELDS.add(Constants.MIN_TRADE_VOL);
+        ALL_FIELDS.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.PRICE2);
         ALL_FIELDS.add(Constants.PROG_PERIOD_INTERVAL);
         ALL_FIELDS.add(Constants.SECURITY_EXCHANGE);
@@ -2464,13 +2602,16 @@ public class Constants
         ALL_FIELDS.add(Constants.PASSWORD);
         ALL_FIELDS.add(Constants.LEG_SIDE);
         ALL_FIELDS.add(Constants.DISCRETION_OFFSET_VALUE);
+        ALL_FIELDS.add(Constants.NO_NESTED2_PARTY_SUB_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LEG_CONTRACT_SETTL_MONTH);
+        ALL_FIELDS.add(Constants.NO_LINES_OF_TEXT_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.UNDERLYING_TRADING_SESSION_SUB_ID);
         ALL_FIELDS.add(Constants.STIPULATION_VALUE);
         ALL_FIELDS.add(Constants.START_CASH);
         ALL_FIELDS.add(Constants.SETTL_TYPE);
         ALL_FIELDS.add(Constants.BENCHMARK_CURVE_NAME);
         ALL_FIELDS.add(Constants.SCOPE);
+        ALL_FIELDS.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.POSS_DUP_FLAG);
         ALL_FIELDS.add(Constants.ENCODED_UNDERLYING_ISSUER);
         ALL_FIELDS.add(Constants.OFFER_SIZE);
@@ -2499,6 +2640,7 @@ public class Constants
         ALL_FIELDS.add(Constants.COUNTRY);
         ALL_FIELDS.add(Constants.ORIG_CL_ORD_ID);
         ALL_FIELDS.add(Constants.BID_REQUEST_TRANS_TYPE);
+        ALL_FIELDS.add(Constants.NO_M_D_ENTRY_TYPES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.PARTICIPATION_RATE);
         ALL_FIELDS.add(Constants.UNDERLYING_DIRTY_PRICE);
         ALL_FIELDS.add(Constants.TRD_SUB_TYPE);
@@ -2506,6 +2648,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ORDER_PERCENT);
         ALL_FIELDS.add(Constants.MARGIN_RATIO);
         ALL_FIELDS.add(Constants.LEG_MATURITY_MONTH_YEAR);
+        ALL_FIELDS.add(Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.COLL_INQUIRY_QUALIFIER);
         ALL_FIELDS.add(Constants.DELIVER_TO_LOCATION_ID);
         ALL_FIELDS.add(Constants.POS_MAINT_RPT_ID);
@@ -2517,9 +2660,11 @@ public class Constants
         ALL_FIELDS.add(Constants.LEG_COVERED_OR_UNCOVERED);
         ALL_FIELDS.add(Constants.UNDERLYING_STRIKE_PRICE);
         ALL_FIELDS.add(Constants.OFFER_PX);
+        ALL_FIELDS.add(Constants.NO_BID_COMPONENTS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LEG_OPT_ATTRIBUTE);
         ALL_FIELDS.add(Constants.DELIVERY_DATE);
         ALL_FIELDS.add(Constants.ALLOC_NET_MONEY);
+        ALL_FIELDS.add(Constants.NO_SETTL_INST_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.AVG_PX);
         ALL_FIELDS.add(Constants.SETTL_CURR_BID_FX_RATE);
         ALL_FIELDS.add(Constants.LIQUIDITY_PCT_LOW);
@@ -2585,6 +2730,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ORIG_SENDING_TIME);
         ALL_FIELDS.add(Constants.SECONDARY_TRADE_REPORT_ID);
         ALL_FIELDS.add(Constants.PRODUCT);
+        ALL_FIELDS.add(Constants.NO_QUOTE_QUALIFIERS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.OWNER_TYPE);
         ALL_FIELDS.add(Constants.PARTY_SUB_ID_TYPE);
         ALL_FIELDS.add(Constants.I_O_I_ID);
@@ -2596,6 +2742,7 @@ public class Constants
         ALL_FIELDS.add(Constants.CREDIT_RATING);
         ALL_FIELDS.add(Constants.PEG_MOVE_TYPE);
         ALL_FIELDS.add(Constants.COLL_INQUIRY_ID);
+        ALL_FIELDS.add(Constants.NO_ROUTING_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.OPT_ATTRIBUTE);
         ALL_FIELDS.add(Constants.TOTAL_VOLUME_TRADED);
         ALL_FIELDS.add(Constants.DAY_BOOKING_INST);
@@ -2603,10 +2750,13 @@ public class Constants
         ALL_FIELDS.add(Constants.LEG_INTEREST_ACCRUAL_DATE);
         ALL_FIELDS.add(Constants.CONTRA_TRADE_TIME);
         ALL_FIELDS.add(Constants.ADV_REF_ID);
+        ALL_FIELDS.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.MATURITY_NET_MONEY);
+        ALL_FIELDS.add(Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.SENDER_LOCATION_ID);
         ALL_FIELDS.add(Constants.REF_ALLOC_ID);
         ALL_FIELDS.add(Constants.COUNTRY_OF_ISSUE);
+        ALL_FIELDS.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TOT_NO_ALLOCS);
         ALL_FIELDS.add(Constants.LOW_PX);
         ALL_FIELDS.add(Constants.MONEY_LAUNDERING_STATUS);
@@ -2625,6 +2775,7 @@ public class Constants
         ALL_FIELDS.add(Constants.LEG_SYMBOL);
         ALL_FIELDS.add(Constants.LAST_PX);
         ALL_FIELDS.add(Constants.LEG_STIPULATION_VALUE);
+        ALL_FIELDS.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.LAST_MKT);
         ALL_FIELDS.add(Constants.LEG_SECURITY_EXCHANGE);
         ALL_FIELDS.add(Constants.UNDERLYING_CONTRACT_MULTIPLIER);
@@ -2636,12 +2787,14 @@ public class Constants
         ALL_FIELDS.add(Constants.UNDERLYING_END_PRICE);
         ALL_FIELDS.add(Constants.TOT_NUM_TRADE_REPORTS);
         ALL_FIELDS.add(Constants.BENCHMARK_SECURITY_ID);
+        ALL_FIELDS.add(Constants.NO_QUOTE_ENTRIES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.ALLOC_HANDL_INST);
         ALL_FIELDS.add(Constants.TOT_NUM_ASSIGNMENT_REPORTS);
         ALL_FIELDS.add(Constants.ALLOC_LINK_TYPE);
         ALL_FIELDS.add(Constants.END_SEQ_NO);
         ALL_FIELDS.add(Constants.SETTL_CURR_FX_RATE_CALC);
         ALL_FIELDS.add(Constants.TARGET_COMP_ID);
+        ALL_FIELDS.add(Constants.NO_SIDES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.CONTRACT_SETTL_MONTH);
         ALL_FIELDS.add(Constants.UNDERLYING_STIP_TYPE);
         ALL_FIELDS.add(Constants.CARD_HOLDER_NAME);
@@ -2672,6 +2825,7 @@ public class Constants
         ALL_FIELDS.add(Constants.UNDERLYING_MATURITY_DATE);
         ALL_FIELDS.add(Constants.TRAD_SES_OPEN_TIME);
         ALL_FIELDS.add(Constants.TRANSACT_TIME);
+        ALL_FIELDS.add(Constants.NO_ORDERS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.CROSS_PERCENT);
         ALL_FIELDS.add(Constants.TOT_NUM_REPORTS);
         ALL_FIELDS.add(Constants.CONFIRM_STATUS);
@@ -2681,7 +2835,9 @@ public class Constants
         ALL_FIELDS.add(Constants.EXCHANGE_RULE);
         ALL_FIELDS.add(Constants.TERMINATION_TYPE);
         ALL_FIELDS.add(Constants.NESTED3_PARTY_SUB_ID_TYPE);
+        ALL_FIELDS.add(Constants.NO_MISC_FEES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TRADE_REPORT_REF_ID);
+        ALL_FIELDS.add(Constants.NO_BID_DESCRIPTORS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NO_TRADING_SESSIONS);
         ALL_FIELDS.add(Constants.NESTED3_PARTY_SUB_ID);
         ALL_FIELDS.add(Constants.ALLOWABLE_ONE_SIDEDNESS_CURR);
@@ -2729,11 +2885,14 @@ public class Constants
         ALL_FIELDS.add(Constants.PRICE_IMPROVEMENT);
         ALL_FIELDS.add(Constants.LEG_ORDER_QTY);
         ALL_FIELDS.add(Constants.D_K_REASON);
+        ALL_FIELDS.add(Constants.NO_ALT_M_D_SOURCE_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.UNDERLYING_CREDIT_RATING);
+        ALL_FIELDS.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.FINANCIAL_STATUS);
         ALL_FIELDS.add(Constants.TOTAL_AFFECTED_ORDERS);
         ALL_FIELDS.add(Constants.THRESHOLD_AMOUNT);
         ALL_FIELDS.add(Constants.NO_POS_AMT);
+        ALL_FIELDS.add(Constants.NO_CAPACITIES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TOT_NO_RELATED_SYM);
         ALL_FIELDS.add(Constants.ORDER_INPUT_DEVICE);
         ALL_FIELDS.add(Constants.U_R_L_LINK);
@@ -2751,6 +2910,7 @@ public class Constants
         ALL_FIELDS.add(Constants.I_O_I_QLTY_IND);
         ALL_FIELDS.add(Constants.TOT_NO_STRIKES);
         ALL_FIELDS.add(Constants.LEG_STATE_OR_PROVINCE_OF_ISSUE);
+        ALL_FIELDS.add(Constants.NO_NESTED3_PARTY_SUB_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.REGIST_DTLS);
         ALL_FIELDS.add(Constants.BID_TYPE);
         ALL_FIELDS.add(Constants.REGIST_ID);
@@ -2819,6 +2979,7 @@ public class Constants
         ALL_FIELDS.add(Constants.MULTI_LEG_RPT_TYPE_REQ);
         ALL_FIELDS.add(Constants.QUOTE_ENTRY_REJECT_REASON);
         ALL_FIELDS.add(Constants.INSTR_ATTRIB_TYPE);
+        ALL_FIELDS.add(Constants.NO_COLL_INQUIRY_QUALIFIER_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.REGIST_ACCT_TYPE);
         ALL_FIELDS.add(Constants.BOOKING_REF_ID);
         ALL_FIELDS.add(Constants.TRADE_REQUEST_RESULT);
@@ -2842,6 +3003,7 @@ public class Constants
         ALL_FIELDS.add(Constants.POS_REQ_RESULT);
         ALL_FIELDS.add(Constants.LIST_ORDER_STATUS);
         ALL_FIELDS.add(Constants.BID_SIZE);
+        ALL_FIELDS.add(Constants.NO_CONT_AMTS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.SECURITY_REQ_ID);
         ALL_FIELDS.add(Constants.TICK_DIRECTION);
         ALL_FIELDS.add(Constants.REF_TAG_ID);
@@ -2859,6 +3021,7 @@ public class Constants
         ALL_FIELDS.add(Constants.CONT_AMT_CURR);
         ALL_FIELDS.add(Constants.MATCH_TYPE);
         ALL_FIELDS.add(Constants.SETTL_INST_REQ_ID);
+        ALL_FIELDS.add(Constants.NO_TRADES_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.PEG_LIMIT_TYPE);
         ALL_FIELDS.add(Constants.CONFIRM_REJ_REASON);
         ALL_FIELDS.add(Constants.LONG_QTY);
@@ -2870,15 +3033,18 @@ public class Constants
         ALL_FIELDS.add(Constants.TEST_MESSAGE_INDICATOR);
         ALL_FIELDS.add(Constants.UNDERLYING_C_F_I_CODE);
         ALL_FIELDS.add(Constants.NO_NESTED2_PARTY_IDS);
+        ALL_FIELDS.add(Constants.NO_AFFECTED_ORDERS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.MISC_FEE_CURR);
         ALL_FIELDS.add(Constants.TIME_IN_FORCE);
         ALL_FIELDS.add(Constants.SECONDARY_TRD_TYPE);
         ALL_FIELDS.add(Constants.SECONDARY_ALLOC_ID);
         ALL_FIELDS.add(Constants.LAST_CAPACITY);
+        ALL_FIELDS.add(Constants.NO_DLVY_INST_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.TARGET_SUB_ID);
         ALL_FIELDS.add(Constants.UNDERLYING_CURRENCY);
         ALL_FIELDS.add(Constants.UNSOLICITED_INDICATOR);
         ALL_FIELDS.add(Constants.ALLOC_STATUS);
+        ALL_FIELDS.add(Constants.NO_POS_AMT_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.NO_MISC_FEES);
         ALL_FIELDS.add(Constants.CONTRA_TRADE_QTY);
         ALL_FIELDS.add(Constants.M_D_UPDATE_TYPE);
@@ -2924,6 +3090,7 @@ public class Constants
         ALL_FIELDS.add(Constants.EVENT_PX);
         ALL_FIELDS.add(Constants.DAY_AVG_PX);
         ALL_FIELDS.add(Constants.BASIS_FEATURE_DATE);
+        ALL_FIELDS.add(Constants.NO_QUOTE_SETS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.BEGIN_SEQ_NO);
         ALL_FIELDS.add(Constants.POS_REQ_TYPE);
         ALL_FIELDS.add(Constants.MASS_CANCEL_REQUEST_TYPE);
@@ -2937,6 +3104,7 @@ public class Constants
         ALL_FIELDS.add(Constants.ENCODED_LIST_STATUS_TEXT);
         ALL_FIELDS.add(Constants.OFFER_SPOT_RATE);
         ALL_FIELDS.add(Constants.COLL_STATUS);
+        ALL_FIELDS.add(Constants.NO_EXECS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.STIPULATION_TYPE);
         ALL_FIELDS.add(Constants.TRAD_SES_CLOSE_TIME);
         ALL_FIELDS.add(Constants.ALLOC_REJ_CODE);
@@ -2963,6 +3131,7 @@ public class Constants
         ALL_FIELDS.add(Constants.EX_DATE);
         ALL_FIELDS.add(Constants.TRADE_DATE);
         ALL_FIELDS.add(Constants.INDIVIDUAL_ALLOC_REJ_CODE);
+        ALL_FIELDS.add(Constants.NO_LEGS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.ORD_STATUS_REQ_ID);
         ALL_FIELDS.add(Constants.ROUTING_TYPE);
         ALL_FIELDS.add(Constants.APPL_QUEUE_ACTION);
@@ -2985,6 +3154,7 @@ public class Constants
         ALL_FIELDS.add(Constants.SETTL_PRICE_TYPE);
         ALL_FIELDS.add(Constants.MULTI_LEG_REPORTING_TYPE);
         ALL_FIELDS.add(Constants.LAST_FORWARD_POINTS);
+        ALL_FIELDS.add(Constants.NO_I_O_I_QUALIFIERS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.CARD_NUMBER);
         ALL_FIELDS.add(Constants.SECONDARY_TRADE_REPORT_REF_ID);
         ALL_FIELDS.add(Constants.TRADE_REQUEST_ID);
@@ -3011,16 +3181,20 @@ public class Constants
         ALL_FIELDS.add(Constants.M_D_ENTRY_ID);
         ALL_FIELDS.add(Constants.QUOTE_REQ_ID);
         ALL_FIELDS.add(Constants.NESTED_PARTY_ROLE);
+        ALL_FIELDS.add(Constants.NO_INSTR_ATTRIB_GROUP_COUNTER);
+        ALL_FIELDS.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.DISCRETION_SCOPE);
         ALL_FIELDS.add(Constants.UNDERLYING_SECURITY_ID);
         ALL_FIELDS.add(Constants.OWNERSHIP_TYPE);
         ALL_FIELDS.add(Constants.UNDERLYING_OPT_ATTRIBUTE);
         ALL_FIELDS.add(Constants.OUT_MAIN_CNTRY_U_INDEX);
         ALL_FIELDS.add(Constants.LAST_FRAGMENT);
+        ALL_FIELDS.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.SETTL_PARTY_ROLE);
         ALL_FIELDS.add(Constants.ENCODED_UNDERLYING_SECURITY_DESC_LEN);
         ALL_FIELDS.add(Constants.LEG_BID_PX);
         ALL_FIELDS.add(Constants.MSG_DIRECTION);
+        ALL_FIELDS.add(Constants.NO_DISTRIB_INSTS_GROUP_COUNTER);
         ALL_FIELDS.add(Constants.REGIST_EMAIL);
         ALL_FIELDS.add(Constants.YIELD_REDEMPTION_PRICE);
         ALL_FIELDS.add(Constants.ALLOC_CANC_REPLACE_REASON);

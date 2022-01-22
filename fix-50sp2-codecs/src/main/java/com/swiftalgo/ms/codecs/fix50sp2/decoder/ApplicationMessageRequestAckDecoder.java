@@ -218,25 +218,25 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
         messageFields.add(Constants.APPL_REQ_TYPE);
         messageFields.add(Constants.APPL_RESPONSE_TYPE);
         messageFields.add(Constants.APPL_TOTAL_MESSAGE_COUNT);
-        messageFields.add(Constants.NO_APPL_IDS);
+        messageFields.add(Constants.NO_APPL_IDS_GROUP_COUNTER);
         messageFields.add(Constants.REF_APPL_ID);
         messageFields.add(Constants.REF_APPL_REQ_ID);
         messageFields.add(Constants.APPL_BEG_SEQ_NUM);
         messageFields.add(Constants.APPL_END_SEQ_NUM);
         messageFields.add(Constants.REF_APPL_LAST_SEQ_NUM);
         messageFields.add(Constants.APPL_RESPONSE_ERROR);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TEXT);
@@ -289,6 +289,7 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper applResponseIDWrapper = new CharArrayWrapper();
     private char[] applReqID = new char[1];
 
     private boolean hasApplReqID;
@@ -339,6 +340,7 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper applReqIDWrapper = new CharArrayWrapper();
     private int applReqType = MISSING_INT;
 
     private boolean hasApplReqType;
@@ -542,6 +544,7 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -666,7 +669,7 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
                 applTotalMessageCount = getInt(buffer, valueOffset, endOfField, 1349, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_APPL_IDS:
+            case Constants.NO_APPL_IDS_GROUP_COUNTER:
                 hasNoApplIDsGroupCounter = true;
                 noApplIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1351, CODEC_VALIDATION_ENABLED);
                 if (applIDsGroup == null)
@@ -701,7 +704,7 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
                 break;
 
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -936,41 +939,43 @@ public class ApplicationMessageRequestAckDecoder extends CommonDecoderImpl imple
             builder.append("\",\n");
         }
 
-    if (hasNoApplIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ApplIDsGroup\": [\n");
-        ApplIDsGroupDecoder applIDsGroup = this.applIDsGroup;
-        for (int i = 0, size = this.noApplIDsGroupCounter; i < size; i++)
+        if (hasNoApplIDsGroupCounter)
         {
             indent(builder, level);
-            applIDsGroup.appendTo(builder, level + 1);            if (applIDsGroup.next() != null)
+            builder.append("\"ApplIDsGroup\": [\n");
+            ApplIDsGroupDecoder applIDsGroup = this.applIDsGroup;
+            for (int i = 0, size = this.noApplIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            applIDsGroup = applIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                applIDsGroup.appendTo(builder, level + 1);
+                if (applIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                applIDsGroup = applIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

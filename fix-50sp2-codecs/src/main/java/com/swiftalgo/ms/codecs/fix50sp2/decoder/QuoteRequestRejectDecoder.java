@@ -97,7 +97,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         {
             REQUIRED_FIELDS.add(Constants.QUOTE_REQ_ID);
             REQUIRED_FIELDS.add(Constants.QUOTE_REQUEST_REJECT_REASON);
-            REQUIRED_FIELDS.add(Constants.NO_RELATED_SYM);
+            REQUIRED_FIELDS.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         }
     }
 
@@ -263,19 +263,19 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.PRIVATE_QUOTE);
         messageFields.add(Constants.RESPONDENT_TYPE);
         messageFields.add(Constants.PRE_TRADE_ANONYMITY);
-        messageFields.add(Constants.NO_ROOT_PARTY_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_ID);
         messageFields.add(Constants.ROOT_PARTY_ID_SOURCE);
         messageFields.add(Constants.ROOT_PARTY_ROLE);
-        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_ROOT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID);
         messageFields.add(Constants.ROOT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -356,7 +356,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -364,14 +364,14 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -379,10 +379,10 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.AGREEMENT_DESC);
@@ -394,12 +394,12 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.END_DATE);
         messageFields.add(Constants.DELIVERY_TYPE);
         messageFields.add(Constants.MARGIN_RATIO);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -461,18 +461,18 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
@@ -495,18 +495,18 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.SETTL_DATE2);
         messageFields.add(Constants.ORDER_QTY2);
         messageFields.add(Constants.CURRENCY);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
         messageFields.add(Constants.ACCOUNT);
         messageFields.add(Constants.ACCT_ID_SOURCE);
         messageFields.add(Constants.ACCOUNT_TYPE);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -563,14 +563,14 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.LEG_SWAP_TYPE);
         messageFields.add(Constants.LEG_SETTL_TYPE);
         messageFields.add(Constants.LEG_SETTL_DATE);
-        messageFields.add(Constants.NO_LEG_STIPULATIONS);
+        messageFields.add(Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_STIPULATION_TYPE);
         messageFields.add(Constants.LEG_STIPULATION_VALUE);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.LEG_BENCHMARK_CURVE_CURRENCY);
@@ -579,7 +579,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.LEG_BENCHMARK_PRICE);
         messageFields.add(Constants.LEG_BENCHMARK_PRICE_TYPE);
         messageFields.add(Constants.LEG_REF_ID);
-        messageFields.add(Constants.NO_QUOTE_QUALIFIERS);
+        messageFields.add(Constants.NO_QUOTE_QUALIFIERS_GROUP_COUNTER);
         messageFields.add(Constants.QUOTE_QUALIFIER);
         messageFields.add(Constants.QUOTE_PRICE_TYPE);
         messageFields.add(Constants.ORD_TYPE);
@@ -602,11 +602,11 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
         messageFields.add(Constants.YIELD_REDEMPTION_DATE);
         messageFields.add(Constants.YIELD_REDEMPTION_PRICE);
         messageFields.add(Constants.YIELD_REDEMPTION_PRICE_TYPE);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TEXT);
@@ -659,6 +659,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
     }
 
 
+    private final CharArrayWrapper quoteReqIDWrapper = new CharArrayWrapper();
     private char[] rFQReqID = new char[1];
 
     private boolean hasRFQReqID;
@@ -709,6 +710,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
     }
 
 
+    private final CharArrayWrapper rFQReqIDWrapper = new CharArrayWrapper();
     private int quoteRequestRejectReason = MISSING_INT;
 
     public int quoteRequestRejectReason()
@@ -919,6 +921,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1047,7 +1050,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
                 preTradeAnonymity = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_ROOT_PARTY_IDS:
+            case Constants.NO_ROOT_PARTY_IDS_GROUP_COUNTER:
                 hasNoRootPartyIDsGroupCounter = true;
                 noRootPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1116, CODEC_VALIDATION_ENABLED);
                 if (rootPartyIDsGroup == null)
@@ -1082,7 +1085,7 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
                 break;
 
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -1328,41 +1331,43 @@ public class QuoteRequestRejectDecoder extends CommonDecoderImpl implements Root
             builder.append("\",\n");
         }
 
-    if (hasNoRootPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RootPartyIDsGroup\": [\n");
-        RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
-        for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
+        if (hasNoRootPartyIDsGroupCounter)
         {
             indent(builder, level);
-            rootPartyIDsGroup.appendTo(builder, level + 1);            if (rootPartyIDsGroup.next() != null)
+            builder.append("\"RootPartyIDsGroup\": [\n");
+            RootPartyIDsGroupDecoder rootPartyIDsGroup = this.rootPartyIDsGroup;
+            for (int i = 0, size = this.noRootPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rootPartyIDsGroup = rootPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rootPartyIDsGroup.appendTo(builder, level + 1);
+                if (rootPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rootPartyIDsGroup = rootPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

@@ -196,6 +196,7 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper bidDescriptorWrapper = new CharArrayWrapper();
     private int sideValueInd = MISSING_INT;
 
     private boolean hasSideValueInd;
@@ -712,12 +713,12 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public BidDescriptorsGroupEncoder toEncoder(final Encoder encoder)
+    public BidDescReqGrpEncoder.BidDescriptorsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((BidDescriptorsGroupEncoder)encoder);
+        return toEncoder((BidDescReqGrpEncoder.BidDescriptorsGroupEncoder)encoder);
     }
 
-    public BidDescriptorsGroupEncoder toEncoder(final BidDescriptorsGroupEncoder encoder)
+    public BidDescReqGrpEncoder.BidDescriptorsGroupEncoder toEncoder(final BidDescReqGrpEncoder.BidDescriptorsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasBidDescriptorType())
@@ -793,6 +794,7 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public BidDescriptorsGroupDecoder next()
         {
             remainder--;
@@ -800,23 +802,27 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoBidDescriptorsGroupCounter() ? parent.noBidDescriptorsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.bidDescriptorsGroup();
         }
+
         public BidDescriptorsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public BidDescriptorsGroupIterator bidDescriptorsGroupIterator();
+    public BidDescriptorsGroupIterator bidDescriptorsGroupIterator();
     public int noBidDescriptorsGroupCounter();
     public boolean hasNoBidDescriptorsGroupCounter();
     public BidDescriptorsGroupDecoder bidDescriptorsGroup();

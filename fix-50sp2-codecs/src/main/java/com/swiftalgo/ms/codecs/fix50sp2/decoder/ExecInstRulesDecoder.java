@@ -236,12 +236,12 @@ public class ExecInstRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ExecInstRulesGroupEncoder toEncoder(final Encoder encoder)
+    public ExecInstRulesEncoder.ExecInstRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ExecInstRulesGroupEncoder)encoder);
+        return toEncoder((ExecInstRulesEncoder.ExecInstRulesGroupEncoder)encoder);
     }
 
-    public ExecInstRulesGroupEncoder toEncoder(final ExecInstRulesGroupEncoder encoder)
+    public ExecInstRulesEncoder.ExecInstRulesGroupEncoder toEncoder(final ExecInstRulesEncoder.ExecInstRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasExecInstValue())
@@ -267,6 +267,7 @@ public class ExecInstRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ExecInstRulesGroupDecoder next()
         {
             remainder--;
@@ -274,23 +275,27 @@ public class ExecInstRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoExecInstRulesGroupCounter() ? parent.noExecInstRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.execInstRulesGroup();
         }
+
         public ExecInstRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ExecInstRulesGroupIterator execInstRulesGroupIterator();
+    public ExecInstRulesGroupIterator execInstRulesGroupIterator();
     public int noExecInstRulesGroupCounter();
     public boolean hasNoExecInstRulesGroupCounter();
     public ExecInstRulesGroupDecoder execInstRulesGroup();

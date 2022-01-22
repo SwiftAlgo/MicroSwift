@@ -149,6 +149,7 @@ public class MDFeedTypesGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper mDFeedTypeWrapper = new CharArrayWrapper();
     private int marketDepth = MISSING_INT;
 
     private boolean hasMarketDepth;
@@ -366,12 +367,12 @@ public class MDFeedTypesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public MDFeedTypesGroupEncoder toEncoder(final Encoder encoder)
+    public MarketDataFeedTypesEncoder.MDFeedTypesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((MDFeedTypesGroupEncoder)encoder);
+        return toEncoder((MarketDataFeedTypesEncoder.MDFeedTypesGroupEncoder)encoder);
     }
 
-    public MDFeedTypesGroupEncoder toEncoder(final MDFeedTypesGroupEncoder encoder)
+    public MarketDataFeedTypesEncoder.MDFeedTypesGroupEncoder toEncoder(final MarketDataFeedTypesEncoder.MDFeedTypesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasMDFeedType())
@@ -407,6 +408,7 @@ public class MDFeedTypesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public MDFeedTypesGroupDecoder next()
         {
             remainder--;
@@ -414,23 +416,27 @@ public class MDFeedTypesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoMDFeedTypesGroupCounter() ? parent.noMDFeedTypesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.mDFeedTypesGroup();
         }
+
         public MDFeedTypesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public MDFeedTypesGroupIterator mDFeedTypesGroupIterator();
+    public MDFeedTypesGroupIterator mDFeedTypesGroupIterator();
     public int noMDFeedTypesGroupCounter();
     public boolean hasNoMDFeedTypesGroupCounter();
     public MDFeedTypesGroupDecoder mDFeedTypesGroup();

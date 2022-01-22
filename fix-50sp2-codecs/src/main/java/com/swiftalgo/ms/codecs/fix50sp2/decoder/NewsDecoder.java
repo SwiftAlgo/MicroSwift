@@ -80,7 +80,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         if (CODEC_VALIDATION_ENABLED)
         {
             REQUIRED_FIELDS.add(Constants.HEADLINE);
-            REQUIRED_FIELDS.add(Constants.NO_LINES_OF_TEXT);
+            REQUIRED_FIELDS.add(Constants.NO_LINES_OF_TEXT_GROUP_COUNTER);
         }
     }
 
@@ -348,7 +348,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.APPL_LAST_SEQ_NUM);
         messageFields.add(Constants.APPL_RESEND_FLAG);
         messageFields.add(Constants.NEWS_ID);
-        messageFields.add(Constants.NO_NEWS_REF_IDS);
+        messageFields.add(Constants.NO_NEWS_REF_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NEWS_REF_ID);
         messageFields.add(Constants.NEWS_REF_TYPE);
         messageFields.add(Constants.NEWS_CATEGORY);
@@ -358,17 +358,17 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.HEADLINE);
         messageFields.add(Constants.ENCODED_HEADLINE_LEN);
         messageFields.add(Constants.ENCODED_HEADLINE);
-        messageFields.add(Constants.NO_ROUTING_IDS);
+        messageFields.add(Constants.NO_ROUTING_IDS_GROUP_COUNTER);
         messageFields.add(Constants.ROUTING_TYPE);
         messageFields.add(Constants.ROUTING_ID);
         messageFields.add(Constants.MARKET_ID);
         messageFields.add(Constants.MARKET_SEGMENT_ID);
-        messageFields.add(Constants.NO_RELATED_SYM);
+        messageFields.add(Constants.NO_RELATED_SYM_GROUP_COUNTER);
         messageFields.add(Constants.SYMBOL);
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -449,7 +449,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -457,14 +457,14 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -472,18 +472,18 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -535,12 +535,12 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.LEG_PUT_OR_CALL);
         messageFields.add(Constants.LEG_OPTION_RATIO);
         messageFields.add(Constants.LEG_PRICE);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -602,23 +602,23 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
-        messageFields.add(Constants.NO_LINES_OF_TEXT);
+        messageFields.add(Constants.NO_LINES_OF_TEXT_GROUP_COUNTER);
         messageFields.add(Constants.TEXT);
         messageFields.add(Constants.ENCODED_TEXT_LEN);
         messageFields.add(Constants.ENCODED_TEXT);
@@ -695,6 +695,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -809,6 +810,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
     }
 
 
+    private final CharArrayWrapper newsIDWrapper = new CharArrayWrapper();
 
 
     private NewsRefIDsGroupDecoder newsRefIDsGroup = null;
@@ -1032,6 +1034,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
     }
 
 
+    private final CharArrayWrapper headlineWrapper = new CharArrayWrapper();
     private int encodedHeadlineLen = MISSING_INT;
 
     private boolean hasEncodedHeadlineLen;
@@ -1211,6 +1214,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
 
 
     private RelatedSymGroupDecoder relatedSymGroup = null;
@@ -1409,6 +1413,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
     }
 
 
+    private final CharArrayWrapper uRLLinkWrapper = new CharArrayWrapper();
     private int rawDataLength = MISSING_INT;
 
     private boolean hasRawDataLength;
@@ -1535,7 +1540,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 newsIDLength = valueLength;
                 break;
 
-            case Constants.NO_NEWS_REF_IDS:
+            case Constants.NO_NEWS_REF_IDS_GROUP_COUNTER:
                 hasNoNewsRefIDsGroupCounter = true;
                 noNewsRefIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1475, CODEC_VALIDATION_ENABLED);
                 if (newsRefIDsGroup == null)
@@ -1611,7 +1616,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 endOfField = valueOffset + encodedHeadlineLen;
                 break;
 
-            case Constants.NO_ROUTING_IDS:
+            case Constants.NO_ROUTING_IDS_GROUP_COUNTER:
                 hasNoRoutingIDsGroupCounter = true;
                 noRoutingIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 215, CODEC_VALIDATION_ENABLED);
                 if (routingIDsGroup == null)
@@ -1660,7 +1665,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 marketSegmentIDLength = valueLength;
                 break;
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -1695,7 +1700,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 break;
 
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -1730,7 +1735,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 break;
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -1765,7 +1770,7 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
                 break;
 
 
-            case Constants.NO_LINES_OF_TEXT:
+            case Constants.NO_LINES_OF_TEXT_GROUP_COUNTER:
                 hasNoLinesOfTextGroupCounter = true;
                 noLinesOfTextGroupCounter = getInt(buffer, valueOffset, endOfField, 33, CODEC_VALIDATION_ENABLED);
                 if (linesOfTextGroup == null)
@@ -2117,23 +2122,24 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
             builder.append("\",\n");
         }
 
-    if (hasNoNewsRefIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NewsRefIDsGroup\": [\n");
-        NewsRefIDsGroupDecoder newsRefIDsGroup = this.newsRefIDsGroup;
-        for (int i = 0, size = this.noNewsRefIDsGroupCounter; i < size; i++)
+        if (hasNoNewsRefIDsGroupCounter)
         {
             indent(builder, level);
-            newsRefIDsGroup.appendTo(builder, level + 1);            if (newsRefIDsGroup.next() != null)
+            builder.append("\"NewsRefIDsGroup\": [\n");
+            NewsRefIDsGroupDecoder newsRefIDsGroup = this.newsRefIDsGroup;
+            for (int i = 0, size = this.noNewsRefIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            newsRefIDsGroup = newsRefIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                newsRefIDsGroup.appendTo(builder, level + 1);
+                if (newsRefIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                newsRefIDsGroup = newsRefIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasNewsCategory())
         {
@@ -2188,23 +2194,24 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
             builder.append("\",\n");
         }
 
-    if (hasNoRoutingIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RoutingIDsGroup\": [\n");
-        RoutingIDsGroupDecoder routingIDsGroup = this.routingIDsGroup;
-        for (int i = 0, size = this.noRoutingIDsGroupCounter; i < size; i++)
+        if (hasNoRoutingIDsGroupCounter)
         {
             indent(builder, level);
-            routingIDsGroup.appendTo(builder, level + 1);            if (routingIDsGroup.next() != null)
+            builder.append("\"RoutingIDsGroup\": [\n");
+            RoutingIDsGroupDecoder routingIDsGroup = this.routingIDsGroup;
+            for (int i = 0, size = this.noRoutingIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            routingIDsGroup = routingIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                routingIDsGroup.appendTo(builder, level + 1);
+                if (routingIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                routingIDsGroup = routingIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasMarketID())
         {
@@ -2222,77 +2229,81 @@ public class NewsDecoder extends CommonDecoderImpl implements ApplicationSequenc
             builder.append("\",\n");
         }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLinesOfTextGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LinesOfTextGroup\": [\n");
-        LinesOfTextGroupDecoder linesOfTextGroup = this.linesOfTextGroup;
-        for (int i = 0, size = this.noLinesOfTextGroupCounter; i < size; i++)
+        if (hasNoLinesOfTextGroupCounter)
         {
             indent(builder, level);
-            linesOfTextGroup.appendTo(builder, level + 1);            if (linesOfTextGroup.next() != null)
+            builder.append("\"LinesOfTextGroup\": [\n");
+            LinesOfTextGroupDecoder linesOfTextGroup = this.linesOfTextGroup;
+            for (int i = 0, size = this.noLinesOfTextGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            linesOfTextGroup = linesOfTextGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                linesOfTextGroup.appendTo(builder, level + 1);
+                if (linesOfTextGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                linesOfTextGroup = linesOfTextGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasURLLink())
         {

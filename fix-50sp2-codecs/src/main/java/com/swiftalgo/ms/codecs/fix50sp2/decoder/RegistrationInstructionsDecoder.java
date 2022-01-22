@@ -262,11 +262,11 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
         messageFields.add(Constants.REGIST_TRANS_TYPE);
         messageFields.add(Constants.REGIST_REF_ID);
         messageFields.add(Constants.CL_ORD_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -274,22 +274,22 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
         messageFields.add(Constants.REGIST_ACCT_TYPE);
         messageFields.add(Constants.TAX_ADVANTAGE_TYPE);
         messageFields.add(Constants.OWNERSHIP_TYPE);
-        messageFields.add(Constants.NO_REGIST_DTLS);
+        messageFields.add(Constants.NO_REGIST_DTLS_GROUP_COUNTER);
         messageFields.add(Constants.REGIST_DTLS);
         messageFields.add(Constants.REGIST_EMAIL);
         messageFields.add(Constants.MAILING_DTLS);
         messageFields.add(Constants.MAILING_INST);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.OWNER_TYPE);
         messageFields.add(Constants.DATE_OF_BIRTH);
         messageFields.add(Constants.INVESTOR_COUNTRY_OF_RESIDENCE);
-        messageFields.add(Constants.NO_DISTRIB_INSTS);
+        messageFields.add(Constants.NO_DISTRIB_INSTS_GROUP_COUNTER);
         messageFields.add(Constants.DISTRIB_PAYMENT_METHOD);
         messageFields.add(Constants.DISTRIB_PERCENTAGE);
         messageFields.add(Constants.CASH_DISTRIB_CURR);
@@ -345,6 +345,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper registIDWrapper = new CharArrayWrapper();
     private char registTransType = MISSING_CHAR;
 
     public char registTransType()
@@ -388,6 +389,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper registRefIDWrapper = new CharArrayWrapper();
     private char[] clOrdID = new char[1];
 
     private boolean hasClOrdID;
@@ -438,6 +440,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -525,6 +528,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -604,6 +608,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper registAcctTypeWrapper = new CharArrayWrapper();
     private int taxAdvantageType = MISSING_INT;
 
     private boolean hasTaxAdvantageType;
@@ -813,7 +818,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
                 clOrdIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -877,7 +882,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
                 ownershipType = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_REGIST_DTLS:
+            case Constants.NO_REGIST_DTLS_GROUP_COUNTER:
                 hasNoRegistDtlsGroupCounter = true;
                 noRegistDtlsGroupCounter = getInt(buffer, valueOffset, endOfField, 473, CODEC_VALIDATION_ENABLED);
                 if (registDtlsGroup == null)
@@ -912,7 +917,7 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
                 break;
 
 
-            case Constants.NO_DISTRIB_INSTS:
+            case Constants.NO_DISTRIB_INSTS_GROUP_COUNTER:
                 hasNoDistribInstsGroupCounter = true;
                 noDistribInstsGroupCounter = getInt(buffer, valueOffset, endOfField, 510, CODEC_VALIDATION_ENABLED);
                 if (distribInstsGroup == null)
@@ -1137,23 +1142,24 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {
@@ -1195,41 +1201,43 @@ public class RegistrationInstructionsDecoder extends CommonDecoderImpl implement
             builder.append("\",\n");
         }
 
-    if (hasNoRegistDtlsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RegistDtlsGroup\": [\n");
-        RegistDtlsGroupDecoder registDtlsGroup = this.registDtlsGroup;
-        for (int i = 0, size = this.noRegistDtlsGroupCounter; i < size; i++)
+        if (hasNoRegistDtlsGroupCounter)
         {
             indent(builder, level);
-            registDtlsGroup.appendTo(builder, level + 1);            if (registDtlsGroup.next() != null)
+            builder.append("\"RegistDtlsGroup\": [\n");
+            RegistDtlsGroupDecoder registDtlsGroup = this.registDtlsGroup;
+            for (int i = 0, size = this.noRegistDtlsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            registDtlsGroup = registDtlsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                registDtlsGroup.appendTo(builder, level + 1);
+                if (registDtlsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                registDtlsGroup = registDtlsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoDistribInstsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DistribInstsGroup\": [\n");
-        DistribInstsGroupDecoder distribInstsGroup = this.distribInstsGroup;
-        for (int i = 0, size = this.noDistribInstsGroupCounter; i < size; i++)
+        if (hasNoDistribInstsGroupCounter)
         {
             indent(builder, level);
-            distribInstsGroup.appendTo(builder, level + 1);            if (distribInstsGroup.next() != null)
+            builder.append("\"DistribInstsGroup\": [\n");
+            DistribInstsGroupDecoder distribInstsGroup = this.distribInstsGroup;
+            for (int i = 0, size = this.noDistribInstsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            distribInstsGroup = distribInstsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                distribInstsGroup.appendTo(builder, level + 1);
+                if (distribInstsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                distribInstsGroup = distribInstsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

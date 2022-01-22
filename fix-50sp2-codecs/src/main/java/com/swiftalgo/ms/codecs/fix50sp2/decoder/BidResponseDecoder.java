@@ -41,7 +41,7 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
     {
         if (CODEC_VALIDATION_ENABLED)
         {
-            REQUIRED_FIELDS.add(Constants.NO_BID_COMPONENTS);
+            REQUIRED_FIELDS.add(Constants.NO_BID_COMPONENTS_GROUP_COUNTER);
         }
     }
 
@@ -157,7 +157,7 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.BID_ID);
         messageFields.add(Constants.CLIENT_BID_ID);
-        messageFields.add(Constants.NO_BID_COMPONENTS);
+        messageFields.add(Constants.NO_BID_COMPONENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMMISSION);
         messageFields.add(Constants.COMM_TYPE);
         messageFields.add(Constants.COMM_CURRENCY);
@@ -245,6 +245,7 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
     }
 
 
+    private final CharArrayWrapper bidIDWrapper = new CharArrayWrapper();
     private char[] clientBidID = new char[1];
 
     private boolean hasClientBidID;
@@ -295,6 +296,7 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
     }
 
 
+    private final CharArrayWrapper clientBidIDWrapper = new CharArrayWrapper();
 
 
     private BidComponentsGroupDecoder bidComponentsGroup = null;
@@ -400,7 +402,7 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
                 clientBidIDLength = valueLength;
                 break;
 
-            case Constants.NO_BID_COMPONENTS:
+            case Constants.NO_BID_COMPONENTS_GROUP_COUNTER:
                 hasNoBidComponentsGroupCounter = true;
                 noBidComponentsGroupCounter = getInt(buffer, valueOffset, endOfField, 420, CODEC_VALIDATION_ENABLED);
                 if (bidComponentsGroup == null)
@@ -544,23 +546,24 @@ public class BidResponseDecoder extends CommonDecoderImpl implements BidCompRspG
             builder.append("\",\n");
         }
 
-    if (hasNoBidComponentsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"BidComponentsGroup\": [\n");
-        BidComponentsGroupDecoder bidComponentsGroup = this.bidComponentsGroup;
-        for (int i = 0, size = this.noBidComponentsGroupCounter; i < size; i++)
+        if (hasNoBidComponentsGroupCounter)
         {
             indent(builder, level);
-            bidComponentsGroup.appendTo(builder, level + 1);            if (bidComponentsGroup.next() != null)
+            builder.append("\"BidComponentsGroup\": [\n");
+            BidComponentsGroupDecoder bidComponentsGroup = this.bidComponentsGroup;
+            for (int i = 0, size = this.noBidComponentsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            bidComponentsGroup = bidComponentsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                bidComponentsGroup.appendTo(builder, level + 1);
+                if (bidComponentsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                bidComponentsGroup = bidComponentsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

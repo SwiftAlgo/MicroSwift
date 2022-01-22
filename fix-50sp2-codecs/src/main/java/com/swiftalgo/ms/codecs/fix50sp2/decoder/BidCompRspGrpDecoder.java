@@ -365,6 +365,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl implements Comm
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] country = new char[1];
 
     private boolean hasCountry;
@@ -821,6 +822,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl implements Comm
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1331,12 +1333,12 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl implements Comm
     /**
      * {@inheritDoc}
      */
-    public BidComponentsGroupEncoder toEncoder(final Encoder encoder)
+    public BidCompRspGrpEncoder.BidComponentsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((BidComponentsGroupEncoder)encoder);
+        return toEncoder((BidCompRspGrpEncoder.BidComponentsGroupEncoder)encoder);
     }
 
-    public BidComponentsGroupEncoder toEncoder(final BidComponentsGroupEncoder encoder)
+    public BidCompRspGrpEncoder.BidComponentsGroupEncoder toEncoder(final BidCompRspGrpEncoder.BidComponentsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -1450,6 +1452,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl implements Comm
         {
             return remainder > 0 && current != null;
         }
+
         public BidComponentsGroupDecoder next()
         {
             remainder--;
@@ -1457,23 +1460,27 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl implements Comm
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoBidComponentsGroupCounter() ? parent.noBidComponentsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.bidComponentsGroup();
         }
+
         public BidComponentsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public BidComponentsGroupIterator bidComponentsGroupIterator();
+    public BidComponentsGroupIterator bidComponentsGroupIterator();
     public int noBidComponentsGroupCounter();
     public boolean hasNoBidComponentsGroupCounter();
     public BidComponentsGroupDecoder bidComponentsGroup();

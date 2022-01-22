@@ -253,12 +253,12 @@ public class OrdTypeRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public OrdTypeRulesGroupEncoder toEncoder(final Encoder encoder)
+    public OrdTypeRulesEncoder.OrdTypeRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((OrdTypeRulesGroupEncoder)encoder);
+        return toEncoder((OrdTypeRulesEncoder.OrdTypeRulesGroupEncoder)encoder);
     }
 
-    public OrdTypeRulesGroupEncoder toEncoder(final OrdTypeRulesGroupEncoder encoder)
+    public OrdTypeRulesEncoder.OrdTypeRulesGroupEncoder toEncoder(final OrdTypeRulesEncoder.OrdTypeRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasOrdType())
@@ -284,6 +284,7 @@ public class OrdTypeRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public OrdTypeRulesGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class OrdTypeRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoOrdTypeRulesGroupCounter() ? parent.noOrdTypeRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.ordTypeRulesGroup();
         }
+
         public OrdTypeRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public OrdTypeRulesGroupIterator ordTypeRulesGroupIterator();
+    public OrdTypeRulesGroupIterator ordTypeRulesGroupIterator();
     public int noOrdTypeRulesGroupCounter();
     public boolean hasNoOrdTypeRulesGroupCounter();
     public OrdTypeRulesGroupDecoder ordTypeRulesGroup();

@@ -191,17 +191,17 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.CONFIRM_REQ_ID);
         messageFields.add(Constants.CONFIRM_TYPE);
-        messageFields.add(Constants.NO_ORDERS);
+        messageFields.add(Constants.NO_ORDERS_GROUP_COUNTER);
         messageFields.add(Constants.CL_ORD_ID);
         messageFields.add(Constants.ORDER_ID);
         messageFields.add(Constants.SECONDARY_ORDER_ID);
         messageFields.add(Constants.SECONDARY_CL_ORD_ID);
         messageFields.add(Constants.LIST_ID);
-        messageFields.add(Constants.NO_NESTED2_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_ID);
         messageFields.add(Constants.NESTED2_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED2_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ORDER_QTY);
@@ -264,6 +264,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper confirmReqIDWrapper = new CharArrayWrapper();
     private int confirmType = MISSING_INT;
 
     public int confirmType()
@@ -366,6 +367,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper allocIDWrapper = new CharArrayWrapper();
     private char[] secondaryAllocID = new char[1];
 
     private boolean hasSecondaryAllocID;
@@ -416,6 +418,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper secondaryAllocIDWrapper = new CharArrayWrapper();
     private char[] individualAllocID = new char[1];
 
     private boolean hasIndividualAllocID;
@@ -466,6 +469,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper individualAllocIDWrapper = new CharArrayWrapper();
     private byte[] transactTime = new byte[24];
 
     public byte[] transactTime()
@@ -544,6 +548,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper allocAccountWrapper = new CharArrayWrapper();
     private int allocAcctIDSource = MISSING_INT;
 
     private boolean hasAllocAcctIDSource;
@@ -644,6 +649,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -750,7 +756,7 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
                 confirmType = getInt(buffer, valueOffset, endOfField, 773, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_ORDERS:
+            case Constants.NO_ORDERS_GROUP_COUNTER:
                 hasNoOrdersGroupCounter = true;
                 noOrdersGroupCounter = getInt(buffer, valueOffset, endOfField, 73, CODEC_VALIDATION_ENABLED);
                 if (ordersGroup == null)
@@ -1010,23 +1016,24 @@ public class ConfirmationRequestDecoder extends CommonDecoderImpl implements Ord
         builder.append(confirmType);
         builder.append("\",\n");
 
-    if (hasNoOrdersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdersGroup\": [\n");
-        OrdersGroupDecoder ordersGroup = this.ordersGroup;
-        for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
+        if (hasNoOrdersGroupCounter)
         {
             indent(builder, level);
-            ordersGroup.appendTo(builder, level + 1);            if (ordersGroup.next() != null)
+            builder.append("\"OrdersGroup\": [\n");
+            OrdersGroupDecoder ordersGroup = this.ordersGroup;
+            for (int i = 0, size = this.noOrdersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordersGroup = ordersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordersGroup.appendTo(builder, level + 1);
+                if (ordersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordersGroup = ordersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAllocID())
         {

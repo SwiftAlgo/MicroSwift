@@ -171,7 +171,7 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
         messageFields.add(Constants.APPL_REPORT_ID);
         messageFields.add(Constants.APPL_REQ_ID);
         messageFields.add(Constants.APPL_REPORT_TYPE);
-        messageFields.add(Constants.NO_APPL_IDS);
+        messageFields.add(Constants.NO_APPL_IDS_GROUP_COUNTER);
         messageFields.add(Constants.REF_APPL_ID);
         messageFields.add(Constants.APPL_NEW_SEQ_NUM);
         messageFields.add(Constants.REF_APPL_LAST_SEQ_NUM);
@@ -225,6 +225,7 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper applReportIDWrapper = new CharArrayWrapper();
     private char[] applReqID = new char[1];
 
     private boolean hasApplReqID;
@@ -275,6 +276,7 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper applReqIDWrapper = new CharArrayWrapper();
     private int applReportType = MISSING_INT;
 
     public int applReportType()
@@ -377,6 +379,7 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -490,7 +493,7 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
                 applReportType = getInt(buffer, valueOffset, endOfField, 1426, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_APPL_IDS:
+            case Constants.NO_APPL_IDS_GROUP_COUNTER:
                 hasNoApplIDsGroupCounter = true;
                 noApplIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 1351, CODEC_VALIDATION_ENABLED);
                 if (applIDsGroup == null)
@@ -679,23 +682,24 @@ public class ApplicationMessageReportDecoder extends CommonDecoderImpl implement
         builder.append(applReportType);
         builder.append("\",\n");
 
-    if (hasNoApplIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ApplIDsGroup\": [\n");
-        ApplIDsGroupDecoder applIDsGroup = this.applIDsGroup;
-        for (int i = 0, size = this.noApplIDsGroupCounter; i < size; i++)
+        if (hasNoApplIDsGroupCounter)
         {
             indent(builder, level);
-            applIDsGroup.appendTo(builder, level + 1);            if (applIDsGroup.next() != null)
+            builder.append("\"ApplIDsGroup\": [\n");
+            ApplIDsGroupDecoder applIDsGroup = this.applIDsGroup;
+            for (int i = 0, size = this.noApplIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            applIDsGroup = applIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                applIDsGroup.appendTo(builder, level + 1);
+                if (applIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                applIDsGroup = applIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

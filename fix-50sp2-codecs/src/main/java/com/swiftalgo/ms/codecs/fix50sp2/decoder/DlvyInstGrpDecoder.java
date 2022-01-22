@@ -305,7 +305,7 @@ public class DlvyInstGroupDecoder extends CommonDecoderImpl implements SettlPart
                 dlvyInstType = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_SETTL_PARTY_IDS:
+            case Constants.NO_SETTL_PARTY_IDS_GROUP_COUNTER:
                 hasNoSettlPartyIDsGroupCounter = true;
                 noSettlPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 781, CODEC_VALIDATION_ENABLED);
                 if (settlPartyIDsGroup == null)
@@ -428,23 +428,24 @@ public class DlvyInstGroupDecoder extends CommonDecoderImpl implements SettlPart
             builder.append("\",\n");
         }
 
-    if (hasNoSettlPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SettlPartyIDsGroup\": [\n");
-        SettlPartyIDsGroupDecoder settlPartyIDsGroup = this.settlPartyIDsGroup;
-        for (int i = 0, size = this.noSettlPartyIDsGroupCounter; i < size; i++)
+        if (hasNoSettlPartyIDsGroupCounter)
         {
             indent(builder, level);
-            settlPartyIDsGroup.appendTo(builder, level + 1);            if (settlPartyIDsGroup.next() != null)
+            builder.append("\"SettlPartyIDsGroup\": [\n");
+            SettlPartyIDsGroupDecoder settlPartyIDsGroup = this.settlPartyIDsGroup;
+            for (int i = 0, size = this.noSettlPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            settlPartyIDsGroup = settlPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                settlPartyIDsGroup.appendTo(builder, level + 1);
+                if (settlPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                settlPartyIDsGroup = settlPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -453,12 +454,12 @@ public class DlvyInstGroupDecoder extends CommonDecoderImpl implements SettlPart
     /**
      * {@inheritDoc}
      */
-    public DlvyInstGroupEncoder toEncoder(final Encoder encoder)
+    public DlvyInstGrpEncoder.DlvyInstGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((DlvyInstGroupEncoder)encoder);
+        return toEncoder((DlvyInstGrpEncoder.DlvyInstGroupEncoder)encoder);
     }
 
-    public DlvyInstGroupEncoder toEncoder(final DlvyInstGroupEncoder encoder)
+    public DlvyInstGrpEncoder.DlvyInstGroupEncoder toEncoder(final DlvyInstGrpEncoder.DlvyInstGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSettlInstSource())
@@ -507,6 +508,7 @@ public class DlvyInstGroupDecoder extends CommonDecoderImpl implements SettlPart
         {
             return remainder > 0 && current != null;
         }
+
         public DlvyInstGroupDecoder next()
         {
             remainder--;
@@ -514,23 +516,27 @@ public class DlvyInstGroupDecoder extends CommonDecoderImpl implements SettlPart
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoDlvyInstGroupCounter() ? parent.noDlvyInstGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.dlvyInstGroup();
         }
+
         public DlvyInstGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public DlvyInstGroupIterator dlvyInstGroupIterator();
+    public DlvyInstGroupIterator dlvyInstGroupIterator();
     public int noDlvyInstGroupCounter();
     public boolean hasNoDlvyInstGroupCounter();
     public DlvyInstGroupDecoder dlvyInstGroup();

@@ -274,7 +274,7 @@ public class BidRequestDecoder extends CommonDecoderImpl implements MessageDecod
         messageFields.add(Constants.CURRENCY);
         messageFields.add(Constants.SIDE_VALUE1);
         messageFields.add(Constants.SIDE_VALUE2);
-        messageFields.add(Constants.NO_BID_DESCRIPTORS);
+        messageFields.add(Constants.NO_BID_DESCRIPTORS_GROUP_COUNTER);
         messageFields.add(Constants.BID_DESCRIPTOR_TYPE);
         messageFields.add(Constants.BID_DESCRIPTOR);
         messageFields.add(Constants.SIDE_VALUE_IND);
@@ -286,7 +286,7 @@ public class BidRequestDecoder extends CommonDecoderImpl implements MessageDecod
         messageFields.add(Constants.FAIR_VALUE);
         messageFields.add(Constants.OUTSIDE_INDEX_PCT);
         messageFields.add(Constants.VALUE_OF_FUTURES);
-        messageFields.add(Constants.NO_BID_COMPONENTS);
+        messageFields.add(Constants.NO_BID_COMPONENTS_GROUP_COUNTER);
         messageFields.add(Constants.LIST_ID);
         messageFields.add(Constants.SIDE);
         messageFields.add(Constants.TRADING_SESSION_ID);
@@ -382,6 +382,7 @@ public class BidRequestDecoder extends CommonDecoderImpl implements MessageDecod
     }
 
 
+    private final CharArrayWrapper bidIDWrapper = new CharArrayWrapper();
     private char[] clientBidID = new char[1];
 
     public char[] clientBidID()
@@ -410,6 +411,7 @@ public class BidRequestDecoder extends CommonDecoderImpl implements MessageDecod
     }
 
 
+    private final CharArrayWrapper clientBidIDWrapper = new CharArrayWrapper();
     private char bidRequestTransType = MISSING_CHAR;
 
     public char bidRequestTransType()
@@ -475,6 +477,7 @@ public class BidRequestDecoder extends CommonDecoderImpl implements MessageDecod
     }
 
 
+    private final CharArrayWrapper listNameWrapper = new CharArrayWrapper();
     private int totNoRelatedSym = MISSING_INT;
 
     public int totNoRelatedSym()
@@ -776,6 +779,7 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper bidDescriptorWrapper = new CharArrayWrapper();
     private int sideValueInd = MISSING_INT;
 
     private boolean hasSideValueInd;
@@ -1292,12 +1296,12 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public BidDescriptorsGroupEncoder toEncoder(final Encoder encoder)
+    public BidRequestEncoder.BidDescriptorsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((BidDescriptorsGroupEncoder)encoder);
+        return toEncoder((BidRequestEncoder.BidDescriptorsGroupEncoder)encoder);
     }
 
-    public BidDescriptorsGroupEncoder toEncoder(final BidDescriptorsGroupEncoder encoder)
+    public BidRequestEncoder.BidDescriptorsGroupEncoder toEncoder(final BidRequestEncoder.BidDescriptorsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasBidDescriptorType())
@@ -1373,6 +1377,7 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public BidDescriptorsGroupDecoder next()
         {
             remainder--;
@@ -1380,20 +1385,24 @@ public class BidDescriptorsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoBidDescriptorsGroupCounter() ? parent.noBidDescriptorsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.bidDescriptorsGroup();
         }
+
         public BidDescriptorsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -1584,6 +1593,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char side = MISSING_CHAR;
 
     private boolean hasSide;
@@ -1663,6 +1673,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -1713,6 +1724,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
     private int netGrossInd = MISSING_INT;
 
     private boolean hasNetGrossInd;
@@ -1871,6 +1883,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -2189,12 +2202,12 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public BidComponentsGroupEncoder toEncoder(final Encoder encoder)
+    public BidRequestEncoder.BidComponentsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((BidComponentsGroupEncoder)encoder);
+        return toEncoder((BidRequestEncoder.BidComponentsGroupEncoder)encoder);
     }
 
-    public BidComponentsGroupEncoder toEncoder(final BidComponentsGroupEncoder encoder)
+    public BidRequestEncoder.BidComponentsGroupEncoder toEncoder(final BidRequestEncoder.BidComponentsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasListID())
@@ -2260,6 +2273,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public BidComponentsGroupDecoder next()
         {
             remainder--;
@@ -2267,20 +2281,24 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoBidComponentsGroupCounter() ? parent.noBidComponentsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.bidComponentsGroup();
         }
+
         public BidComponentsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -2732,6 +2750,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -2882,7 +2901,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
                 sideValue2 = getFloat(buffer, sideValue2, valueOffset, valueLength, 397, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_BID_DESCRIPTORS:
+            case Constants.NO_BID_DESCRIPTORS_GROUP_COUNTER:
                 hasNoBidDescriptorsGroupCounter = true;
                 noBidDescriptorsGroupCounter = getInt(buffer, valueOffset, endOfField, 398, CODEC_VALIDATION_ENABLED);
                 if (bidDescriptorsGroup == null)
@@ -2916,7 +2935,7 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
                 }
                 break;
 
-            case Constants.NO_BID_COMPONENTS:
+            case Constants.NO_BID_COMPONENTS_GROUP_COUNTER:
                 hasNoBidComponentsGroupCounter = true;
                 noBidComponentsGroupCounter = getInt(buffer, valueOffset, endOfField, 420, CODEC_VALIDATION_ENABLED);
                 if (bidComponentsGroup == null)
@@ -3367,41 +3386,43 @@ public class BidComponentsGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoBidDescriptorsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"BidDescriptorsGroup\": [\n");
-        BidDescriptorsGroupDecoder bidDescriptorsGroup = this.bidDescriptorsGroup;
-        for (int i = 0, size = this.noBidDescriptorsGroupCounter; i < size; i++)
+        if (hasNoBidDescriptorsGroupCounter)
         {
             indent(builder, level);
-            bidDescriptorsGroup.appendTo(builder, level + 1);            if (bidDescriptorsGroup.next() != null)
+            builder.append("\"BidDescriptorsGroup\": [\n");
+            BidDescriptorsGroupDecoder bidDescriptorsGroup = this.bidDescriptorsGroup;
+            for (int i = 0, size = this.noBidDescriptorsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            bidDescriptorsGroup = bidDescriptorsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                bidDescriptorsGroup.appendTo(builder, level + 1);
+                if (bidDescriptorsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                bidDescriptorsGroup = bidDescriptorsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoBidComponentsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"BidComponentsGroup\": [\n");
-        BidComponentsGroupDecoder bidComponentsGroup = this.bidComponentsGroup;
-        for (int i = 0, size = this.noBidComponentsGroupCounter; i < size; i++)
+        if (hasNoBidComponentsGroupCounter)
         {
             indent(builder, level);
-            bidComponentsGroup.appendTo(builder, level + 1);            if (bidComponentsGroup.next() != null)
+            builder.append("\"BidComponentsGroup\": [\n");
+            BidComponentsGroupDecoder bidComponentsGroup = this.bidComponentsGroup;
+            for (int i = 0, size = this.noBidComponentsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            bidComponentsGroup = bidComponentsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                bidComponentsGroup.appendTo(builder, level + 1);
+                if (bidComponentsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                bidComponentsGroup = bidComponentsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLiquidityIndType())
         {

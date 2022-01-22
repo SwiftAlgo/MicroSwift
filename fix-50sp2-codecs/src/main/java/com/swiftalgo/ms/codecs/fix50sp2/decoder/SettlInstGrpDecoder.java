@@ -315,6 +315,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper settlInstIDWrapper = new CharArrayWrapper();
     private char settlInstTransType = MISSING_CHAR;
 
     private boolean hasSettlInstTransType;
@@ -394,6 +395,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper settlInstRefIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -598,6 +600,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] settlCurrency = new char[1];
 
     private boolean hasSettlCurrency;
@@ -907,6 +910,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper standInstDbNameWrapper = new CharArrayWrapper();
     private char[] standInstDbID = new char[1];
 
     private boolean hasStandInstDbID;
@@ -957,6 +961,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper standInstDbIDWrapper = new CharArrayWrapper();
 
 
     private DlvyInstGroupDecoder dlvyInstGroup = null;
@@ -1074,6 +1079,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper paymentRefWrapper = new CharArrayWrapper();
     private char[] cardHolderName = new char[1];
 
     private boolean hasCardHolderName;
@@ -1124,6 +1130,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper cardHolderNameWrapper = new CharArrayWrapper();
     private char[] cardNumber = new char[1];
 
     private boolean hasCardNumber;
@@ -1174,6 +1181,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper cardNumberWrapper = new CharArrayWrapper();
     private byte[] cardStartDate = new byte[8];
 
     private boolean hasCardStartDate;
@@ -1324,6 +1332,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper cardIssNumWrapper = new CharArrayWrapper();
     private byte[] paymentDate = new byte[8];
 
     private boolean hasPaymentDate;
@@ -1424,6 +1433,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     }
 
 
+    private final CharArrayWrapper paymentRemitterIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode SettlInstGroup
@@ -1499,7 +1509,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
                 settlInstRefIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -1610,7 +1620,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
                 standInstDbIDLength = valueLength;
                 break;
 
-            case Constants.NO_DLVY_INST:
+            case Constants.NO_DLVY_INST_GROUP_COUNTER:
                 hasNoDlvyInstGroupCounter = true;
                 noDlvyInstGroupCounter = getInt(buffer, valueOffset, endOfField, 85, CODEC_VALIDATION_ENABLED);
                 if (dlvyInstGroup == null)
@@ -1950,23 +1960,24 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSide())
         {
@@ -2064,23 +2075,24 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
             builder.append("\",\n");
         }
 
-    if (hasNoDlvyInstGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DlvyInstGroup\": [\n");
-        DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
-        for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
+        if (hasNoDlvyInstGroupCounter)
         {
             indent(builder, level);
-            dlvyInstGroup.appendTo(builder, level + 1);            if (dlvyInstGroup.next() != null)
+            builder.append("\"DlvyInstGroup\": [\n");
+            DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
+            for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            dlvyInstGroup = dlvyInstGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                dlvyInstGroup.appendTo(builder, level + 1);
+                if (dlvyInstGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                dlvyInstGroup = dlvyInstGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasPaymentMethod())
         {
@@ -2161,12 +2173,12 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
     /**
      * {@inheritDoc}
      */
-    public SettlInstGroupEncoder toEncoder(final Encoder encoder)
+    public SettlInstGrpEncoder.SettlInstGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SettlInstGroupEncoder)encoder);
+        return toEncoder((SettlInstGrpEncoder.SettlInstGroupEncoder)encoder);
     }
 
-    public SettlInstGroupEncoder toEncoder(final SettlInstGroupEncoder encoder)
+    public SettlInstGrpEncoder.SettlInstGroupEncoder toEncoder(final SettlInstGrpEncoder.SettlInstGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSettlInstID())
@@ -2345,6 +2357,7 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
         {
             return remainder > 0 && current != null;
         }
+
         public SettlInstGroupDecoder next()
         {
             remainder--;
@@ -2352,23 +2365,27 @@ public class SettlInstGroupDecoder extends CommonDecoderImpl implements PartiesD
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSettlInstGroupCounter() ? parent.noSettlInstGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.settlInstGroup();
         }
+
         public SettlInstGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SettlInstGroupIterator settlInstGroupIterator();
+    public SettlInstGroupIterator settlInstGroupIterator();
     public int noSettlInstGroupCounter();
     public boolean hasNoSettlInstGroupCounter();
     public SettlInstGroupDecoder settlInstGroup();

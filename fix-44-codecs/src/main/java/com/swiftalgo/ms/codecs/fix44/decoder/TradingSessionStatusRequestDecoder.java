@@ -200,6 +200,7 @@ public class TradingSessionStatusRequestDecoder extends CommonDecoderImpl implem
     }
 
 
+    private final CharArrayWrapper tradSesReqIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionID = new char[1];
 
     private boolean hasTradingSessionID;
@@ -250,6 +251,7 @@ public class TradingSessionStatusRequestDecoder extends CommonDecoderImpl implem
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -300,6 +302,7 @@ public class TradingSessionStatusRequestDecoder extends CommonDecoderImpl implem
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
     private int tradSesMethod = MISSING_INT;
 
     private boolean hasTradSesMethod;

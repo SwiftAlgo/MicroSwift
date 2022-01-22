@@ -292,7 +292,7 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
 
             switch (tag)
             {
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -327,7 +327,7 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
                 break;
 
 
-            case Constants.NO_RELATED_SYM:
+            case Constants.NO_RELATED_SYM_GROUP_COUNTER:
                 hasNoRelatedSymGroupCounter = true;
                 noRelatedSymGroupCounter = getInt(buffer, valueOffset, endOfField, 146, CODEC_VALIDATION_ENABLED);
                 if (relatedSymGroup == null)
@@ -437,41 +437,43 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
     {
         builder.append("{\n");        indent(builder, level);
         builder.append("\"MessageName\": \"AsgnReqsGroup\",\n");
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoRelatedSymGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RelatedSymGroup\": [\n");
-        RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
-        for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
+        if (hasNoRelatedSymGroupCounter)
         {
             indent(builder, level);
-            relatedSymGroup.appendTo(builder, level + 1);            if (relatedSymGroup.next() != null)
+            builder.append("\"RelatedSymGroup\": [\n");
+            RelatedSymGroupDecoder relatedSymGroup = this.relatedSymGroup;
+            for (int i = 0, size = this.noRelatedSymGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            relatedSymGroup = relatedSymGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                relatedSymGroup.appendTo(builder, level + 1);
+                if (relatedSymGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                relatedSymGroup = relatedSymGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -480,12 +482,12 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
     /**
      * {@inheritDoc}
      */
-    public AsgnReqsGroupEncoder toEncoder(final Encoder encoder)
+    public StrmAsgnReqGrpEncoder.AsgnReqsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AsgnReqsGroupEncoder)encoder);
+        return toEncoder((StrmAsgnReqGrpEncoder.AsgnReqsGroupEncoder)encoder);
     }
 
-    public AsgnReqsGroupEncoder toEncoder(final AsgnReqsGroupEncoder encoder)
+    public StrmAsgnReqGrpEncoder.AsgnReqsGroupEncoder toEncoder(final StrmAsgnReqGrpEncoder.AsgnReqsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -542,6 +544,7 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
         {
             return remainder > 0 && current != null;
         }
+
         public AsgnReqsGroupDecoder next()
         {
             remainder--;
@@ -549,23 +552,27 @@ public class AsgnReqsGroupDecoder extends CommonDecoderImpl implements PartiesDe
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAsgnReqsGroupCounter() ? parent.noAsgnReqsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.asgnReqsGroup();
         }
+
         public AsgnReqsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AsgnReqsGroupIterator asgnReqsGroupIterator();
+    public AsgnReqsGroupIterator asgnReqsGroupIterator();
     public int noAsgnReqsGroupCounter();
     public boolean hasNoAsgnReqsGroupCounter();
     public AsgnReqsGroupDecoder asgnReqsGroup();

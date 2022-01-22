@@ -487,6 +487,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper origClOrdIDWrapper = new CharArrayWrapper();
     private char[] clOrdID = new char[1];
 
     public char[] clOrdID()
@@ -515,6 +516,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -565,6 +567,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private char[] clOrdLinkID = new char[1];
 
     private boolean hasClOrdLinkID;
@@ -615,6 +618,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper clOrdLinkIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -802,6 +806,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -997,6 +1002,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper allocIDWrapper = new CharArrayWrapper();
 
 
     private AllocsGroupDecoder allocsGroup = null;
@@ -1589,6 +1595,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -1848,6 +1855,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     }
 
 
+    private final CharArrayWrapper sideComplianceIDWrapper = new CharArrayWrapper();
     private byte[] sideTimeInForce = new byte[24];
 
     private boolean hasSideTimeInForce;
@@ -1985,7 +1993,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
                 clOrdLinkIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -2073,7 +2081,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
                 allocIDLength = valueLength;
                 break;
 
-            case Constants.NO_ALLOCS:
+            case Constants.NO_ALLOCS_GROUP_COUNTER:
                 hasNoAllocsGroupCounter = true;
                 noAllocsGroupCounter = getInt(buffer, valueOffset, endOfField, 78, CODEC_VALIDATION_ENABLED);
                 if (allocsGroup == null)
@@ -2616,23 +2624,24 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTradeOriginationDate())
         {
@@ -2706,23 +2715,24 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
             builder.append("\",\n");
         }
 
-    if (hasNoAllocsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AllocsGroup\": [\n");
-        AllocsGroupDecoder allocsGroup = this.allocsGroup;
-        for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
+        if (hasNoAllocsGroupCounter)
         {
             indent(builder, level);
-            allocsGroup.appendTo(builder, level + 1);            if (allocsGroup.next() != null)
+            builder.append("\"AllocsGroup\": [\n");
+            AllocsGroupDecoder allocsGroup = this.allocsGroup;
+            for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            allocsGroup = allocsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                allocsGroup.appendTo(builder, level + 1);
+                if (allocsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                allocsGroup = allocsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasQtyType())
         {
@@ -2947,12 +2957,12 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
     /**
      * {@inheritDoc}
      */
-    public SidesGroupEncoder toEncoder(final Encoder encoder)
+    public SideCrossOrdModGrpEncoder.SidesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SidesGroupEncoder)encoder);
+        return toEncoder((SideCrossOrdModGrpEncoder.SidesGroupEncoder)encoder);
     }
 
-    public SidesGroupEncoder toEncoder(final SidesGroupEncoder encoder)
+    public SideCrossOrdModGrpEncoder.SidesGroupEncoder toEncoder(final SideCrossOrdModGrpEncoder.SidesGroupEncoder encoder)
     {
         encoder.reset();
         encoder.side(this.side());
@@ -3211,6 +3221,7 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
         {
             return remainder > 0 && current != null;
         }
+
         public SidesGroupDecoder next()
         {
             remainder--;
@@ -3218,23 +3229,27 @@ public class SidesGroupDecoder extends CommonDecoderImpl implements PartiesDecod
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSidesGroupCounter() ? parent.noSidesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.sidesGroup();
         }
+
         public SidesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SidesGroupIterator sidesGroupIterator();
+    public SidesGroupIterator sidesGroupIterator();
     public int noSidesGroupCounter();
     public boolean hasNoSidesGroupCounter();
     public SidesGroupDecoder sidesGroup();

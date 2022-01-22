@@ -393,7 +393,7 @@ public class PositionsGroupDecoder extends CommonDecoderImpl implements NestedPa
                 posQtyStatus = getInt(buffer, valueOffset, endOfField, 706, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -544,23 +544,24 @@ public class PositionsGroupDecoder extends CommonDecoderImpl implements NestedPa
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -569,12 +570,12 @@ public class PositionsGroupDecoder extends CommonDecoderImpl implements NestedPa
     /**
      * {@inheritDoc}
      */
-    public PositionsGroupEncoder toEncoder(final Encoder encoder)
+    public PositionQtyEncoder.PositionsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((PositionsGroupEncoder)encoder);
+        return toEncoder((PositionQtyEncoder.PositionsGroupEncoder)encoder);
     }
 
-    public PositionsGroupEncoder toEncoder(final PositionsGroupEncoder encoder)
+    public PositionQtyEncoder.PositionsGroupEncoder toEncoder(final PositionQtyEncoder.PositionsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasPosType())
@@ -633,6 +634,7 @@ public class PositionsGroupDecoder extends CommonDecoderImpl implements NestedPa
         {
             return remainder > 0 && current != null;
         }
+
         public PositionsGroupDecoder next()
         {
             remainder--;
@@ -640,23 +642,27 @@ public class PositionsGroupDecoder extends CommonDecoderImpl implements NestedPa
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoPositionsGroupCounter() ? parent.noPositionsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.positionsGroup();
         }
+
         public PositionsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public PositionsGroupIterator positionsGroupIterator();
+    public PositionsGroupIterator positionsGroupIterator();
     public int noPositionsGroupCounter();
     public boolean hasNoPositionsGroupCounter();
     public PositionsGroupDecoder positionsGroup();

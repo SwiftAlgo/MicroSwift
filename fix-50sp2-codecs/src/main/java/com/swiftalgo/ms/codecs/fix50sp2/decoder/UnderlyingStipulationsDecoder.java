@@ -139,6 +139,7 @@ public class UnderlyingStipsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingStipTypeWrapper = new CharArrayWrapper();
     private char[] underlyingStipValue = new char[1];
 
     private boolean hasUnderlyingStipValue;
@@ -189,6 +190,7 @@ public class UnderlyingStipsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper underlyingStipValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode UnderlyingStipsGroup
@@ -339,12 +341,12 @@ public class UnderlyingStipsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public UnderlyingStipsGroupEncoder toEncoder(final Encoder encoder)
+    public UnderlyingStipulationsEncoder.UnderlyingStipsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((UnderlyingStipsGroupEncoder)encoder);
+        return toEncoder((UnderlyingStipulationsEncoder.UnderlyingStipsGroupEncoder)encoder);
     }
 
-    public UnderlyingStipsGroupEncoder toEncoder(final UnderlyingStipsGroupEncoder encoder)
+    public UnderlyingStipulationsEncoder.UnderlyingStipsGroupEncoder toEncoder(final UnderlyingStipulationsEncoder.UnderlyingStipsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasUnderlyingStipType())
@@ -375,6 +377,7 @@ public class UnderlyingStipsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public UnderlyingStipsGroupDecoder next()
         {
             remainder--;
@@ -382,23 +385,27 @@ public class UnderlyingStipsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoUnderlyingStipsGroupCounter() ? parent.noUnderlyingStipsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.underlyingStipsGroup();
         }
+
         public UnderlyingStipsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public UnderlyingStipsGroupIterator underlyingStipsGroupIterator();
+    public UnderlyingStipsGroupIterator underlyingStipsGroupIterator();
     public int noUnderlyingStipsGroupCounter();
     public boolean hasNoUnderlyingStipsGroupCounter();
     public UnderlyingStipsGroupDecoder underlyingStipsGroup();

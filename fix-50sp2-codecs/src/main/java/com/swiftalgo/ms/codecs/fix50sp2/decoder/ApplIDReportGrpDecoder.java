@@ -140,6 +140,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refApplIDWrapper = new CharArrayWrapper();
     private int applNewSeqNum = MISSING_INT;
 
     private boolean hasApplNewSeqNum;
@@ -349,12 +350,12 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public ApplIDsGroupEncoder toEncoder(final Encoder encoder)
+    public ApplIDReportGrpEncoder.ApplIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ApplIDsGroupEncoder)encoder);
+        return toEncoder((ApplIDReportGrpEncoder.ApplIDsGroupEncoder)encoder);
     }
 
-    public ApplIDsGroupEncoder toEncoder(final ApplIDsGroupEncoder encoder)
+    public ApplIDReportGrpEncoder.ApplIDsGroupEncoder toEncoder(final ApplIDReportGrpEncoder.ApplIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefApplID())
@@ -390,6 +391,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public ApplIDsGroupDecoder next()
         {
             remainder--;
@@ -397,23 +399,27 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoApplIDsGroupCounter() ? parent.noApplIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.applIDsGroup();
         }
+
         public ApplIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ApplIDsGroupIterator applIDsGroupIterator();
+    public ApplIDsGroupIterator applIDsGroupIterator();
     public int noApplIDsGroupCounter();
     public boolean hasNoApplIDsGroupCounter();
     public ApplIDsGroupDecoder applIDsGroup();

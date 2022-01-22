@@ -342,6 +342,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSymbolWrapper = new CharArrayWrapper();
     private char[] legSymbolSfx = new char[1];
 
     private boolean hasLegSymbolSfx;
@@ -392,6 +393,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSymbolSfxWrapper = new CharArrayWrapper();
     private char[] legSecurityID = new char[1];
 
     private boolean hasLegSecurityID;
@@ -442,6 +444,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityIDWrapper = new CharArrayWrapper();
     private char[] legSecurityIDSource = new char[1];
 
     private boolean hasLegSecurityIDSource;
@@ -492,6 +495,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = null;
@@ -600,6 +604,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legCFICodeWrapper = new CharArrayWrapper();
     private char[] legSecurityType = new char[1];
 
     private boolean hasLegSecurityType;
@@ -650,6 +655,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityTypeWrapper = new CharArrayWrapper();
     private char[] legSecuritySubType = new char[1];
 
     private boolean hasLegSecuritySubType;
@@ -700,6 +706,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] legMaturityMonthYear = new byte[8];
 
     private boolean hasLegMaturityMonthYear;
@@ -1000,6 +1007,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int legRepurchaseTerm = MISSING_INT;
 
     private boolean hasLegRepurchaseTerm;
@@ -1113,6 +1121,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legCreditRatingWrapper = new CharArrayWrapper();
     private char[] legInstrRegistry = new char[1];
 
     private boolean hasLegInstrRegistry;
@@ -1163,6 +1172,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legInstrRegistryWrapper = new CharArrayWrapper();
     private char[] legCountryOfIssue = new char[1];
 
     private boolean hasLegCountryOfIssue;
@@ -1263,6 +1273,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] legLocaleOfIssue = new char[1];
 
     private boolean hasLegLocaleOfIssue;
@@ -1313,6 +1324,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] legRedemptionDate = new byte[8];
 
     private boolean hasLegRedemptionDate;
@@ -1568,6 +1580,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat legUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasLegUnitOfMeasureQty;
@@ -1639,6 +1652,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legPriceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat legPriceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasLegPriceUnitOfMeasureQty;
@@ -1710,6 +1724,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legTimeUnitWrapper = new CharArrayWrapper();
     private int legExerciseStyle = MISSING_INT;
 
     private boolean hasLegExerciseStyle;
@@ -1852,6 +1867,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legIssuerWrapper = new CharArrayWrapper();
     private int encodedLegIssuerLen = MISSING_INT;
 
     private boolean hasEncodedLegIssuerLen;
@@ -1944,6 +1960,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legSecurityDescWrapper = new CharArrayWrapper();
     private int encodedLegSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedLegSecurityDescLen;
@@ -2128,6 +2145,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legPoolWrapper = new CharArrayWrapper();
     private byte[] legDatedDate = new byte[8];
 
     private boolean hasLegDatedDate;
@@ -2479,6 +2497,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legAllocIDWrapper = new CharArrayWrapper();
 
 
     private LegAllocsGroupDecoder legAllocsGroup = null;
@@ -2645,6 +2664,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     }
 
 
+    private final CharArrayWrapper legRefIDWrapper = new CharArrayWrapper();
     private char legSettlType = MISSING_CHAR;
 
     private boolean hasLegSettlType;
@@ -2985,7 +3005,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
                 legSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_LEG_SECURITY_ALT_ID:
+            case Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoLegSecurityAltIDGroupCounter = true;
                 noLegSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 604, CODEC_VALIDATION_ENABLED);
                 if (legSecurityAltIDGroup == null)
@@ -3332,7 +3352,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
                 legSwapType = getInt(buffer, valueOffset, endOfField, 690, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_LEG_STIPULATIONS:
+            case Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER:
                 hasNoLegStipulationsGroupCounter = true;
                 noLegStipulationsGroupCounter = getInt(buffer, valueOffset, endOfField, 683, CODEC_VALIDATION_ENABLED);
                 if (legStipulationsGroup == null)
@@ -3374,7 +3394,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
                 legAllocIDLength = valueLength;
                 break;
 
-            case Constants.NO_LEG_ALLOCS:
+            case Constants.NO_LEG_ALLOCS_GROUP_COUNTER:
                 hasNoLegAllocsGroupCounter = true;
                 noLegAllocsGroupCounter = getInt(buffer, valueOffset, endOfField, 670, CODEC_VALIDATION_ENABLED);
                 if (legAllocsGroup == null)
@@ -3419,7 +3439,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
                 legCoveredOrUncovered = getInt(buffer, valueOffset, endOfField, 565, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -4046,23 +4066,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             builder.append("\",\n");
         }
 
-    if (hasNoLegSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegSecurityAltIDGroup\": [\n");
-        LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = this.legSecurityAltIDGroup;
-        for (int i = 0, size = this.noLegSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoLegSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            legSecurityAltIDGroup.appendTo(builder, level + 1);            if (legSecurityAltIDGroup.next() != null)
+            builder.append("\"LegSecurityAltIDGroup\": [\n");
+            LegSecurityAltIDGroupDecoder legSecurityAltIDGroup = this.legSecurityAltIDGroup;
+            for (int i = 0, size = this.noLegSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legSecurityAltIDGroup = legSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (legSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legSecurityAltIDGroup = legSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegProduct())
         {
@@ -4472,23 +4493,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             builder.append("\",\n");
         }
 
-    if (hasNoLegStipulationsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegStipulationsGroup\": [\n");
-        LegStipulationsGroupDecoder legStipulationsGroup = this.legStipulationsGroup;
-        for (int i = 0, size = this.noLegStipulationsGroupCounter; i < size; i++)
+        if (hasNoLegStipulationsGroupCounter)
         {
             indent(builder, level);
-            legStipulationsGroup.appendTo(builder, level + 1);            if (legStipulationsGroup.next() != null)
+            builder.append("\"LegStipulationsGroup\": [\n");
+            LegStipulationsGroupDecoder legStipulationsGroup = this.legStipulationsGroup;
+            for (int i = 0, size = this.noLegStipulationsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legStipulationsGroup = legStipulationsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legStipulationsGroup.appendTo(builder, level + 1);
+                if (legStipulationsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legStipulationsGroup = legStipulationsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegAllocID())
         {
@@ -4498,23 +4520,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             builder.append("\",\n");
         }
 
-    if (hasNoLegAllocsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegAllocsGroup\": [\n");
-        LegAllocsGroupDecoder legAllocsGroup = this.legAllocsGroup;
-        for (int i = 0, size = this.noLegAllocsGroupCounter; i < size; i++)
+        if (hasNoLegAllocsGroupCounter)
         {
             indent(builder, level);
-            legAllocsGroup.appendTo(builder, level + 1);            if (legAllocsGroup.next() != null)
+            builder.append("\"LegAllocsGroup\": [\n");
+            LegAllocsGroupDecoder legAllocsGroup = this.legAllocsGroup;
+            for (int i = 0, size = this.noLegAllocsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legAllocsGroup = legAllocsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legAllocsGroup.appendTo(builder, level + 1);
+                if (legAllocsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legAllocsGroup = legAllocsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegPositionEffect())
         {
@@ -4532,23 +4555,24 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasLegRefID())
         {
@@ -4629,12 +4653,12 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
     /**
      * {@inheritDoc}
      */
-    public LegsGroupEncoder toEncoder(final Encoder encoder)
+    public LegOrdGrpEncoder.LegsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LegsGroupEncoder)encoder);
+        return toEncoder((LegOrdGrpEncoder.LegsGroupEncoder)encoder);
     }
 
-    public LegsGroupEncoder toEncoder(final LegsGroupEncoder encoder)
+    public LegOrdGrpEncoder.LegsGroupEncoder toEncoder(final LegOrdGrpEncoder.LegsGroupEncoder encoder)
     {
         encoder.reset();
 
@@ -5066,6 +5090,7 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
         {
             return remainder > 0 && current != null;
         }
+
         public LegsGroupDecoder next()
         {
             remainder--;
@@ -5073,23 +5098,27 @@ public class LegsGroupDecoder extends CommonDecoderImpl implements InstrumentLeg
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLegsGroupCounter() ? parent.noLegsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.legsGroup();
         }
+
         public LegsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LegsGroupIterator legsGroupIterator();
+    public LegsGroupIterator legsGroupIterator();
     public int noLegsGroupCounter();
     public boolean hasNoLegsGroupCounter();
     public LegsGroupDecoder legsGroup();

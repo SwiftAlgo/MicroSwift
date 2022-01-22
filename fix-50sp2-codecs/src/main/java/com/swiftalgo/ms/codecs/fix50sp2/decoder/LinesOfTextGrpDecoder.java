@@ -119,6 +119,7 @@ public class LinesOfTextGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -326,12 +327,12 @@ public class LinesOfTextGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public LinesOfTextGroupEncoder toEncoder(final Encoder encoder)
+    public LinesOfTextGrpEncoder.LinesOfTextGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((LinesOfTextGroupEncoder)encoder);
+        return toEncoder((LinesOfTextGrpEncoder.LinesOfTextGroupEncoder)encoder);
     }
 
-    public LinesOfTextGroupEncoder toEncoder(final LinesOfTextGroupEncoder encoder)
+    public LinesOfTextGrpEncoder.LinesOfTextGroupEncoder toEncoder(final LinesOfTextGrpEncoder.LinesOfTextGroupEncoder encoder)
     {
         encoder.reset();
         encoder.text(this.text(), 0, textLength());
@@ -364,6 +365,7 @@ public class LinesOfTextGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public LinesOfTextGroupDecoder next()
         {
             remainder--;
@@ -371,23 +373,27 @@ public class LinesOfTextGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoLinesOfTextGroupCounter() ? parent.noLinesOfTextGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.linesOfTextGroup();
         }
+
         public LinesOfTextGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public LinesOfTextGroupIterator linesOfTextGroupIterator();
+    public LinesOfTextGroupIterator linesOfTextGroupIterator();
     public int noLinesOfTextGroupCounter();
     public boolean hasNoLinesOfTextGroupCounter();
     public LinesOfTextGroupDecoder linesOfTextGroup();

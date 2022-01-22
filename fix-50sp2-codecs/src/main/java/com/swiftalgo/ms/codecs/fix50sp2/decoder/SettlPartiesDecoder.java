@@ -175,6 +175,7 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
     }
 
 
+    private final CharArrayWrapper settlPartyIDWrapper = new CharArrayWrapper();
     private char settlPartyIDSource = MISSING_CHAR;
 
     private boolean hasSettlPartyIDSource;
@@ -327,7 +328,7 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
                 settlPartyRole = getInt(buffer, valueOffset, endOfField, 784, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_SETTL_PARTY_SUB_IDS:
+            case Constants.NO_SETTL_PARTY_SUB_IDS_GROUP_COUNTER:
                 hasNoSettlPartySubIDsGroupCounter = true;
                 noSettlPartySubIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 801, CODEC_VALIDATION_ENABLED);
                 if (settlPartySubIDsGroup == null)
@@ -464,23 +465,24 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
             builder.append("\",\n");
         }
 
-    if (hasNoSettlPartySubIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SettlPartySubIDsGroup\": [\n");
-        SettlPartySubIDsGroupDecoder settlPartySubIDsGroup = this.settlPartySubIDsGroup;
-        for (int i = 0, size = this.noSettlPartySubIDsGroupCounter; i < size; i++)
+        if (hasNoSettlPartySubIDsGroupCounter)
         {
             indent(builder, level);
-            settlPartySubIDsGroup.appendTo(builder, level + 1);            if (settlPartySubIDsGroup.next() != null)
+            builder.append("\"SettlPartySubIDsGroup\": [\n");
+            SettlPartySubIDsGroupDecoder settlPartySubIDsGroup = this.settlPartySubIDsGroup;
+            for (int i = 0, size = this.noSettlPartySubIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            settlPartySubIDsGroup = settlPartySubIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                settlPartySubIDsGroup.appendTo(builder, level + 1);
+                if (settlPartySubIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                settlPartySubIDsGroup = settlPartySubIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -489,12 +491,12 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
     /**
      * {@inheritDoc}
      */
-    public SettlPartyIDsGroupEncoder toEncoder(final Encoder encoder)
+    public SettlPartiesEncoder.SettlPartyIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((SettlPartyIDsGroupEncoder)encoder);
+        return toEncoder((SettlPartiesEncoder.SettlPartyIDsGroupEncoder)encoder);
     }
 
-    public SettlPartyIDsGroupEncoder toEncoder(final SettlPartyIDsGroupEncoder encoder)
+    public SettlPartiesEncoder.SettlPartyIDsGroupEncoder toEncoder(final SettlPartiesEncoder.SettlPartyIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasSettlPartyID())
@@ -548,6 +550,7 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
         {
             return remainder > 0 && current != null;
         }
+
         public SettlPartyIDsGroupDecoder next()
         {
             remainder--;
@@ -555,23 +558,27 @@ public class SettlPartyIDsGroupDecoder extends CommonDecoderImpl implements Sett
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoSettlPartyIDsGroupCounter() ? parent.noSettlPartyIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.settlPartyIDsGroup();
         }
+
         public SettlPartyIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public SettlPartyIDsGroupIterator settlPartyIDsGroupIterator();
+    public SettlPartyIDsGroupIterator settlPartyIDsGroupIterator();
     public int noSettlPartyIDsGroupCounter();
     public boolean hasNoSettlPartyIDsGroupCounter();
     public SettlPartyIDsGroupDecoder settlPartyIDsGroup();

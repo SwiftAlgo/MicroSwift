@@ -179,6 +179,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
     }
 
 
+    private final CharArrayWrapper refApplIDWrapper = new CharArrayWrapper();
     private char[] refApplReqID = new char[1];
 
     private boolean hasRefApplReqID;
@@ -229,6 +230,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
     }
 
 
+    private final CharArrayWrapper refApplReqIDWrapper = new CharArrayWrapper();
     private int applBegSeqNum = MISSING_INT;
 
     private boolean hasApplBegSeqNum;
@@ -388,7 +390,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
                 applEndSeqNum = getInt(buffer, valueOffset, endOfField, 1183, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -539,23 +541,24 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -564,12 +567,12 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
     /**
      * {@inheritDoc}
      */
-    public ApplIDsGroupEncoder toEncoder(final Encoder encoder)
+    public ApplIDRequestGrpEncoder.ApplIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((ApplIDsGroupEncoder)encoder);
+        return toEncoder((ApplIDRequestGrpEncoder.ApplIDsGroupEncoder)encoder);
     }
 
-    public ApplIDsGroupEncoder toEncoder(final ApplIDsGroupEncoder encoder)
+    public ApplIDRequestGrpEncoder.ApplIDsGroupEncoder toEncoder(final ApplIDRequestGrpEncoder.ApplIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefApplID())
@@ -628,6 +631,7 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
         {
             return remainder > 0 && current != null;
         }
+
         public ApplIDsGroupDecoder next()
         {
             remainder--;
@@ -635,23 +639,27 @@ public class ApplIDsGroupDecoder extends CommonDecoderImpl implements NestedPart
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoApplIDsGroupCounter() ? parent.noApplIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.applIDsGroup();
         }
+
         public ApplIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public ApplIDsGroupIterator applIDsGroupIterator();
+    public ApplIDsGroupIterator applIDsGroupIterator();
     public int noApplIDsGroupCounter();
     public boolean hasNoApplIDsGroupCounter();
     public ApplIDsGroupDecoder applIDsGroup();

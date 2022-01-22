@@ -278,6 +278,7 @@ public class TrdRegTimestampsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper trdRegTimestampOriginWrapper = new CharArrayWrapper();
     private char[] deskType = new char[1];
 
     private boolean hasDeskType;
@@ -647,12 +648,12 @@ public class TrdRegTimestampsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TrdRegTimestampsGroupEncoder toEncoder(final Encoder encoder)
+    public TrdRegTimestampsEncoder.TrdRegTimestampsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TrdRegTimestampsGroupEncoder)encoder);
+        return toEncoder((TrdRegTimestampsEncoder.TrdRegTimestampsGroupEncoder)encoder);
     }
 
-    public TrdRegTimestampsGroupEncoder toEncoder(final TrdRegTimestampsGroupEncoder encoder)
+    public TrdRegTimestampsEncoder.TrdRegTimestampsGroupEncoder toEncoder(final TrdRegTimestampsEncoder.TrdRegTimestampsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTrdRegTimestamp())
@@ -703,6 +704,7 @@ public class TrdRegTimestampsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TrdRegTimestampsGroupDecoder next()
         {
             remainder--;
@@ -710,23 +712,27 @@ public class TrdRegTimestampsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTrdRegTimestampsGroupCounter() ? parent.noTrdRegTimestampsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.trdRegTimestampsGroup();
         }
+
         public TrdRegTimestampsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TrdRegTimestampsGroupIterator trdRegTimestampsGroupIterator();
+    public TrdRegTimestampsGroupIterator trdRegTimestampsGroupIterator();
     public int noTrdRegTimestampsGroupCounter();
     public boolean hasNoTrdRegTimestampsGroupCounter();
     public TrdRegTimestampsGroupDecoder trdRegTimestampsGroup();

@@ -208,6 +208,7 @@ public class BusinessMessageRejectDecoder extends CommonDecoderImpl implements M
     }
 
 
+    private final CharArrayWrapper refMsgTypeWrapper = new CharArrayWrapper();
     private char[] refApplVerID = new char[1];
 
     private boolean hasRefApplVerID;
@@ -258,6 +259,7 @@ public class BusinessMessageRejectDecoder extends CommonDecoderImpl implements M
     }
 
 
+    private final CharArrayWrapper refApplVerIDWrapper = new CharArrayWrapper();
     private int refApplExtID = MISSING_INT;
 
     private boolean hasRefApplExtID;
@@ -329,6 +331,7 @@ public class BusinessMessageRejectDecoder extends CommonDecoderImpl implements M
     }
 
 
+    private final CharArrayWrapper refCstmApplVerIDWrapper = new CharArrayWrapper();
     private char[] businessRejectRefID = new char[1];
 
     private boolean hasBusinessRejectRefID;
@@ -379,6 +382,7 @@ public class BusinessMessageRejectDecoder extends CommonDecoderImpl implements M
     }
 
 
+    private final CharArrayWrapper businessRejectRefIDWrapper = new CharArrayWrapper();
     private int businessRejectReason = MISSING_INT;
 
     public int businessRejectReason()
@@ -444,6 +448,7 @@ public class BusinessMessageRejectDecoder extends CommonDecoderImpl implements M
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

@@ -192,7 +192,6 @@ public class TrailerEncoder
         return this;
     }
 
-    // |10=...|
     long finishMessage(final MutableAsciiBuffer buffer, final int messageStart, final int offset)
     {
         int position = offset;
@@ -207,7 +206,6 @@ public class TrailerEncoder
 
         return Encoder.result(position - messageStart, messageStart);
     }
-    // Optional trailer fields
     int startTrailer(final MutableAsciiBuffer buffer, final int offset)
     {
         final int start = offset;

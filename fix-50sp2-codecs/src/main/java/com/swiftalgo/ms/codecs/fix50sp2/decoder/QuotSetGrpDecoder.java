@@ -75,7 +75,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
         {
             REQUIRED_FIELDS.add(Constants.QUOTE_SET_ID);
             REQUIRED_FIELDS.add(Constants.TOT_NO_QUOTE_ENTRIES);
-            REQUIRED_FIELDS.add(Constants.NO_QUOTE_ENTRIES);
+            REQUIRED_FIELDS.add(Constants.NO_QUOTE_ENTRIES_GROUP_COUNTER);
         }
     }
 
@@ -354,6 +354,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper quoteSetIDWrapper = new CharArrayWrapper();
 
     private char[] underlyingSymbol = new char[1];
 
@@ -405,6 +406,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSymbolWrapper = new CharArrayWrapper();
     private char[] underlyingSymbolSfx = new char[1];
 
     private boolean hasUnderlyingSymbolSfx;
@@ -455,6 +457,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSymbolSfxWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityID = new char[1];
 
     private boolean hasUnderlyingSecurityID;
@@ -505,6 +508,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityIDSource = new char[1];
 
     private boolean hasUnderlyingSecurityIDSource;
@@ -555,6 +559,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = null;
@@ -663,6 +668,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingCFICodeWrapper = new CharArrayWrapper();
     private char[] underlyingSecurityType = new char[1];
 
     private boolean hasUnderlyingSecurityType;
@@ -713,6 +719,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSecurityTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSecuritySubType = new char[1];
 
     private boolean hasUnderlyingSecuritySubType;
@@ -763,6 +770,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSecuritySubTypeWrapper = new CharArrayWrapper();
     private byte[] underlyingMaturityMonthYear = new byte[8];
 
     private boolean hasUnderlyingMaturityMonthYear;
@@ -1013,6 +1021,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingRestructuringTypeWrapper = new CharArrayWrapper();
     private char[] underlyingSeniority = new char[1];
 
     private boolean hasUnderlyingSeniority;
@@ -1063,6 +1072,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSeniorityWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingNotionalPercentageOutstanding = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingNotionalPercentageOutstanding;
@@ -1247,6 +1257,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingRepoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int underlyingRepurchaseTerm = MISSING_INT;
 
     private boolean hasUnderlyingRepurchaseTerm;
@@ -1360,6 +1371,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingCreditRatingWrapper = new CharArrayWrapper();
     private char[] underlyingInstrRegistry = new char[1];
 
     private boolean hasUnderlyingInstrRegistry;
@@ -1410,6 +1422,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingInstrRegistryWrapper = new CharArrayWrapper();
     private char[] underlyingCountryOfIssue = new char[1];
 
     private boolean hasUnderlyingCountryOfIssue;
@@ -1510,6 +1523,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingStateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] underlyingLocaleOfIssue = new char[1];
 
     private boolean hasUnderlyingLocaleOfIssue;
@@ -1560,6 +1574,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingLocaleOfIssueWrapper = new CharArrayWrapper();
     private byte[] underlyingRedemptionDate = new byte[8];
 
     private boolean hasUnderlyingRedemptionDate;
@@ -1815,6 +1830,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingUnitOfMeasureQty;
@@ -1886,6 +1902,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingPriceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingPriceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingPriceUnitOfMeasureQty;
@@ -1957,6 +1974,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingTimeUnitWrapper = new CharArrayWrapper();
     private int underlyingExerciseStyle = MISSING_INT;
 
     private boolean hasUnderlyingExerciseStyle;
@@ -2099,6 +2117,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingIssuerWrapper = new CharArrayWrapper();
     private int encodedUnderlyingIssuerLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingIssuerLen;
@@ -2191,6 +2210,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSecurityDescWrapper = new CharArrayWrapper();
     private int encodedUnderlyingSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedUnderlyingSecurityDescLen;
@@ -2283,6 +2303,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingCPProgramWrapper = new CharArrayWrapper();
     private char[] underlyingCPRegType = new char[1];
 
     private boolean hasUnderlyingCPRegType;
@@ -2333,6 +2354,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingCPRegTypeWrapper = new CharArrayWrapper();
     private DecimalFloat underlyingAllocationPercent = DecimalFloat.newNaNValue();
 
     private boolean hasUnderlyingAllocationPercent;
@@ -2876,6 +2898,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     }
 
 
+    private final CharArrayWrapper underlyingSettlMethodWrapper = new CharArrayWrapper();
     private int underlyingPutOrCall = MISSING_INT;
 
     private boolean hasUnderlyingPutOrCall;
@@ -3105,7 +3128,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
                 underlyingSecurityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_UNDERLYING_SECURITY_ALT_ID:
+            case Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoUnderlyingSecurityAltIDGroupCounter = true;
                 noUnderlyingSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 457, CODEC_VALIDATION_ENABLED);
                 if (underlyingSecurityAltIDGroup == null)
@@ -3493,7 +3516,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
                 underlyingEndValue = getFloat(buffer, underlyingEndValue, valueOffset, valueLength, 886, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDERLYING_STIPS:
+            case Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER:
                 hasNoUnderlyingStipsGroupCounter = true;
                 noUnderlyingStipsGroupCounter = getInt(buffer, valueOffset, endOfField, 887, CODEC_VALIDATION_ENABLED);
                 if (underlyingStipsGroup == null)
@@ -3548,7 +3571,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
                 underlyingCapValue = getFloat(buffer, underlyingCapValue, valueOffset, valueLength, 1038, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_UNDLY_INSTRUMENT_PARTIES:
+            case Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoUndlyInstrumentPartiesGroupCounter = true;
                 noUndlyInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1058, CODEC_VALIDATION_ENABLED);
                 if (undlyInstrumentPartiesGroup == null)
@@ -3612,7 +3635,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_QUOTE_ENTRIES:
+            case Constants.NO_QUOTE_ENTRIES_GROUP_COUNTER:
                 hasNoQuoteEntriesGroupCounter = true;
                 noQuoteEntriesGroupCounter = getInt(buffer, valueOffset, endOfField, 295, CODEC_VALIDATION_ENABLED);
                 if (quoteEntriesGroup == null)
@@ -4228,23 +4251,24 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
-        UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
-        for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoUnderlyingSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            underlyingSecurityAltIDGroup.appendTo(builder, level + 1);            if (underlyingSecurityAltIDGroup.next() != null)
+            builder.append("\"UnderlyingSecurityAltIDGroup\": [\n");
+            UnderlyingSecurityAltIDGroupDecoder underlyingSecurityAltIDGroup = this.underlyingSecurityAltIDGroup;
+            for (int i = 0, size = this.noUnderlyingSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingSecurityAltIDGroup.appendTo(builder, level + 1);
+                if (underlyingSecurityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingSecurityAltIDGroup = underlyingSecurityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingProduct())
         {
@@ -4718,23 +4742,24 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingStipsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingStipsGroup\": [\n");
-        UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
-        for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingStipsGroupCounter)
         {
             indent(builder, level);
-            underlyingStipsGroup.appendTo(builder, level + 1);            if (underlyingStipsGroup.next() != null)
+            builder.append("\"UnderlyingStipsGroup\": [\n");
+            UnderlyingStipsGroupDecoder underlyingStipsGroup = this.underlyingStipsGroup;
+            for (int i = 0, size = this.noUnderlyingStipsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingStipsGroup = underlyingStipsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingStipsGroup.appendTo(builder, level + 1);
+                if (underlyingStipsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingStipsGroup = underlyingStipsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingAdjustedQuantity())
         {
@@ -4768,23 +4793,24 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
             builder.append("\",\n");
         }
 
-    if (hasNoUndlyInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UndlyInstrumentPartiesGroup\": [\n");
-        UndlyInstrumentPartiesGroupDecoder undlyInstrumentPartiesGroup = this.undlyInstrumentPartiesGroup;
-        for (int i = 0, size = this.noUndlyInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoUndlyInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            undlyInstrumentPartiesGroup.appendTo(builder, level + 1);            if (undlyInstrumentPartiesGroup.next() != null)
+            builder.append("\"UndlyInstrumentPartiesGroup\": [\n");
+            UndlyInstrumentPartiesGroupDecoder undlyInstrumentPartiesGroup = this.undlyInstrumentPartiesGroup;
+            for (int i = 0, size = this.noUndlyInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            undlyInstrumentPartiesGroup = undlyInstrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                undlyInstrumentPartiesGroup.appendTo(builder, level + 1);
+                if (undlyInstrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                undlyInstrumentPartiesGroup = undlyInstrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasUnderlyingSettlMethod())
         {
@@ -4823,23 +4849,24 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
             builder.append("\",\n");
         }
 
-    if (hasNoQuoteEntriesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"QuoteEntriesGroup\": [\n");
-        QuoteEntriesGroupDecoder quoteEntriesGroup = this.quoteEntriesGroup;
-        for (int i = 0, size = this.noQuoteEntriesGroupCounter; i < size; i++)
+        if (hasNoQuoteEntriesGroupCounter)
         {
             indent(builder, level);
-            quoteEntriesGroup.appendTo(builder, level + 1);            if (quoteEntriesGroup.next() != null)
+            builder.append("\"QuoteEntriesGroup\": [\n");
+            QuoteEntriesGroupDecoder quoteEntriesGroup = this.quoteEntriesGroup;
+            for (int i = 0, size = this.noQuoteEntriesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            quoteEntriesGroup = quoteEntriesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                quoteEntriesGroup.appendTo(builder, level + 1);
+                if (quoteEntriesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                quoteEntriesGroup = quoteEntriesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -4848,12 +4875,12 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
     /**
      * {@inheritDoc}
      */
-    public QuoteSetsGroupEncoder toEncoder(final Encoder encoder)
+    public QuotSetGrpEncoder.QuoteSetsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((QuoteSetsGroupEncoder)encoder);
+        return toEncoder((QuotSetGrpEncoder.QuoteSetsGroupEncoder)encoder);
     }
 
-    public QuoteSetsGroupEncoder toEncoder(final QuoteSetsGroupEncoder encoder)
+    public QuotSetGrpEncoder.QuoteSetsGroupEncoder toEncoder(final QuotSetGrpEncoder.QuoteSetsGroupEncoder encoder)
     {
         encoder.reset();
         encoder.quoteSetID(this.quoteSetID(), 0, quoteSetIDLength());
@@ -5307,6 +5334,7 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
         {
             return remainder > 0 && current != null;
         }
+
         public QuoteSetsGroupDecoder next()
         {
             remainder--;
@@ -5314,23 +5342,27 @@ public class QuoteSetsGroupDecoder extends CommonDecoderImpl implements Underlyi
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoQuoteSetsGroupCounter() ? parent.noQuoteSetsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.quoteSetsGroup();
         }
+
         public QuoteSetsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public QuoteSetsGroupIterator quoteSetsGroupIterator();
+    public QuoteSetsGroupIterator quoteSetsGroupIterator();
     public int noQuoteSetsGroupCounter();
     public boolean hasNoQuoteSetsGroupCounter();
     public QuoteSetsGroupDecoder quoteSetsGroup();

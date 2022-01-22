@@ -202,11 +202,11 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
         messageFields.add(Constants.REGIST_TRANS_TYPE);
         messageFields.add(Constants.REGIST_REF_ID);
         messageFields.add(Constants.CL_ORD_ID);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ACCOUNT);
@@ -261,6 +261,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper registIDWrapper = new CharArrayWrapper();
     private char registTransType = MISSING_CHAR;
 
     public char registTransType()
@@ -304,6 +305,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper registRefIDWrapper = new CharArrayWrapper();
     private char[] clOrdID = new char[1];
 
     private boolean hasClOrdID;
@@ -354,6 +356,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
 
 
     private PartyIDsGroupDecoder partyIDsGroup = null;
@@ -441,6 +444,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -564,6 +568,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
     }
 
 
+    private final CharArrayWrapper registRejReasonTextWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode RegistrationInstructionsResponse
@@ -641,7 +646,7 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
                 clOrdIDLength = valueLength;
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -864,23 +869,24 @@ public class RegistrationInstructionsResponseDecoder extends CommonDecoderImpl i
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAccount())
         {

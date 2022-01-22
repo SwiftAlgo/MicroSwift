@@ -243,6 +243,7 @@ public class TradingSessionStatusDecoder extends CommonDecoderImpl implements Me
     }
 
 
+    private final CharArrayWrapper tradSesReqIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionID = new char[1];
 
     public char[] tradingSessionID()
@@ -271,6 +272,7 @@ public class TradingSessionStatusDecoder extends CommonDecoderImpl implements Me
     }
 
 
+    private final CharArrayWrapper tradingSessionIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionSubID = new char[1];
 
     private boolean hasTradingSessionSubID;
@@ -321,6 +323,7 @@ public class TradingSessionStatusDecoder extends CommonDecoderImpl implements Me
     }
 
 
+    private final CharArrayWrapper tradingSessionSubIDWrapper = new CharArrayWrapper();
     private int tradSesMethod = MISSING_INT;
 
     private boolean hasTradSesMethod;
@@ -765,6 +768,7 @@ public class TradingSessionStatusDecoder extends CommonDecoderImpl implements Me
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

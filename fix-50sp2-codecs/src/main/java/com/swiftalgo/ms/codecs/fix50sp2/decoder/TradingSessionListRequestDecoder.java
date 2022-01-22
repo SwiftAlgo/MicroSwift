@@ -228,6 +228,7 @@ public class TradingSessionListRequestDecoder extends CommonDecoderImpl implemen
     }
 
 
+    private final CharArrayWrapper tradSesReqIDWrapper = new CharArrayWrapper();
     private char[] marketID = new char[1];
 
     private boolean hasMarketID;
@@ -328,6 +329,7 @@ public class TradingSessionListRequestDecoder extends CommonDecoderImpl implemen
     }
 
 
+    private final CharArrayWrapper marketSegmentIDWrapper = new CharArrayWrapper();
     private char[] tradingSessionID = new char[1];
 
     private boolean hasTradingSessionID;

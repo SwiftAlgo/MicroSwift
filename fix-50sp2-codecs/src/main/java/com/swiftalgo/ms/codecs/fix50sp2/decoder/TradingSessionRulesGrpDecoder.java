@@ -620,7 +620,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
                 tradingSessionSubIDLength = valueLength;
                 break;
 
-            case Constants.NO_ORD_TYPE_RULES:
+            case Constants.NO_ORD_TYPE_RULES_GROUP_COUNTER:
                 hasNoOrdTypeRulesGroupCounter = true;
                 noOrdTypeRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1237, CODEC_VALIDATION_ENABLED);
                 if (ordTypeRulesGroup == null)
@@ -655,7 +655,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
                 break;
 
 
-            case Constants.NO_TIME_IN_FORCE_RULES:
+            case Constants.NO_TIME_IN_FORCE_RULES_GROUP_COUNTER:
                 hasNoTimeInForceRulesGroupCounter = true;
                 noTimeInForceRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1239, CODEC_VALIDATION_ENABLED);
                 if (timeInForceRulesGroup == null)
@@ -690,7 +690,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
                 break;
 
 
-            case Constants.NO_EXEC_INST_RULES:
+            case Constants.NO_EXEC_INST_RULES_GROUP_COUNTER:
                 hasNoExecInstRulesGroupCounter = true;
                 noExecInstRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1232, CODEC_VALIDATION_ENABLED);
                 if (execInstRulesGroup == null)
@@ -725,7 +725,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
                 break;
 
 
-            case Constants.NO_MATCH_RULES:
+            case Constants.NO_MATCH_RULES_GROUP_COUNTER:
                 hasNoMatchRulesGroupCounter = true;
                 noMatchRulesGroupCounter = getInt(buffer, valueOffset, endOfField, 1235, CODEC_VALIDATION_ENABLED);
                 if (matchRulesGroup == null)
@@ -760,7 +760,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
                 break;
 
 
-            case Constants.NO_M_D_FEED_TYPES:
+            case Constants.NO_M_D_FEED_TYPES_GROUP_COUNTER:
                 hasNoMDFeedTypesGroupCounter = true;
                 noMDFeedTypesGroupCounter = getInt(buffer, valueOffset, endOfField, 1141, CODEC_VALIDATION_ENABLED);
                 if (mDFeedTypesGroup == null)
@@ -944,95 +944,100 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
             builder.append("\",\n");
         }
 
-    if (hasNoOrdTypeRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"OrdTypeRulesGroup\": [\n");
-        OrdTypeRulesGroupDecoder ordTypeRulesGroup = this.ordTypeRulesGroup;
-        for (int i = 0, size = this.noOrdTypeRulesGroupCounter; i < size; i++)
+        if (hasNoOrdTypeRulesGroupCounter)
         {
             indent(builder, level);
-            ordTypeRulesGroup.appendTo(builder, level + 1);            if (ordTypeRulesGroup.next() != null)
+            builder.append("\"OrdTypeRulesGroup\": [\n");
+            OrdTypeRulesGroupDecoder ordTypeRulesGroup = this.ordTypeRulesGroup;
+            for (int i = 0, size = this.noOrdTypeRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            ordTypeRulesGroup = ordTypeRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                ordTypeRulesGroup.appendTo(builder, level + 1);
+                if (ordTypeRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                ordTypeRulesGroup = ordTypeRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoTimeInForceRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TimeInForceRulesGroup\": [\n");
-        TimeInForceRulesGroupDecoder timeInForceRulesGroup = this.timeInForceRulesGroup;
-        for (int i = 0, size = this.noTimeInForceRulesGroupCounter; i < size; i++)
+        if (hasNoTimeInForceRulesGroupCounter)
         {
             indent(builder, level);
-            timeInForceRulesGroup.appendTo(builder, level + 1);            if (timeInForceRulesGroup.next() != null)
+            builder.append("\"TimeInForceRulesGroup\": [\n");
+            TimeInForceRulesGroupDecoder timeInForceRulesGroup = this.timeInForceRulesGroup;
+            for (int i = 0, size = this.noTimeInForceRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            timeInForceRulesGroup = timeInForceRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                timeInForceRulesGroup.appendTo(builder, level + 1);
+                if (timeInForceRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                timeInForceRulesGroup = timeInForceRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoExecInstRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ExecInstRulesGroup\": [\n");
-        ExecInstRulesGroupDecoder execInstRulesGroup = this.execInstRulesGroup;
-        for (int i = 0, size = this.noExecInstRulesGroupCounter; i < size; i++)
+        if (hasNoExecInstRulesGroupCounter)
         {
             indent(builder, level);
-            execInstRulesGroup.appendTo(builder, level + 1);            if (execInstRulesGroup.next() != null)
+            builder.append("\"ExecInstRulesGroup\": [\n");
+            ExecInstRulesGroupDecoder execInstRulesGroup = this.execInstRulesGroup;
+            for (int i = 0, size = this.noExecInstRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            execInstRulesGroup = execInstRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                execInstRulesGroup.appendTo(builder, level + 1);
+                if (execInstRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                execInstRulesGroup = execInstRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoMatchRulesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MatchRulesGroup\": [\n");
-        MatchRulesGroupDecoder matchRulesGroup = this.matchRulesGroup;
-        for (int i = 0, size = this.noMatchRulesGroupCounter; i < size; i++)
+        if (hasNoMatchRulesGroupCounter)
         {
             indent(builder, level);
-            matchRulesGroup.appendTo(builder, level + 1);            if (matchRulesGroup.next() != null)
+            builder.append("\"MatchRulesGroup\": [\n");
+            MatchRulesGroupDecoder matchRulesGroup = this.matchRulesGroup;
+            for (int i = 0, size = this.noMatchRulesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            matchRulesGroup = matchRulesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                matchRulesGroup.appendTo(builder, level + 1);
+                if (matchRulesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                matchRulesGroup = matchRulesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoMDFeedTypesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MDFeedTypesGroup\": [\n");
-        MDFeedTypesGroupDecoder mDFeedTypesGroup = this.mDFeedTypesGroup;
-        for (int i = 0, size = this.noMDFeedTypesGroupCounter; i < size; i++)
+        if (hasNoMDFeedTypesGroupCounter)
         {
             indent(builder, level);
-            mDFeedTypesGroup.appendTo(builder, level + 1);            if (mDFeedTypesGroup.next() != null)
+            builder.append("\"MDFeedTypesGroup\": [\n");
+            MDFeedTypesGroupDecoder mDFeedTypesGroup = this.mDFeedTypesGroup;
+            for (int i = 0, size = this.noMDFeedTypesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            mDFeedTypesGroup = mDFeedTypesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                mDFeedTypesGroup.appendTo(builder, level + 1);
+                if (mDFeedTypesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                mDFeedTypesGroup = mDFeedTypesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -1041,12 +1046,12 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
     /**
      * {@inheritDoc}
      */
-    public TradingSessionRulesGroupEncoder toEncoder(final Encoder encoder)
+    public TradingSessionRulesGrpEncoder.TradingSessionRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TradingSessionRulesGroupEncoder)encoder);
+        return toEncoder((TradingSessionRulesGrpEncoder.TradingSessionRulesGroupEncoder)encoder);
     }
 
-    public TradingSessionRulesGroupEncoder toEncoder(final TradingSessionRulesGroupEncoder encoder)
+    public TradingSessionRulesGrpEncoder.TradingSessionRulesGroupEncoder toEncoder(final TradingSessionRulesGrpEncoder.TradingSessionRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTradingSessionID())
@@ -1169,6 +1174,7 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
         {
             return remainder > 0 && current != null;
         }
+
         public TradingSessionRulesGroupDecoder next()
         {
             remainder--;
@@ -1176,23 +1182,27 @@ public class TradingSessionRulesGroupDecoder extends CommonDecoderImpl implement
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTradingSessionRulesGroupCounter() ? parent.noTradingSessionRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.tradingSessionRulesGroup();
         }
+
         public TradingSessionRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TradingSessionRulesGroupIterator tradingSessionRulesGroupIterator();
+    public TradingSessionRulesGroupIterator tradingSessionRulesGroupIterator();
     public int noTradingSessionRulesGroupCounter();
     public boolean hasNoTradingSessionRulesGroupCounter();
     public TradingSessionRulesGroupDecoder tradingSessionRulesGroup();

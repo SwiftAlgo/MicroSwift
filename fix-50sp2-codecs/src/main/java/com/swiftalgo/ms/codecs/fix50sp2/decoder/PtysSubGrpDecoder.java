@@ -148,6 +148,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper partySubIDWrapper = new CharArrayWrapper();
     private int partySubIDType = MISSING_INT;
 
     private boolean hasPartySubIDType;
@@ -325,12 +326,12 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
+    public PtysSubGrpEncoder.PartySubIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((PartySubIDsGroupEncoder)encoder);
+        return toEncoder((PtysSubGrpEncoder.PartySubIDsGroupEncoder)encoder);
     }
 
-    public PartySubIDsGroupEncoder toEncoder(final PartySubIDsGroupEncoder encoder)
+    public PtysSubGrpEncoder.PartySubIDsGroupEncoder toEncoder(final PtysSubGrpEncoder.PartySubIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasPartySubID())
@@ -361,6 +362,7 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public PartySubIDsGroupDecoder next()
         {
             remainder--;
@@ -368,23 +370,27 @@ public class PartySubIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoPartySubIDsGroupCounter() ? parent.noPartySubIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.partySubIDsGroup();
         }
+
         public PartySubIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public PartySubIDsGroupIterator partySubIDsGroupIterator();
+    public PartySubIDsGroupIterator partySubIDsGroupIterator();
     public int noPartySubIDsGroupCounter();
     public boolean hasNoPartySubIDsGroupCounter();
     public PartySubIDsGroupDecoder partySubIDsGroup();

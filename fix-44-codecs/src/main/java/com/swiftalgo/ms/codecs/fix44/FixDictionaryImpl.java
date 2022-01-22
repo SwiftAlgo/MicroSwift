@@ -18,6 +18,8 @@ import uk.co.real_logic.artio.builder.AbstractSequenceResetEncoder;
 import com.swiftalgo.ms.codecs.fix44.builder.SequenceResetEncoder;
 import uk.co.real_logic.artio.builder.AbstractBusinessMessageRejectEncoder;
 import com.swiftalgo.ms.codecs.fix44.builder.BusinessMessageRejectEncoder;
+import uk.co.real_logic.artio.builder.SessionHeaderEncoder;
+import com.swiftalgo.ms.codecs.fix44.builder.HeaderEncoder;
 import uk.co.real_logic.artio.decoder.AbstractLogonDecoder;
 import com.swiftalgo.ms.codecs.fix44.decoder.LogonDecoder;
 import uk.co.real_logic.artio.decoder.AbstractLogoutDecoder;
@@ -46,6 +48,11 @@ public class FixDictionaryImpl implements FixDictionary
     public SessionHeaderDecoder makeHeaderDecoder()
     {
         return new HeaderDecoder();
+    }
+
+    public SessionHeaderEncoder makeHeaderEncoder()
+    {
+        return new HeaderEncoder();
     }
 
     public AbstractLogonEncoder makeLogonEncoder()

@@ -253,12 +253,12 @@ public class TimeInForceRulesGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TimeInForceRulesGroupEncoder toEncoder(final Encoder encoder)
+    public TimeInForceRulesEncoder.TimeInForceRulesGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TimeInForceRulesGroupEncoder)encoder);
+        return toEncoder((TimeInForceRulesEncoder.TimeInForceRulesGroupEncoder)encoder);
     }
 
-    public TimeInForceRulesGroupEncoder toEncoder(final TimeInForceRulesGroupEncoder encoder)
+    public TimeInForceRulesEncoder.TimeInForceRulesGroupEncoder toEncoder(final TimeInForceRulesEncoder.TimeInForceRulesGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTimeInForce())
@@ -284,6 +284,7 @@ public class TimeInForceRulesGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TimeInForceRulesGroupDecoder next()
         {
             remainder--;
@@ -291,23 +292,27 @@ public class TimeInForceRulesGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTimeInForceRulesGroupCounter() ? parent.noTimeInForceRulesGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.timeInForceRulesGroup();
         }
+
         public TimeInForceRulesGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TimeInForceRulesGroupIterator timeInForceRulesGroupIterator();
+    public TimeInForceRulesGroupIterator timeInForceRulesGroupIterator();
     public int noTimeInForceRulesGroupCounter();
     public boolean hasNoTimeInForceRulesGroupCounter();
     public TimeInForceRulesGroupDecoder timeInForceRulesGroup();

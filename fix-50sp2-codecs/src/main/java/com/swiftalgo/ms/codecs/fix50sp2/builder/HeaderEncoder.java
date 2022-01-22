@@ -33,7 +33,7 @@ public class HeaderEncoder implements uk.co.real_logic.artio.builder.SessionHead
 {
     public HeaderEncoder()
     {
-        beginString(DEFAULT_BEGIN_STRING);
+        beginStringAsCopy(DEFAULT_BEGIN_STRING, 0, DEFAULT_BEGIN_STRING.length);
     }
 
 
@@ -2242,7 +2242,6 @@ public class HeaderEncoder implements uk.co.real_logic.artio.builder.SessionHead
         return lastMsgSeqNumProcessed;
     }
 
-    // 8=...|9=...|
     int finishHeader(final MutableAsciiBuffer buffer, final int bodyStart, final int bodyLength)
     {
         int position = bodyStart - 1;
@@ -2583,7 +2582,7 @@ public class HeaderEncoder implements uk.co.real_logic.artio.builder.SessionHead
         this.resetXmlData();
         this.resetMessageEncoding();
         this.resetLastMsgSeqNumProcessed();
-        beginString(DEFAULT_BEGIN_STRING);
+        beginStringAsCopy(DEFAULT_BEGIN_STRING, 0, DEFAULT_BEGIN_STRING.length);
     }
 
     public void resetApplVerID()

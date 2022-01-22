@@ -162,7 +162,7 @@ public class NetworkStatusRequestDecoder extends CommonDecoderImpl implements Me
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.NETWORK_REQUEST_TYPE);
         messageFields.add(Constants.NETWORK_REQUEST_ID);
-        messageFields.add(Constants.NO_COMP_IDS);
+        messageFields.add(Constants.NO_COMP_IDS_GROUP_COUNTER);
         messageFields.add(Constants.REF_COMP_ID);
         messageFields.add(Constants.REF_SUB_ID);
         messageFields.add(Constants.LOCATION_ID);
@@ -229,6 +229,7 @@ public class NetworkStatusRequestDecoder extends CommonDecoderImpl implements Me
     }
 
 
+    private final CharArrayWrapper networkRequestIDWrapper = new CharArrayWrapper();
 
 
 public class CompIDsGroupDecoder extends CommonDecoderImpl
@@ -338,6 +339,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refCompIDWrapper = new CharArrayWrapper();
     private char[] refSubID = new char[1];
 
     private boolean hasRefSubID;
@@ -388,6 +390,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper refSubIDWrapper = new CharArrayWrapper();
     private char[] locationID = new char[1];
 
     private boolean hasLocationID;
@@ -438,6 +441,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper locationIDWrapper = new CharArrayWrapper();
     private char[] deskID = new char[1];
 
     private boolean hasDeskID;
@@ -488,6 +492,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper deskIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode CompIDsGroup
@@ -680,12 +685,12 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public CompIDsGroupEncoder toEncoder(final Encoder encoder)
+    public NetworkStatusRequestEncoder.CompIDsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((CompIDsGroupEncoder)encoder);
+        return toEncoder((NetworkStatusRequestEncoder.CompIDsGroupEncoder)encoder);
     }
 
-    public CompIDsGroupEncoder toEncoder(final CompIDsGroupEncoder encoder)
+    public NetworkStatusRequestEncoder.CompIDsGroupEncoder toEncoder(final NetworkStatusRequestEncoder.CompIDsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasRefCompID())
@@ -726,6 +731,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public CompIDsGroupDecoder next()
         {
             remainder--;
@@ -733,20 +739,24 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoCompIDsGroupCounter() ? parent.noCompIDsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.compIDsGroup();
         }
+
         public CompIDsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -848,7 +858,7 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
                 networkRequestIDLength = valueLength;
                 break;
 
-            case Constants.NO_COMP_IDS:
+            case Constants.NO_COMP_IDS_GROUP_COUNTER:
                 hasNoCompIDsGroupCounter = true;
                 noCompIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 936, CODEC_VALIDATION_ENABLED);
                 if (compIDsGroup == null)
@@ -986,23 +996,24 @@ public class CompIDsGroupDecoder extends CommonDecoderImpl
         builder.append(this.networkRequestID(), 0, networkRequestIDLength());
         builder.append("\",\n");
 
-    if (hasNoCompIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"CompIDsGroup\": [\n");
-        CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
-        for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
+        if (hasNoCompIDsGroupCounter)
         {
             indent(builder, level);
-            compIDsGroup.appendTo(builder, level + 1);            if (compIDsGroup.next() != null)
+            builder.append("\"CompIDsGroup\": [\n");
+            CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
+            for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            compIDsGroup = compIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                compIDsGroup.appendTo(builder, level + 1);
+                if (compIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                compIDsGroup = compIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

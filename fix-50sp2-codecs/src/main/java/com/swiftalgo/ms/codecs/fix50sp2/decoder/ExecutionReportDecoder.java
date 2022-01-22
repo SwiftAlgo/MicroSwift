@@ -1897,15 +1897,15 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.HOST_CROSS_ID);
         messageFields.add(Constants.TOT_NUM_REPORTS);
         messageFields.add(Constants.LAST_RPT_REQUESTED);
-        messageFields.add(Constants.NO_PARTY_IDS);
+        messageFields.add(Constants.NO_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_ID);
         messageFields.add(Constants.PARTY_ID_SOURCE);
         messageFields.add(Constants.PARTY_ROLE);
-        messageFields.add(Constants.NO_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.PARTY_SUB_ID);
         messageFields.add(Constants.PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.TRADE_ORIGINATION_DATE);
-        messageFields.add(Constants.NO_CONTRA_BROKERS);
+        messageFields.add(Constants.NO_CONTRA_BROKERS_GROUP_COUNTER);
         messageFields.add(Constants.CONTRA_BROKER);
         messageFields.add(Constants.CONTRA_TRADER);
         messageFields.add(Constants.CONTRA_TRADE_QTY);
@@ -1930,16 +1930,16 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.BOOKING_UNIT);
         messageFields.add(Constants.PREALLOC_METHOD);
         messageFields.add(Constants.ALLOC_ID);
-        messageFields.add(Constants.NO_ALLOCS);
+        messageFields.add(Constants.NO_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.ALLOC_ACCOUNT);
         messageFields.add(Constants.ALLOC_ACCT_ID_SOURCE);
         messageFields.add(Constants.ALLOC_SETTL_CURRENCY);
         messageFields.add(Constants.INDIVIDUAL_ALLOC_ID);
-        messageFields.add(Constants.NO_NESTED_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_ID);
         messageFields.add(Constants.NESTED_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.ALLOC_QTY);
@@ -1953,7 +1953,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.SYMBOL_SFX);
         messageFields.add(Constants.SECURITY_ID);
         messageFields.add(Constants.SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.SECURITY_ALT_ID);
         messageFields.add(Constants.SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.PRODUCT);
@@ -2034,7 +2034,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.CONTRACT_SETTL_MONTH);
         messageFields.add(Constants.C_P_PROGRAM);
         messageFields.add(Constants.C_P_REG_TYPE);
-        messageFields.add(Constants.NO_EVENTS);
+        messageFields.add(Constants.NO_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.EVENT_TYPE);
         messageFields.add(Constants.EVENT_DATE);
         messageFields.add(Constants.EVENT_TIME);
@@ -2042,14 +2042,14 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.EVENT_TEXT);
         messageFields.add(Constants.DATED_DATE);
         messageFields.add(Constants.INTEREST_ACCRUAL_DATE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.INSTRUMENT_PARTY_SUB_ID_TYPE);
-        messageFields.add(Constants.NO_COMPLEX_EVENTS);
+        messageFields.add(Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_TYPE);
         messageFields.add(Constants.COMPLEX_OPT_PAYOUT_AMOUNT);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE);
@@ -2057,10 +2057,10 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_BOUNDARY_PRECISION);
         messageFields.add(Constants.COMPLEX_EVENT_PRICE_TIME_TYPE);
         messageFields.add(Constants.COMPLEX_EVENT_CONDITION);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_DATES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_DATE);
         messageFields.add(Constants.COMPLEX_EVENT_END_DATE);
-        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES);
+        messageFields.add(Constants.NO_COMPLEX_EVENT_TIMES_GROUP_COUNTER);
         messageFields.add(Constants.COMPLEX_EVENT_START_TIME);
         messageFields.add(Constants.COMPLEX_EVENT_END_TIME);
         messageFields.add(Constants.AGREEMENT_DESC);
@@ -2072,12 +2072,12 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.END_DATE);
         messageFields.add(Constants.DELIVERY_TYPE);
         messageFields.add(Constants.MARGIN_RATIO);
-        messageFields.add(Constants.NO_UNDERLYINGS);
+        messageFields.add(Constants.NO_UNDERLYINGS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SYMBOL);
         messageFields.add(Constants.UNDERLYING_SYMBOL_SFX);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_UNDERLYING_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID);
         messageFields.add(Constants.UNDERLYING_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_PRODUCT);
@@ -2139,24 +2139,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.UNDERLYING_START_VALUE);
         messageFields.add(Constants.UNDERLYING_CURRENT_VALUE);
         messageFields.add(Constants.UNDERLYING_END_VALUE);
-        messageFields.add(Constants.NO_UNDERLYING_STIPS);
+        messageFields.add(Constants.NO_UNDERLYING_STIPS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_STIP_TYPE);
         messageFields.add(Constants.UNDERLYING_STIP_VALUE);
         messageFields.add(Constants.UNDERLYING_ADJUSTED_QUANTITY);
         messageFields.add(Constants.UNDERLYING_F_X_RATE);
         messageFields.add(Constants.UNDERLYING_F_X_RATE_CALC);
         messageFields.add(Constants.UNDERLYING_CAP_VALUE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTIES_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ID_SOURCE);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_ROLE);
-        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_UNDLY_INSTRUMENT_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID);
         messageFields.add(Constants.UNDERLYING_INSTRUMENT_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.UNDERLYING_SETTL_METHOD);
         messageFields.add(Constants.UNDERLYING_PUT_OR_CALL);
         messageFields.add(Constants.SIDE);
-        messageFields.add(Constants.NO_STIPULATIONS);
+        messageFields.add(Constants.NO_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.STIPULATION_TYPE);
         messageFields.add(Constants.STIPULATION_VALUE);
         messageFields.add(Constants.QTY_TYPE);
@@ -2208,7 +2208,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.PEGGED_REF_PRICE);
         messageFields.add(Constants.DISCRETION_PRICE);
         messageFields.add(Constants.TARGET_STRATEGY);
-        messageFields.add(Constants.NO_STRATEGY_PARAMETERS);
+        messageFields.add(Constants.NO_STRATEGY_PARAMETERS_GROUP_COUNTER);
         messageFields.add(Constants.STRATEGY_PARAMETER_NAME);
         messageFields.add(Constants.STRATEGY_PARAMETER_TYPE);
         messageFields.add(Constants.STRATEGY_PARAMETER_VALUE);
@@ -2250,16 +2250,16 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.DAY_AVG_PX);
         messageFields.add(Constants.TOT_NO_FILLS);
         messageFields.add(Constants.LAST_FRAGMENT);
-        messageFields.add(Constants.NO_FILLS);
+        messageFields.add(Constants.NO_FILLS_GROUP_COUNTER);
         messageFields.add(Constants.FILL_EXEC_ID);
         messageFields.add(Constants.FILL_PX);
         messageFields.add(Constants.FILL_QTY);
         messageFields.add(Constants.FILL_LIQUIDITY_IND);
-        messageFields.add(Constants.NO_NESTED4_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED4_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED4_PARTY_ID);
         messageFields.add(Constants.NESTED4_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED4_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED4_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED4_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED4_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED4_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.G_T_BOOKING_INST);
@@ -2301,7 +2301,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.NET_MONEY);
         messageFields.add(Constants.SETTL_CURR_AMT);
         messageFields.add(Constants.SETTL_CURRENCY);
-        messageFields.add(Constants.NO_RATE_SOURCES);
+        messageFields.add(Constants.NO_RATE_SOURCES_GROUP_COUNTER);
         messageFields.add(Constants.RATE_SOURCE);
         messageFields.add(Constants.RATE_SOURCE_TYPE);
         messageFields.add(Constants.REFERENCE_PAGE);
@@ -2341,16 +2341,16 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.PRIORITY_INDICATOR);
         messageFields.add(Constants.PRICE_IMPROVEMENT);
         messageFields.add(Constants.LAST_LIQUIDITY_IND);
-        messageFields.add(Constants.NO_CONT_AMTS);
+        messageFields.add(Constants.NO_CONT_AMTS_GROUP_COUNTER);
         messageFields.add(Constants.CONT_AMT_TYPE);
         messageFields.add(Constants.CONT_AMT_VALUE);
         messageFields.add(Constants.CONT_AMT_CURR);
-        messageFields.add(Constants.NO_LEGS);
+        messageFields.add(Constants.NO_LEGS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SYMBOL);
         messageFields.add(Constants.LEG_SYMBOL_SFX);
         messageFields.add(Constants.LEG_SECURITY_ID);
         messageFields.add(Constants.LEG_SECURITY_ID_SOURCE);
-        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID);
+        messageFields.add(Constants.NO_LEG_SECURITY_ALT_ID_GROUP_COUNTER);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID);
         messageFields.add(Constants.LEG_SECURITY_ALT_ID_SOURCE);
         messageFields.add(Constants.LEG_PRODUCT);
@@ -2405,18 +2405,18 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.LEG_QTY);
         messageFields.add(Constants.LEG_ORDER_QTY);
         messageFields.add(Constants.LEG_SWAP_TYPE);
-        messageFields.add(Constants.NO_LEG_STIPULATIONS);
+        messageFields.add(Constants.NO_LEG_STIPULATIONS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_STIPULATION_TYPE);
         messageFields.add(Constants.LEG_STIPULATION_VALUE);
         messageFields.add(Constants.LEG_ALLOC_ID);
-        messageFields.add(Constants.NO_LEG_ALLOCS);
+        messageFields.add(Constants.NO_LEG_ALLOCS_GROUP_COUNTER);
         messageFields.add(Constants.LEG_ALLOC_ACCOUNT);
         messageFields.add(Constants.LEG_INDIVIDUAL_ALLOC_ID);
-        messageFields.add(Constants.NO_NESTED2_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_ID);
         messageFields.add(Constants.NESTED2_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED2_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED2_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED2_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.LEG_ALLOC_QTY);
@@ -2424,11 +2424,11 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.LEG_ALLOC_SETTL_CURRENCY);
         messageFields.add(Constants.LEG_POSITION_EFFECT);
         messageFields.add(Constants.LEG_COVERED_OR_UNCOVERED);
-        messageFields.add(Constants.NO_NESTED3_PARTY_IDS);
+        messageFields.add(Constants.NO_NESTED3_PARTY_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED3_PARTY_ID);
         messageFields.add(Constants.NESTED3_PARTY_ID_SOURCE);
         messageFields.add(Constants.NESTED3_PARTY_ROLE);
-        messageFields.add(Constants.NO_NESTED3_PARTY_SUB_IDS);
+        messageFields.add(Constants.NO_NESTED3_PARTY_SUB_IDS_GROUP_COUNTER);
         messageFields.add(Constants.NESTED3_PARTY_SUB_ID);
         messageFields.add(Constants.NESTED3_PARTY_SUB_ID_TYPE);
         messageFields.add(Constants.LEG_REF_ID);
@@ -2445,7 +2445,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.LEG_EXEC_INST);
         messageFields.add(Constants.LEG_LAST_QTY);
         messageFields.add(Constants.COPY_MSG_INDICATOR);
-        messageFields.add(Constants.NO_MISC_FEES);
+        messageFields.add(Constants.NO_MISC_FEES_GROUP_COUNTER);
         messageFields.add(Constants.MISC_FEE_AMT);
         messageFields.add(Constants.MISC_FEE_CURR);
         messageFields.add(Constants.MISC_FEE_TYPE);
@@ -2456,7 +2456,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
         messageFields.add(Constants.RECEIVED_DEPT_ID);
         messageFields.add(Constants.CUST_ORDER_HANDLING_INST);
         messageFields.add(Constants.ORDER_HANDLING_INST_SOURCE);
-        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS);
+        messageFields.add(Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER);
         messageFields.add(Constants.TRD_REG_TIMESTAMP);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_TYPE);
         messageFields.add(Constants.TRD_REG_TIMESTAMP_ORIGIN);
@@ -2537,6 +2537,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper applIDWrapper = new CharArrayWrapper();
     private int applSeqNum = MISSING_INT;
 
     private boolean hasApplSeqNum;
@@ -2629,6 +2630,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper orderIDWrapper = new CharArrayWrapper();
     private char[] secondaryOrderID = new char[1];
 
     private boolean hasSecondaryOrderID;
@@ -2679,6 +2681,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper secondaryOrderIDWrapper = new CharArrayWrapper();
     private char[] secondaryClOrdID = new char[1];
 
     private boolean hasSecondaryClOrdID;
@@ -2729,6 +2732,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper secondaryClOrdIDWrapper = new CharArrayWrapper();
     private char[] secondaryExecID = new char[1];
 
     private boolean hasSecondaryExecID;
@@ -2779,6 +2783,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper secondaryExecIDWrapper = new CharArrayWrapper();
     private char[] clOrdID = new char[1];
 
     private boolean hasClOrdID;
@@ -2829,6 +2834,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper clOrdIDWrapper = new CharArrayWrapper();
     private char[] origClOrdID = new char[1];
 
     private boolean hasOrigClOrdID;
@@ -2879,6 +2885,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper origClOrdIDWrapper = new CharArrayWrapper();
     private char[] clOrdLinkID = new char[1];
 
     private boolean hasClOrdLinkID;
@@ -2929,6 +2936,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper clOrdLinkIDWrapper = new CharArrayWrapper();
     private char[] quoteRespID = new char[1];
 
     private boolean hasQuoteRespID;
@@ -2979,6 +2987,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper quoteRespIDWrapper = new CharArrayWrapper();
     private char[] ordStatusReqID = new char[1];
 
     private boolean hasOrdStatusReqID;
@@ -3029,6 +3038,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper ordStatusReqIDWrapper = new CharArrayWrapper();
     private char[] massStatusReqID = new char[1];
 
     private boolean hasMassStatusReqID;
@@ -3079,6 +3089,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper massStatusReqIDWrapper = new CharArrayWrapper();
     private char[] hostCrossID = new char[1];
 
     private boolean hasHostCrossID;
@@ -3129,6 +3140,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper hostCrossIDWrapper = new CharArrayWrapper();
     private int totNumReports = MISSING_INT;
 
     private boolean hasTotNumReports;
@@ -3345,6 +3357,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] crossID = new char[1];
 
     private boolean hasCrossID;
@@ -3395,6 +3408,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper crossIDWrapper = new CharArrayWrapper();
     private char[] origCrossID = new char[1];
 
     private boolean hasOrigCrossID;
@@ -3445,6 +3459,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper origCrossIDWrapper = new CharArrayWrapper();
     private int crossType = MISSING_INT;
 
     private boolean hasCrossType;
@@ -3524,6 +3539,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper trdMatchIDWrapper = new CharArrayWrapper();
     private char[] execID = new char[1];
 
     public char[] execID()
@@ -3552,6 +3568,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper execIDWrapper = new CharArrayWrapper();
     private char[] execRefID = new char[1];
 
     private boolean hasExecRefID;
@@ -3602,6 +3619,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper execRefIDWrapper = new CharArrayWrapper();
     private char execType = MISSING_CHAR;
 
     public char execType()
@@ -3761,6 +3779,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper accountWrapper = new CharArrayWrapper();
     private int acctIDSource = MISSING_INT;
 
     private boolean hasAcctIDSource;
@@ -3956,6 +3975,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper allocIDWrapper = new CharArrayWrapper();
 
 
     private AllocsGroupDecoder allocsGroup = null;
@@ -4329,6 +4349,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper symbolWrapper = new CharArrayWrapper();
     private char[] symbolSfx = new char[1];
 
     private boolean hasSymbolSfx;
@@ -4438,6 +4459,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper securityIDWrapper = new CharArrayWrapper();
     private char[] securityIDSource = new char[1];
 
     private boolean hasSecurityIDSource;
@@ -4613,6 +4635,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper productComplexWrapper = new CharArrayWrapper();
     private char[] securityGroup = new char[1];
 
     private boolean hasSecurityGroup;
@@ -4663,6 +4686,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper securityGroupWrapper = new CharArrayWrapper();
     private char[] cFICode = new char[1];
 
     private boolean hasCFICode;
@@ -4713,6 +4737,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper cFICodeWrapper = new CharArrayWrapper();
     private char[] securityType = new char[1];
 
     private boolean hasSecurityType;
@@ -4822,6 +4847,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper securitySubTypeWrapper = new CharArrayWrapper();
     private byte[] maturityMonthYear = new byte[8];
 
     private boolean hasMaturityMonthYear;
@@ -5022,6 +5048,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper settleOnOpenFlagWrapper = new CharArrayWrapper();
     private char instrmtAssignmentMethod = MISSING_CHAR;
 
     private boolean hasInstrmtAssignmentMethod;
@@ -5454,6 +5481,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper repoCollateralSecurityTypeWrapper = new CharArrayWrapper();
     private int repurchaseTerm = MISSING_INT;
 
     private boolean hasRepurchaseTerm;
@@ -5567,6 +5595,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper creditRatingWrapper = new CharArrayWrapper();
     private char[] instrRegistry = new char[1];
 
     private boolean hasInstrRegistry;
@@ -5617,6 +5646,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper instrRegistryWrapper = new CharArrayWrapper();
     private char[] countryOfIssue = new char[1];
 
     private boolean hasCountryOfIssue;
@@ -5717,6 +5747,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper stateOrProvinceOfIssueWrapper = new CharArrayWrapper();
     private char[] localeOfIssue = new char[1];
 
     private boolean hasLocaleOfIssue;
@@ -5767,6 +5798,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper localeOfIssueWrapper = new CharArrayWrapper();
     private byte[] redemptionDate = new byte[8];
 
     private boolean hasRedemptionDate;
@@ -6310,6 +6342,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper priceUnitOfMeasureWrapper = new CharArrayWrapper();
     private DecimalFloat priceUnitOfMeasureQty = DecimalFloat.newNaNValue();
 
     private boolean hasPriceUnitOfMeasureQty;
@@ -6921,6 +6954,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper issuerWrapper = new CharArrayWrapper();
     private int encodedIssuerLen = MISSING_INT;
 
     private boolean hasEncodedIssuerLen;
@@ -7013,6 +7047,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper securityDescWrapper = new CharArrayWrapper();
     private int encodedSecurityDescLen = MISSING_INT;
 
     private boolean hasEncodedSecurityDescLen;
@@ -7148,6 +7183,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper securityXMLSchemaWrapper = new CharArrayWrapper();
 
     private char[] pool = new char[1];
 
@@ -7199,6 +7235,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper poolWrapper = new CharArrayWrapper();
     private byte[] contractSettlMonth = new byte[8];
 
     private boolean hasContractSettlMonth;
@@ -7328,6 +7365,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper cPRegTypeWrapper = new CharArrayWrapper();
 
 
     private EventsGroupDecoder eventsGroup = null;
@@ -7591,6 +7629,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper agreementDescWrapper = new CharArrayWrapper();
     private char[] agreementID = new char[1];
 
     private boolean hasAgreementID;
@@ -7641,6 +7680,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper agreementIDWrapper = new CharArrayWrapper();
     private byte[] agreementDate = new byte[8];
 
     private boolean hasAgreementDate;
@@ -8442,6 +8482,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerSymbolWrapper = new CharArrayWrapper();
     private char[] triggerSecurityID = new char[1];
 
     private boolean hasTriggerSecurityID;
@@ -8492,6 +8533,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerSecurityIDWrapper = new CharArrayWrapper();
     private char[] triggerSecurityIDSource = new char[1];
 
     private boolean hasTriggerSecurityIDSource;
@@ -8542,6 +8584,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerSecurityIDSourceWrapper = new CharArrayWrapper();
     private char[] triggerSecurityDesc = new char[1];
 
     private boolean hasTriggerSecurityDesc;
@@ -8592,6 +8635,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerSecurityDescWrapper = new CharArrayWrapper();
     private char triggerPriceType = MISSING_CHAR;
 
     private boolean hasTriggerPriceType;
@@ -8800,6 +8844,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerTradingSessionIDWrapper = new CharArrayWrapper();
     private char[] triggerTradingSessionSubID = new char[1];
 
     private boolean hasTriggerTradingSessionSubID;
@@ -8850,6 +8895,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper triggerTradingSessionSubIDWrapper = new CharArrayWrapper();
 
 
     private DecimalFloat pegOffsetValue = DecimalFloat.newNaNValue();
@@ -9097,6 +9143,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper pegSecurityIDSourceWrapper = new CharArrayWrapper();
     private char[] pegSecurityID = new char[1];
 
     private boolean hasPegSecurityID;
@@ -9147,6 +9194,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper pegSecurityIDWrapper = new CharArrayWrapper();
     private char[] pegSymbol = new char[1];
 
     private boolean hasPegSymbol;
@@ -9197,6 +9245,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper pegSymbolWrapper = new CharArrayWrapper();
     private char[] pegSecurityDesc = new char[1];
 
     private boolean hasPegSecurityDesc;
@@ -9247,6 +9296,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper pegSecurityDescWrapper = new CharArrayWrapper();
 
 
     private char discretionInst = MISSING_CHAR;
@@ -9624,6 +9674,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper targetStrategyParametersWrapper = new CharArrayWrapper();
     private DecimalFloat participationRate = DecimalFloat.newNaNValue();
 
     private boolean hasParticipationRate;
@@ -9766,6 +9817,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper complianceIDWrapper = new CharArrayWrapper();
     private boolean solicitedFlag;
 
     private boolean hasSolicitedFlag;
@@ -10575,6 +10627,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper timeBracketWrapper = new CharArrayWrapper();
     private char lastCapacity = MISSING_CHAR;
 
     private boolean hasLastCapacity;
@@ -11247,6 +11300,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper benchmarkCurvePointWrapper = new CharArrayWrapper();
     private DecimalFloat benchmarkPrice = DecimalFloat.newNaNValue();
 
     private boolean hasBenchmarkPrice;
@@ -11339,6 +11393,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDWrapper = new CharArrayWrapper();
     private char[] benchmarkSecurityIDSource = new char[1];
 
     private boolean hasBenchmarkSecurityIDSource;
@@ -11389,6 +11444,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper benchmarkSecurityIDSourceWrapper = new CharArrayWrapper();
 
 
     private char[] yieldType = new char[1];
@@ -12573,6 +12629,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -12844,6 +12901,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper registIDWrapper = new CharArrayWrapper();
     private char[] designation = new char[1];
 
     private boolean hasDesignation;
@@ -12894,6 +12952,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper designationWrapper = new CharArrayWrapper();
     private byte[] transBkdTime = new byte[24];
 
     private boolean hasTransBkdTime;
@@ -13368,6 +13427,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
     }
 
 
+    private final CharArrayWrapper receivedDeptIDWrapper = new CharArrayWrapper();
     private char[] custOrderHandlingInst = new char[1];
 
     private boolean hasCustOrderHandlingInst;
@@ -13732,7 +13792,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 lastRptRequested = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_PARTY_IDS:
+            case Constants.NO_PARTY_IDS_GROUP_COUNTER:
                 hasNoPartyIDsGroupCounter = true;
                 noPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 453, CODEC_VALIDATION_ENABLED);
                 if (partyIDsGroup == null)
@@ -13774,7 +13834,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 tradeOriginationDateLength = valueLength;
                 break;
 
-            case Constants.NO_CONTRA_BROKERS:
+            case Constants.NO_CONTRA_BROKERS_GROUP_COUNTER:
                 hasNoContraBrokersGroupCounter = true;
                 noContraBrokersGroupCounter = getInt(buffer, valueOffset, endOfField, 382, CODEC_VALIDATION_ENABLED);
                 if (contraBrokersGroup == null)
@@ -13917,7 +13977,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 allocIDLength = valueLength;
                 break;
 
-            case Constants.NO_ALLOCS:
+            case Constants.NO_ALLOCS_GROUP_COUNTER:
                 hasNoAllocsGroupCounter = true;
                 noAllocsGroupCounter = getInt(buffer, valueOffset, endOfField, 78, CODEC_VALIDATION_ENABLED);
                 if (allocsGroup == null)
@@ -14018,7 +14078,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 securityIDSourceLength = valueLength;
                 break;
 
-            case Constants.NO_SECURITY_ALT_ID:
+            case Constants.NO_SECURITY_ALT_ID_GROUP_COUNTER:
                 hasNoSecurityAltIDGroupCounter = true;
                 noSecurityAltIDGroupCounter = getInt(buffer, valueOffset, endOfField, 454, CODEC_VALIDATION_ENABLED);
                 if (securityAltIDGroup == null)
@@ -14515,7 +14575,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 cPRegTypeLength = valueLength;
                 break;
 
-            case Constants.NO_EVENTS:
+            case Constants.NO_EVENTS_GROUP_COUNTER:
                 hasNoEventsGroupCounter = true;
                 noEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 864, CODEC_VALIDATION_ENABLED);
                 if (eventsGroup == null)
@@ -14564,7 +14624,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 interestAccrualDateLength = valueLength;
                 break;
 
-            case Constants.NO_INSTRUMENT_PARTIES:
+            case Constants.NO_INSTRUMENT_PARTIES_GROUP_COUNTER:
                 hasNoInstrumentPartiesGroupCounter = true;
                 noInstrumentPartiesGroupCounter = getInt(buffer, valueOffset, endOfField, 1018, CODEC_VALIDATION_ENABLED);
                 if (instrumentPartiesGroup == null)
@@ -14599,7 +14659,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 break;
 
 
-            case Constants.NO_COMPLEX_EVENTS:
+            case Constants.NO_COMPLEX_EVENTS_GROUP_COUNTER:
                 hasNoComplexEventsGroupCounter = true;
                 noComplexEventsGroupCounter = getInt(buffer, valueOffset, endOfField, 1483, CODEC_VALIDATION_ENABLED);
                 if (complexEventsGroup == null)
@@ -14693,7 +14753,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 break;
 
 
-            case Constants.NO_UNDERLYINGS:
+            case Constants.NO_UNDERLYINGS_GROUP_COUNTER:
                 hasNoUnderlyingsGroupCounter = true;
                 noUnderlyingsGroupCounter = getInt(buffer, valueOffset, endOfField, 711, CODEC_VALIDATION_ENABLED);
                 if (underlyingsGroup == null)
@@ -14732,7 +14792,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 side = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_STIPULATIONS:
+            case Constants.NO_STIPULATIONS_GROUP_COUNTER:
                 hasNoStipulationsGroupCounter = true;
                 noStipulationsGroupCounter = getInt(buffer, valueOffset, endOfField, 232, CODEC_VALIDATION_ENABLED);
                 if (stipulationsGroup == null)
@@ -15036,7 +15096,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 targetStrategy = getInt(buffer, valueOffset, endOfField, 847, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_STRATEGY_PARAMETERS:
+            case Constants.NO_STRATEGY_PARAMETERS_GROUP_COUNTER:
                 hasNoStrategyParametersGroupCounter = true;
                 noStrategyParametersGroupCounter = getInt(buffer, valueOffset, endOfField, 957, CODEC_VALIDATION_ENABLED);
                 if (strategyParametersGroup == null)
@@ -15283,7 +15343,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 lastFragment = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_FILLS:
+            case Constants.NO_FILLS_GROUP_COUNTER:
                 hasNoFillsGroupCounter = true;
                 noFillsGroupCounter = getInt(buffer, valueOffset, endOfField, 1362, CODEC_VALIDATION_ENABLED);
                 if (fillsGroup == null)
@@ -15544,7 +15604,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 settlCurrencyLength = valueLength;
                 break;
 
-            case Constants.NO_RATE_SOURCES:
+            case Constants.NO_RATE_SOURCES_GROUP_COUNTER:
                 hasNoRateSourcesGroupCounter = true;
                 noRateSourcesGroupCounter = getInt(buffer, valueOffset, endOfField, 1445, CODEC_VALIDATION_ENABLED);
                 if (rateSourcesGroup == null)
@@ -15773,7 +15833,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 lastLiquidityInd = getInt(buffer, valueOffset, endOfField, 851, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_CONT_AMTS:
+            case Constants.NO_CONT_AMTS_GROUP_COUNTER:
                 hasNoContAmtsGroupCounter = true;
                 noContAmtsGroupCounter = getInt(buffer, valueOffset, endOfField, 518, CODEC_VALIDATION_ENABLED);
                 if (contAmtsGroup == null)
@@ -15808,7 +15868,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 break;
 
 
-            case Constants.NO_LEGS:
+            case Constants.NO_LEGS_GROUP_COUNTER:
                 hasNoLegsGroupCounter = true;
                 noLegsGroupCounter = getInt(buffer, valueOffset, endOfField, 555, CODEC_VALIDATION_ENABLED);
                 if (legsGroup == null)
@@ -15848,7 +15908,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 copyMsgIndicator = buffer.getBoolean(valueOffset);
                 break;
 
-            case Constants.NO_MISC_FEES:
+            case Constants.NO_MISC_FEES_GROUP_COUNTER:
                 hasNoMiscFeesGroupCounter = true;
                 noMiscFeesGroupCounter = getInt(buffer, valueOffset, endOfField, 136, CODEC_VALIDATION_ENABLED);
                 if (miscFeesGroup == null)
@@ -15917,7 +15977,7 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
                 orderHandlingInstSource = getInt(buffer, valueOffset, endOfField, 1032, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_TRD_REG_TIMESTAMPS:
+            case Constants.NO_TRD_REG_TIMESTAMPS_GROUP_COUNTER:
                 hasNoTrdRegTimestampsGroupCounter = true;
                 noTrdRegTimestampsGroupCounter = getInt(buffer, valueOffset, endOfField, 768, CODEC_VALIDATION_ENABLED);
                 if (trdRegTimestampsGroup == null)
@@ -18273,23 +18333,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"PartyIDsGroup\": [\n");
-        PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
-        for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
+        if (hasNoPartyIDsGroupCounter)
         {
             indent(builder, level);
-            partyIDsGroup.appendTo(builder, level + 1);            if (partyIDsGroup.next() != null)
+            builder.append("\"PartyIDsGroup\": [\n");
+            PartyIDsGroupDecoder partyIDsGroup = this.partyIDsGroup;
+            for (int i = 0, size = this.noPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            partyIDsGroup = partyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                partyIDsGroup.appendTo(builder, level + 1);
+                if (partyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                partyIDsGroup = partyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTradeOriginationDate())
         {
@@ -18299,23 +18360,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoContraBrokersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ContraBrokersGroup\": [\n");
-        ContraBrokersGroupDecoder contraBrokersGroup = this.contraBrokersGroup;
-        for (int i = 0, size = this.noContraBrokersGroupCounter; i < size; i++)
+        if (hasNoContraBrokersGroupCounter)
         {
             indent(builder, level);
-            contraBrokersGroup.appendTo(builder, level + 1);            if (contraBrokersGroup.next() != null)
+            builder.append("\"ContraBrokersGroup\": [\n");
+            ContraBrokersGroupDecoder contraBrokersGroup = this.contraBrokersGroup;
+            for (int i = 0, size = this.noContraBrokersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            contraBrokersGroup = contraBrokersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                contraBrokersGroup.appendTo(builder, level + 1);
+                if (contraBrokersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                contraBrokersGroup = contraBrokersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasListID())
         {
@@ -18460,23 +18522,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoAllocsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AllocsGroup\": [\n");
-        AllocsGroupDecoder allocsGroup = this.allocsGroup;
-        for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
+        if (hasNoAllocsGroupCounter)
         {
             indent(builder, level);
-            allocsGroup.appendTo(builder, level + 1);            if (allocsGroup.next() != null)
+            builder.append("\"AllocsGroup\": [\n");
+            AllocsGroupDecoder allocsGroup = this.allocsGroup;
+            for (int i = 0, size = this.noAllocsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            allocsGroup = allocsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                allocsGroup.appendTo(builder, level + 1);
+                if (allocsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                allocsGroup = allocsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSettlType())
         {
@@ -18558,23 +18621,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoSecurityAltIDGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"SecurityAltIDGroup\": [\n");
-        SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
-        for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
+        if (hasNoSecurityAltIDGroupCounter)
         {
             indent(builder, level);
-            securityAltIDGroup.appendTo(builder, level + 1);            if (securityAltIDGroup.next() != null)
+            builder.append("\"SecurityAltIDGroup\": [\n");
+            SecurityAltIDGroupDecoder securityAltIDGroup = this.securityAltIDGroup;
+            for (int i = 0, size = this.noSecurityAltIDGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            securityAltIDGroup = securityAltIDGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                securityAltIDGroup.appendTo(builder, level + 1);
+                if (securityAltIDGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                securityAltIDGroup = securityAltIDGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasProduct())
         {
@@ -19200,23 +19264,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"EventsGroup\": [\n");
-        EventsGroupDecoder eventsGroup = this.eventsGroup;
-        for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
+        if (hasNoEventsGroupCounter)
         {
             indent(builder, level);
-            eventsGroup.appendTo(builder, level + 1);            if (eventsGroup.next() != null)
+            builder.append("\"EventsGroup\": [\n");
+            EventsGroupDecoder eventsGroup = this.eventsGroup;
+            for (int i = 0, size = this.noEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            eventsGroup = eventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                eventsGroup.appendTo(builder, level + 1);
+                if (eventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                eventsGroup = eventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDatedDate())
         {
@@ -19234,41 +19299,43 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoInstrumentPartiesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"InstrumentPartiesGroup\": [\n");
-        InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
-        for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
+        if (hasNoInstrumentPartiesGroupCounter)
         {
             indent(builder, level);
-            instrumentPartiesGroup.appendTo(builder, level + 1);            if (instrumentPartiesGroup.next() != null)
+            builder.append("\"InstrumentPartiesGroup\": [\n");
+            InstrumentPartiesGroupDecoder instrumentPartiesGroup = this.instrumentPartiesGroup;
+            for (int i = 0, size = this.noInstrumentPartiesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            instrumentPartiesGroup = instrumentPartiesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                instrumentPartiesGroup.appendTo(builder, level + 1);
+                if (instrumentPartiesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                instrumentPartiesGroup = instrumentPartiesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoComplexEventsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ComplexEventsGroup\": [\n");
-        ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
-        for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
+        if (hasNoComplexEventsGroupCounter)
         {
             indent(builder, level);
-            complexEventsGroup.appendTo(builder, level + 1);            if (complexEventsGroup.next() != null)
+            builder.append("\"ComplexEventsGroup\": [\n");
+            ComplexEventsGroupDecoder complexEventsGroup = this.complexEventsGroup;
+            for (int i = 0, size = this.noComplexEventsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            complexEventsGroup = complexEventsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                complexEventsGroup.appendTo(builder, level + 1);
+                if (complexEventsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                complexEventsGroup = complexEventsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasAgreementDesc())
         {
@@ -19342,46 +19409,48 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoUnderlyingsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"UnderlyingsGroup\": [\n");
-        UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
-        for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
+        if (hasNoUnderlyingsGroupCounter)
         {
             indent(builder, level);
-            underlyingsGroup.appendTo(builder, level + 1);            if (underlyingsGroup.next() != null)
+            builder.append("\"UnderlyingsGroup\": [\n");
+            UnderlyingsGroupDecoder underlyingsGroup = this.underlyingsGroup;
+            for (int i = 0, size = this.noUnderlyingsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            underlyingsGroup = underlyingsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                underlyingsGroup.appendTo(builder, level + 1);
+                if (underlyingsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                underlyingsGroup = underlyingsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         indent(builder, level);
         builder.append("\"Side\": \"");
         builder.append(side);
         builder.append("\",\n");
 
-    if (hasNoStipulationsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StipulationsGroup\": [\n");
-        StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
-        for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
+        if (hasNoStipulationsGroupCounter)
         {
             indent(builder, level);
-            stipulationsGroup.appendTo(builder, level + 1);            if (stipulationsGroup.next() != null)
+            builder.append("\"StipulationsGroup\": [\n");
+            StipulationsGroupDecoder stipulationsGroup = this.stipulationsGroup;
+            for (int i = 0, size = this.noStipulationsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            stipulationsGroup = stipulationsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                stipulationsGroup.appendTo(builder, level + 1);
+                if (stipulationsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                stipulationsGroup = stipulationsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasQtyType())
         {
@@ -19775,23 +19844,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoStrategyParametersGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"StrategyParametersGroup\": [\n");
-        StrategyParametersGroupDecoder strategyParametersGroup = this.strategyParametersGroup;
-        for (int i = 0, size = this.noStrategyParametersGroupCounter; i < size; i++)
+        if (hasNoStrategyParametersGroupCounter)
         {
             indent(builder, level);
-            strategyParametersGroup.appendTo(builder, level + 1);            if (strategyParametersGroup.next() != null)
+            builder.append("\"StrategyParametersGroup\": [\n");
+            StrategyParametersGroupDecoder strategyParametersGroup = this.strategyParametersGroup;
+            for (int i = 0, size = this.noStrategyParametersGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            strategyParametersGroup = strategyParametersGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                strategyParametersGroup.appendTo(builder, level + 1);
+                if (strategyParametersGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                strategyParametersGroup = strategyParametersGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasTargetStrategyParameters())
         {
@@ -20091,23 +20161,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoFillsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"FillsGroup\": [\n");
-        FillsGroupDecoder fillsGroup = this.fillsGroup;
-        for (int i = 0, size = this.noFillsGroupCounter; i < size; i++)
+        if (hasNoFillsGroupCounter)
         {
             indent(builder, level);
-            fillsGroup.appendTo(builder, level + 1);            if (fillsGroup.next() != null)
+            builder.append("\"FillsGroup\": [\n");
+            FillsGroupDecoder fillsGroup = this.fillsGroup;
+            for (int i = 0, size = this.noFillsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            fillsGroup = fillsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                fillsGroup.appendTo(builder, level + 1);
+                if (fillsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                fillsGroup = fillsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasGTBookingInst())
         {
@@ -20421,23 +20492,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoRateSourcesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"RateSourcesGroup\": [\n");
-        RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
-        for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
+        if (hasNoRateSourcesGroupCounter)
         {
             indent(builder, level);
-            rateSourcesGroup.appendTo(builder, level + 1);            if (rateSourcesGroup.next() != null)
+            builder.append("\"RateSourcesGroup\": [\n");
+            RateSourcesGroupDecoder rateSourcesGroup = this.rateSourcesGroup;
+            for (int i = 0, size = this.noRateSourcesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            rateSourcesGroup = rateSourcesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                rateSourcesGroup.appendTo(builder, level + 1);
+                if (rateSourcesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                rateSourcesGroup = rateSourcesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasSettlCurrFxRate())
         {
@@ -20727,41 +20799,43 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoContAmtsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ContAmtsGroup\": [\n");
-        ContAmtsGroupDecoder contAmtsGroup = this.contAmtsGroup;
-        for (int i = 0, size = this.noContAmtsGroupCounter; i < size; i++)
+        if (hasNoContAmtsGroupCounter)
         {
             indent(builder, level);
-            contAmtsGroup.appendTo(builder, level + 1);            if (contAmtsGroup.next() != null)
+            builder.append("\"ContAmtsGroup\": [\n");
+            ContAmtsGroupDecoder contAmtsGroup = this.contAmtsGroup;
+            for (int i = 0, size = this.noContAmtsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            contAmtsGroup = contAmtsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                contAmtsGroup.appendTo(builder, level + 1);
+                if (contAmtsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                contAmtsGroup = contAmtsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoLegsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"LegsGroup\": [\n");
-        LegsGroupDecoder legsGroup = this.legsGroup;
-        for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
+        if (hasNoLegsGroupCounter)
         {
             indent(builder, level);
-            legsGroup.appendTo(builder, level + 1);            if (legsGroup.next() != null)
+            builder.append("\"LegsGroup\": [\n");
+            LegsGroupDecoder legsGroup = this.legsGroup;
+            for (int i = 0, size = this.noLegsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            legsGroup = legsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                legsGroup.appendTo(builder, level + 1);
+                if (legsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                legsGroup = legsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasCopyMsgIndicator())
         {
@@ -20771,23 +20845,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoMiscFeesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MiscFeesGroup\": [\n");
-        MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
-        for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
+        if (hasNoMiscFeesGroupCounter)
         {
             indent(builder, level);
-            miscFeesGroup.appendTo(builder, level + 1);            if (miscFeesGroup.next() != null)
+            builder.append("\"MiscFeesGroup\": [\n");
+            MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
+            for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            miscFeesGroup = miscFeesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                miscFeesGroup.appendTo(builder, level + 1);
+                if (miscFeesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                miscFeesGroup = miscFeesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasDividendYield())
         {
@@ -20837,23 +20912,24 @@ public class ExecutionReportDecoder extends CommonDecoderImpl implements Applica
             builder.append("\",\n");
         }
 
-    if (hasNoTrdRegTimestampsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"TrdRegTimestampsGroup\": [\n");
-        TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
-        for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
+        if (hasNoTrdRegTimestampsGroupCounter)
         {
             indent(builder, level);
-            trdRegTimestampsGroup.appendTo(builder, level + 1);            if (trdRegTimestampsGroup.next() != null)
+            builder.append("\"TrdRegTimestampsGroup\": [\n");
+            TrdRegTimestampsGroupDecoder trdRegTimestampsGroup = this.trdRegTimestampsGroup;
+            for (int i = 0, size = this.noTrdRegTimestampsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            trdRegTimestampsGroup = trdRegTimestampsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                trdRegTimestampsGroup.appendTo(builder, level + 1);
+                if (trdRegTimestampsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                trdRegTimestampsGroup = trdRegTimestampsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasVolatility())
         {

@@ -171,6 +171,7 @@ public class ListStatusRequestDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper listIDWrapper = new CharArrayWrapper();
     private char[] text = new char[1];
 
     private boolean hasText;
@@ -221,6 +222,7 @@ public class ListStatusRequestDecoder extends CommonDecoderImpl implements Messa
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

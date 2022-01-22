@@ -277,12 +277,12 @@ public class TrdRepIndicatorsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TrdRepIndicatorsGroupEncoder toEncoder(final Encoder encoder)
+    public TrdRepIndicatorsGrpEncoder.TrdRepIndicatorsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TrdRepIndicatorsGroupEncoder)encoder);
+        return toEncoder((TrdRepIndicatorsGrpEncoder.TrdRepIndicatorsGroupEncoder)encoder);
     }
 
-    public TrdRepIndicatorsGroupEncoder toEncoder(final TrdRepIndicatorsGroupEncoder encoder)
+    public TrdRepIndicatorsGrpEncoder.TrdRepIndicatorsGroupEncoder toEncoder(final TrdRepIndicatorsGrpEncoder.TrdRepIndicatorsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTrdRepPartyRole())
@@ -313,6 +313,7 @@ public class TrdRepIndicatorsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TrdRepIndicatorsGroupDecoder next()
         {
             remainder--;
@@ -320,23 +321,27 @@ public class TrdRepIndicatorsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTrdRepIndicatorsGroupCounter() ? parent.noTrdRepIndicatorsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.trdRepIndicatorsGroup();
         }
+
         public TrdRepIndicatorsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TrdRepIndicatorsGroupIterator trdRepIndicatorsGroupIterator();
+    public TrdRepIndicatorsGroupIterator trdRepIndicatorsGroupIterator();
     public int noTrdRepIndicatorsGroupCounter();
     public boolean hasNoTrdRepIndicatorsGroupCounter();
     public TrdRepIndicatorsGroupDecoder trdRepIndicatorsGroup();

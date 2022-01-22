@@ -177,6 +177,7 @@ public class InstrAttribGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper instrAttribValueWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode InstrAttribGroup
@@ -325,12 +326,12 @@ public class InstrAttribGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public InstrAttribGroupEncoder toEncoder(final Encoder encoder)
+    public AttrbGrpEncoder.InstrAttribGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((InstrAttribGroupEncoder)encoder);
+        return toEncoder((AttrbGrpEncoder.InstrAttribGroupEncoder)encoder);
     }
 
-    public InstrAttribGroupEncoder toEncoder(final InstrAttribGroupEncoder encoder)
+    public AttrbGrpEncoder.InstrAttribGroupEncoder toEncoder(final AttrbGrpEncoder.InstrAttribGroupEncoder encoder)
     {
         encoder.reset();
         if (hasInstrAttribType())
@@ -361,6 +362,7 @@ public class InstrAttribGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public InstrAttribGroupDecoder next()
         {
             remainder--;
@@ -368,23 +370,27 @@ public class InstrAttribGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoInstrAttribGroupCounter() ? parent.noInstrAttribGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.instrAttribGroup();
         }
+
         public InstrAttribGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public InstrAttribGroupIterator instrAttribGroupIterator();
+    public InstrAttribGroupIterator instrAttribGroupIterator();
     public int noInstrAttribGroupCounter();
     public boolean hasNoInstrAttribGroupCounter();
     public InstrAttribGroupDecoder instrAttribGroup();

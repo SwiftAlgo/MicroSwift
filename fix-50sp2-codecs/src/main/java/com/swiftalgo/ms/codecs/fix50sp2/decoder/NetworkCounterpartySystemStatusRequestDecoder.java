@@ -166,7 +166,7 @@ public class NetworkCounterpartySystemStatusRequestDecoder extends CommonDecoder
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.NETWORK_REQUEST_TYPE);
         messageFields.add(Constants.NETWORK_REQUEST_ID);
-        messageFields.add(Constants.NO_COMP_IDS);
+        messageFields.add(Constants.NO_COMP_IDS_GROUP_COUNTER);
         messageFields.add(Constants.REF_COMP_ID);
         messageFields.add(Constants.REF_SUB_ID);
         messageFields.add(Constants.LOCATION_ID);
@@ -233,6 +233,7 @@ public class NetworkCounterpartySystemStatusRequestDecoder extends CommonDecoder
     }
 
 
+    private final CharArrayWrapper networkRequestIDWrapper = new CharArrayWrapper();
 
 
     private CompIDsGroupDecoder compIDsGroup = null;
@@ -334,7 +335,7 @@ public class NetworkCounterpartySystemStatusRequestDecoder extends CommonDecoder
                 networkRequestIDLength = valueLength;
                 break;
 
-            case Constants.NO_COMP_IDS:
+            case Constants.NO_COMP_IDS_GROUP_COUNTER:
                 hasNoCompIDsGroupCounter = true;
                 noCompIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 936, CODEC_VALIDATION_ENABLED);
                 if (compIDsGroup == null)
@@ -473,23 +474,24 @@ public class NetworkCounterpartySystemStatusRequestDecoder extends CommonDecoder
         builder.append(this.networkRequestID(), 0, networkRequestIDLength());
         builder.append("\",\n");
 
-    if (hasNoCompIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"CompIDsGroup\": [\n");
-        CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
-        for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
+        if (hasNoCompIDsGroupCounter)
         {
             indent(builder, level);
-            compIDsGroup.appendTo(builder, level + 1);            if (compIDsGroup.next() != null)
+            builder.append("\"CompIDsGroup\": [\n");
+            CompIDsGroupDecoder compIDsGroup = this.compIDsGroup;
+            for (int i = 0, size = this.noCompIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            compIDsGroup = compIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                compIDsGroup.appendTo(builder, level + 1);
+                if (compIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                compIDsGroup = compIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;

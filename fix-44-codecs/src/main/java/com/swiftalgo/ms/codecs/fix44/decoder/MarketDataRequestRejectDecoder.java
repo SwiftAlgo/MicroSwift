@@ -167,7 +167,7 @@ public class MarketDataRequestRejectDecoder extends CommonDecoderImpl implements
         messageFields.add(Constants.LAST_MSG_SEQ_NUM_PROCESSED);
         messageFields.add(Constants.M_D_REQ_ID);
         messageFields.add(Constants.M_D_REQ_REJ_REASON);
-        messageFields.add(Constants.NO_ALT_M_D_SOURCE);
+        messageFields.add(Constants.NO_ALT_M_D_SOURCE_GROUP_COUNTER);
         messageFields.add(Constants.ALT_M_D_SOURCE_ID);
         messageFields.add(Constants.TEXT);
         messageFields.add(Constants.ENCODED_TEXT_LEN);
@@ -219,6 +219,7 @@ public class MarketDataRequestRejectDecoder extends CommonDecoderImpl implements
     }
 
 
+    private final CharArrayWrapper mDReqIDWrapper = new CharArrayWrapper();
     private char mDReqRejReason = MISSING_CHAR;
 
     private boolean hasMDReqRejReason;
@@ -354,6 +355,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper altMDSourceIDWrapper = new CharArrayWrapper();
     public int decode(final AsciiBuffer buffer, final int offset, final int length)
     {
         // Decode AltMDSourceGroup
@@ -483,12 +485,12 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public AltMDSourceGroupEncoder toEncoder(final Encoder encoder)
+    public MarketDataRequestRejectEncoder.AltMDSourceGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AltMDSourceGroupEncoder)encoder);
+        return toEncoder((MarketDataRequestRejectEncoder.AltMDSourceGroupEncoder)encoder);
     }
 
-    public AltMDSourceGroupEncoder toEncoder(final AltMDSourceGroupEncoder encoder)
+    public MarketDataRequestRejectEncoder.AltMDSourceGroupEncoder toEncoder(final MarketDataRequestRejectEncoder.AltMDSourceGroupEncoder encoder)
     {
         encoder.reset();
         if (hasAltMDSourceID())
@@ -514,6 +516,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public AltMDSourceGroupDecoder next()
         {
             remainder--;
@@ -521,20 +524,24 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAltMDSourceGroupCounter() ? parent.noAltMDSourceGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.altMDSourceGroup();
         }
+
         public AltMDSourceGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
 
@@ -622,6 +629,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;
@@ -729,7 +737,7 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
                 mDReqRejReason = buffer.getChar(valueOffset);
                 break;
 
-            case Constants.NO_ALT_M_D_SOURCE:
+            case Constants.NO_ALT_M_D_SOURCE_GROUP_COUNTER:
                 hasNoAltMDSourceGroupCounter = true;
                 noAltMDSourceGroupCounter = getInt(buffer, valueOffset, endOfField, 816, CODEC_VALIDATION_ENABLED);
                 if (altMDSourceGroup == null)
@@ -906,23 +914,24 @@ public class AltMDSourceGroupDecoder extends CommonDecoderImpl
             builder.append("\",\n");
         }
 
-    if (hasNoAltMDSourceGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"AltMDSourceGroup\": [\n");
-        AltMDSourceGroupDecoder altMDSourceGroup = this.altMDSourceGroup;
-        for (int i = 0, size = this.noAltMDSourceGroupCounter; i < size; i++)
+        if (hasNoAltMDSourceGroupCounter)
         {
             indent(builder, level);
-            altMDSourceGroup.appendTo(builder, level + 1);            if (altMDSourceGroup.next() != null)
+            builder.append("\"AltMDSourceGroup\": [\n");
+            AltMDSourceGroupDecoder altMDSourceGroup = this.altMDSourceGroup;
+            for (int i = 0, size = this.noAltMDSourceGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            altMDSourceGroup = altMDSourceGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                altMDSourceGroup.appendTo(builder, level + 1);
+                if (altMDSourceGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                altMDSourceGroup = altMDSourceGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasText())
         {

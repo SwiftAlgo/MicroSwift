@@ -449,6 +449,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocAccountWrapper = new CharArrayWrapper();
     private int allocAcctIDSource = MISSING_INT;
 
     private boolean hasAllocAcctIDSource;
@@ -591,6 +592,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper individualAllocIDWrapper = new CharArrayWrapper();
     private char processCode = MISSING_CHAR;
 
     private boolean hasProcessCode;
@@ -670,6 +672,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper secondaryIndividualAllocIDWrapper = new CharArrayWrapper();
     private int allocMethod = MISSING_INT;
 
     private boolean hasAllocMethod;
@@ -749,6 +752,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocCustomerCapacityWrapper = new CharArrayWrapper();
     private char allocPositionEffect = MISSING_CHAR;
 
     private boolean hasAllocPositionEffect;
@@ -944,6 +948,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper allocTextWrapper = new CharArrayWrapper();
     private int encodedAllocTextLen = MISSING_INT;
 
     private boolean hasEncodedAllocTextLen;
@@ -1664,6 +1669,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper standInstDbNameWrapper = new CharArrayWrapper();
     private char[] standInstDbID = new char[1];
 
     private boolean hasStandInstDbID;
@@ -1714,6 +1720,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     }
 
 
+    private final CharArrayWrapper standInstDbIDWrapper = new CharArrayWrapper();
 
 
     private DlvyInstGroupDecoder dlvyInstGroup = null;
@@ -1876,7 +1883,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 individualAllocType = getInt(buffer, valueOffset, endOfField, 992, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_NESTED_PARTY_IDS:
+            case Constants.NO_NESTED_PARTY_IDS_GROUP_COUNTER:
                 hasNoNestedPartyIDsGroupCounter = true;
                 noNestedPartyIDsGroupCounter = getInt(buffer, valueOffset, endOfField, 539, CODEC_VALIDATION_ENABLED);
                 if (nestedPartyIDsGroup == null)
@@ -2016,7 +2023,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 allocInterestAtMaturity = getFloat(buffer, allocInterestAtMaturity, valueOffset, valueLength, 741, CODEC_VALIDATION_ENABLED);
                 break;
 
-            case Constants.NO_MISC_FEES:
+            case Constants.NO_MISC_FEES_GROUP_COUNTER:
                 hasNoMiscFeesGroupCounter = true;
                 noMiscFeesGroupCounter = getInt(buffer, valueOffset, endOfField, 136, CODEC_VALIDATION_ENABLED);
                 if (miscFeesGroup == null)
@@ -2051,7 +2058,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 break;
 
 
-            case Constants.NO_CLEARING_INSTRUCTIONS:
+            case Constants.NO_CLEARING_INSTRUCTIONS_GROUP_COUNTER:
                 hasNoClearingInstructionsGroupCounter = true;
                 noClearingInstructionsGroupCounter = getInt(buffer, valueOffset, endOfField, 576, CODEC_VALIDATION_ENABLED);
                 if (clearingInstructionsGroup == null)
@@ -2122,7 +2129,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
                 standInstDbIDLength = valueLength;
                 break;
 
-            case Constants.NO_DLVY_INST:
+            case Constants.NO_DLVY_INST_GROUP_COUNTER:
                 hasNoDlvyInstGroupCounter = true;
                 noDlvyInstGroupCounter = getInt(buffer, valueOffset, endOfField, 85, CODEC_VALIDATION_ENABLED);
                 if (dlvyInstGroup == null)
@@ -2581,23 +2588,24 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoNestedPartyIDsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"NestedPartyIDsGroup\": [\n");
-        NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
-        for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
+        if (hasNoNestedPartyIDsGroupCounter)
         {
             indent(builder, level);
-            nestedPartyIDsGroup.appendTo(builder, level + 1);            if (nestedPartyIDsGroup.next() != null)
+            builder.append("\"NestedPartyIDsGroup\": [\n");
+            NestedPartyIDsGroupDecoder nestedPartyIDsGroup = this.nestedPartyIDsGroup;
+            for (int i = 0, size = this.noNestedPartyIDsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            nestedPartyIDsGroup = nestedPartyIDsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                nestedPartyIDsGroup.appendTo(builder, level + 1);
+                if (nestedPartyIDsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                nestedPartyIDsGroup = nestedPartyIDsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasNotifyBrokerOfCredit())
         {
@@ -2751,41 +2759,43 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoMiscFeesGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"MiscFeesGroup\": [\n");
-        MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
-        for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
+        if (hasNoMiscFeesGroupCounter)
         {
             indent(builder, level);
-            miscFeesGroup.appendTo(builder, level + 1);            if (miscFeesGroup.next() != null)
+            builder.append("\"MiscFeesGroup\": [\n");
+            MiscFeesGroupDecoder miscFeesGroup = this.miscFeesGroup;
+            for (int i = 0, size = this.noMiscFeesGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            miscFeesGroup = miscFeesGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                miscFeesGroup.appendTo(builder, level + 1);
+                if (miscFeesGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                miscFeesGroup = miscFeesGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
-    if (hasNoClearingInstructionsGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"ClearingInstructionsGroup\": [\n");
-        ClearingInstructionsGroupDecoder clearingInstructionsGroup = this.clearingInstructionsGroup;
-        for (int i = 0, size = this.noClearingInstructionsGroupCounter; i < size; i++)
+        if (hasNoClearingInstructionsGroupCounter)
         {
             indent(builder, level);
-            clearingInstructionsGroup.appendTo(builder, level + 1);            if (clearingInstructionsGroup.next() != null)
+            builder.append("\"ClearingInstructionsGroup\": [\n");
+            ClearingInstructionsGroupDecoder clearingInstructionsGroup = this.clearingInstructionsGroup;
+            for (int i = 0, size = this.noClearingInstructionsGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            clearingInstructionsGroup = clearingInstructionsGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                clearingInstructionsGroup.appendTo(builder, level + 1);
+                if (clearingInstructionsGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                clearingInstructionsGroup = clearingInstructionsGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
 
         if (hasClearingFeeIndicator())
         {
@@ -2835,23 +2845,24 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             builder.append("\",\n");
         }
 
-    if (hasNoDlvyInstGroupCounter)
-    {
-        indent(builder, level);
-        builder.append("\"DlvyInstGroup\": [\n");
-        DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
-        for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
+        if (hasNoDlvyInstGroupCounter)
         {
             indent(builder, level);
-            dlvyInstGroup.appendTo(builder, level + 1);            if (dlvyInstGroup.next() != null)
+            builder.append("\"DlvyInstGroup\": [\n");
+            DlvyInstGroupDecoder dlvyInstGroup = this.dlvyInstGroup;
+            for (int i = 0, size = this.noDlvyInstGroupCounter; i < size; i++)
             {
-                builder.append(',');
-            }
-            builder.append('\n');
-            dlvyInstGroup = dlvyInstGroup.next();        }
-        indent(builder, level);
-        builder.append("],\n");
-    }
+                indent(builder, level);
+                dlvyInstGroup.appendTo(builder, level + 1);
+                if (dlvyInstGroup.next() != null)
+                {
+                    builder.append(',');
+                }
+                builder.append('\n');
+                dlvyInstGroup = dlvyInstGroup.next();            }
+            indent(builder, level);
+            builder.append("],\n");
+        }
         indent(builder, level - 1);
         builder.append("}");
         return builder;
@@ -2860,12 +2871,12 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
     /**
      * {@inheritDoc}
      */
-    public AllocsGroupEncoder toEncoder(final Encoder encoder)
+    public AllocGrpEncoder.AllocsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((AllocsGroupEncoder)encoder);
+        return toEncoder((AllocGrpEncoder.AllocsGroupEncoder)encoder);
     }
 
-    public AllocsGroupEncoder toEncoder(final AllocsGroupEncoder encoder)
+    public AllocGrpEncoder.AllocsGroupEncoder toEncoder(final AllocGrpEncoder.AllocsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasAllocAccount())
@@ -3148,6 +3159,7 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
         {
             return remainder > 0 && current != null;
         }
+
         public AllocsGroupDecoder next()
         {
             remainder--;
@@ -3155,23 +3167,27 @@ public class AllocsGroupDecoder extends CommonDecoderImpl implements NestedParti
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoAllocsGroupCounter() ? parent.noAllocsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.allocsGroup();
         }
+
         public AllocsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public AllocsGroupIterator allocsGroupIterator();
+    public AllocsGroupIterator allocsGroupIterator();
     public int noAllocsGroupCounter();
     public boolean hasNoAllocsGroupCounter();
     public AllocsGroupDecoder allocsGroup();

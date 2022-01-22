@@ -236,6 +236,7 @@ public class RejectDecoder extends CommonDecoderImpl implements MessageDecoder, 
     }
 
 
+    private final CharArrayWrapper refMsgTypeWrapper = new CharArrayWrapper();
     private int sessionRejectReason = MISSING_INT;
 
     private boolean hasSessionRejectReason;
@@ -315,6 +316,7 @@ public class RejectDecoder extends CommonDecoderImpl implements MessageDecoder, 
     }
 
 
+    private final CharArrayWrapper textWrapper = new CharArrayWrapper();
     private int encodedTextLen = MISSING_INT;
 
     private boolean hasEncodedTextLen;

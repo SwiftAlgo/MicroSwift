@@ -378,12 +378,12 @@ public class TradingSessionsGroupDecoder extends CommonDecoderImpl
     /**
      * {@inheritDoc}
      */
-    public TradingSessionsGroupEncoder toEncoder(final Encoder encoder)
+    public TrdgSesGrpEncoder.TradingSessionsGroupEncoder toEncoder(final Encoder encoder)
     {
-        return toEncoder((TradingSessionsGroupEncoder)encoder);
+        return toEncoder((TrdgSesGrpEncoder.TradingSessionsGroupEncoder)encoder);
     }
 
-    public TradingSessionsGroupEncoder toEncoder(final TradingSessionsGroupEncoder encoder)
+    public TrdgSesGrpEncoder.TradingSessionsGroupEncoder toEncoder(final TrdgSesGrpEncoder.TradingSessionsGroupEncoder encoder)
     {
         encoder.reset();
         if (hasTradingSessionID())
@@ -414,6 +414,7 @@ public class TradingSessionsGroupDecoder extends CommonDecoderImpl
         {
             return remainder > 0 && current != null;
         }
+
         public TradingSessionsGroupDecoder next()
         {
             remainder--;
@@ -421,23 +422,27 @@ public class TradingSessionsGroupDecoder extends CommonDecoderImpl
             current = current.next();
             return value;
         }
+
         public int numberFieldValue()
         {
             return parent.hasNoTradingSessionsGroupCounter() ? parent.noTradingSessionsGroupCounter() : 0;
         }
+
         public void reset()
         {
             remainder = numberFieldValue();
             current = parent.tradingSessionsGroup();
         }
+
         public TradingSessionsGroupIterator iterator()
         {
             reset();
             return this;
         }
+
     }
 
-public TradingSessionsGroupIterator tradingSessionsGroupIterator();
+    public TradingSessionsGroupIterator tradingSessionsGroupIterator();
     public int noTradingSessionsGroupCounter();
     public boolean hasNoTradingSessionsGroupCounter();
     public TradingSessionsGroupDecoder tradingSessionsGroup();
