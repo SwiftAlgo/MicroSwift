@@ -1,5 +1,5 @@
 def artioJavaVersion = '1.8'
-def artioFixVersion = '0.114'
+def artioFixVersion = '0.115'
 
 defaultTasks 'clean', 'build'
 
@@ -53,6 +53,8 @@ configure([project(':microservice')]) {
         implementation 'org.agrona:agrona:1.14.0'
         implementation 'io.aeron:aeron-client:1.37.0'
         implementation 'io.aeron:aeron-driver:1.37.0'
+        implementation project(':fix-44-codecs')
+        implementation "uk.co.real-logic:artio-codecs:${artioFixVersion}"
     }
 }
 
