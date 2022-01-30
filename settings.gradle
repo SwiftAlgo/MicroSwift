@@ -1,3 +1,18 @@
+enableFeaturePreview("VERSION_CATALOGS")
+
 include 'fix-44-codecs', 'fix-50sp2-codecs'
 include 'microservice'
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            alias('junit-jupiter-api').to('org.junit.jupiter', 'junit-jupiter-api').version('5.8.2')
+            alias('junit-jupiter-engine').to('org.junit.jupiter', 'junit-jupiter-engine').version('5.8.2')
+            alias('agrona').to('org.agrona', 'agrona').version('1.14.0')
+            alias('aeron-client').to('io.aeron', 'aeron-client').version('1.37.0')
+            alias('aeron-driver').to('io.aeron', 'aeron-driver').version('1.37.0')
+            alias('artio-codecs').to('uk.co.real-logic', 'artio-codecs').version('0.115')
+        }
+    }
+}
 
