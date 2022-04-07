@@ -58,11 +58,11 @@ configure([project(':microservice')]) {
 }
 
 project(':fix-44-codecs') {
-    def generatedDir = project.convention.plugins.java.sourceSets.main.java.srcDirs.first()
+    def generatedDir = sourceSets.main.java.srcDirs.first()
 
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix44"
-        main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        mainClass = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
         classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIX44.xml']
         inputs.file('src/main/resources/FIX44.xml')
@@ -71,11 +71,11 @@ project(':fix-44-codecs') {
 }
 
 project(':fix-50sp2-codecs') {
-    def generatedDir = project.convention.plugins.java.sourceSets.main.java.srcDirs.first()
+    def generatedDir = sourceSets.main.java.srcDirs.first()
 
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix50sp2"
-        main = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        mainClass = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
         classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIXT11.xml;src/main/resources/FIX50SP2.xml']
         inputs.files('src/main/resources/FIXT11.xml', 'src/main/resources/FIX50SP2.xml')
