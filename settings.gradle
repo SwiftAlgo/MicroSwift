@@ -1,8 +1,5 @@
 enableFeaturePreview("VERSION_CATALOGS")
 
-include 'codecs:fix-44-codecs', 'codecs:fix-50sp2-codecs'
-include 'microservice'
-
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
@@ -15,4 +12,7 @@ dependencyResolutionManagement {
         }
     }
 }
-
+include 'codecs:fix-44-codecs', 'codecs:fix-50sp2-codecs'
+include 'dma'
+include 'driver'
+include 'microservice'

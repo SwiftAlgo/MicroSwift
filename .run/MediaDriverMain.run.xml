@@ -2,8 +2,8 @@
   <configuration default="false" name="MediaDriverMain" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="ALTERNATIVE_JRE_PATH" value="Eclipse Temurin 1.8.0_312" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="com.swiftalgo.ms.MediaDriverMain" />
-    <module name="MicroSwift.microservice.main" />
+    <option name="MAIN_CLASS_NAME" value="com.swiftalgo.ms.driver.MediaDriverMain" />
+    <module name="MicroSwift.driver.main" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

@@ -35,6 +35,19 @@ subprojects {
     }
 }
 
+configure([project(':driver')]) {
+    dependencies {
+        implementation libs.aeron.driver
+    }
+}
+
+configure([project(':microservice')]) {
+    dependencies {
+        implementation libs.agrona
+        implementation libs.aeron.client
+    }
+}
+
 configure([project(':codecs:fix-44-codecs'), project(':codecs:fix-50sp2-codecs')]) {
 
     dependencies {
@@ -47,22 +60,12 @@ configure([project(':codecs:fix-44-codecs'), project(':codecs:fix-50sp2-codecs')
 
 }
 
-configure([project(':microservice')]) {
-    dependencies {
-        implementation libs.agrona
-        implementation libs.aeron.client
-        implementation libs.aeron.driver
-        implementation project(':codecs:fix-44-codecs')
-        implementation libs.artio.codecs
-    }
-}
-
 project(':codecs:fix-44-codecs') {
     def generatedDir = sourceSets.main.java.srcDirs.first()
 
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix44"
-        mainClass = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        mainClass.set("uk.co.real_logic.artio.dictionary.CodecGenerationTool")
         classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIX44.xml']
         inputs.file('src/main/resources/FIX44.xml')
@@ -75,11 +78,21 @@ project(':codecs:fix-50sp2-codecs') {
 
     task generateCodecs(type: JavaExec) {
         systemProperty "fix.codecs.parent_package", "com.swiftalgo.ms.codecs.fix50sp2"
-        mainClass = 'uk.co.real_logic.artio.dictionary.CodecGenerationTool'
+        mainClass.set("uk.co.real_logic.artio.dictionary.CodecGenerationTool")
         classpath = sourceSets.main.compileClasspath
         args = [generatedDir, 'src/main/resources/FIXT11.xml;src/main/resources/FIX50SP2.xml']
         inputs.files('src/main/resources/FIXT11.xml', 'src/main/resources/FIX50SP2.xml')
         outputs.dir generatedDir
+    }
+}
+
+configure([project(':dma')]) {
+    dependencies {
+        implementation libs.aeron.client
+        implementation libs.agrona
+        implementation libs.artio.codecs
+        implementation project(':microservice')
+        implementation project(':codecs:fix-44-codecs')
     }
 }
 

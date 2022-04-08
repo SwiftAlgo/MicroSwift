@@ -3,7 +3,7 @@
     <option name="ALTERNATIVE_JRE_PATH" value="Eclipse Temurin 1.8.0_312" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.swiftalgo.ms.dma.clientsim.ClientSimRunner" />
-    <module name="MicroSwift.microservice.main" />
+    <module name="MicroSwift.dma.main" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.swiftalgo.ms.entry.*" />
