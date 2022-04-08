@@ -1,6 +1,6 @@
 enableFeaturePreview("VERSION_CATALOGS")
 
-include 'fix-44-codecs', 'fix-50sp2-codecs'
+include 'codecs:fix-44-codecs', 'codecs:fix-50sp2-codecs'
 include 'microservice'
 
 dependencyResolutionManagement {
