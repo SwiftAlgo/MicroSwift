@@ -7,7 +7,7 @@ import io.aeron.*;
 import io.aeron.logbuffer.FragmentHandler;
 import org.agrona.concurrent.*;
 
-public class OrderServiceManager implements Agent {
+public class OrderServiceManagerAgent implements Agent {
 
     private Aeron aeron;
     private Subscription clientOrderSubs;
@@ -17,7 +17,7 @@ public class OrderServiceManager implements Agent {
     int nosSeen = 0;
     final int nosToExpect;
     private final ShutdownSignalBarrier shutdownSignalBarrier;
-    public OrderServiceManager(NewOrderSingleMethodHandler nosCodec, int nosToExpect, ShutdownSignalBarrier shutdownSignalBarrier) {
+    public OrderServiceManagerAgent(NewOrderSingleMethodHandler nosCodec, int nosToExpect, ShutdownSignalBarrier shutdownSignalBarrier) {
         this.newOrderSingleMethodHandler = nosCodec;
         this.nosToExpect = nosToExpect;
         this.shutdownSignalBarrier = shutdownSignalBarrier;

@@ -14,7 +14,7 @@ import uk.co.real_logic.artio.util.MutableAsciiBuffer;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
-public class ClientSim implements Agent {
+public class ClientSimAgent implements Agent {
 
     private Aeron aeron;
     private ExclusivePublication clientOrderPub;
@@ -29,7 +29,7 @@ public class ClientSim implements Agent {
     UnsafeBuffer msgBuffer;
     final ShutdownSignalBarrier shutdownSignalBarrier;
 
-    public ClientSim(EpochMicroClock clock, int nosToSend, int interSendTimeMicros, ShutdownSignalBarrier shutdownSignalBarrier) {
+    public ClientSimAgent(EpochMicroClock clock, int nosToSend, int interSendTimeMicros, ShutdownSignalBarrier shutdownSignalBarrier) {
         this.clock = clock;
         this.nosToSend = nosToSend;
         this.interSendTimeMicros = interSendTimeMicros;

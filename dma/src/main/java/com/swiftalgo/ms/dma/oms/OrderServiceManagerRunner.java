@@ -13,8 +13,8 @@ public class OrderServiceManagerRunner {
         ShutdownSignalBarrier shutdownSignalBarrier = new ShutdownSignalBarrier();
         MethodWriterContext methodWriterContext = new MethodWriterContext(new UnsafeBuffer(ByteBuffer.allocate(256)));
         NewOrderSingleMethodHandler nosCodec = new NewOrderSingleMethodHandler(methodWriterContext, nos-> System.out.println("Received: " + nos.toString()));
-        final OrderServiceManager orderServiceManager = new OrderServiceManager(nosCodec, 10_000, shutdownSignalBarrier);
-        final AgentRunner runner = new AgentRunner(idleStrategy, Throwable::printStackTrace, null, orderServiceManager);
+        final OrderServiceManagerAgent orderServiceManagerAgent = new OrderServiceManagerAgent(nosCodec, 10_000, shutdownSignalBarrier);
+        final AgentRunner runner = new AgentRunner(idleStrategy, Throwable::printStackTrace, null, orderServiceManagerAgent);
         AgentRunner.startOnThread(runner);
         shutdownSignalBarrier.await();
         runner.close();
