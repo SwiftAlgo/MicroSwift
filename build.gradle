@@ -1,6 +1,5 @@
-def artioJavaVersion = '1.8'
-
 defaultTasks 'clean', 'build'
+def artioJavaVersion = JavaVersion.VERSION_1_8
 
 allprojects {
     repositories {
@@ -53,7 +52,7 @@ configure([project(':microservice')]) {
 configure([project(':codecs:fix-44-codecs'), project(':codecs:fix-50sp2-codecs')]) {
 
     dependencies {
-        implementation libs.artio.codecs
+        api libs.artio.codecs
     }
 
     compileJava {
@@ -93,7 +92,6 @@ configure([project(':dma')]) {
         implementation libs.aeron.archive
         implementation libs.aeron.client
         implementation libs.agrona
-        implementation libs.artio.codecs
         implementation project(':microservice')
         implementation project(':codecs:fix-44-codecs')
     }

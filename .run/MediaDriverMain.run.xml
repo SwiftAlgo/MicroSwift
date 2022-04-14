@@ -1,9 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MediaDriverMain" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="ALTERNATIVE_JRE_PATH" value="Eclipse Temurin 1.8.0_312" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.swiftalgo.ms.driver.MediaDriverMain" />
     <module name="MicroSwift.driver.main" />
+    <option name="VM_PARAMETERS" value="--add-opens java.base/sun.nio.ch=ALL-UNNAMED" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
