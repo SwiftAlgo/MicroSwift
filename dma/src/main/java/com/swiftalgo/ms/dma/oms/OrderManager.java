@@ -7,6 +7,6 @@ public class OrderManager implements OnNewOrderSingle {
 
     @Override
     public void onNewOrderSingle(NewOrderSingleDecoder nosDecoder) {
-        nosDecoder.clOrdID();
+        System.out.println("Received: " + nosDecoder.toString());
     }
 }

@@ -37,6 +37,7 @@ subprojects {
 
 configure([project(':driver')]) {
     dependencies {
+        implementation libs.aeron.archive
         implementation libs.aeron.driver
     }
 }
@@ -44,6 +45,7 @@ configure([project(':driver')]) {
 configure([project(':microservice')]) {
     dependencies {
         implementation libs.agrona
+        implementation libs.aeron.archive
         implementation libs.aeron.client
     }
 }
@@ -88,6 +90,7 @@ project(':codecs:fix-50sp2-codecs') {
 
 configure([project(':dma')]) {
     dependencies {
+        implementation libs.aeron.archive
         implementation libs.aeron.client
         implementation libs.agrona
         implementation libs.artio.codecs
